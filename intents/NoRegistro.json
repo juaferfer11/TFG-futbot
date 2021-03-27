@@ -1,0 +1,42 @@
+{
+  "id": "a65a1f6d-f5c8-494d-9812-ac450c965732",
+  "parentId": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "rootParentId": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "name": "NoRegistro",
+  "auto": true,
+  "contexts": [
+    "WelcomeIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-no",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo, otra vez será 👍.",
+            "Si decides cambiar de idea, estaré por aquí.",
+            "Vale, ¡hasta la próxima!"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}

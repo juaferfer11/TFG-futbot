@@ -1,0 +1,67 @@
+{
+  "id": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "name": "Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [
+        {
+          "name": "WelcomeIntent-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "title": "Soy Futbot, un chatbot orientado a la temática futbolística de las principales ligas europeas. Soy capaz tanto de proporcionar información sobre equipos, jugadores y resultados como de notificarte cómo le va a tus equipos favoritos, así como de ofrecerte una introducción a este deporte. ¿ Te interesa saber más?",
+          "buttons": [
+            {
+              "postback": "Si",
+              "text": "Registrarme"
+            },
+            {
+              "postback": "No",
+              "text": "En otro momento"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "¡Hola!",
+            "¡Hey!",
+            "¡Buenos días!"
+          ],
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "telegram": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

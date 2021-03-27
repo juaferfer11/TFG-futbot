@@ -1,0 +1,86 @@
+{
+  "id": "9d8af3cc-b485-4cb9-a1fd-ada4d4e59118",
+  "name": "RegistrarEmail",
+  "auto": true,
+  "contexts": [
+    "RegistrarApellidos-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre.RegistrarApellidos.RegistrarEmail",
+      "affectedContexts": [
+        {
+          "name": "RegistrarEmail-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "5d42c0ba-f3d5-4093-b169-4f995b3c3554",
+          "name": "email",
+          "required": true,
+          "dataType": "@sys.email",
+          "value": "$email",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "a85ff73d-eaeb-42d3-89e3-cde86f10bf9e",
+          "name": "nombre",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarApellidos-followup.nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "1c09664b-b611-4c91-b58f-ccaed9b70722",
+          "name": "apellidos",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarApellidos-followup.last-name",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perfecto, #RegistrarApellidos-followup.nombre. Ahora, ¿cuál te gustaría que fuese tu nombre de usuario en el sistema?",
+            "Vale #RegistrarApellidos-followup.nombre. Introduce ahora el nombre de usuario que te gustaría tener."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

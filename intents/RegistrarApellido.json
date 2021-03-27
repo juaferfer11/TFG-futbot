@@ -1,0 +1,54 @@
+{
+  "id": "e28668e7-c63a-4630-aee6-102720bd4c4b",
+  "parentId": "38ef05bb-c6c9-4703-b293-5ecfdbaec8fb",
+  "rootParentId": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "name": "RegistrarApellido",
+  "auto": true,
+  "contexts": [
+    "RegistrarNombre-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.SiRegistroNombre.RegistrarNombre-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "d61cdcb5-ca9c-4a42-bd1d-28fe05104aba",
+          "name": "last-name",
+          "required": true,
+          "dataType": "@sys.last-name",
+          "value": "$last-name",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Tu apellido es $last-name."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "50ff2c32-5f71-4257-9340-60efbec7ad3e",
+  "parentId": "65f1d663-888a-4869-8afa-bfd92c78dfab",
+  "rootParentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "name": "RegistrarNombre - fallback",
+  "contexts": [
+    "RegistrarNombre-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre.RegistrarNombre-fallback",
+      "affectedContexts": [
+        {
+          "name": "RegistrarNombre-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Lo siento, no he entendido eso que has dicho. Por favor, introduce tu apellido o apellidos de nuevo."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

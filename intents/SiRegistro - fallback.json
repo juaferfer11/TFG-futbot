@@ -1,0 +1,43 @@
+{
+  "id": "6ff4dea6-b01d-419b-b29e-b3417e6342d2",
+  "parentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "rootParentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "name": "SiRegistro - fallback",
+  "contexts": [
+    "SiRegistro-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "SiRegistro.SiRegistro-fallback",
+      "affectedContexts": [
+        {
+          "name": "SiRegistro-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No entendí eso. ¿Podrías decirme tu nombre de nuevo?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

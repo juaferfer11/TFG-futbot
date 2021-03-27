@@ -1,0 +1,95 @@
+{
+  "id": "a7af1ead-92df-4e59-937a-c1527ff01025",
+  "name": "RegistrarNickname",
+  "auto": true,
+  "contexts": [
+    "RegistrarEmail-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre.RegistrarApellidos.RegistrarEmail.RegistrarNickname",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "bd2735af-e323-444e-aa0f-72becfd298f6",
+          "name": "nickname",
+          "required": true,
+          "dataType": "@sys.any",
+          "value": "$nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "4c897bcb-e0ce-4391-97b5-91ac7bf2db80",
+          "name": "nombre",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarEmail-followup.nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "c5c025e5-0155-4e96-b2be-3e60fe4bbc57",
+          "name": "apellidos",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarEmail-followup.apellidos",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "06883263-6357-4472-bcaa-c8285722af24",
+          "name": "email",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarEmail-followup.email",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo #RegistrarEmail-followup.nombre, tu nombre de usuario, con el que podrás loguearte después, es $nickname. Para terminar, introduce una contraseña de al menos 6 caracteres que contenga mayúsculas, minúsculas y números.",
+            "Genial #RegistrarEmail-followup.nombre, tu nombre en el sistema es $nickname. Ya para acabar, por favor dime una contraseña de al menos 6 caracteres que contenga mayúsculas, minúsculas y números."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

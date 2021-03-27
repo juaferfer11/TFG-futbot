@@ -1,0 +1,43 @@
+{
+  "id": "710df0ed-e2be-429f-a813-44d95efbbc17",
+  "parentId": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "rootParentId": "8706431d-ffc7-44fd-bd0c-48de57060eb6",
+  "name": "Welcome Intent - fallback",
+  "contexts": [
+    "WelcomeIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-fallback",
+      "affectedContexts": [
+        {
+          "name": "WelcomeIntent-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perdona, no te he entendido. ¿Deseas registrarte? ¿O deseas iniciar sesión?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

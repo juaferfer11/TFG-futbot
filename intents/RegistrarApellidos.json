@@ -1,0 +1,79 @@
+{
+  "id": "ebc04f57-44ad-422b-bac9-312a586383ce",
+  "parentId": "65f1d663-888a-4869-8afa-bfd92c78dfab",
+  "rootParentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "name": "RegistrarApellidos",
+  "auto": true,
+  "contexts": [
+    "RegistrarNombre-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre.RegistrarApellidos",
+      "affectedContexts": [
+        {
+          "name": "RegistrarApellidos-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "ee61d653-b5c0-4017-88ca-5769399517ee",
+          "name": "last-name",
+          "required": true,
+          "dataType": "@sys.last-name",
+          "value": "$last-name",
+          "defaultValue": "",
+          "isList": true,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Escribe tu apellido o apellidos, por favor."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "6ffe1a16-3756-429e-b5be-8a8dfddcce24",
+          "name": "nombre",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarNombre-followup.nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo #RegistrarNombre-followup.nombre. ¿Podrías decirme ahora tu email?",
+            "Perfecto #RegistrarNombre-followup.nombre. Introduce ahora tu email, por favor."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2cc4b63b-3237-448c-8324-f87ea917d074",
+  "parentId": "9d8af3cc-b485-4cb9-a1fd-ada4d4e59118",
+  "rootParentId": "9d8af3cc-b485-4cb9-a1fd-ada4d4e59118",
+  "name": "RegistrarEmail - fallback",
+  "contexts": [
+    "RegistrarEmail-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "RegistrarEmail.RegistrarEmail-fallback",
+      "affectedContexts": [
+        {
+          "name": "RegistrarEmail-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Por favor, introduce un nombre de usuario válido. Un nombre de usuario no debe contener caracteres especiales."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

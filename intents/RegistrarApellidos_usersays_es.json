@@ -1,0 +1,107 @@
+[
+  {
+    "id": "497d75fc-0ea6-4edf-b765-dffdecec9b55",
+    "data": [
+      {
+        "text": "Cornac",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4ed28f0e-ddd2-475b-9fd1-ff98cd09c515",
+    "data": [
+      {
+        "text": "Cerrada",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "af395d8a-6ac1-4c86-9f3a-de95ee2a282d",
+    "data": [
+      {
+        "text": "Bernárdez",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "396cb828-e5d5-488d-92a7-29019d153769",
+    "data": [
+      {
+        "text": "Fuerte",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "87f6e211-352c-46c9-8ffa-9361447dcada",
+    "data": [
+      {
+        "text": "Fernández Fernández",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b9ca9f99-2a18-4781-9653-eccfc1be4b02",
+    "data": [
+      {
+        "text": "Santos Ortiz",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "304efc55-ad42-49d4-9453-7ff1c59465a5",
+    "data": [
+      {
+        "text": "Pérez",
+        "meta": "@sys.last-name",
+        "alias": "last-name",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

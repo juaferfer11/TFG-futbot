@@ -1,0 +1,43 @@
+{
+  "id": "df2ee1e0-49ce-4f7e-bb6c-7cd186241022",
+  "parentId": "ebc04f57-44ad-422b-bac9-312a586383ce",
+  "rootParentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "name": "RegistrarApellidos - fallback",
+  "contexts": [
+    "RegistrarApellidos-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre.RegistrarApellidos.RegistrarApellidos-fallback",
+      "affectedContexts": [
+        {
+          "name": "RegistrarApellidos-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No comprendo ese mensaje. Por favor, introduce una dirección de correo válida."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

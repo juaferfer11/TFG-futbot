@@ -1,0 +1,43 @@
+{
+  "id": "eae90b04-d13b-44e4-a489-69c14930c6a2",
+  "parentId": "a7af1ead-92df-4e59-937a-c1527ff01025",
+  "rootParentId": "a7af1ead-92df-4e59-937a-c1527ff01025",
+  "name": "RegistrarNickname - fallback",
+  "contexts": [
+    "RegistrarNickname-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "RegistrarNickname.RegistrarNickname-fallback",
+      "affectedContexts": [
+        {
+          "name": "RegistrarNickname-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Lo siento, la contraseña solo puede contener letras mayúsculas y minúsculas y números. Inténtalo de nuevo, por favor."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

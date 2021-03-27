@@ -1,0 +1,32 @@
+[
+  {
+    "id": "7ee5d428-b2fe-45b9-aadd-ace98b798c00",
+    "data": [
+      {
+        "text": "pablo@alum.us.es",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "92423ec6-550e-4ebe-be88-289fbbcfbad5",
+    "data": [
+      {
+        "text": "manuel@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "id": "65f1d663-888a-4869-8afa-bfd92c78dfab",
+  "parentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "rootParentId": "65c18645-2a93-48f2-ac64-c016a4166c71",
+  "name": "RegistrarNombre",
+  "auto": true,
+  "contexts": [
+    "SiRegistro-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.WelcomeIntent-yes.RegistrarNombre",
+      "affectedContexts": [
+        {
+          "name": "RegistrarNombre-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "265807f8-eb2b-42bd-a4d1-6cdb54751e53",
+          "name": "nombre",
+          "required": true,
+          "dataType": "@sys.given-name",
+          "value": "$nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo $nombre. ¿Podrías decirme ahora tu apellido?",
+            "Recibido $nombre. Por favor, introduce ahora tu apellido"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
