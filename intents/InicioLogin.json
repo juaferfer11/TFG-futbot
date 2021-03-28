@@ -1,0 +1,43 @@
+{
+  "id": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "name": "InicioLogin",
+  "auto": true,
+  "contexts": [
+    "IrALogin"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "YaRegistrado.InicioLogin",
+      "affectedContexts": [
+        {
+          "name": "InicioLogin-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Genial, procedamos entonces al inicio de sesión. Por favor, dime tu nombre de usuario.",
+            "Muy bien, empecemos. ¿Podrías decirme tu nombre de usuario?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

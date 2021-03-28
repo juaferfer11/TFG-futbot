@@ -1,0 +1,44 @@
+{
+  "id": "451c56db-46ee-4cc1-8537-4c5da43896d0",
+  "parentId": "7a90729e-9e80-4913-984f-79d3aa300589",
+  "rootParentId": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "name": "LoginNombreUsuario - fallback",
+  "contexts": [
+    "LoginNombreUsuario-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "InicioLogin.LoginNombreUsuario.LoginNombreUsuario-fallback",
+      "affectedContexts": [
+        {
+          "name": "LoginNombreUsuario-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No he entendido eso, introduce una contraseña válida, por favor.",
+            "No te pude comprender. Inténtalo de nuevo con una contraseña válida."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

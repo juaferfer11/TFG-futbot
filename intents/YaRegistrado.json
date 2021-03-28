@@ -1,0 +1,43 @@
+{
+  "id": "4946aee3-b006-4cf0-9b06-4a486fe12af0",
+  "name": "YaRegistrado",
+  "auto": true,
+  "contexts": [
+    "WelcomeIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "WelcomeIntent.YaRegistrado",
+      "affectedContexts": [
+        {
+          "name": "IrALogin",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Ah, ya tienes cuenta. Entonces, ¿deseas iniciar sesión?",
+            "Estupendo. En ese caso, ¿quieres iniciar sesión?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

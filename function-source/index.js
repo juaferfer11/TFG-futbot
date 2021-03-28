@@ -73,6 +73,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.add(`La contraseña debe tener al menos 1 letra mayúscula. Inténtalo de nuevo por favor.`);
       	agent.setContext({ "name": "RegistrarNickname-followup","lifespan":1,"parameters":{"nombre":nombre, "apellidos":apellidos, "email":email, "nickname":nickname}});
     } else {
+        agent.add(`Muy bien ${nickname}. Te has registrado correctamente. ¿Te gustaría iniciar sesión?`);
+        agent.setContext({ "name": " IrALogin","lifespan":1});
       return refUsuarios.child(nickname).set({
       nombre: nombre,
       apellidos: apellidos,
@@ -113,7 +115,38 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     
   }
+  function handleLoginNombreUsuario(agent) {
+    const nickname = agent.parameters.nickname;
+    return refUsuarios.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${nickname}`).val();
+      if(aux ==null){
+        agent.add(`Vaya, parece que ${nickname} no es un nombre de usuario registrado. Por favor, inténtalo de nuevo con otro nombre de usuario válido.`);
+        agent.setContext({ "name": "InicioLogin-followup","lifespan":1});
+      } else {
+        agent.add(`Perfecto, ${nickname}. Introduce ahora tu contraseña.`);
+        agent.setContext({ "name": "LoginNombreUsuario-followup","lifespan":1,"parameters":{"nickname": nickname}});
 
+    }
+    });
+    
+  }
+  
+  function handleLoginPassword(agent) {
+    const nickname = agent.parameters.nickname;
+    const contraseña = agent.parameters.password;
+    return refUsuarios.once('value').then((snapshot) =>{
+      var aux = snapshot.child(`${nickname}/contraseña`).val();
+      if(aux == null){
+        agent.add(`La contraseña introducida ${contraseña} no es correcta para el usuario ${nickname}, ${aux}. Por favor, inténtalo de nuevo.`);
+        agent.setContext({ "name": "LoginNombreUsuario-followup","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        agent.add(`Perfecto, ${nickname}. Se ha iniciado sesión con éxito.`);
+        agent.setFollowupEvent({ "name": "login", "parameters" : { "nickname": nickname}});
+
+    }
+    });
+    
+  }
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
@@ -122,5 +155,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('borrarDeDB', handleBorrarDeBD);
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
+  intentMap.set('LoginNombreUsuario', handleLoginNombreUsuario);
+  intentMap.set('LoginPassword', handleLoginPassword);
   agent.handleRequest(intentMap);
 });

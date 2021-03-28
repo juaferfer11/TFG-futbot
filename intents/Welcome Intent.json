@@ -25,6 +25,10 @@
               "text": "Registrarme"
             },
             {
+              "postback": "Ya tengo cuenta",
+              "text": "Ya tengo cuenta"
+            },
+            {
               "postback": "No",
               "text": "En otro momento"
             }

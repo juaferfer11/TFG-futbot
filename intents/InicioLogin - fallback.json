@@ -1,0 +1,44 @@
+{
+  "id": "88b416c7-9284-4f41-9423-234bf2658b19",
+  "parentId": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "rootParentId": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "name": "InicioLogin - fallback",
+  "contexts": [
+    "InicioLogin-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "InicioLogin.InicioLogin-fallback",
+      "affectedContexts": [
+        {
+          "name": "InicioLogin-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No te he entendido. Por favor, introduce un nombre de usuario válido.",
+            "Los nombres de usuario no pueden contener caracteres especiales. Por favor, inténtalo de nuevo."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

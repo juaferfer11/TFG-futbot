@@ -1,0 +1,37 @@
+{
+  "id": "14942eb4-2cc2-4106-94e5-87439f8186c8",
+  "name": "YaRegistrado - fallback",
+  "contexts": [
+    "IrALogin"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "YaRegistrado.YaRegistrado-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No he entendido lo que has querido decir. ¿Te interesa iniciar sesión?",
+            "Lo siento, no te he entendido. ¿Te gustaría iniciar sesión?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

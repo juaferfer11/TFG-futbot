@@ -1,0 +1,56 @@
+{
+  "id": "7a90729e-9e80-4913-984f-79d3aa300589",
+  "parentId": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "rootParentId": "722c8566-6706-444b-99f6-b48b5ed399bf",
+  "name": "LoginNombreUsuario",
+  "auto": true,
+  "contexts": [
+    "InicioLogin-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "InicioLogin.LoginNombreUsuario",
+      "affectedContexts": [
+        {
+          "name": "LoginNombreUsuario-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "343b1abe-5626-4523-811e-18e83424ded3",
+          "name": "nickname",
+          "required": true,
+          "dataType": "@sys.any",
+          "value": "$nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

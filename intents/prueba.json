@@ -1,0 +1,66 @@
+{
+  "id": "7f5b330c-68c6-4bb4-979f-4a1c181df8a4",
+  "name": "prueba",
+  "auto": true,
+  "contexts": [
+    "RegistrarNombre-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "24b70845-c12c-4505-ac18-dfb49ff5f7f3",
+          "name": "password",
+          "required": true,
+          "dataType": "@password",
+          "value": "$password",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "eaa5f01b-f9de-4c5d-b959-8418f12c1064",
+          "name": "nombre",
+          "required": false,
+          "dataType": "",
+          "value": "#RegistrarNombre-followup.nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "hola"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

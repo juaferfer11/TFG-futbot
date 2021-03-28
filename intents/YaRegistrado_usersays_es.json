@@ -1,0 +1,93 @@
+[
+  {
+    "id": "bb3645b3-f136-4b89-8895-4194ade158b2",
+    "data": [
+      {
+        "text": "No, quiero iniciar sesión",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3cda3f9b-90f4-4256-9e08-0cd0e36e13f3",
+    "data": [
+      {
+        "text": "No, quiero ir a login",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6539388a-9b8a-4e09-b133-cf851e0c7fe6",
+    "data": [
+      {
+        "text": "No, quiero logearme",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7cb86ced-aec4-467d-b994-4eed88ab1d9e",
+    "data": [
+      {
+        "text": "No, ya estoy registrado",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cc495d4c-799d-4e95-b55c-39de87d4e22f",
+    "data": [
+      {
+        "text": "No, ya tengo cuenta",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6a0a9d53-0c49-43eb-88c5-a863c5478a5f",
+    "data": [
+      {
+        "text": "Ya estoy registrado",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "73775d59-4383-4bf4-84a1-82d222fbc49e",
+    "data": [
+      {
+        "text": "Ya tengo cuenta",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

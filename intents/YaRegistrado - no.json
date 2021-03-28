@@ -1,0 +1,44 @@
+{
+  "id": "a285b809-a2e1-4244-8d2f-37d649c22afb",
+  "name": "YaRegistrado - no",
+  "auto": true,
+  "contexts": [
+    "IrALogin"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "YaRegistrado.YaRegistrado-no",
+      "affectedContexts": [
+        {
+          "name": "IrALogin",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo, seguiré aquí por si cambias de idea. Hasta otra.",
+            "Vaya, en ese caso esperaré a que decidas iniciar sesión. Nos vemos."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}
