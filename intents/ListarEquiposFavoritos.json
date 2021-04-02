@@ -1,24 +1,22 @@
 {
-  "id": "d039472e-ce45-432b-bcd0-9c01d2fec745",
-  "name": "LoginRealizado",
+  "id": "ee45ef8b-e0ac-4342-97f4-d9b9c3766b63",
+  "name": "ListarEquiposFavoritos",
   "auto": true,
-  "contexts": [],
+  "contexts": [
+    "Home"
+  ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [
-        {
-          "name": "Home",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "2d867f6f-7281-4da2-ba26-afde4b4ea12e",
+          "id": "7ba5f23e-ca7c-42aa-a965-08b7760a4350",
           "name": "nickname",
           "required": false,
           "dataType": "",
+          "value": "#Home.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -34,9 +32,6 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
-          "speech": [
-            "Aquí se preguntaría al usuario si quiere realizar un tutorial o no, o dejarlo para cuando quiera, pero será implementado más adelante. A partir de aquí puedes preguntar por equipos y competiciones."
-          ],
           "condition": ""
         }
       ],
@@ -44,14 +39,10 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "login"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

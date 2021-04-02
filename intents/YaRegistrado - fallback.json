@@ -8,7 +8,12 @@
     {
       "resetContexts": false,
       "action": "YaRegistrado.YaRegistrado-fallback",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "IrALogin",
+          "lifespan": 1
+        }
+      ],
       "parameters": [],
       "messages": [
         {

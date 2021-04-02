@@ -1,0 +1,102 @@
+[
+  {
+    "id": "6f29afd1-51da-47c2-bdab-fc58aad08990",
+    "data": [
+      {
+        "text": "Me gustaría obtener información sobre el ",
+        "userDefined": false
+      },
+      {
+        "text": "Madrid",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2b9da15e-14a3-4734-8c7e-366476889afb",
+    "data": [
+      {
+        "text": "Deseo información sobre el ",
+        "userDefined": false
+      },
+      {
+        "text": "City",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8381f8d0-f12b-42db-ba36-e90fc72a6ca3",
+    "data": [
+      {
+        "text": "Dame información sobre el ",
+        "userDefined": false
+      },
+      {
+        "text": "Barcelona",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "702b85b6-280a-4eac-aae0-73840275574e",
+    "data": [
+      {
+        "text": "Quiero información sobre el ",
+        "userDefined": false
+      },
+      {
+        "text": "Betis",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c2d87be7-ea33-4a63-98c7-d8ebf62aa66f",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre el ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla FC",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

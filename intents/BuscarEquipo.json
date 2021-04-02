@@ -1,24 +1,41 @@
 {
-  "id": "d039472e-ce45-432b-bcd0-9c01d2fec745",
-  "name": "LoginRealizado",
+  "id": "0c4513ae-101e-41ca-85c5-679aca0f4196",
+  "name": "BuscarEquipo",
   "auto": true,
-  "contexts": [],
+  "contexts": [
+    "Home"
+  ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [
-        {
-          "name": "Home",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "2d867f6f-7281-4da2-ba26-afde4b4ea12e",
+          "id": "581d3da6-9d0b-499f-b0ee-33a2d207d11d",
+          "name": "equipo",
+          "required": true,
+          "dataType": "@sys.any",
+          "value": "$equipo",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Por favor, dime el nombre del equipo."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "39b866e8-9bc2-48c9-8d28-9b56db2390ab",
           "name": "nickname",
           "required": false,
           "dataType": "",
+          "value": "#Home.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -34,9 +51,6 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
-          "speech": [
-            "Aquí se preguntaría al usuario si quiere realizar un tutorial o no, o dejarlo para cuando quiera, pero será implementado más adelante. A partir de aquí puedes preguntar por equipos y competiciones."
-          ],
           "condition": ""
         }
       ],
@@ -44,14 +58,10 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "login"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

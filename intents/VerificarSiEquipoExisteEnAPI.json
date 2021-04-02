@@ -1,22 +1,30 @@
 {
-  "id": "d039472e-ce45-432b-bcd0-9c01d2fec745",
-  "name": "LoginRealizado",
+  "id": "edde3418-8f2a-4f7d-9d70-6fd5a0ac7c62",
+  "name": "VerificarSiEquipoExisteEnAPI",
   "auto": true,
   "contexts": [],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [
-        {
-          "name": "Home",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "2d867f6f-7281-4da2-ba26-afde4b4ea12e",
+          "id": "d3ba1d44-8047-42f8-b4ec-938dd128ddf4",
           "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "322ed4fd-1ab9-4579-80c3-968ee7c469a3",
+          "name": "equipo",
           "required": false,
           "dataType": "",
           "defaultValue": "",
@@ -34,9 +42,6 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
-          "speech": [
-            "Aquí se preguntaría al usuario si quiere realizar un tutorial o no, o dejarlo para cuando quiera, pero será implementado más adelante. A partir de aquí puedes preguntar por equipos y competiciones."
-          ],
           "condition": ""
         }
       ],
@@ -44,12 +49,12 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [
     {
-      "name": "login"
+      "name": "APIenBD"
     }
   ],
   "conditionalResponses": [],

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "e457797d-bde1-40ba-8822-c9337d6de3b7",
+    "data": [
+      {
+        "text": "Lista de ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2038cf3f-8244-4f4a-81ae-b3442de408ad",
+    "data": [
+      {
+        "text": "Listar ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7b08adeb-200e-4937-9563-da079a20d42a",
+    "data": [
+      {
+        "text": "Deseo ver ",
+        "userDefined": false
+      },
+      {
+        "text": "mi",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c24accee-b612-4c89-8a5e-14885ed3843c",
+    "data": [
+      {
+        "text": "Enséñame ",
+        "userDefined": false
+      },
+      {
+        "text": "mi",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e4149d7d-fb40-4787-bd57-08943e30217b",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver ",
+        "userDefined": false
+      },
+      {
+        "text": "mi",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

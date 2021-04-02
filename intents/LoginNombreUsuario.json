@@ -11,15 +11,10 @@
     {
       "resetContexts": false,
       "action": "InicioLogin.LoginNombreUsuario",
-      "affectedContexts": [
-        {
-          "name": "LoginNombreUsuario-followup",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "343b1abe-5626-4523-811e-18e83424ded3",
+          "id": "856580d0-c3aa-4ead-b3c6-13445f8a3619",
           "name": "nickname",
           "required": true,
           "dataType": "@sys.any",

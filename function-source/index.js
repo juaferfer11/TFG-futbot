@@ -5,6 +5,8 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const {WebhookClient} = require('dialogflow-fulfillment');
 const {Card, Suggestion} = require('dialogflow-fulfillment');
+const axios = require("axios").default;
+const translate = require("translate");
 
 admin.initializeApp({
 	credential: admin.credential.applicationDefault(),
@@ -17,6 +19,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   const agent = new WebhookClient({ request, response });
   var db = admin.database();
   var refUsuarios = db.ref("users");
+  var refEquipos = db.ref("equipos");
+  var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
@@ -117,9 +121,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   }
   function handleLoginNombreUsuario(agent) {
     const nickname = agent.parameters.nickname;
-    return refUsuarios.once('value').then((snapshot) =>{
-      var aux =snapshot.child(`${nickname}`).val();
-      if(aux ==null){
+    let refUsuario= db.ref(`users/${nickname}`);
+    return refUsuario.once('value').then((snapshot) =>{
+      var aux =snapshot.exists();
+      console.log("AUX: "+aux);
+      if(!aux){
         agent.add(`Vaya, parece que ${nickname} no es un nombre de usuario registrado. Por favor, inténtalo de nuevo con otro nombre de usuario válido.`);
         agent.setContext({ "name": "InicioLogin-followup","lifespan":1});
       } else {
@@ -136,8 +142,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     const contraseña = agent.parameters.password;
     return refUsuarios.once('value').then((snapshot) =>{
       var aux = snapshot.child(`${nickname}/contraseña`).val();
-      if(aux == null){
-        agent.add(`La contraseña introducida ${contraseña} no es correcta para el usuario ${nickname}, ${aux}. Por favor, inténtalo de nuevo.`);
+      console.log("pass="+aux);
+      if(aux != contraseña){
+        agent.add(`La contraseña introducida ${contraseña} no es correcta para el usuario ${nickname}. Por favor, inténtalo de nuevo.`);
         agent.setContext({ "name": "LoginNombreUsuario-followup","lifespan":1,"parameters":{"nickname": nickname}});
       } else {
         agent.add(`Perfecto, ${nickname}. Se ha iniciado sesión con éxito.`);
@@ -147,6 +154,163 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     
   }
+  
+  function handleBuscarEquipo(agent) {
+    const nickname = agent.parameters.nickname;
+    const equipo = agent.parameters.equipo;
+    return refEquipos.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${equipo}`).val();
+      console.log(aux);
+      if(aux ==null){
+        agent.setFollowupEvent({ "name": "APIenBD", "parameters" : { "nickname": nickname, "equipo": equipo}});
+        
+      } else {
+        let nombreEquipo = snapshot.child(`${equipo}`).key;
+        let escudo = aux.escudo;
+        let ciudad = aux.ciudad;
+        let añofundación = aux.añofundación;
+        let pais = aux.país;
+        let direccion = aux.dirección;
+        let estadio = aux.estadio;
+        let capacidadestadio = aux.capacidadestadio;
+        
+        agent.add(new Card({title: `Nombre: ${nombreEquipo}`,imageUrl: escudo,text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir el equipo a favoritos"}));
+        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "nombreEquipo": nombreEquipo, "escudo":escudo}});
+
+    }
+    });
+    }
+  function handleVerificarSiEquipoExisteEnAPI(agent) {
+    const nickname = agent.parameters.nickname;
+    const equipo = agent.parameters.equipo;
+    var options = {
+  		method: 'GET',
+  		url: 'https://v3.football.api-sports.io/teams',
+  		params: {search: `${equipo}`},
+  		headers: {
+   		 'x-rapidapi-host': 'v3.football.api-sports.io',
+   		 'x-rapidapi-key': apiKey,
+  }          
+};
+       return axios.request(options).then(function (response) {
+          	let errors = response.data.results;
+            console.log("ERRORS:"+errors);
+          	if (errors==0){
+              console.log("HAY ERRORES");
+              agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita escribir cosas como FC o Balompié. Puedes acudir a la clasificación de su liga para ver su nombre.");
+              agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+            }else{
+                console.log("NO HAY ERRORES");
+            	let respuesta = response.data.response[0];
+        		let nombreEquipo = respuesta.team.name;
+            	let idAPI = respuesta.team.id;
+            	let escudo = respuesta.team.logo;
+            	let añofundación = respuesta.team.founded;
+  			    let pais=respuesta.team.country;
+                let ciudad = respuesta.venue.city;
+            	  let direccion = respuesta.venue.address;
+            	  let estadio = respuesta.venue.name;
+            	  let capacidadestadio = respuesta.venue.capacity;
+				  console.log("DATA:" + JSON.stringify(respuesta));
+                  agent.setFollowupEvent({ "name": "MostrarEquipoAPI", "parameters" : { "nickname": nickname, "nombreEquipo": nombreEquipo, "idAPI": idAPI, "escudo": escudo, "pais": pais, "ciudad": ciudad, "direccion": direccion, "estadio": estadio, "capacidadestadio": capacidadestadio, "anyofundacion": añofundación}});
+              	  
+            }
+		}).catch(function (error) {
+			console.error(error);
+});
+
+    }
+  
+  function handleMostrarEquipoAPI(agent) {
+    const nickname = agent.parameters.nickname;
+    const nombreEquipo = agent.parameters.nombreEquipo;
+    const idAPI = agent.parameters.idAPI;
+    const escudo = agent.parameters.escudo;
+    const añofundación = agent.parameters.anyofundacion;
+    var pais= agent.parameters.pais;
+    const ciudad = agent.parameters.ciudad;
+    const direccion = agent.parameters.direccion;
+    const estadio = agent.parameters.estadio;
+    const capacidadestadio = agent.parameters.capacidadestadio;
+    return translate(pais, { from: "en", to: "es", engine: "libre" }).then(text => {
+		pais=text;
+        agent.add(new Card({title: `Nombre: ${nombreEquipo}`,imageUrl: escudo,text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir el equipo a favoritos"}));
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "nombreEquipo": nombreEquipo, "escudo":escudo}});
+        return refEquipos.once('value').then((snapshot) =>{
+        if (snapshot.child(`${nombreEquipo}`).exists()){
+        console.log("No se añade a BD.");
+        } else {
+        refEquipos.child(`${nombreEquipo}`).set({
+      				escudo : escudo,
+        			ciudad : ciudad,
+                    idAPI : idAPI,
+        			añofundación : añofundación,
+        			país : pais,
+        			dirección : direccion,
+        			estadio : estadio,
+        			capacidadestadio : capacidadestadio,
+    			});
+        }
+          });
+      	});
+    }
+  
+  function handleEquipoAFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+    const equipo = agent.parameters.nombreEquipo;
+    const escudo = agent.parameters.escudo;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    return refEquipos.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${equipo}`).val();
+      console.log(aux);
+      if(aux ==null){
+        agent.add("Solo se pueden añadir a favoritos los equipos que se hayan buscado antes.");
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        return refFavoritos.once('value').then((snapshot) =>{
+        if (snapshot.child(`${equipo}`).exists()){
+        agent.add("Ese equipo ya se encuentra en tu lista de favoritos, prueba a añadir otro.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }     
+         else if(snapshot.numChildren()<5){
+        refFavoritos.child(`${equipo}`).set({
+      				escudo : escudo
+    			});
+        
+        agent.add("Equipo añadido a favoritos.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }     
+        else{
+        agent.add("No se pueden añadir más equipos a la lista de favoritos. Esta puede tener un máximo de 5, si quieres añadir más, prueba a borrar de la lista un equipo que te interese menos.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }
+		});
+    }
+    });
+    }
+  
+  function handleListarEquiposFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    return refFavoritos.once('value').then((snapshot) =>{
+      console.log(snapshot.exists());
+      if (snapshot.exists()){
+      return snapshot.forEach((childSnapshot) => {
+      
+      var aux = childSnapshot.val();
+      let nombre = childSnapshot.key;
+      let escudo = aux.escudo;
+      agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: escudo,text: "", buttonText: "Ver detalles",buttonUrl: `Quiero información sobre el ${nombre}`}));
+      agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      
+    });
+    }else{
+      agent.add("Vaya, parece que tu lista de favoritos está vacía. Puedes añadir equipos a tu lista de favoritos al buscar información sobre ellos.");
+      agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      }
+    });
+    }
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
@@ -157,5 +321,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
   intentMap.set('LoginNombreUsuario', handleLoginNombreUsuario);
   intentMap.set('LoginPassword', handleLoginPassword);
+  intentMap.set('BuscarEquipo', handleBuscarEquipo);
+  intentMap.set('VerificarSiEquipoExisteEnAPI', handleVerificarSiEquipoExisteEnAPI);
+  intentMap.set('MostrarEquipoAPI', handleMostrarEquipoAPI);
+  intentMap.set('EquipoAFavoritos', handleEquipoAFavoritos);
+  intentMap.set('ListarEquiposFavoritos', handleListarEquiposFavoritos);
   agent.handleRequest(intentMap);
 });

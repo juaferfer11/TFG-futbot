@@ -1,0 +1,44 @@
+[
+  {
+    "value": "Sevilla",
+    "synonyms": [
+      "Sevilla"
+    ]
+  },
+  {
+    "value": "Madrid",
+    "synonyms": [
+      "Madrid"
+    ]
+  },
+  {
+    "value": "Barcelona",
+    "synonyms": [
+      "Barcelona"
+    ]
+  },
+  {
+    "value": "Manchester City",
+    "synonyms": [
+      "Manchester City"
+    ]
+  },
+  {
+    "value": "Manchester United",
+    "synonyms": [
+      "Manchester United"
+    ]
+  },
+  {
+    "value": "Paris Saint Germain",
+    "synonyms": [
+      "Paris Saint Germain"
+    ]
+  },
+  {
+    "value": "^[A-Za-z]",
+    "synonyms": [
+      "^[A-Za-z]"
+    ]
+  }
+]

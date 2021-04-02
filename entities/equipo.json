@@ -1,0 +1,9 @@
+{
+  "id": "e43048fd-4d7c-401e-b163-6527a19a4935",
+  "name": "equipo",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": true,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}
