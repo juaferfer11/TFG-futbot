@@ -1,0 +1,160 @@
+[
+  {
+    "id": "02a51415-3d45-4771-ae89-909181a1acea",
+    "data": [
+      {
+        "text": "Quiero información de la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3dfe51d8-4080-4965-8fcc-d223cf0494ab",
+    "data": [
+      {
+        "text": "Dame información sobre la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3240ed08-6e82-46c5-b80a-1beb32815f68",
+    "data": [
+      {
+        "text": "Dame información de ",
+        "userDefined": false
+      },
+      {
+        "text": "la",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Premier League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "Inglaterra",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ac7ca80a-5a51-4e0b-95bc-b39dea32e460",
+    "data": [
+      {
+        "text": "Me gustaría obtener información de la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Ligue 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a7945df7-3407-450d-ba09-0e653c901406",
+    "data": [
+      {
+        "text": "Deseo información sobre la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "Italia",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "0b974cf0-4d4b-4b9f-be9a-c849e5ebaa65",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

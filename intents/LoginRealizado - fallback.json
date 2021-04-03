@@ -1,0 +1,41 @@
+{
+  "id": "b524aa7b-893d-4738-bebf-c35d73feb31e",
+  "name": "LoginRealizado - fallback",
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "LoginRealizado.LoginRealizado-fallback",
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No te entendí. Puedes buscar información sobre equipos y competiciones escribiendo cosas como \"Quiero información sobre el nombre del equipo\" o \"quiero información sobre la competición nombre de la competición\"."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

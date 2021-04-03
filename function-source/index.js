@@ -20,7 +20,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var db = admin.database();
   var refUsuarios = db.ref("users");
   var refEquipos = db.ref("equipos");
+  var refCompeticiones = db.ref("competiciones");
   var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
+  var translateKey = " ";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
@@ -54,7 +56,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function handleBorrarDeBD(agent) {
     return admin.database().ref('datos').child('textoNuevo').remove();
   }
-  
+  //REGISTRO DE USUARIOS
+  //=========================================================================================================================================================================
   function handleRegistrarPassword(agent) {
     const nombre = agent.parameters.nombre;
     const apellidos = agent.parameters.apellidos;
@@ -119,6 +122,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     
   }
+  //=========================================================================================================================================================================
+  //LOGIN DE USUARIOS
+  //=========================================================================================================================================================================
   function handleLoginNombreUsuario(agent) {
     const nickname = agent.parameters.nickname;
     let refUsuario= db.ref(`users/${nickname}`);
@@ -154,7 +160,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     
   }
-  
+  //=========================================================================================================================================================================
+  //BÚSQUEDA DE EQUIPOS
+  //=========================================================================================================================================================================
   function handleBuscarEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.equipo;
@@ -255,7 +263,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           });
       	});
     }
-  
+  //=========================================================================================================================================================================
+  //LISTA DE EQUIPOS FAVORITOS
+  //=========================================================================================================================================================================
   function handleEquipoAFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.nombreEquipo;
@@ -311,6 +321,196 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
     }
+  //=========================================================================================================================================================================
+  //BÚSQUEDA DE COMPETICIONES
+  //=========================================================================================================================================================================
+  function handleBuscarCompeticion(agent) {
+    const nickname = agent.parameters.nickname;
+    var competicionAux = agent.parameters.competicion.split(" ");
+    const competicion = competicionAux[0].charAt(0).toUpperCase()+competicionAux[0].slice(1)+" "+competicionAux[1].charAt(0).toUpperCase()+competicionAux[1].slice(1);
+    var location = agent.parameters.location.country;
+    var buscaPais = location != null;
+    console.log("LOCATION: "+buscaPais);
+    return refCompeticiones.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${competicion}`).val();
+      console.log(aux);
+      if(aux ==null){
+        if (buscaPais){
+        return translate(location, { from: "es", to: "en", engine: "google", key: translateKey }).then(text => {
+            location = text;
+        	agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters" : { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais}});
+        });
+        }else{
+            agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters" : { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais}});
+        }
+      } else {
+        let nombre = snapshot.child(`${competicion}`).key;
+        let logo = aux.logo;
+        let fechacomienzo = aux.fechacomienzo;
+        let fechafin = aux.fechafin;
+        let pais = aux.país;
+        let tipo = aux.tipo;
+        
+        agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir la competición a favoritos"}));
+        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo, "pais": pais}});
+
+    }
+    });
+    }
+  function handleVerificarSiCompeticionExisteEnAPI(agent) {
+    const nickname = agent.parameters.nickname;
+    const competicion = agent.parameters.competicion;
+    const location = agent.parameters.location;
+    const buscaPais= agent.parameters.buscaPais;
+    console.log("BUSCA PAÍS: "+ buscaPais);
+    if (buscaPais){
+     var options = {
+  		method: 'GET',
+  		url: 'https://v3.football.api-sports.io/leagues',
+  		params: {name: `${competicion}`,country:`${location}`,season: 2020},
+  		headers: {
+   		 'x-rapidapi-host': 'v3.football.api-sports.io',
+   		 'x-rapidapi-key': apiKey,
+  }  
+    };
+    }else{
+    var options = {
+  		method: 'GET',
+  		url: 'https://v3.football.api-sports.io/leagues',
+  		params: {name: `${competicion}`,season: 2020},
+  		headers: {
+   		 'x-rapidapi-host': 'v3.football.api-sports.io',
+   		 'x-rapidapi-key': apiKey,
+  }  
+    };
+}
+       return axios.request(options).then(function (response) {
+          	let errors = response.data.results;
+            console.log("ERRORS:"+errors);
+            console.log(response.data.errors);
+          	if (errors==0){
+              console.log("HAY ERRORES");
+              agent.add("Vaya, parece que esa competición no existe o no soy capaz de encontrarla. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita cosas como las tildes.");
+              agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+            }else{
+                console.log("NO HAY ERRORES");
+            	let respuesta = response.data.response[0];
+        		let nombre = respuesta.league.name;
+            	let idAPI = respuesta.league.id;
+            	let logo = respuesta.league.logo;
+            	let fechacomienzoAPI = respuesta.seasons[0].start.split('-');
+                let fechacomienzo = fechacomienzoAPI[2]+"-"+fechacomienzoAPI[1]+"-"+fechacomienzoAPI[0];
+  			    let pais=respuesta.country.name;
+                let fechafinAPI = respuesta.seasons[0].end.split('-');
+                let fechafin = fechafinAPI[2]+"-"+fechafinAPI[1]+"-"+fechafinAPI[0];
+            	  let tipo = respuesta.league.type.charAt(0).toLowerCase()+respuesta.league.type.slice(1);
+				  console.log("DATA:" + JSON.stringify(respuesta));
+                  agent.setFollowupEvent({ "name": "MostrarCompeticionAPI", "parameters" : { "nickname": nickname, "nombre": nombre, "idAPI": idAPI, "logo": logo, "pais": pais, "fechacomienzo": fechacomienzo, "tipo": tipo, "fechafin": fechafin}});
+              	  
+            }
+		}).catch(function (error) {
+			console.error(error);
+});
+
+    }
+  
+  function handleMostrarCompeticionAPI(agent) {
+    const nickname = agent.parameters.nickname;
+    const nombre = agent.parameters.nombre;
+    const idAPI = agent.parameters.idAPI;
+    const logo = agent.parameters.logo;
+    const fechacomienzo = agent.parameters.fechacomienzo;
+    var pais= agent.parameters.pais;
+    var tipo = agent.parameters.tipo;
+    const fechafin = agent.parameters.fechafin;
+    
+    return translate(pais, { from: "en", to: "es", engine: "libre" }).then(text => {
+		pais=text;
+        return translate(tipo, { from: "en", to: "es", engine: "libre" }).then(text => {
+            tipo=text;
+        	agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`}));
+        	agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo}});
+        	//return refCompeticiones.once('value').then((snapshot) =>{
+        		//if (snapshot.child(`${nombre}`).exists()){
+        			//console.log("No se añade a BD.");
+        		//} else {
+        			//refCompeticiones.child(`${nombre}`).set({
+      					//logo : logo,
+        				//fechacomienzo : fechacomienzo,
+                    	//idAPI : idAPI,
+        				//fechafin : fechafin,
+        				//país : pais,
+        				//tipo : tipo,
+    			//});
+        //}
+             // });
+          });
+      	});
+    }
+  
+  //=========================================================================================================================================================================
+  //LISTA DE COMPETICIONES FAVORITAS
+  //=========================================================================================================================================================================
+  function handleCompeticionAFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+    const nombre = agent.parameters.competicion;
+    const logo = agent.parameters.logo;
+    const pais = agent.parameters.pais;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
+    return refCompeticiones.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${nombre}`).val();
+      console.log(aux);
+      if(aux ==null){
+        agent.add("Solo se pueden añadir a favoritos las competiciones de las grandes ligas europeas, que son las primeras divisiones de España, Portugal, Francia, Italia, Inglaterra, Alemania, Países Bajos y Bélgica.");
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        return refFavoritos.once('value').then((snapshot) =>{
+        if (snapshot.child(`${nombre}`).exists()){
+        agent.add("Esa competición ya se encuentra en tu lista de favoritos, prueba a añadir otra.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }     
+         else if(snapshot.numChildren()<5){
+        refFavoritos.child(`${nombre}`).set({
+      				logo : logo,
+                    pais : pais
+    			});
+        
+        agent.add("Competición añadida a favoritos.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }     
+        else{
+        agent.add("No se pueden añadir más competiciones a la lista de favoritos. Esta puede tener un máximo de 5, si quieres añadir más, prueba a borrar de la lista otra competición que te interese menos.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }
+		});
+    }
+    });
+    }
+  
+  function handleListarCompeticionesFavoritas(agent) {
+    const nickname = agent.parameters.nickname;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
+    return refFavoritos.once('value').then((snapshot) =>{
+      console.log(snapshot.exists());
+      if (snapshot.exists()){
+      return snapshot.forEach((childSnapshot) => {
+      
+      var aux = childSnapshot.val();
+      let nombre = childSnapshot.key;
+      let logo = aux.logo;
+      let pais = aux.pais;
+      agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}`, buttonText: "Ver detalles",buttonUrl: `Quiero información sobre la competición ${nombre}`}));
+      agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      
+    });
+    }else{
+      agent.add("Vaya, parece que tu lista de favoritos está vacía. Puedes añadir competiciones a tu lista de favoritos al buscar información sobre ellas.");
+      agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      }
+    });
+    }
+  
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
@@ -326,5 +526,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('MostrarEquipoAPI', handleMostrarEquipoAPI);
   intentMap.set('EquipoAFavoritos', handleEquipoAFavoritos);
   intentMap.set('ListarEquiposFavoritos', handleListarEquiposFavoritos);
+  intentMap.set('BuscarCompeticion', handleBuscarCompeticion);
+  intentMap.set('VerificarSiCompeticionExisteEnAPI', handleVerificarSiCompeticionExisteEnAPI);
+  intentMap.set('MostrarCompeticionAPI', handleMostrarCompeticionAPI);
+  intentMap.set('CompeticionAFavoritos', handleCompeticionAFavoritos);
+  intentMap.set('ListarCompeticionesFavoritas', handleListarCompeticionesFavoritas);
   agent.handleRequest(intentMap);
 });
