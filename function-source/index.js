@@ -22,7 +22,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var refEquipos = db.ref("equipos");
   var refCompeticiones = db.ref("competiciones");
   var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
-  var translateKey = " ";
+  var translateKey = "";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
@@ -150,7 +150,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       var aux = snapshot.child(`${nickname}/contraseña`).val();
       console.log("pass="+aux);
       if(aux != contraseña){
-        agent.add(`La contraseña introducida ${contraseña} no es correcta para el usuario ${nickname}. Por favor, inténtalo de nuevo.`);
+        agent.add(`La contraseña introducida no es correcta para el usuario ${nickname}. Por favor, inténtalo de nuevo.`);
         agent.setContext({ "name": "LoginNombreUsuario-followup","lifespan":1,"parameters":{"nickname": nickname}});
       } else {
         agent.add(`Perfecto, ${nickname}. Se ha iniciado sesión con éxito.`);
@@ -326,11 +326,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   function handleBuscarCompeticion(agent) {
     const nickname = agent.parameters.nickname;
-    var competicionAux = agent.parameters.competicion.split(" ");
-    const competicion = competicionAux[0].charAt(0).toUpperCase()+competicionAux[0].slice(1)+" "+competicionAux[1].charAt(0).toUpperCase()+competicionAux[1].slice(1);
-    var location = agent.parameters.location.country;
-    var buscaPais = location != null;
-    console.log("LOCATION: "+buscaPais);
+    const competicion =agent.parameters.competicion;
+    console.log("COMPETICIÓN: "+competicion);
+    var location = agent.parameters.location;
+    var buscaPais = location != "";
+    console.log("LOCATION: "+location);
     return refCompeticiones.once('value').then((snapshot) =>{
       var aux =snapshot.child(`${competicion}`).val();
       console.log(aux);
@@ -341,9 +341,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         	agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters" : { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais}});
         });
         }else{
+            console.log("NO TIENE PAÍS");
             agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters" : { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais}});
         }
       } else {
+        if (buscaPais){
+          if(aux.país==location){
         let nombre = snapshot.child(`${competicion}`).key;
         let logo = aux.logo;
         let fechacomienzo = aux.fechacomienzo;
@@ -354,7 +357,25 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir la competición a favoritos"}));
         
         agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo, "pais": pais}});
-
+          } else{
+            return translate(location, { from: "es", to: "en", engine: "google", key: translateKey }).then(text => {
+            location = text;
+        	agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters" : { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais}});
+        });
+          }
+        }else{
+            console.log("NO TIENE PAÍS");
+        let nombre = snapshot.child(`${competicion}`).key;
+        let logo = aux.logo;
+        let fechacomienzo = aux.fechacomienzo;
+        let fechafin = aux.fechafin;
+        let pais = aux.país;
+        let tipo = aux.tipo;
+        
+        agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir la competición a favoritos"}));
+        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo, "pais": pais}});
+        }
     }
     });
     }
@@ -364,6 +385,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     const location = agent.parameters.location;
     const buscaPais= agent.parameters.buscaPais;
     console.log("BUSCA PAÍS: "+ buscaPais);
+    console.log("PAÍS: "+ location);
     if (buscaPais){
      var options = {
   		method: 'GET',
@@ -428,6 +450,25 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return translate(pais, { from: "en", to: "es", engine: "libre" }).then(text => {
 		pais=text;
         return translate(tipo, { from: "en", to: "es", engine: "libre" }).then(text => {
+          if(text=="taza"){
+            tipo="Copa";
+        	agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`}));
+        	agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo}});
+        	//return refCompeticiones.once('value').then((snapshot) =>{
+        		//if (snapshot.child(`${nombre}`).exists()){
+        			//console.log("No se añade a BD.");
+        		//} else {
+        			//refCompeticiones.child(`${nombre}`).set({
+      					//logo : logo,
+        				//fechacomienzo : fechacomienzo,
+                    	//idAPI : idAPI,
+        				//fechafin : fechafin,
+        				//país : pais,
+        				//tipo : tipo,
+    			//});
+        //}
+             // });
+          }else{
             tipo=text;
         	agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`}));
         	agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo}});
@@ -445,6 +486,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     			//});
         //}
              // });
+          }
           });
       	});
     }

@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "0d311eed-2963-4911-8c3e-f3f245325a24",
+          "id": "f2a8f22f-7513-432d-9c07-ce87eb9c2205",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -35,7 +35,7 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "Aquí se preguntaría al usuario si quiere realizar un tutorial o no, o dejarlo para cuando quiera, pero será implementado más adelante. A partir de aquí puedes preguntar por equipos y competiciones."
+            "Aquí se preguntaría al usuario si quiere realizar un tutorial o no, o dejarlo para cuando quiera, pero será implementado más adelante. A partir de aquí puedes preguntar por equipos y competiciones y ver tus listas de competiciones y equipos favoritos."
           ],
           "condition": ""
         }

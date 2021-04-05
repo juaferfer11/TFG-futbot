@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "ea075cae-af6d-45a8-8f79-779b2cd75e1b",
+          "id": "45bbd3ee-5e28-4435-9266-2089bb0cd973",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "36aeffe4-bc0a-49c5-90d8-b0863d7f58f8",
+          "id": "96174e74-93ad-4890-9616-db6a7a872841",
           "name": "competicion",
           "required": true,
           "dataType": "@sys.any",
@@ -45,10 +45,10 @@
           "outputDialogContexts": []
         },
         {
-          "id": "73dd63fa-c17e-4e1b-ba18-8e688dd526a3",
+          "id": "60ca8719-a5f8-470c-bb9a-110198f0d715",
           "name": "location",
           "required": false,
-          "dataType": "@sys.location",
+          "dataType": "@sys.any",
           "value": "$location",
           "defaultValue": "",
           "isList": false,

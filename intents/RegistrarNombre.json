@@ -19,7 +19,7 @@
       ],
       "parameters": [
         {
-          "id": "265807f8-eb2b-42bd-a4d1-6cdb54751e53",
+          "id": "013086eb-1e25-4242-b367-0322ddc6faea",
           "name": "nombre",
           "required": true,
           "dataType": "@sys.given-name",
@@ -40,8 +40,8 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "De acuerdo $nombre. ¿Podrías decirme ahora tu apellido?",
-            "Recibido $nombre. Por favor, introduce ahora tu apellido"
+            "De acuerdo $nombre. ¿Podrías decirme ahora tu apellido o apellidos?",
+            "Recibido $nombre. Por favor, introduce ahora tu apellido o apellidos"
           ],
           "condition": ""
         }

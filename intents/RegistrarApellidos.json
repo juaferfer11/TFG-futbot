@@ -19,13 +19,13 @@
       ],
       "parameters": [
         {
-          "id": "ee61d653-b5c0-4017-88ca-5769399517ee",
+          "id": "0491f333-b689-475d-9912-f6a73fe9e373",
           "name": "last-name",
           "required": true,
-          "dataType": "@sys.last-name",
+          "dataType": "@sys.any",
           "value": "$last-name",
           "defaultValue": "",
-          "isList": true,
+          "isList": false,
           "prompts": [
             {
               "lang": "es",
@@ -38,7 +38,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "6ffe1a16-3756-429e-b5be-8a8dfddcce24",
+          "id": "89e0dbea-dda0-4420-9e58-ece7dbd9959c",
           "name": "nombre",
           "required": false,
           "dataType": "",

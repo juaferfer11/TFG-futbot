@@ -9,12 +9,7 @@
     {
       "resetContexts": false,
       "action": "YaRegistrado.YaRegistrado-no",
-      "affectedContexts": [
-        {
-          "name": "IrALogin",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [],
       "messages": [
         {
