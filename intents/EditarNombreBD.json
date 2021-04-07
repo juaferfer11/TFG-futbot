@@ -1,22 +1,38 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "a08b7034-b791-4b32-a4a7-437403c67178",
+  "parentId": "83b6edca-fc85-401a-942e-d6dfe62ca1ca",
+  "rootParentId": "83b6edca-fc85-401a-942e-d6dfe62ca1ca",
+  "name": "EditarNombreBD",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarNombre-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "EditarNombre.EditarNombreBD",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "38f4c97f-ac4d-48b5-86f8-f806dff4d0bd",
+          "name": "nombre",
+          "required": true,
+          "dataType": "@sys.given-name",
+          "value": "$nombre",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "a6f06477-5aa1-423b-83fc-382fde7b3275",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarNombre-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

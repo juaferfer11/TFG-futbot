@@ -1,0 +1,197 @@
+[
+  {
+    "id": "a6ad958f-d3b4-4750-aee4-e3ab73f2d75b",
+    "data": [
+      {
+        "text": "Muéstrame ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "47a55ea6-7e64-446b-940c-235fd324152d",
+    "data": [
+      {
+        "text": "Muéstrame ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos personales",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7beb3274-7c3e-4944-b021-24a441a55c35",
+    "data": [
+      {
+        "text": "Enséñame ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cbdc529c-e06f-48ab-8e36-066e8d5b440b",
+    "data": [
+      {
+        "text": "Enséñame ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos personales",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2c004cf0-f338-49e7-b093-5d36749573e7",
+    "data": [
+      {
+        "text": "Ver datos personales",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7c7a4bfc-b5aa-4634-9c1c-0546ec9efbb2",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos personales",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "61f6abb3-583f-4597-8979-cf6743e37719",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bc580dce-4c6f-4411-9503-35c3bf8e3f7c",
+    "data": [
+      {
+        "text": "Ver datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8be5e6d0-16ed-4b1d-aa8a-4347b7d54b16",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver ",
+        "userDefined": false
+      },
+      {
+        "text": "mis",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos personales",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

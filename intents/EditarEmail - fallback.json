@@ -1,0 +1,44 @@
+{
+  "id": "bc4f94f5-103d-4e77-b98a-f7604d574aec",
+  "parentId": "3e6276b1-0460-4205-b0db-71ac7b435a4d",
+  "rootParentId": "3e6276b1-0460-4205-b0db-71ac7b435a4d",
+  "name": "EditarEmail - fallback",
+  "contexts": [
+    "EditarEmail-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "EditarEmail.EditarEmail-fallback",
+      "affectedContexts": [
+        {
+          "name": "EditarEmail-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No he sido capaz de entender eso. Introduce una dirección de correo válida, por favor.",
+            "No he podido entender ese email. Por favor, prueba a introducirlo de nuevo correctamente."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,6 +1,6 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
+  "name": "VerDatos",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "45eff378-ba28-4a44-878f-652882ed6192",
           "name": "nickname",
           "required": false,
           "dataType": "",

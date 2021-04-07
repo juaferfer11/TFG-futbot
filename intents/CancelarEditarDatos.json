@@ -1,22 +1,27 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "799d0604-280d-473c-9196-c720b487dae4",
+  "name": "CancelarEditarDatos",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarDatos"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "4a4b826b-75b4-40ee-bbc6-b9aa54ae89d9",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarDatos.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -32,6 +37,10 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "Se ha cancelado la edición de datos del usuario. Se te ha devuelto a la página principal.",
+            "De acuerdo, edición de datos cancelada. Te redirijo a la página principal."
+          ],
           "condition": ""
         }
       ],
@@ -39,7 +48,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

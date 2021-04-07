@@ -1,22 +1,27 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "dcd8df37-02c5-42ae-a30c-a739d8ef4fa4",
+  "name": "CancelarEditarNombre",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarNombre-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "EditarDatos",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "ac4f7ae2-07c7-4863-bf72-a244e60ca6b3",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarNombre-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -27,6 +32,21 @@
         }
       ],
       "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "De acuerdo, se ha cancelado la edición de tu nombre. Si quieres editar otro dato, por favor escribe su nombre.",
+          "title": "Datos de #EditarNombre-followup.nickname",
+          "buttons": [
+            {
+              "postback": "Cancelar",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
         {
           "type": "0",
           "title": "",
@@ -39,7 +59,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

@@ -1,22 +1,38 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "dbaf8340-a8fd-4418-ab11-9150ee4da547",
+  "parentId": "3e6276b1-0460-4205-b0db-71ac7b435a4d",
+  "rootParentId": "3e6276b1-0460-4205-b0db-71ac7b435a4d",
+  "name": "EditarEmailBD",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarEmail-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "EditarEmail.EditarEmail-custom",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "b8d93d1b-c327-4aaa-975f-cb75f9e53f9a",
+          "name": "email",
+          "required": false,
+          "dataType": "@sys.email",
+          "value": "$email",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "5bc0a7c7-11e1-4477-a234-75851d9ca565",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarEmail-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

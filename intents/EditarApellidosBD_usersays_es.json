@@ -1,0 +1,62 @@
+[
+  {
+    "id": "63f6a294-aa65-4cfb-9dc8-320aeede48aa",
+    "data": [
+      {
+        "text": "Álvarez",
+        "meta": "@sys.any",
+        "alias": "apellidos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d021bdfc-d736-4679-8a7d-fd33c60f561c",
+    "data": [
+      {
+        "text": "Cerrada Solis",
+        "meta": "@sys.any",
+        "alias": "apellidos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ee9f9123-e6fb-49ed-973b-bb5f15fe0ab5",
+    "data": [
+      {
+        "text": "García Fernández",
+        "meta": "@sys.any",
+        "alias": "apellidos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dfb28062-dc3d-4a7e-a555-cf9246903dc3",
+    "data": [
+      {
+        "text": "Pérez",
+        "meta": "@sys.any",
+        "alias": "apellidos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

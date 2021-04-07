@@ -1,22 +1,27 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "148f5fa9-9019-4ccd-bb51-c609dce63e21",
+  "name": "CancelarEditarEmail",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarEmail-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "EditarDatos",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "9c8ea566-7f77-44db-a452-916107379408",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarEmail-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -27,6 +32,21 @@
         }
       ],
       "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Se ha cancelado la modifcación de tu email. Si quieres modificar otro dato de tu usuario, por favor escribe su nombre.",
+          "title": "Datos de #EditarEmail-followup.nickname",
+          "buttons": [
+            {
+              "postback": "Cancelar",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
         {
           "type": "0",
           "title": "",
@@ -39,7 +59,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

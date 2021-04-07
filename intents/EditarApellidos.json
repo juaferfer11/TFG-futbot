@@ -1,22 +1,27 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "6bb7b9e5-5b20-4a6c-b0ed-097627966790",
+  "name": "EditarApellidos",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarDatos"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "EditarApellidos-followup",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "21099f49-d927-436d-ab2f-be7c7b4471d2",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarDatos.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -27,6 +32,21 @@
         }
       ],
       "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Recibido. Escribe ahora el apellido o apellidos que te gustaría tener.",
+          "title": "Datos de #EditarDatos.nickname",
+          "buttons": [
+            {
+              "postback": "Cancelar",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
         {
           "type": "0",
           "title": "",
@@ -39,7 +59,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

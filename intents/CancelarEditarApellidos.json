@@ -1,22 +1,27 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "f868d51a-51c9-4aa4-8135-d48b225c0f34",
+  "name": "CancelarEditarApellidos",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarApellidos-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "EditarDatos",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "033cf863-f06c-4982-9516-cd38bdbdadca",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarApellidos-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -27,6 +32,21 @@
         }
       ],
       "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Se ha cancelado la edición de tus apellidos. Si quieres editar otro dato, por favor escribe su nombre.",
+          "title": "Datos de #EditarApellidos-followup.nickname",
+          "buttons": [
+            {
+              "postback": "Cancelar",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
         {
           "type": "0",
           "title": "",
@@ -39,7 +59,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

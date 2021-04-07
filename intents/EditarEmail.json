@@ -1,0 +1,83 @@
+{
+  "id": "3e6276b1-0460-4205-b0db-71ac7b435a4d",
+  "name": "EditarEmail",
+  "auto": true,
+  "contexts": [
+    "EditarDatos"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "EditarEmail-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "8f265102-2b5c-440d-af18-39c60e342843",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#EditarDatos.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "9fcdff32-b87a-40f1-b795-c4496e792201",
+          "name": "Email",
+          "required": false,
+          "dataType": "@Email",
+          "value": "$Email",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Bien, en ese caso introduce tu nuevo email, por favor.",
+          "title": "Datos de #EditarDatos.nickname",
+          "buttons": [
+            {
+              "postback": "Cancelar",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

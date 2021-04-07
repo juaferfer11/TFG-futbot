@@ -1,0 +1,44 @@
+{
+  "id": "dac333e2-a4f8-4ad5-9bd6-6c213980f569",
+  "parentId": "6bb7b9e5-5b20-4a6c-b0ed-097627966790",
+  "rootParentId": "6bb7b9e5-5b20-4a6c-b0ed-097627966790",
+  "name": "EditarApellidos - fallback",
+  "contexts": [
+    "EditarApellidos-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "EditarApellidos.EditarApellidos-fallback",
+      "affectedContexts": [
+        {
+          "name": "EditarApellidos-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Vaya, no te entendí. Por favor, escribe el nuevo apellido o apellidos que te gustaría tener.",
+            "No te pude comprender. Introduce de nuevo el apellido o apellidos que te gustaría tener por favor."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

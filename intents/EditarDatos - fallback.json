@@ -1,0 +1,42 @@
+{
+  "id": "eed3d5cb-4935-4d79-817f-df2c2b6d23f1",
+  "name": "EditarDatos - fallback",
+  "contexts": [
+    "EditarDatos"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "EditarDatos.EditarDatos-fallback",
+      "affectedContexts": [
+        {
+          "name": "EditarDatos",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Lo siento, no entendí tu mensaje. Puedes editar tanto tu nombre como tus apellidos, tu email y tu contraseña. Pero para ello debes indicarme primero cuál de esos datos quieres modificar.",
+            "Por favor, indícame que dato quieres modificar de entre los disponibles, que son el nombre, los apellidos, el email y la contraseña."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -4,7 +4,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const {WebhookClient} = require('dialogflow-fulfillment');
-const {Card, Suggestion} = require('dialogflow-fulfillment');
+const {Card, Suggestion, Payload} = require('dialogflow-fulfillment');
 const axios = require("axios").default;
 const translate = require("translate");
 
@@ -26,36 +26,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
-  function welcome(agent) {
-    agent.add(`Welcome to my agent!`);
-  }
- 
-  function fallback(agent) {
-    agent.add(`I didn't understand`);
-    agent.add(`I'm sorry, can you try again?`);
-  }
   
-  function handleGuardarEnDB(agent) {
-    const texto = agent.parameters.texto;
-    agent.add(`Gracias...`);
-
-    return admin.database().ref('datos').child('textoNuevo').push().set({
-      texto: texto
-    });
-  }
-  
-  function handleLeerDeDB(agent) {
-      return admin.database().ref('datos').once('value').then((snapshot) => {
-        const value = snapshot.child('texto').val();
-        if(value != null){
-          agent.add(`El valor de texto de la base de datos es ${value}`);
-        }
-      });
-  }
-  
-  function handleBorrarDeBD(agent) {
-    return admin.database().ref('datos').child('textoNuevo').remove();
-  }
   //REGISTRO DE USUARIOS
   //=========================================================================================================================================================================
   function handleRegistrarPassword(agent) {
@@ -552,13 +523,150 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
     }
+  //=========================================================================================================================================================================
+  //VER Y EDITAR DATOS PERSONALES DEL USUARIO
+  //=====================================================================================================================================
+  function handleVerDatos(agent) {
+    const nickname = agent.parameters.nickname;
+    console.log(nickname);
+    let refUsuario = db.ref(`users/${nickname}`);
+    return refUsuario.once('value').then((snapshot) =>{
+      var aux = snapshot.val();
+      let nickname = snapshot.key;
+      let nombre = aux.nombre;
+      let apellidos = aux.apellidos;
+      let email = aux.email;
+      agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Nombre: ${nombre}\nApellidos: ${apellidos}\nEmail: ${email}`, buttonText: "Editar",buttonUrl: `Quiero editar mi información de usuario`}));
+      agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      
+    });
+    }
+  
+  function handleEditarDatos(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Por favor, escribe el nombre del dato que te gustaría editar. Puedes modificar cualquier dato, incluida tu contraseña, pero no tu nombre de usuario.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleEditarNombreBD(agent) {
+    const nickname = agent.parameters.nickname;
+    const nombre = agent.parameters.nombre;
+    let refUsuario = db.ref(`users/${nickname}`);
+    return refUsuario.once('value').then((snapshot) =>{
+     let aux=snapshot.val();
+     let nombreBD=aux.nombre;
+     if(nombre==nombreBD){
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `De acuerdo ${nombreBD}, te seguirás llamando igual. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }else{
+       refUsuario.update({
+      				nombre : nombre
+    			});
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Genial ${nombre}, tu nombre se ha actualizado correctamente. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }
+     });
+    }
+  
+  function handleEditarApellidosBD(agent) {
+    const nickname = agent.parameters.nickname;
+    const apellidos = agent.parameters.apellidos;
+    let refUsuario = db.ref(`users/${nickname}`);
+    return refUsuario.once('value').then((snapshot) =>{
+     let aux=snapshot.val();
+     let nombre=aux.nombre;
+     let apellidosBD=aux.apellidos;
+     if(apellidos==apellidosBD){
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `De acuerdo ${nombre} ${apellidosBD}, te seguirás llamando igual. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }else{
+       refUsuario.update({
+      				apellidos : apellidos
+    			});
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Genial ${nombre} ${apellidos}, tu apellido o apellidos se han actualizado correctamente. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }
+     });
+    }
+  
+  function handleEditarEmailBD(agent) {
+    const nickname = agent.parameters.nickname;
+    const email = agent.parameters.email;
+    let refUsuario = db.ref(`users/${nickname}`);
+    return refUsuario.once('value').then((snapshot) =>{
+     let aux=snapshot.val();
+     let emailBD=aux.email;
+     if(email==emailBD){
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `De acuerdo, tu email seguirá siendo ${emailBD}. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }else{
+       refUsuario.update({
+      				email : email
+    			});
+       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Recibido, tu email se ha actualizado correctamente, ahora es ${email}. Si quieres editar otro dato, por favor escribe el nombre del mismo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+       agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname": nickname}});
+     }
+     });
+    }
+  
+  function handleEditarPasswordVerificacion(agent) {
+    const nickname = agent.parameters.nickname;  
+    const contraseña = agent.parameters.password;
+    return refUsuarios.once('value').then((snapshot) =>{
+      var aux = snapshot.child(`${nickname}/contraseña`).val();
+      console.log("pass="+aux);
+      if(aux != contraseña){
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `La contraseña no es correcta para el usuario ${nickname}. Por favor, revisa que está bien escrita e inténtalo de nuevo.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+        agent.setContext({ "name": "EditarPassword-followup","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Muy bien ${nickname}. Por favor, introduce ahora la que quieres que sea tu nueva contraseña.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+        agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname": nickname}});
+
+    }
+    });
+      
+  }
+  
+  function handleEditarPasswordBD(agent) {
+      const nickname = agent.parameters.nickname;
+      const contraseña = agent.parameters.password;
+      let refUsuario = db.ref(`users/${nickname}`);
+      if (contraseña.length < 6) {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Lo siento, esa contraseña es demasiado corta, debe tener mínimo 6 caracteres.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname":nickname}});
+    } else if (contraseña.length > 20) {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Lo siento, esa contraseña es demasiado larga, debe tener máximo 20 caracteres.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname":nickname}});
+    } else if (contraseña.search(/\d/) == -1) {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `La contraseña debe tener al menos 1 número. Inténtalo de nuevo por favor.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname":nickname}});
+    } else if (contraseña.search(/[a-z]/) == -1) {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `La contraseña debe tener al menos 1 letra minúscula. Inténtalo de nuevo por favor.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname":nickname}});
+    } else if (contraseña.search(/[A-Z]/) == -1) {
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `La contraseña debe tener al menos 1 letra mayúscula. Inténtalo de nuevo por favor.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarPasswordVerificacion-followup","lifespan":1,"parameters":{"nickname":nickname}});
+    } else {
+      return refUsuario.once('value').then((snapshot) =>{
+        let aux= snapshot.val();
+        let contraseñaBD = aux.contraseña;
+        if(contraseña==contraseñaBD){
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `De acuerdo, tu contraseña se ha quedado como estaba. Si quieres modificar otro dato, indícame su nombre en tu próximo mensaje.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname":nickname}});
+        }else{
+          refUsuario.update({
+      				contraseña : contraseña
+    			});
+        agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `La contraseña se ha actualizado correctamente. Si quieres modificar otro dato, indícame su nombre en tu próximo mensaje.`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      	agent.setContext({ "name": "EditarDatos","lifespan":1,"parameters":{"nickname":nickname}});
+        }
+      });
+        
+    }
+      
+  }
   
   let intentMap = new Map();
-  intentMap.set('Default Welcome Intent', welcome);
-  intentMap.set('Default Fallback Intent', fallback);
-  intentMap.set('guardarEnDB', handleGuardarEnDB);
-  intentMap.set('leerDeDB', handleLeerDeDB);
-  intentMap.set('borrarDeDB', handleBorrarDeBD);
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
   intentMap.set('LoginNombreUsuario', handleLoginNombreUsuario);
@@ -573,5 +681,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('MostrarCompeticionAPI', handleMostrarCompeticionAPI);
   intentMap.set('CompeticionAFavoritos', handleCompeticionAFavoritos);
   intentMap.set('ListarCompeticionesFavoritas', handleListarCompeticionesFavoritas);
+  intentMap.set('VerDatos', handleVerDatos);
+  intentMap.set('EditarDatos', handleEditarDatos);
+  intentMap.set('EditarNombreBD', handleEditarNombreBD);
+  intentMap.set('EditarApellidosBD', handleEditarApellidosBD);
+  intentMap.set('EditarEmailBD', handleEditarEmailBD);
+  intentMap.set('EditarPasswordVerificacion', handleEditarPasswordVerificacion);
+  intentMap.set('EditarPasswordBD', handleEditarPasswordBD);
   agent.handleRequest(intentMap);
 });

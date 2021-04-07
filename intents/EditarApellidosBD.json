@@ -1,22 +1,38 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "6d80d1c2-6c78-4f54-a5a2-62462121234b",
+  "parentId": "6bb7b9e5-5b20-4a6c-b0ed-097627966790",
+  "rootParentId": "6bb7b9e5-5b20-4a6c-b0ed-097627966790",
+  "name": "EditarApellidosBD",
   "auto": true,
   "contexts": [
-    "Home"
+    "EditarApellidos-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "EditarApellidos.EditarApellidosBD",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "f65a72d2-1981-4c86-9ca9-8bd141c788a6",
+          "name": "apellidos",
+          "required": true,
+          "dataType": "@sys.any",
+          "value": "$apellidos",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "c8bc881b-6b2f-4f50-b471-7675b4ebcf4c",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#EditarApellidos-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

@@ -1,0 +1,42 @@
+{
+  "id": "27f91ce3-5a67-4bb3-a1ea-dfb2a8769dd2",
+  "name": "EditarNombre - fallback",
+  "contexts": [
+    "EditarNombre-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "EditarNombre.EditarNombreBD.EditarNombreBD",
+      "affectedContexts": [
+        {
+          "name": "EditarNombre-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perdona, no te entendí. Por favor, escribe el nuevo nombre que te gustaría tener.",
+            "No he podido entender eso. Introduce de nuevo el nombre que te gustaría tener por favor."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

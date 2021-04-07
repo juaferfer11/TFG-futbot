@@ -1,6 +1,6 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "8e39fa75-19c9-4e90-a278-fe60d4adc980",
+  "name": "EditarDatos",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "b6959108-5e13-4cd7-b078-4351551bcc6c",
+          "id": "ba17ec91-3651-4559-a159-c5ee2da0352c",
           "name": "nickname",
           "required": false,
           "dataType": "",
