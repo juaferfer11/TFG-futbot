@@ -1,0 +1,77 @@
+[
+  {
+    "id": "dd8dbd13-6a5f-42a2-b707-7820015cd223",
+    "data": [
+      {
+        "text": "Ver lista de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c2339a24-e2a8-4ec4-926f-c53b2c9c39b2",
+    "data": [
+      {
+        "text": "Cómo ver lista de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "93633c85-84d2-438a-9443-bbe2b906cabc",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para listar competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e1326205-6024-49a0-bfb7-8cc176fa7aa6",
+    "data": [
+      {
+        "text": "Cómo listar competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d907b6be-bf46-458c-9ed6-a134d8772681",
+    "data": [
+      {
+        "text": "Lista",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

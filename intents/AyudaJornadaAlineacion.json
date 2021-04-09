@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "7fe0822e-59b5-4118-b32c-22e82977d581",
+  "name": "AyudaJornadaAlineacion",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaJornadas"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "02a07b59-c70a-4bbc-83b8-64cd5189539f",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaJornadas.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "41ea9ffb-e509-4600-b16e-cd83b276f28e",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para buscar nombre de competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "un país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "16bd55de-4667-464a-8925-bb2864b953fa",
+    "data": [
+      {
+        "text": "¿Cómo buscar el nombre de la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "un país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "25432233-f102-45ad-b3ed-c850832fd778",
+    "data": [
+      {
+        "text": "Competición por país",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7c767ea5-272d-4854-b51e-a86daa796cb5",
+    "data": [
+      {
+        "text": "Nombre",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "un país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "119caa53-a717-4332-a425-cf9e023be70d",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " nombre de la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "un país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

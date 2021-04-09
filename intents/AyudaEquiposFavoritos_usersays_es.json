@@ -1,0 +1,41 @@
+[
+  {
+    "id": "17c0564c-fa99-43cd-9bc2-8737ab278882",
+    "data": [
+      {
+        "text": "Cómo añadir equipo a favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e01f63b2-e279-44b2-92b9-d42d74902657",
+    "data": [
+      {
+        "text": "Añadir equipo a favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2fb92ffa-6c5e-48d1-a843-9593f4f27e0d",
+    "data": [
+      {
+        "text": "Añadir a favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

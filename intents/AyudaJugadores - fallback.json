@@ -1,0 +1,33 @@
+{
+  "id": "34882641-9da7-4043-8334-9b3d98b7ea0e",
+  "name": "AyudaJugadores - fallback",
+  "contexts": [
+    "HomeAyudaJugadores"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AyudaJugadores.AyudaJugadores-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

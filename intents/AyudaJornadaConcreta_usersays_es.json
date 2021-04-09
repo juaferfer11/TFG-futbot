@@ -1,0 +1,141 @@
+[
+  {
+    "id": "068bc0d9-203e-4e10-b5bb-aef83f1b97a8",
+    "data": [
+      {
+        "text": "Jornada",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " concreta de equipo en competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4a4f1ed5-da10-4ac7-9daa-e9d0b61e263d",
+    "data": [
+      {
+        "text": "Jornada",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " concreta",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7725bc54-1149-4a2f-a912-c568e7a8df5a",
+    "data": [
+      {
+        "text": "Cómo buscar jornada concreta de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "479a474c-42f6-46ac-a8f1-0e1bb21bda02",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para buscar jornada concreta de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5874ff18-5731-4052-b930-c11b56abba91",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jornada concreta de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "id": "b2ca7ffb-4360-42e6-920c-2b2b5ae6534d",
+  "name": "AyudaCompeticiones - fallback",
+  "contexts": [
+    "HomeAyudaCompeticiones"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AyudaCompeticiones.AyudaCompeticiones-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

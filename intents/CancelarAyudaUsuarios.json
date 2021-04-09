@@ -1,22 +1,27 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "cf744816-f683-437c-81ae-6ddac2fa736a",
+  "name": "CancelarAyudaUsuarios",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaUsuarios"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "HomeAyuda",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "bf59ba26-cd5e-4133-83f6-63898902fdce",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaUsuarios.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

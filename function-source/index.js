@@ -21,7 +21,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var refUsuarios = db.ref("users");
   var refEquipos = db.ref("equipos");
   var refCompeticiones = db.ref("competiciones");
-  var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
+  var apiKey = "";
   var translateKey = "";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
@@ -666,6 +666,227 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       
   }
   
+  //=========================================================================================================================================================================
+  //AYUDA EN HOME
+  //=====================================================================================================================================
+  function handleAyuda(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Te doy la bienvenida a la sección de ayuda del chatbot. Por favor, escribe la categoría sobre la que necesitas ayuda de entre las que te voy a exponer a continuación:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyuda","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, escribe la categoría sobre la que necesitas ayuda de aquellas que te expondré ahora:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyuda","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaEquipos(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Esto es la sección de equipos. ¿Sobre qué quieres que te ayude?:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  function handleAyudaEquiposFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, indícame sobre qué aspecto de los equipos quieres que te ayude:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaCompeticiones(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Esto es la sección de competiciones. ¿Sobre qué quieres recibir soporte?:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  function handleAyudaCompeticionesFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, indícame sobre qué aspecto de las competiciones quieres que te ayude:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJugadores(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Esto es la sección de jugadores. ¿Sobre qué quieres que te ayude?:\n-Buscar información de un jugador\n-Ver estadísticas de un jugador en una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJugadores","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  function handleAyudaJugadoresFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, indícame sobre qué aspecto de los jugadores quieres que te ayude:\n-Buscar información de un jugador\n-Ver estadísticas de un jugador en una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJugadores","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJornadas(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Esto es la sección de jornadas. ¿Sobre qué quieres recibir ayuda?:\n-Buscar próxima jornada que tiene que jugar un equipo en una competición\n-Buscar jornada concreta de un equipo en una competición\n-Ver alineación de un equipo en una jornada de una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJornadas","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  function handleAyudaJornadasFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, indícame con qué aspecto de las jornadas quieres que te ayude:\n-Buscar próxima jornada que tiene que jugar un equipo en una competición\n-Buscar jornada concreta de un equipo en una competición\n-Ver alineación de un equipo en una jornada de una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJornadas","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaUsuarios(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Esto es la sección de usuarios. ¿Sobre qué quieres recibir ayuda?:\n-Ver datos de usuario\n-Editar datos de usuario`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaUsuarios","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  function handleAyudaUsuariosFallback(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `No entendí tu mensaje. Por favor, indícame con qué aspecto de los usuarios quieres que te ayude:\n-Ver datos de usuario\n-Editar datos de usuario`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaUsuarios","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleCancelarAyudaEquipos(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Entendido, volviendo a la página principal de ayuda. Si quieres con alguna otra cosa, por favor indícame cuál:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+    }
+  
+  function handleCancelarAyudaCompeticiones(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Entendido, volviendo a la página principal de ayuda. Si quieres con alguna otra cosa, por favor indícame cuál:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+    }
+  
+  function handleCancelarAyudaJugadores(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Entendido, volviendo a la página principal de ayuda. Si quieres con alguna otra cosa, por favor indícame cuál:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+    }
+  
+  function handleCancelarAyudaJornadas(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Entendido, volviendo a la página principal de ayuda. Si quieres con alguna otra cosa, por favor indícame cuál:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+    }
+  
+  function handleCancelarAyudaUsuarios(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Entendido, volviendo a la página principal de ayuda. Si quieres con alguna otra cosa, por favor indícame cuál:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+    }
+  
+  function handleAyudaEquiposInfo(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar información sobre un equipo, solo tienes que escribir "Quiero información sobre el " y a continuación el nombre del equipo. Por ejemplo: "Quiero información sobre el Betis".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los equipos? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaEquiposCompeticion(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar estadísticas de un equipo en una competición basta con escribir "Quiero información sobre las estadísitcas del " seguido del nombre del equipo y luego "en " seguido del nombre de la competición. Por ejemplo: "Quiero información sobre las estadísticas del Betis en Primera Division".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los equipos? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaEquiposJornada(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar estadísticas de un equipo en una jornada de una competición, debes primero buscar información sobre esa jornada para ese equipo en cuestión, y una vez ahí aparecerán los botones para ver las estadísticas de cada equipo.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los equipos? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaEquiposFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para añadir un equipo a favoritos, basta con buscar información sobre el mismo y aparecerá el botón de añadir dicho equipo a favoritos. Debo recordarte que puedes tener como máximo 5 equipos en la lista de favoritos, y que si quisieras añadir otro teniendo tu lista llena tendría que eliminar alguno de la lista.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los equipos? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+   function handleAyudaEquiposLista(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la lista de tus equipos favoritos, basta con escribir algo como "Listar mis equipos favoritos".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los equipos? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de equipos\n-Buscar estadísticas de un equipo en una competición\n-Buscar estadísticas de un equipo en una jornada\n-Añadir equipo a favoritos\n-Ver lista de equipos favoritos`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaEquipos","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaCompeticionesInfo(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar información sobre una competición de entre las grandes ligas de Europa (primera división de España, Inglaterra, Italia, Francia, Alemania, Países Bajos, Bélgica y Portugal) solo tienes que escribir "Quiero información sobre la competición " y a continuación el nombre de la competición. Por ejemplo: "Quiero información sobre la competición Premier League". Si quieres buscar información sobre otras competiciones que no sean las que ofrezco, puedes buscarlas añadiendo además el nombre del país, por ejemplo "Quiero información sobre la competición Tipp3 Bundesliga de Austria`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaCompeticionPais(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar el nombre de la competición de uno de los principales países europeos en cuanto a fútbol (España, Inglaterra, Italia, Francia, Alemania, Países Bajos, Bélgica y Portugal), haría falta escribir algo como "Quiero saber el nombre de la competición de " seguido del nombre del país. Por ejemplo: "Quiero saber el nombre de la competición de Portugal".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaClasificacionCompeticion(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la clasificación de una competición, debes primero buscar información sobre esa competición , y si la consulta es correcta, además de la información de la competición aparecerá un botón para ver su clasificación. También lo puedes hacer desde tu lista de favoritos.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaGoleadoresCompeticion(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Si quieres ver la lista de máximos goleadores de un equipo, tienes que buscar primero la competición y después pulsar el botón de ver lista de máximos goleadores que aparecerá. Esto también se puede hacer desde la lista de competiciones favoritas.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaCompeticionesFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para añadir una competición a favoritos, basta con buscar información sobre esta y aparecerá el botón de añadir dicho competición a favoritos. Recuerda que puedes añadir un máximo de 5 competiciones a favoritos, si quieres añadir una competición y tu lista está llena tendrás que quitar alguna competición de la lista.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+   function handleAyudaCompeticionesLista(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la lista de tus competiciones favoritas, basta con escribir algo como "Listar mis competiciones favoritas".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJugadoresInfo(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para buscar la información de un jugador, basta con escribir algo como "Quiero información del jugador " seguido del nombre y "del " seguido del nombre del equipo. Por ejemplo "Quiero información del jugador Haaland del Borussia Dortmund"`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los jugadores? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de un jugador\n-Ver estadísticas de un jugador en una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJugadores","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJugadoresCompeticion(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver las estadísticas de un jugador en una competición, es necesario escribir algo como "Quiero ver estadísticas del jugador" seguido del nombre del jugador y "de la" seguido del nombre de la competición, como por ejemplo "Quiero ver estadísticas del jugador Haaland de la Bundesliga 1". Esto solo está disponible para las ligas de España, Inglaterra, Italia, Francia, Alemania, Países Bajos, Bélgica y Portugal.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con los jugadores? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de un jugador\n-Ver estadísticas de un jugador en una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJugadores","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+   function handleAyudaJornadaProxima(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la próxima jornada que va a jugar un equipo en una competición, tienes que escribir algo como "Quiero ver la próxima jornada del " seguido del nombre del equipo y "de la " seguido del nombre de la competición. Por ejemplo "Quiero ver la próxima jornada del Betis de la Primera Division"`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las jornadas? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar próxima jornada que tiene que jugar un equipo en una competición\n-Buscar jornada concreta de un equipo en una competición\n-Ver alineación de un equipo en una jornada de una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJornadas","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJornadaConcreta(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la información de una jornada concreta que haya jugado un equipo en una competición, basta con escribir algo como "Quiero ver información sobre la jornada " seguido del número y "del " seguido del nombre del equipo y "de la " seguido del nombre de la competición. Por ejemplo: "Quiero información sobre la jornada 23 del Sevilla de la Primera Division".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las jornadas? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar próxima jornada que tiene que jugar un equipo en una competición\n-Buscar jornada concreta de un equipo en una competición\n-Ver alineación de un equipo en una jornada de una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJornadas","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaJornadaAlineacion(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver la alineación de un equipo en una jornada concreta, basta buscar dicha jornada y pulsar el botón de ver alineación del equipo correspondiente.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las jornadas? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar próxima jornada que tiene que jugar un equipo en una competición\n-Buscar jornada concreta de un equipo en una competición\n-Ver alineación de un equipo en una jornada de una competición`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaJornadas","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaUsuarioVer(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para ver tu información de usuario, basta con escribir algo como "Ver mis datos de usuario".`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con la información del usuario? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Ver datos de usuario\n-Editar datos de usuario`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaUsuarios","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
+  function handleAyudaUsuarioEditar(agent) {
+    const nickname = agent.parameters.nickname;
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para editar tu información de usuario, solo tienes que ver tu información de usuario y pulsar el botón de editar que aparecerá.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con la información del usuario? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Ver datos de usuario\n-Editar datos de usuario`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
+      agent.setContext({ "name": "HomeAyudaUsuarios","lifespan":1,"parameters":{"nickname": nickname}});
+    }
+  
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -688,5 +909,40 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('EditarEmailBD', handleEditarEmailBD);
   intentMap.set('EditarPasswordVerificacion', handleEditarPasswordVerificacion);
   intentMap.set('EditarPasswordBD', handleEditarPasswordBD);
+  intentMap.set('Ayuda', handleAyuda);
+  intentMap.set('Ayuda - fallback', handleAyudaFallback);
+  intentMap.set('AyudaEquipos', handleAyudaEquipos);
+  intentMap.set('AyudaEquipos - fallback', handleAyudaEquiposFallback);
+  intentMap.set('AyudaCompeticiones', handleAyudaCompeticiones);
+  intentMap.set('AyudaCompeticiones - fallback', handleAyudaCompeticionesFallback);
+  intentMap.set('AyudaJugadores', handleAyudaJugadores);
+  intentMap.set('AyudaJugadores - fallback', handleAyudaJugadoresFallback);
+  intentMap.set('AyudaJornadas', handleAyudaJornadas);
+  intentMap.set('AyudaJornadas - fallback', handleAyudaJornadasFallback);
+  intentMap.set('AyudaUsuarios', handleAyudaUsuarios);
+  intentMap.set('AyudaUsuarios - fallback', handleAyudaUsuariosFallback);
+  intentMap.set('CancelarAyudaEquipos', handleCancelarAyudaEquipos);
+  intentMap.set('CancelarAyudaCompeticiones', handleCancelarAyudaCompeticiones);
+  intentMap.set('CancelarAyudaJugadores', handleCancelarAyudaJugadores);
+  intentMap.set('CancelarAyudaJornadas', handleCancelarAyudaJornadas);
+  intentMap.set('CancelarAyudaUsuarios', handleCancelarAyudaUsuarios);
+  intentMap.set('AyudaEquiposInfo', handleAyudaEquiposInfo);
+  intentMap.set('AyudaEquiposCompeticion', handleAyudaEquiposCompeticion);
+  intentMap.set('AyudaEquiposJornada', handleAyudaEquiposJornada);
+  intentMap.set('AyudaEquiposFavoritos', handleAyudaEquiposFavoritos);
+  intentMap.set('AyudaEquiposLista', handleAyudaEquiposLista);
+  intentMap.set('AyudaCompeticionesInfo', handleAyudaCompeticionesInfo);
+  intentMap.set('AyudaCompeticionPais', handleAyudaCompeticionPais);
+  intentMap.set('AyudaClasificacionCompeticion', handleAyudaClasificacionCompeticion);
+  intentMap.set('AyudaGoleadoresCompeticion', handleAyudaGoleadoresCompeticion);
+  intentMap.set('AyudaCompeticionesFavoritos', handleAyudaCompeticionesFavoritos);
+  intentMap.set('AyudaCompeticionesLista', handleAyudaCompeticionesLista);
+  intentMap.set('AyudaJugadoresInfo', handleAyudaJugadoresInfo);
+  intentMap.set('AyudaJugadoresCompeticion', handleAyudaJugadoresCompeticion);
+  intentMap.set('AyudaJornadaProxima', handleAyudaJornadaProxima);
+  intentMap.set('AyudaJornadaConcreta', handleAyudaJornadaConcreta);
+  intentMap.set('AyudaJornadaAlineacion', handleAyudaJornadaAlineacion);
+  intentMap.set('AyudaUsuarioVer', handleAyudaUsuarioVer);
+  intentMap.set('AyudaUsuarioEditar', handleAyudaUsuarioEditar);
   agent.handleRequest(intentMap);
 });

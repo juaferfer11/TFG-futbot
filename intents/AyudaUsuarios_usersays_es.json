@@ -1,0 +1,83 @@
+[
+  {
+    "id": "0d6e4a4d-bcdf-4a17-bd4f-197e846d9d63",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre los usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "97a29617-b0a2-416f-b9b3-d5d6822c828f",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre los usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "545be38c-539b-4c78-8a4e-67ff3b8ec486",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " recibir ayuda sobre los usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "58f0384b-18f2-4852-8de6-72096db6fb47",
+    "data": [
+      {
+        "text": "¿Podrías ayudarme con los usuarios?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c8ed38e1-7a86-49a7-a92c-07379ab943f9",
+    "data": [
+      {
+        "text": "Usuarios",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

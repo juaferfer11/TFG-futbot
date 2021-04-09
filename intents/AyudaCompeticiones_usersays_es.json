@@ -1,0 +1,83 @@
+[
+  {
+    "id": "d2eab180-2efc-4f6f-8014-10840c856416",
+    "data": [
+      {
+        "text": "¿Podrías ayudarme con las competiciones?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8dcdaef1-0647-462a-87db-bffe029721ef",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " recibir ayuda sobre las competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "0fcdaae9-1ea2-45c7-b2bb-7e087c970a61",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre las competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dc86dde7-07e5-42c3-8a50-a9129639741e",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre las competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ab673282-f311-4ba9-b781-b7e511f6a897",
+    "data": [
+      {
+        "text": "Competiciones",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

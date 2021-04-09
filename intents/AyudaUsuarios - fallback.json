@@ -1,0 +1,33 @@
+{
+  "id": "5f26c934-dcfd-473a-95b3-f554507e1f4a",
+  "name": "AyudaUsuarios - fallback",
+  "contexts": [
+    "HomeAyudaUsuarios"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AyudaUsuarios.AyudaUsuarios-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

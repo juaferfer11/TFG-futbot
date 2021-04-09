@@ -1,0 +1,77 @@
+[
+  {
+    "id": "fb459d39-c09f-4dfe-a270-ed0674a2f56a",
+    "data": [
+      {
+        "text": "Ver datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "785dd258-22fb-4d18-8ce5-2bed17b55e8f",
+    "data": [
+      {
+        "text": "Mostrar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "27581066-0651-4696-b20f-ae705ab87eb2",
+    "data": [
+      {
+        "text": "Cómo ver datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ffc53e3a-68b9-466d-a33f-a3cfe8d2709b",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para ver datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f2904f28-a220-4a8d-8503-800a8c47b252",
+    "data": [
+      {
+        "text": "Ver datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

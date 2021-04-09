@@ -1,0 +1,83 @@
+[
+  {
+    "id": "c5c18e30-a29f-4c63-bc70-67aedf4ff071",
+    "data": [
+      {
+        "text": "¿Puedes ayudarme con las jornadas?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9bd225a7-b9d0-4efc-bd61-290fd85ad601",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " recibir ayuda sobre las jornadas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b2286cc8-62f5-495c-9109-52d321da889d",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre las jornadas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7c548057-d8b0-4f4b-9709-fb8d6bd70dec",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre las jornadas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "eb94c4aa-b3a0-4dfd-93ed-2c95f451bb3f",
+    "data": [
+      {
+        "text": "Jornadas",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

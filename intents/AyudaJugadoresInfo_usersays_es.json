@@ -1,0 +1,126 @@
+[
+  {
+    "id": "b477384c-97f6-4594-ac7c-66b5b0531379",
+    "data": [
+      {
+        "text": "Buscar información",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3db8fc68-9b05-406b-bd45-bfef7547c315",
+    "data": [
+      {
+        "text": "Información",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "296343a9-bb74-495a-8529-533f53b24128",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para buscar información de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e1b69e2f-124e-46f0-ac63-8bb70df32b23",
+    "data": [
+      {
+        "text": "Cómo buscar información de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d6e8b816-d8a3-4209-9352-3ea6243ad59d",
+    "data": [
+      {
+        "text": "Información de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fdacacec-d0a7-45bf-a56c-67ed0b82b099",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "id": "ad6867dc-a934-4ac8-bfa6-5179e7352dc0",
+  "name": "Ayuda - fallback",
+  "contexts": [
+    "HomeAyuda"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "Ayuda.Ayuda-fallback",
+      "affectedContexts": [
+        {
+          "name": "HomeAyuda",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

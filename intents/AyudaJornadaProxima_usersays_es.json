@@ -1,0 +1,136 @@
+[
+  {
+    "id": "47b424ea-50c3-43c5-bcd7-e492f6a5ca1b",
+    "data": [
+      {
+        "text": "Cómo buscar próxima jornada de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "67e86397-1af0-469c-9569-e1d72093090c",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " próxima jornada que tiene que jugar ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d9741c5b-c90e-4013-84e4-1093a44b032c",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " con próxima jornada de equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2aa80fc7-4d35-44e6-8574-124c59da8dbd",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " con próxima jornada",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ba0f03c4-7033-47c4-825e-7241a8ccaddc",
+    "data": [
+      {
+        "text": "Próxima jornada",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9a1cea6b-ec4d-4eda-b8bc-976a4ab895f9",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " próxima jornada",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

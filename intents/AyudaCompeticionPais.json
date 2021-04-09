@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "b1f8f910-ba5e-4b24-beb0-d0b140d7a744",
+  "name": "AyudaCompeticionPais",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaCompeticiones"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "2bc73c88-400c-417c-bdb6-77a710c1de61",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaCompeticiones.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

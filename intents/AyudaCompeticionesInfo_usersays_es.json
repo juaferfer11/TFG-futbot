@@ -1,0 +1,64 @@
+[
+  {
+    "id": "8e867acb-f84d-495d-9ac1-cbae39270d5d",
+    "data": [
+      {
+        "text": "¿Cómo buscar información de competiciones?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8c0df7dd-5613-44b8-aef5-94befb76ccd8",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " buscar información de competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "33e1704e-7850-4fb1-831f-0cd19654fce2",
+    "data": [
+      {
+        "text": "Información de competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a7a4c38c-5780-40c6-8b33-ba18f5582ce4",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información de competiciones",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

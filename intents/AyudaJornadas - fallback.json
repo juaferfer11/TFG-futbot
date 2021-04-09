@@ -1,0 +1,33 @@
+{
+  "id": "d871e33b-d2e7-46ba-969e-1659b703a134",
+  "name": "AyudaJornadas - fallback",
+  "contexts": [
+    "HomeAyudaJornadas"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AyudaJornadas.AyudaJornadas-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

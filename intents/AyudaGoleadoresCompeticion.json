@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "525d78e3-122f-45eb-981d-074601783be0",
+  "name": "AyudaGoleadoresCompeticion",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaCompeticiones"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "79309a0b-a0a1-44f0-a0ed-12857597d9bf",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaCompeticiones.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "9426a8eb-197b-49d1-81e0-0772b234455e",
+  "name": "AyudaUsuarioEditar",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaUsuarios"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "b68277c4-55b8-4cd7-810f-d9497b5eab42",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaUsuarios.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

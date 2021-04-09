@@ -1,0 +1,101 @@
+[
+  {
+    "id": "fddf18ab-e957-4e38-a4e6-ab3ab62c592a",
+    "data": [
+      {
+        "text": "Ayúdame",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c31c8cb8-23c3-40ca-9dbf-784fc217e98c",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "01d2e945-6277-49ee-93d1-354b6c41d54b",
+    "data": [
+      {
+        "text": "Estoy",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " perdida",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bfad705a-6bc6-4e11-a814-4c9d4b0fd0b4",
+    "data": [
+      {
+        "text": "Estoy",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " perdido",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5632a43b-a09e-418f-b59d-d8ca7f701b69",
+    "data": [
+      {
+        "text": "Necesito",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d3774e1b-ef87-4335-8e8c-e3ef01b50cad",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "b635253c-604b-4daa-b129-f451d0ef7f4a",
+    "data": [
+      {
+        "text": "Lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6e84e4e4-82de-4dcb-89a3-bf27727ea4ae",
+    "data": [
+      {
+        "text": "Cómo listar equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4bd855cf-4d98-4c1f-b25f-558dcbd90e37",
+    "data": [
+      {
+        "text": "Listar favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e655969f-1c25-4425-aab3-6e8e7ef6c2c2",
+    "data": [
+      {
+        "text": "Lista de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "829301fe-f333-439b-a64a-5efbb434fad0",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para ver lista de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f62aa4c8-8d8c-4cfb-bee6-af5b6b5a140c",
+    "data": [
+      {
+        "text": "Cómo ver lista de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4f3bc195-4f57-4a85-a068-fb8fbf647d66",
+    "data": [
+      {
+        "text": "Cómo ver lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c9cae658-e439-432c-b74f-91785042ff61",
+    "data": [
+      {
+        "text": "Ver favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "17e337ff-c694-417e-a389-4f4967391651",
+    "data": [
+      {
+        "text": "Ver lista de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6e7f5534-2193-4b25-a9c0-10ab3eebff50",
+    "data": [
+      {
+        "text": "Ver lista de equipos favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

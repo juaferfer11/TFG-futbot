@@ -1,0 +1,33 @@
+{
+  "id": "9e2a6fb8-bfa9-4561-8948-0acc7b4f7256",
+  "name": "AyudaEquipos - fallback",
+  "contexts": [
+    "HomeAyudaEquipos"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AyudaEquipos.AyudaEquipos-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

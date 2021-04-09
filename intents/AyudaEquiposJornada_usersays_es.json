@@ -1,0 +1,61 @@
+[
+  {
+    "id": "807b92df-bd3d-4db9-a5d2-acd1f7681949",
+    "data": [
+      {
+        "text": "Cómo buscar estadísticas de equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "en una jornada",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e586f18b-eff9-4121-854d-10dbb7181b54",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " estadísticas de equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "en una jornada",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "87990181-2158-4dd4-a546-13dd7387f340",
+    "data": [
+      {
+        "text": "Estadísticas de equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "en una jornada",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

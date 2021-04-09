@@ -1,0 +1,83 @@
+[
+  {
+    "id": "3994f8ff-632f-4b9c-98c2-80e7ff21834a",
+    "data": [
+      {
+        "text": "¿Podrías ayudarme con los jugadores?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "876a99b0-a46a-4e05-b80d-b5083b0737ee",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " recibir ayuda sobre los jugadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b427307f-e5cf-4bab-bc02-795a967c0052",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre los jugadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "abb60013-11b5-48a7-8791-fac136e146a0",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ayuda sobre los jugadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bf594aad-8337-4c5f-8259-43a5f3ff5bf7",
+    "data": [
+      {
+        "text": "Jugadores",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

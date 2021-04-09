@@ -1,22 +1,27 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "060489ee-a559-4adf-81a1-a7bdccf11f13",
+  "name": "CancelarAyudaJugadores",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaJugadores"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "HomeAyuda",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "e7e4ba61-d845-40ea-ad5d-bcb2d4da9f3c",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaJugadores.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

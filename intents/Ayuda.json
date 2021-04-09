@@ -1,6 +1,6 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "075c08c9-2280-49e1-a85b-6a78cdec3c39",
+  "name": "Ayuda",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "54a5c1b9-abb4-4850-a84e-9fd928eac62c",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -35,6 +35,9 @@
           "condition": ""
         }
       ],
+      "defaultResponsePlatforms": {
+        "telegram": true
+      },
       "speech": []
     }
   ],

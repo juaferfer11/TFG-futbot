@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "f1ad84f9-d333-4fdc-be62-bd8146ec6474",
+  "name": "AyudaEquipos",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyuda"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "858c9bcd-1998-4b7e-adfb-2f54e8cad7d8",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyuda.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

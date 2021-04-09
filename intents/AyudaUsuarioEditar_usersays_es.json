@@ -1,0 +1,188 @@
+[
+  {
+    "id": "c5066c8f-172d-4f39-b744-3b2efdd60f94",
+    "data": [
+      {
+        "text": "Cambiar datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ee092b1c-9d54-4488-bfcf-e3a7562f3446",
+    "data": [
+      {
+        "text": "Modificar datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dc6e5a75-bc66-48b2-b702-4fe2937fb547",
+    "data": [
+      {
+        "text": "Editar datos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "58b17496-a057-449e-9ee7-07b1a6031915",
+    "data": [
+      {
+        "text": "Cómo cambiar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2e208224-79ba-425d-a053-f211109725f0",
+    "data": [
+      {
+        "text": "Cómo editar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3df2c50e-1e6d-4eac-bf91-ecc4cc64f845",
+    "data": [
+      {
+        "text": "Cómo modificar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ec82e027-c117-41e3-ad81-c6cc7b7f01a5",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para modificar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c40ebbc4-7485-429e-b7f5-30546cba5b84",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para cambiar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9648dce0-0ccc-4bd0-9b45-6193a6f8127a",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para editar datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cb0be25b-623b-4420-80e7-677853a275a2",
+    "data": [
+      {
+        "text": "Cambiar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d236ce06-d3d7-4223-87a6-4e41fb8b12d8",
+    "data": [
+      {
+        "text": "Modificar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3ab3b828-0b3b-4254-bb55-26d02960c178",
+    "data": [
+      {
+        "text": "Editar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " datos de usuario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

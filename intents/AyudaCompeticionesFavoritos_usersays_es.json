@@ -1,0 +1,155 @@
+[
+  {
+    "id": "3ec0301a-9789-420a-96ee-a19c78428009",
+    "data": [
+      {
+        "text": "¿Cómo añadir competición a lista de favoritas?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4f57da95-5dbd-451a-b035-130bd1374dde",
+    "data": [
+      {
+        "text": "¿Cómo añadir competición a lista de competiciones favoritas?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "81cf0cd4-3ce9-4a2f-a7f0-54e40e523279",
+    "data": [
+      {
+        "text": "¿Cómo añadir competición a lista de favoritos?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4c169ff8-cfc7-4203-b919-b1fc665a8f8d",
+    "data": [
+      {
+        "text": "¿Cómo añadir competición a favoritos?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "03a4425c-4434-4dba-9dc3-2b627dc2c6b1",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para añadir competición a lista de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fa41702c-7236-48b9-8aa4-64c4c7667fe5",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para añadir competición a  favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "45553a86-5761-4cbf-9d09-ac7921d8ddfe",
+    "data": [
+      {
+        "text": "Competición a favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6a941916-cc98-47ef-9bf8-12abd13c4563",
+    "data": [
+      {
+        "text": "Añadir competición a lista de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9659b613-971d-490a-83f1-683b3372ce03",
+    "data": [
+      {
+        "text": "Añadir competición a lista de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b822aecd-dcc6-4a34-b283-eabfd26e1d7e",
+    "data": [
+      {
+        "text": "Añadir competición a favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "06f83a1c-4128-4b15-97e2-38a0b8426c95",
+    "data": [
+      {
+        "text": "Añadir competición a favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

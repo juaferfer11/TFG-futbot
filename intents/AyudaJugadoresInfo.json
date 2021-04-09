@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "e567b685-cb95-4615-8662-109c1803855b",
+  "name": "AyudaJugadoresInfo",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaJugadores"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "3324113c-c677-4e65-b486-b87f303b02f7",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaJugadores.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

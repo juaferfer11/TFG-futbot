@@ -1,0 +1,157 @@
+[
+  {
+    "id": "b22df109-b31c-4446-86cc-8c56365b3724",
+    "data": [
+      {
+        "text": "Estadísticas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d389a9c5-10aa-439a-a489-688529bafb04",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para ver estadísticas de jugador en competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "740aeff6-abe1-40ad-b994-c24dac7e5a82",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " para ver estadísticas de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2632a0d1-8ce6-426a-86ea-b24d7902d41c",
+    "data": [
+      {
+        "text": "Cómo ver estadísticas de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5b8c7db7-8fb4-49e9-b453-b351a2039aba",
+    "data": [
+      {
+        "text": "Estadísticas en competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3e6237e3-0d6c-414e-b9e7-4cd073100e5d",
+    "data": [
+      {
+        "text": "Estadísticas de jugador en competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e4f2ca5d-3162-4182-af4c-deb58ffb4550",
+    "data": [
+      {
+        "text": "Ver estadísticas de ",
+        "userDefined": false
+      },
+      {
+        "text": "un",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jugador en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

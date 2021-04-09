@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1ec19330-92c7-407d-b1c7-0d2a4090df11",
+    "data": [
+      {
+        "text": "Cómo buscar información de equipos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fe0e4506-6a78-4355-86c0-e09ddedabf6a",
+    "data": [
+      {
+        "text": "Información de equipos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9642bc68-9b9b-4312-89cd-07b4ceb609bf",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información de equipos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

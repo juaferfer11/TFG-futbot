@@ -1,0 +1,64 @@
+[
+  {
+    "id": "af299c95-b039-4932-aff9-d4ff863990fc",
+    "data": [
+      {
+        "text": "Cómo buscar estadísticas de equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "52675c84-b871-458d-a656-362c6dbe1aad",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " estadísticas de equipo en ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d9d3361b-64f6-408f-ab86-8fd33ebe284c",
+    "data": [
+      {
+        "text": "Estadísticas de equipo en una competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,22 +1,27 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "df7a51f6-172a-4c53-862b-c83b1a3872ca",
+  "name": "CancelarAyudaCompeticiones",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaCompeticiones"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "HomeAyuda",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "e2105911-b823-4180-9557-5c1732ea2ff6",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaCompeticiones.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -31,7 +36,7 @@
           "type": "0",
           "title": "",
           "textToSpeech": "",
-          "lang": "es",
+          "lang": "de",
           "condition": ""
         }
       ],

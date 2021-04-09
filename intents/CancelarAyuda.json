@@ -1,22 +1,27 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "15da1654-1bbf-43d2-88ec-5efc818795e7",
+  "name": "CancelarAyuda",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyuda"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
-      "affectedContexts": [],
+      "action": "Ayuda.CancelarAyuda",
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "67bafc11-6554-462b-9f42-8c5ab2d3c2a0",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyuda.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -32,6 +37,10 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "De acuerdo, te he redirigido a la página principal donde puedes hacer uso de las funciones del chatbot.",
+            "Entendido, te he redirigido a la página principal, donde podrás hacer uso de la funcionalidad del asistente."
+          ],
           "condition": ""
         }
       ],
@@ -39,7 +48,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

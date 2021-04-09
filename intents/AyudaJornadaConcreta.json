@@ -1,9 +1,9 @@
 {
-  "id": "7d1410da-499b-4b11-9dbe-5fcf30d3f39f",
-  "name": "VerDatos",
+  "id": "35c57352-862b-4237-9155-43a824d6e9d2",
+  "name": "AyudaJornadaConcreta",
   "auto": true,
   "contexts": [
-    "Home"
+    "HomeAyudaJornadas"
   ],
   "responses": [
     {
@@ -12,11 +12,11 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "503d6f09-f9da-4af7-a782-19a4a76ec999",
+          "id": "1609ee72-9a1c-4ae2-83b7-83880bc84987",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#HomeAyudaJornadas.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

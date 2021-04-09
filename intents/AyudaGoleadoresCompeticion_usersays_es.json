@@ -1,0 +1,145 @@
+[
+  {
+    "id": "f6b74b8c-378e-4382-a304-43b645bb93c0",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " con la lista de máximos goleadores de ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "de9c00dc-b129-4aa6-8570-56a008e42e38",
+    "data": [
+      {
+        "text": "Lista",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de máximos goleadores de ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a7e2be4a-f589-4923-987c-a40fdc1a4bf4",
+    "data": [
+      {
+        "text": "Lista",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de máximos goleadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "05d771ad-3879-4b2e-aaab-1632e7ba3617",
+    "data": [
+      {
+        "text": "Ayuda",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " con la lista de máximos goleadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b9892670-359e-4231-bb87-ca5bb48336e5",
+    "data": [
+      {
+        "text": "Máximos goleadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "562d4e24-e05e-4afc-bc0e-19d08563eabf",
+    "data": [
+      {
+        "text": "Listar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " máximos goleadores",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "519667e0-e0ae-47f9-b600-1454ea33dbfe",
+    "data": [
+      {
+        "text": "Ver lista de máximos goleadores de ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " competición",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
