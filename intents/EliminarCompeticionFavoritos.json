@@ -1,6 +1,6 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "da3293af-939e-4522-9f58-d6b8d3351db9",
+  "name": "EliminarCompeticionFavoritos",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,11 +12,25 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "286e74eb-a6e4-43a8-a54b-206ec90d7cd5",
+          "id": "e947ba3e-fd7d-4ae1-84bf-534501a2d8c4",
           "name": "nickname",
           "required": false,
           "dataType": "",
           "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "8ce5be34-6c48-49a5-922e-0573a53114bc",
+          "name": "competicion",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$competicion",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

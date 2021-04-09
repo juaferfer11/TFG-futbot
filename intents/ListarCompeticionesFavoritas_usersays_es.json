@@ -1,5 +1,18 @@
 [
   {
+    "id": "9913d287-effa-4a8a-a6db-7a42329b9bc3",
+    "data": [
+      {
+        "text": "Ver lista de competiciones favoritas",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "2d2a3bb6-6d59-4392-8ca2-cccb23de2dbf",
     "data": [
       {

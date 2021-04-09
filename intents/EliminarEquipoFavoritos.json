@@ -1,6 +1,6 @@
 {
-  "id": "c3812964-6d3d-410c-8b20-427727678f59",
-  "name": "ListarCompeticionesFavoritas",
+  "id": "a63c13c0-8b12-40f9-87c6-01660ff22a9f",
+  "name": "EliminarEquipoFavoritos",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,11 +12,25 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "286e74eb-a6e4-43a8-a54b-206ec90d7cd5",
+          "id": "6ae6d23c-5984-4698-93ec-a07e7f993e66",
           "name": "nickname",
           "required": false,
           "dataType": "",
           "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "cf09b561-3f95-46fa-944a-8dc9ef13597a",
+          "name": "nombreEquipo",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

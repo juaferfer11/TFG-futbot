@@ -21,8 +21,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var refUsuarios = db.ref("users");
   var refEquipos = db.ref("equipos");
   var refCompeticiones = db.ref("competiciones");
-  var apiKey = "";
-  var translateKey = "";
+  var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
+  var translateKey = "AIzaSyCqyh5ERQfuc2kI3A8TsmZ9ZSPUUpyhpco";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
@@ -271,6 +271,32 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     }
   
+  function handleEliminarEquipoFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+    const equipo = agent.parameters.nombreEquipo;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    return refEquipos.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${equipo}`).val();
+      console.log(aux);
+      if(aux ==null){
+        agent.add("No se puede eliminar un equipo de la lista de favoritos si no se ha buscado antes.");
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        return refFavoritos.once('value').then((snapshot) =>{
+        if (snapshot.child(`${equipo}`).exists()){
+        let refFavorito = db.ref(`users/${nickname}/favoritos/equipos/${equipo}`);
+        agent.add("El equipo se ha eliminado correctamente de tu lista de favoritos.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        return refFavorito.remove();
+        }else{
+        agent.add("No se puede eliminar un equipo de la lista de favoritos si este no se encuentra en la misma.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }
+		});
+    }
+    });
+    }
+  
   function handleListarEquiposFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
@@ -283,6 +309,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       let nombre = childSnapshot.key;
       let escudo = aux.escudo;
       agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: escudo,text: "", buttonText: "Ver detalles",buttonUrl: `Quiero información sobre el ${nombre}`}));
+      agent.add(new Card({title: `Nombre: ${nombre}`,text: "", buttonText: "Quitar de favoritos",buttonUrl: `Quiero eliminar el ${nombre} de mi lista de equipos favoritos`}));
       agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
       
     });
@@ -501,6 +528,32 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     }
   
+  function handleEliminarCompeticionFavoritos(agent) {
+    const nickname = agent.parameters.nickname;
+    const competicion = agent.parameters.competicion;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
+    return refCompeticiones.once('value').then((snapshot) =>{
+      var aux =snapshot.child(`${competicion}`).val();
+      console.log(aux);
+      if(aux ==null){
+        agent.add("No se puede eliminar una competición de la lista de favoritos si esta no está registrada.");
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        return refFavoritos.once('value').then((snapshot) =>{
+        if (snapshot.child(`${competicion}`).exists()){
+        let refFavorito = db.ref(`users/${nickname}/favoritos/competiciones/${competicion}`);
+        agent.add("La competición se ha eliminado correctamente de tu lista de competiciones favoritas.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        return refFavorito.remove();
+        }else{
+        agent.add("No se puede eliminar una competición de la lista de competiciones favoritas si esta no se encuentra en la misma.");        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+        }
+		});
+    }
+    });
+    }
+  
   function handleListarCompeticionesFavoritas(agent) {
     const nickname = agent.parameters.nickname;
     let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
@@ -514,6 +567,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       let logo = aux.logo;
       let pais = aux.pais;
       agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}`, buttonText: "Ver detalles",buttonUrl: `Quiero información sobre la competición ${nombre}`}));
+      agent.add(new Card({title: `Nombre: ${nombre}`, buttonText: "Quitar de favoritos",buttonUrl: `Quiero eliminar la competición ${nombre} de favoritos`}));
       agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
       
     });
@@ -896,11 +950,13 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('VerificarSiEquipoExisteEnAPI', handleVerificarSiEquipoExisteEnAPI);
   intentMap.set('MostrarEquipoAPI', handleMostrarEquipoAPI);
   intentMap.set('EquipoAFavoritos', handleEquipoAFavoritos);
+  intentMap.set('EliminarEquipoFavoritos', handleEliminarEquipoFavoritos);
   intentMap.set('ListarEquiposFavoritos', handleListarEquiposFavoritos);
   intentMap.set('BuscarCompeticion', handleBuscarCompeticion);
   intentMap.set('VerificarSiCompeticionExisteEnAPI', handleVerificarSiCompeticionExisteEnAPI);
   intentMap.set('MostrarCompeticionAPI', handleMostrarCompeticionAPI);
   intentMap.set('CompeticionAFavoritos', handleCompeticionAFavoritos);
+  intentMap.set('EliminarCompeticionFavoritos', handleEliminarCompeticionFavoritos);
   intentMap.set('ListarCompeticionesFavoritas', handleListarCompeticionesFavoritas);
   intentMap.set('VerDatos', handleVerDatos);
   intentMap.set('EditarDatos', handleEditarDatos);

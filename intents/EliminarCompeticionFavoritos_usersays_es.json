@@ -1,0 +1,58 @@
+[
+  {
+    "id": "6759cb49-3aae-462c-a92a-ec72fa3726ec",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " eliminar la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "UEFA Champions League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "af9e7ad0-83ec-4c02-99a4-405d1d196208",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " eliminar la competición ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " de favoritos",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
