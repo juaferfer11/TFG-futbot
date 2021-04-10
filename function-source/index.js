@@ -21,8 +21,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var refUsuarios = db.ref("users");
   var refEquipos = db.ref("equipos");
   var refCompeticiones = db.ref("competiciones");
-  var apiKey = "ae56fa05eb8fe97b1dcc8b4ee9a39726";
-  var translateKey = "AIzaSyCqyh5ERQfuc2kI3A8TsmZ9ZSPUUpyhpco";
+  var apiKey = "";
+  var translateKey = "";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
@@ -880,7 +880,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   
   function handleAyudaCompeticionesFavoritos(agent) {
     const nickname = agent.parameters.nickname;
-      agent.add(new Card({title: `Ayuda al usuario`,text: `Para añadir una competición a favoritos, basta con buscar información sobre esta y aparecerá el botón de añadir dicho competición a favoritos. Recuerda que puedes añadir un máximo de 5 competiciones a favoritos, si quieres añadir una competición y tu lista está llena tendrás que quitar alguna competición de la lista.`}));
+      agent.add(new Card({title: `Ayuda al usuario`,text: `Para añadir una competición a favoritos, basta con buscar información sobre esta y aparecerá el botón de añadir dicha competición a favoritos. Recuerda que puedes añadir un máximo de 5 competiciones a favoritos, si quieres añadir una competición y tu lista está llena tendrás que quitar alguna competición de la lista.`}));
       agent.add(new Card({title: `Ayuda al usuario`,text: `¿Necesitas ayuda con alguna otra cosa relacionada con las competiciones? En ese caso, escribe aquello sobre lo que necesites ayuda:\n-Buscar información de competiciones\n-Buscar nombre de la competición de un país\n-Ver clasificación de una competición\n-Ver lista de máximos goleadores de una competición\n-Añadir competición a favoritos\n-Ver lista de competiciones favoritas`, buttonText: "Cancelar",buttonUrl: `Cancelar`}));
       agent.setContext({ "name": "HomeAyudaCompeticiones","lifespan":1,"parameters":{"nickname": nickname}});
     }
@@ -941,6 +941,38 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       agent.setContext({ "name": "HomeAyudaUsuarios","lifespan":1,"parameters":{"nickname": nickname}});
     }
   
+  //=========================================================================================================================================================================
+  //BUSCAR COMPETICIÓN DE UN PAÍS
+  //=====================================================================================================================================
+  function handleBuscarCompeticionPais(agent) {
+    const nickname = agent.parameters.nickname;
+    var location = agent.parameters.location;
+    return refCompeticiones.orderByChild('país').equalTo(`${location}`).once('value').then((snapshot) =>{
+      var aux =snapshot.val();
+      console.log(aux);
+      if(aux ==null){
+        agent.add("No he podido encontrar ninguna competición para ese país. Por favor, ten en cuenta que yo me especializo en las grandes ligas europeas, por lo que ahora mismo no soy capaz de proporcionar este servicio para ligas de otros países. Si ese no es el caso, por favor comprueba que has escrito correctamente el nombre del país. Para más información, escribe 'Ayuda'");
+        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
+      } else {
+        return snapshot.forEach((childSnapshot) => {
+        	let datos = childSnapshot.val();
+        	let nombre = childSnapshot.key;
+        	let logo = datos.logo;
+        	let fechacomienzo = datos.fechacomienzo;
+        	let fechafin = datos.fechafin;
+        	let pais = datos.país;
+        	let tipo = datos.tipo;
+        
+        agent.add(new Card({title: `Nombre: ${nombre}`,imageUrl: logo,text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos",buttonUrl: "Añadir la competición a favoritos"}));
+        
+        agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname, "competicion": nombre, "logo":logo, "pais": pais}});
+        }); 
+        } 
+    });
+    }
+  
+  
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -1000,5 +1032,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('AyudaJornadaAlineacion', handleAyudaJornadaAlineacion);
   intentMap.set('AyudaUsuarioVer', handleAyudaUsuarioVer);
   intentMap.set('AyudaUsuarioEditar', handleAyudaUsuarioEditar);
+  intentMap.set('BuscarCompeticionPais', handleBuscarCompeticionPais);
   agent.handleRequest(intentMap);
 });

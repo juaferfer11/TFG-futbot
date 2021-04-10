@@ -1,0 +1,187 @@
+[
+  {
+    "id": "aa147f24-0052-45d7-8865-005e8ceee13a",
+    "data": [
+      {
+        "text": "Liga de ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "27131268-4750-4647-a2fc-9331654df943",
+    "data": [
+      {
+        "text": "Liga de ",
+        "userDefined": false
+      },
+      {
+        "text": "Alemania",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9a59c1c4-3469-4c94-ab81-fb69f8ad76e7",
+    "data": [
+      {
+        "text": "Competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ea7128ed-b87f-4df2-82f7-57dbf026c14d",
+    "data": [
+      {
+        "text": "Quiero saber el nombre de la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "56d1828f-705e-4901-89a8-c46c0aeee2bc",
+    "data": [
+      {
+        "text": "Qué competición hay en ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fc956d10-2cdc-456f-8468-753dd1426637",
+    "data": [
+      {
+        "text": "Competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "Francia",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6c7dad5d-8b19-425a-8525-fd41c07c5706",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " saber el nombre de la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "Portugal",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1c2eb0ec-42f0-40c1-b84f-36d5c1bb0bb1",
+    "data": [
+      {
+        "text": "Qué competición hay en ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "672b0054-0d3d-44f6-9f66-07f0b77ebc2c",
+    "data": [
+      {
+        "text": "Cuál ",
+        "userDefined": false
+      },
+      {
+        "text": "es",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
