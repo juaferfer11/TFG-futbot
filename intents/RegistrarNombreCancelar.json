@@ -1,27 +1,27 @@
 {
-  "id": "c1cf476f-de0e-493e-832e-7317685e3165",
-  "name": "CancelarEditarPassword",
+  "id": "784b67ae-6a1c-4c24-aa01-e96c8446bfec",
+  "name": "RegistrarNombreCancelar",
   "auto": true,
   "contexts": [
-    "EditarPassword-followup"
+    "RegistrarNombre-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "EditarPassword.CancelarEditarPassword",
+      "action": "",
       "affectedContexts": [
         {
-          "name": "EditarDatos",
+          "name": "RegistrarNombreCancelar-followup",
           "lifespan": 1
         }
       ],
       "parameters": [
         {
-          "id": "d170a503-057f-4d69-8eea-94f9a4187195",
-          "name": "nickname",
+          "id": "1f5a5abd-8803-46c5-be46-b76672fc6b30",
+          "name": "nombre",
           "required": false,
           "dataType": "",
-          "value": "#EditarPassword-followup.nickname",
+          "value": "#RegistrarNombre-followup.nombre",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -33,25 +33,13 @@
       ],
       "messages": [
         {
-          "type": "1",
-          "platform": "telegram",
-          "subtitle": "De acuerdo, tu contraseña no será modificada. Para modificar otro dato, escribe su nombre en el siguiente mensaje que escribas.",
-          "title": "Datos de #EditarPassword-followup.nickname",
-          "buttons": [
-            {
-              "postback": "Cancelar",
-              "text": "Cancelar"
-            }
-          ],
-          "textToSpeech": "",
-          "lang": "es",
-          "condition": ""
-        },
-        {
           "type": "0",
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "¿Seguro que quieres cancelar el registro de usuarios?"
+          ],
           "condition": ""
         }
       ],
@@ -59,7 +47,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

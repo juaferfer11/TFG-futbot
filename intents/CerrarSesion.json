@@ -1,27 +1,27 @@
 {
-  "id": "c1cf476f-de0e-493e-832e-7317685e3165",
-  "name": "CancelarEditarPassword",
+  "id": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "name": "CerrarSesion",
   "auto": true,
   "contexts": [
-    "EditarPassword-followup"
+    "Home"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "EditarPassword.CancelarEditarPassword",
+      "action": "",
       "affectedContexts": [
         {
-          "name": "EditarDatos",
-          "lifespan": 1
+          "name": "CerrarSesion-followup",
+          "lifespan": 2
         }
       ],
       "parameters": [
         {
-          "id": "d170a503-057f-4d69-8eea-94f9a4187195",
+          "id": "1785302e-2cbc-4cf0-bc60-8af2f78c3fb3",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#EditarPassword-followup.nickname",
+          "value": "#Home.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -35,12 +35,16 @@
         {
           "type": "1",
           "platform": "telegram",
-          "subtitle": "De acuerdo, tu contraseña no será modificada. Para modificar otro dato, escribe su nombre en el siguiente mensaje que escribas.",
-          "title": "Datos de #EditarPassword-followup.nickname",
+          "subtitle": "¿Estás seguro de que deseas salir de tu sesión iniciada y volver a la pantalla principal?",
+          "title": "Cerrar sesión actual",
           "buttons": [
             {
-              "postback": "Cancelar",
-              "text": "Cancelar"
+              "postback": "Sí",
+              "text": "Si"
+            },
+            {
+              "postback": "No",
+              "text": "No"
             }
           ],
           "textToSpeech": "",

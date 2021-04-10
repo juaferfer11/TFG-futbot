@@ -1,0 +1,56 @@
+[
+  {
+    "id": "b271198c-d510-46d3-95b3-6d8238c7b384",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " cerrar sesión",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "0736914d-b3cf-4979-844b-e5fdbf95b021",
+    "data": [
+      {
+        "text": "Cerrar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " sesión",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "282830cd-6796-4d67-a613-60dd2563f6c2",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " cerrar sesión",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "id": "62f5c8ff-5c41-4ef6-ae2c-4dd0baedb034",
+  "parentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "rootParentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "name": "CerrarSesion - yes",
+  "auto": true,
+  "contexts": [
+    "CerrarSesion-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CerrarSesion.CerrarSesion-yes",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

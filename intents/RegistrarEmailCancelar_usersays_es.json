@@ -1,0 +1,56 @@
+[
+  {
+    "id": "15225dba-f7da-4178-9d56-5c66d0f36ea7",
+    "data": [
+      {
+        "text": "Cancelar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "89ce5a3b-9573-4b9e-b13c-a1ed6b0ce3a8",
+    "data": [
+      {
+        "text": "Salir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

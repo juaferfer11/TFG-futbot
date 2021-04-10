@@ -1,27 +1,29 @@
 {
-  "id": "c1cf476f-de0e-493e-832e-7317685e3165",
-  "name": "CancelarEditarPassword",
+  "id": "c0c1e3fb-85e6-43b8-8bf4-2f4e3d2426ab",
+  "parentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "rootParentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "name": "CerrarSesion - no",
   "auto": true,
   "contexts": [
-    "EditarPassword-followup"
+    "CerrarSesion-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "EditarPassword.CancelarEditarPassword",
+      "action": "CerrarSesion.CerrarSesion-no",
       "affectedContexts": [
         {
-          "name": "EditarDatos",
+          "name": "Home",
           "lifespan": 1
         }
       ],
       "parameters": [
         {
-          "id": "d170a503-057f-4d69-8eea-94f9a4187195",
+          "id": "8bd4d856-6bb3-4f33-b918-07eee2ad14da",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#EditarPassword-followup.nickname",
+          "value": "#CerrarSesion-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -33,25 +35,14 @@
       ],
       "messages": [
         {
-          "type": "1",
-          "platform": "telegram",
-          "subtitle": "De acuerdo, tu contraseña no será modificada. Para modificar otro dato, escribe su nombre en el siguiente mensaje que escribas.",
-          "title": "Datos de #EditarPassword-followup.nickname",
-          "buttons": [
-            {
-              "postback": "Cancelar",
-              "text": "Cancelar"
-            }
-          ],
-          "textToSpeech": "",
-          "lang": "es",
-          "condition": ""
-        },
-        {
           "type": "0",
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "De acuerdo, no se cerrará tu sesión. Puedes continuar usando el chatbot con normalidad.",
+            "Se ha cancelado el cierre de sesión. Te he devuelto a la página principal donde puedes hacer uso de la funcionalidad del agente."
+          ],
           "condition": ""
         }
       ],

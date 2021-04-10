@@ -93,6 +93,25 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
     
   }
+  
+  function handleSiRegistroCancelar(agent) {
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
+    }
+  
+  function handleRegistrarNombreCancelar(agent) {
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
+    }
+  
+  function handleRegistrarApellidosCancelar(agent) {
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
+    }
+  
+  function handleRegistrarEmailCancelar(agent) {
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
+    }
+   function handleRegistrarPasswordCancelar(agent) {
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
+    }
   //=========================================================================================================================================================================
   //LOGIN DE USUARIOS
   //=========================================================================================================================================================================
@@ -591,9 +610,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       let apellidos = aux.apellidos;
       let email = aux.email;
       agent.add(new Card({title: `Datos del usuario ${nickname}`,text: `Nombre: ${nombre}\nApellidos: ${apellidos}\nEmail: ${email}`, buttonText: "Editar",buttonUrl: `Quiero editar mi información de usuario`}));
+      agent.add(new Card({title: `Cerrar sesión actual`,text: `Para salir de tu perfil en el que estás ahora y volver a la pantalla principal, pulsa el siguiente botón.`, buttonText: "Cerrar sesión",buttonUrl: `Quiero cerrar sesión`}));
       agent.setContext({ "name": "Home","lifespan":1,"parameters":{"nickname": nickname}});
       
     });
+    }
+  
+  function handleCerrarSesionYes(agent) {
+      agent.add(new Card({title: `Cierre de sesión efectuado`,text: `Se ha cerrado tu sesión correctamente.`}));
+      agent.setFollowupEvent({ "name": "Welcome","lifespan":1});
     }
   
   function handleEditarDatos(agent) {
@@ -997,6 +1022,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('EditarEmailBD', handleEditarEmailBD);
   intentMap.set('EditarPasswordVerificacion', handleEditarPasswordVerificacion);
   intentMap.set('EditarPasswordBD', handleEditarPasswordBD);
+  intentMap.set('CerrarSesion - yes', handleCerrarSesionYes);
   intentMap.set('Ayuda', handleAyuda);
   intentMap.set('Ayuda - fallback', handleAyudaFallback);
   intentMap.set('AyudaEquipos', handleAyudaEquipos);
@@ -1033,5 +1059,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('AyudaUsuarioVer', handleAyudaUsuarioVer);
   intentMap.set('AyudaUsuarioEditar', handleAyudaUsuarioEditar);
   intentMap.set('BuscarCompeticionPais', handleBuscarCompeticionPais);
+  intentMap.set('SiRegistroCancelar', handleSiRegistroCancelar);
+  intentMap.set('RegistrarNombreCancelar', handleRegistrarNombreCancelar);
+  intentMap.set('RegistrarApellidosCancelar', handleRegistrarApellidosCancelar);
+  intentMap.set('RegistrarEmailCancelar', handleRegistrarEmailCancelar);
+  intentMap.set('RegistrarPasswordCancelar', handleRegistrarPasswordCancelar);
   agent.handleRequest(intentMap);
 });

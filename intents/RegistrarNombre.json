@@ -19,14 +19,19 @@
       ],
       "parameters": [
         {
-          "id": "013086eb-1e25-4242-b367-0322ddc6faea",
+          "id": "95d97c7b-ec69-4697-8f30-08a0f37eb4f5",
           "name": "nombre",
           "required": true,
           "dataType": "@sys.given-name",
           "value": "$nombre",
           "defaultValue": "",
           "isList": false,
-          "prompts": [],
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Escribe tu nombre, por favor."
+            }
+          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],

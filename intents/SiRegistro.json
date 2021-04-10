@@ -23,7 +23,7 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "De acuerdo, procedamos al registro de usuarios. ¿Podrías decirme tu nombre?"
+            "De acuerdo, procedamos al registro de usuarios, puedes salir de este proceso en cualquier momento escribiendo \"Cancelar registro\". Entonces, ¿podrías decirme tu nombre?"
           ],
           "condition": ""
         }

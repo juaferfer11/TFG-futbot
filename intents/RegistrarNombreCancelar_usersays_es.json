@@ -1,0 +1,92 @@
+[
+  {
+    "id": "35e309c2-de28-47f8-a4fd-f28ac7a6b98d",
+    "data": [
+      {
+        "text": "Salir de ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "88c279c7-f9a5-41dc-a1fa-5467dae76d37",
+    "data": [
+      {
+        "text": "Cancelar ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fc84bc42-e0ff-48e6-be37-1f3d7da49078",
+    "data": [
+      {
+        "text": "Salir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "839159d0-9e1f-4568-8a3b-b836ec44d1c3",
+    "data": [
+      {
+        "text": "Cancelar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "registro",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " de usuarios",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

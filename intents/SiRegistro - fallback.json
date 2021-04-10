@@ -19,6 +19,21 @@
       "parameters": [],
       "messages": [
         {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "No entendí eso. ¿Podrías decirme tu nombre de nuevo?",
+          "title": "Registro de usuarios",
+          "buttons": [
+            {
+              "postback": "Cancelar registro de usuarios",
+              "text": "Cancelar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
           "type": "0",
           "title": "",
           "textToSpeech": "",

@@ -1,18 +1,18 @@
 {
-  "id": "a68f4a2a-dd95-491c-bed1-083119f15094",
-  "parentId": "9d8af3cc-b485-4cb9-a1fd-ada4d4e59118",
-  "rootParentId": "9d8af3cc-b485-4cb9-a1fd-ada4d4e59118",
-  "name": "RegistrarEmail - fallback",
+  "id": "6243f567-e3dd-4714-b492-7dff4313d048",
+  "parentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "rootParentId": "75201d67-6320-4a27-8e34-3acb54cadd51",
+  "name": "CerrarSesion - fallback",
   "contexts": [
-    "RegistrarEmail-followup"
+    "CerrarSesion-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "RegistrarEmail.RegistrarEmail-fallback",
+      "action": "CerrarSesion.CerrarSesion-fallback",
       "affectedContexts": [
         {
-          "name": "RegistrarEmail-followup",
+          "name": "CerrarSesion-followup",
           "lifespan": 1
         }
       ],
@@ -24,8 +24,8 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "No he entendido eso. Por favor introduce un nombre de usuario válido.",
-            "No te pude comprender. ¿Podrías decirme tu nombre de usuario, por favor?"
+            "Perdona, no te he entendido. ¿Deseas cerrar tu sesión actual y volver a la pantalla inicial?",
+            "No sé que quisiste decir. Te preguntaba que si querías salir de tu sesión iniciada anteriormente y volver a la pantalla de inicio."
           ],
           "condition": ""
         }

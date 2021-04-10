@@ -1,36 +1,27 @@
 {
-  "id": "7f5b330c-68c6-4bb4-979f-4a1c181df8a4",
-  "name": "prueba",
+  "id": "e9e977f6-cc4f-4af7-8978-b74f67308ff4",
+  "name": "RegistrarApellidosCancelar",
   "auto": true,
   "contexts": [
-    "RegistrarNombre-followup"
+    "RegistrarApellidos-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [],
+      "affectedContexts": [
+        {
+          "name": "RegistrarApellidosCancelar-followup",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "24b70845-c12c-4505-ac18-dfb49ff5f7f3",
-          "name": "password",
-          "required": true,
-          "dataType": "@password",
-          "value": "$password",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "eaa5f01b-f9de-4c5d-b959-8418f12c1064",
+          "id": "0b129e5f-4578-4ccc-a765-49a09b6a68a2",
           "name": "nombre",
           "required": false,
           "dataType": "",
-          "value": "#RegistrarNombre-followup.nombre",
+          "value": "#RegistrarApellidos-followup.nombre",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -47,7 +38,7 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "hola"
+            "¿Seguro que quieres salir del registro de usuarios?"
           ],
           "condition": ""
         }
@@ -56,7 +47,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],
