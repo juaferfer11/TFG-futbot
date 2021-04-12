@@ -1,0 +1,497 @@
+[
+  {
+    "id": "c7761bb6-7d3b-464d-8f52-23bdf4c9c478",
+    "data": [
+      {
+        "text": "Quiero información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Mauro Icardi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": false
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b2becc9e-f250-49cb-929e-67a533107ae7",
+    "data": [
+      {
+        "text": "Deseo información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Mauro Icardi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": false
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "faec5ec8-eb15-41f6-a58b-ada6f5eeff23",
+    "data": [
+      {
+        "text": "Dame información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Mauro Icardi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": false
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "36013aa4-b369-46ff-a725-f2dbf09cc441",
+    "data": [
+      {
+        "text": "Dame",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Munir El Haddadi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1b9c76b2-438e-4c24-a297-e9088ca2fd6c",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Munir El Haddadi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bef7e23c-6f5e-4091-b5d0-abae21d1f950",
+    "data": [
+      {
+        "text": "Dame",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Cristiano Ronaldo",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Juventus",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f7afe2b3-1885-4608-9fa7-cba84c32c70a",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Haaland",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a6c71858-5628-4c15-8028-d56edf952c9e",
+    "data": [
+      {
+        "text": "Dame",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Haaland",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d877f454-a546-4dad-a98c-2ad02077e175",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Youssef En-Nesyri",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "65fc14f5-d427-4ce7-bb37-4dd614c43c19",
+    "data": [
+      {
+        "text": "Dame",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Youssef En-Nesyri",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "73e0b1fe-5e99-4716-a3c0-2d69546febb4",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Youssef En-Nesyri",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f575bf11-538c-477e-b8c0-34f0ed4d7577",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Munir El Haddadi",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "294afeeb-f833-4f52-8663-42a564d3500f",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Cristiano Ronaldo",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Juventus",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "429fd3b8-f835-4b7b-8c89-96e700da1cb7",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Cristiano Ronaldo",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Juventus",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8415e4b6-9211-427b-8273-44127de31197",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Haaland",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

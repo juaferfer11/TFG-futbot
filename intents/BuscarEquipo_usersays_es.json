@@ -1,5 +1,24 @@
 [
   {
+    "id": "e40020d6-92e4-43cb-959a-911531b161d8",
+    "data": [
+      {
+        "text": "Quiero información del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "6f29afd1-51da-47c2-bdab-fc58aad08990",
     "data": [
       {
