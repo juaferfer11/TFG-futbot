@@ -1,0 +1,77 @@
+{
+  "id": "53a40d9a-49eb-401e-afea-7784f4cb6553",
+  "name": "BuscarEstadisticasJugador",
+  "auto": true,
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "98a6fb19-3fb8-4550-a9eb-7a2a5cfe1633",
+          "name": "jugador",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$jugador",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d9f7d4ce-3a80-4bcc-81e9-42716d303e66",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "398ea82d-d5fd-4295-bce8-40d128e328c0",
+          "name": "competicion",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$competicion",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -998,6 +998,52 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+  function guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion) {
+    refJugadores.child(`${idAPI}`).child("estadísticas").set({
+      partidosTotales: partidosTotales,
+      partidosTitular: partidosTitular,
+      minutos: minutos,
+      vecesSustituido: vecesSustituido,
+      vecesDesdeBanquillo: vecesDesdeBanquillo,
+      vecesQuedoEnBanquillo: vecesQuedoEnBanquillo,
+      tirosTotales: tirosTotales,
+      tirosPuerta: tirosPuerta,
+      goles: goles,
+      golesRecibidos: golesRecibidos,
+      asistencias: asistencias,
+      paradas: paradas,
+      pasesTotales: pasesTotales,
+      pasesClave: pasesClave,
+      efectividadPases: efectividadPases,
+      entradas: entradas,
+      bloqueos: bloqueos,
+      robos: robos,
+      duelosTotales: duelosTotales,
+      duelosGanados: duelosGanados,
+      regatesTotales: regatesTotales,
+      regatesExitosos: regatesExitosos,
+      partidos1Amarilla: partidos1Amarilla,
+      partidos2Amarillas: partidos2Amarillas,
+      partidosRoja: partidosRoja,
+      penaltisRecibidos: penaltisRecibidos,
+      penaltisCometidos: penaltisCometidos,
+      penaltisAnotados: penaltisAnotados,
+      penaltisFallados: penaltisFallados,
+      penaltisParados: penaltisParados,
+      fecha: fechaHoy,
+      posicion: posicion
+
+    });
+  }
+
+  function checkLigaEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion, idLigaAPI) {
+    refCompeticiones.orderByChild('idAPI').equalTo(idLigaAPI).once('value').then((snapshot) => {
+      if (snapshot.exists()) {
+        guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion);
+      }
+    });
+  }
+
   function handleBuscarJugador(agent) {
     var nickname = agent.parameters.nickname;
     var jugador = agent.parameters.jugador;
@@ -1015,7 +1061,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       let jugadorAux = jugador.split("-");
       jugador = jugadorAux[1];
     }
-    return refJugadores.orderByChild('nombre').equalTo(`${jugador}`).once('value').then((snapshot) => {
+    return refJugadores.orderByChild('nombreCompleto').equalTo(`${jugador}`).once('value').then((snapshot) => {
       var aux = snapshot.val();
       console.log(aux);
       if (aux == null) {
@@ -1052,12 +1098,67 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 let peso = respuesta.player.weight;
                 let foto = respuesta.player.photo;
                 let estadísticas = respuesta.statistics[0];
+                let posicion = estadísticas.games.position;
                 let equipo = estadísticas.team.name;
                 let idEquipoAPI = estadísticas.team.id;
                 //let liga = estadísticas.league.name;
                 let idLigaAPI = estadísticas.league.id;
-                //console.log("DATA:" + JSON.stringify(respuesta));
-                return translate(país, { from: "en", to: "es", engine: "libre" }).then(text => {
+                //let liga = estadísticas.league.name;
+                let partidosTotales = estadísticas.games.appearences;
+                let partidosTitular = estadísticas.games.lineups;
+                let minutos = estadísticas.games.minutes;
+                let vecesSustituido = estadísticas.substitutes.out;
+                let vecesDesdeBanquillo = estadísticas.substitutes.in;
+                let vecesQuedoEnBanquillo = estadísticas.substitutes.bench;
+                let tirosTotales = estadísticas.shots.total;
+                let tirosPuerta = estadísticas.shots.on;
+                if (tirosPuerta == null) {
+                  tirosPuerta = 0;
+                }
+                let goles = estadísticas.goals.total;
+                let golesRecibidos = estadísticas.goals.conceded;
+                let asistencias = estadísticas.goals.assists;
+                if (asistencias == null) {
+                  asistencias = 0;
+                }
+                let paradas = estadísticas.goals.saves;
+                let pasesTotales = estadísticas.passes.total;
+                let pasesClave = estadísticas.passes.key;
+                let efectividadPases = estadísticas.passes.accuracy;
+                let entradas = estadísticas.tackles.total;
+                let bloqueos = estadísticas.tackles.blocks;
+                if (bloqueos == null) {
+                  bloqueos = 0;
+                }
+                let robos = estadísticas.tackles.interceptions;
+                let duelosTotales = estadísticas.duels.total;
+                let duelosGanados = estadísticas.duels.won;
+                let regatesTotales = estadísticas.dribbles.attempts;
+                if (regatesTotales == null) {
+                  regatesTotales = 0;
+                }
+                let regatesExitosos = estadísticas.dribbles.success;
+                if (regatesExitosos == null) {
+                  regatesExitosos = 0;
+                }
+                let partidos1Amarilla = estadísticas.cards.yellow;
+                let partidos2Amarillas = estadísticas.cards.yellowred;
+                let partidosRoja = estadísticas.cards.red;
+                let penaltisRecibidos = estadísticas.penalty.won;
+                if (penaltisRecibidos == null) {
+                  penaltisRecibidos = 0;
+                }
+                let penaltisCometidos = estadísticas.penalty.commited;
+                if (penaltisCometidos == null) {
+                  penaltisCometidos = 0;
+                }
+                let penaltisAnotados = estadísticas.penalty.scored;
+                let penaltisFallados = estadísticas.penalty.missed;
+                let penaltisParados = estadísticas.penalty.saved;
+                let fechaHoyTiempo = new Date();
+                let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+                console.log("DATA:" + JSON.stringify(respuesta));
+                return translate(país, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
                   país = text;
                   agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: foto, text: `Apellido/s: ${apellidos}\nEdad: ${edad}\nPaís: ${país}\nEquipo: ${equipo}\nAltura: ${altura}\nPeso: ${peso}` }));
                   agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
@@ -1065,7 +1166,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                     if (snapshot.child(`${idAPI}`).exists()) {
                       console.log("No se añade a BD.");
                     } else {
-                      return refJugadores.child(`${idAPI}`).set({
+                      refJugadores.child(`${idAPI}`).set({
                         nombreCompleto: nombreCompleto,
                         nombre: nombre,
                         apellidos: apellidos,
@@ -1078,7 +1179,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                         idEquipoAPI: idEquipoAPI,
                         //liga: liga,
                         idLigaAPI: idLigaAPI
-                      });
+
+                      }).then(checkLigaEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion, idLigaAPI));
                     }
                   });
                 });
@@ -1164,6 +1266,346 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+
+
+  function handleBuscarEstadisticasJugador(agent) {
+    var nickname = agent.parameters.nickname;
+    var jugador = agent.parameters.jugador;
+    var competicion = agent.parameters.competicion;
+    var nicknameEvento = agent.parameters.nicknameEvento;
+    var jugadorEvento = agent.parameters.jugadorEvento;
+    var competicionEvento = agent.parameters.competicionEvento;
+    if (jugador.includes("-")) {
+      let jugadorAux = jugador.split("-");
+      jugador = jugadorAux[1];
+    }
+    return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(JSON.stringify(snapshot.val()));
+        var idLiga = snapshot.val().idAPI;
+        return refJugadores.orderByChild('nombreCompleto').equalTo(`${jugador}`).once('value').then((snapshot) => {
+          var aux = snapshot.val();
+          console.log(aux);
+          if (aux == null) {
+
+            var options = {
+              method: 'GET',
+              url: 'https://v3.football.api-sports.io/players',
+              params: { search: `${jugador}`, season: 2020, league: idLiga },
+              headers: {
+                'x-rapidapi-host': 'v3.football.api-sports.io',
+                'x-rapidapi-key': apiKey,
+              }
+            };
+            return axios.request(options).then(function (response) {
+              let results = response.data.results;
+              console.log("ERRORS:" + results);
+              if (results == 0) {
+                console.log("HAY ERRORES");
+                agent.add("Vaya, parece que ese jugador no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita las tildes.");
+                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+              } else {
+                console.log("NO HAY ERRORES");
+                let respuesta = response.data.response[0];
+                let nombreCompleto = respuesta.player.name;
+                let idAPI = respuesta.player.id;
+                let nombre = respuesta.player.firstname;
+                let apellidos = respuesta.player.lastname;
+                let edad = respuesta.player.age;
+                let país = respuesta.player.nationality;
+                let altura = respuesta.player.height;
+                let peso = respuesta.player.weight;
+                let foto = respuesta.player.photo;
+                let estadísticas = respuesta.statistics[0];
+                let posicion = estadísticas.games.position;
+                let equipo = estadísticas.team.name;
+                let idEquipoAPI = estadísticas.team.id;
+                //let liga = estadísticas.league.name;
+                let idLigaAPI = estadísticas.league.id;
+                let partidosTotales = estadísticas.games.appearences;
+                let partidosTitular = estadísticas.games.lineups;
+                let minutos = estadísticas.games.minutes;
+                let vecesSustituido = estadísticas.substitutes.out;
+                let vecesDesdeBanquillo = estadísticas.substitutes.in;
+                let vecesQuedoEnBanquillo = estadísticas.substitutes.bench;
+                let tirosTotales = estadísticas.shots.total;
+                let tirosPuerta = estadísticas.shots.on;
+                if (tirosPuerta == null) {
+                  tirosPuerta = 0;
+                }
+                let goles = estadísticas.goals.total;
+                let golesRecibidos = estadísticas.goals.conceded;
+                let asistencias = estadísticas.goals.assists;
+                if (asistencias == null) {
+                  asistencias = 0;
+                }
+                let paradas = estadísticas.goals.saves;
+                let pasesTotales = estadísticas.passes.total;
+                let pasesClave = estadísticas.passes.key;
+                let efectividadPases = estadísticas.passes.accuracy;
+                let entradas = estadísticas.tackles.total;
+                let bloqueos = estadísticas.tackles.blocks;
+                if (bloqueos == null) {
+                  bloqueos = 0;
+                }
+                let robos = estadísticas.tackles.interceptions;
+                let duelosTotales = estadísticas.duels.total;
+                let duelosGanados = estadísticas.duels.won;
+                let regatesTotales = estadísticas.dribbles.attempts;
+                if (regatesTotales == null) {
+                  regatesTotales = 0;
+                }
+                let regatesExitosos = estadísticas.dribbles.success;
+                if (regatesExitosos == null) {
+                  regatesExitosos = 0;
+                }
+                let partidos1Amarilla = estadísticas.cards.yellow;
+                let partidos2Amarillas = estadísticas.cards.yellowred;
+                let partidosRoja = estadísticas.cards.red;
+                let penaltisRecibidos = estadísticas.penalty.won;
+                if (penaltisRecibidos == null) {
+                  penaltisRecibidos = 0;
+                }
+                let penaltisCometidos = estadísticas.penalty.commited;
+                if (penaltisCometidos == null) {
+                  penaltisCometidos = 0;
+                }
+                let penaltisAnotados = estadísticas.penalty.scored;
+                let penaltisFallados = estadísticas.penalty.missed;
+                let penaltisParados = estadísticas.penalty.saved;
+                let fechaHoyTiempo = new Date();
+                let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+                //console.log("DATA:" + JSON.stringify(respuesta));
+                if (posicion == "Goalkeeper") {
+                  agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles recibidos: ${golesRecibidos}\nParadas: ${paradas}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nPenaltis parados: ${penaltisParados}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idAPI, "nombreCompleto": nombreCompleto } });
+                } else {
+                  agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles: ${goles}\nAsistencias: ${asistencias}\nPases clave: ${pasesClave}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nTiros: ${tirosTotales}\nTiros a puerta: ${tirosPuerta}\nRegates intentados: ${regatesTotales}\nRegates exitosos: ${regatesExitosos}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nEntradas: ${entradas}\nRecuperaciones: ${robos}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idAPI, "nombreCompleto": nombreCompleto } });
+                }
+
+                return refJugadores.once('value').then((snapshot) => {
+                  if (snapshot.child(`${idAPI}`).exists()) {
+                    console.log("No se añade a BD.");
+                    if ((snapshot.child(`${idAPI}`).child("estadísticas").exists() && snapshot.child(`${idAPI}`).child("estadísticas").val().fecha != fechaHoy) || !snapshot.child(`${idAPI}`).child("estadísticas").exists()) {
+                      return guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion);
+                    } else {
+                      console.log("No se añaden/actualizan estadísticas a BD.");
+                    }
+
+                  } else {
+                    return translate(país, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
+                      país = text;
+                      refJugadores.child(`${idAPI}`).set({
+                        nombreCompleto: nombreCompleto,
+                        nombre: nombre,
+                        apellidos: apellidos,
+                        edad: edad,
+                        país: país,
+                        altura: altura,
+                        peso: peso,
+                        foto: foto,
+                        equipo: equipo,
+                        idEquipoAPI: idEquipoAPI,
+                        //liga: liga,
+                        idLigaAPI: idLigaAPI
+                      }).then(guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion));
+                    });
+                  }
+                });
+
+              }
+            }).catch(function (error) {
+              console.error(error);
+            });
+          } else {
+            console.log("SE AÑADE JUGADOR A BD");
+            let fechaHoyTiempo = new Date();
+            let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+            return snapshot.forEach((childSnapshot) => {
+              let datos = childSnapshot.child("estadísticas").val();
+              let infoJugador = childSnapshot.val();
+              let nombreCompleto = infoJugador.nombreCompleto;
+              let idLiga = infoJugador.idLigaAPI;
+              let idJugador = childSnapshot.key;
+
+              if (datos.fecha != fechaHoy) {
+                agent.setContext({ "name": "Home", "lifespan": 1 });
+                agent.setFollowupEvent({ "name": "ActualizarEstadisticasJugador", "parameters": { "nickname": nickname, "idLiga": idLiga, "idJugador": idJugador } });
+                return refJugadores.child(idJugador).child("estadísticas").remove();
+              } else {
+                let posicion = datos.posicion;
+                let partidosTotales = datos.partidosTotales;
+                let partidosTitular = datos.partidosTitular;
+                let minutos = datos.minutos;
+                let vecesSustituido = datos.vecesSustituido;
+                let vecesDesdeBanquillo = datos.vecesDesdeBanquillo;
+                let vecesQuedoEnBanquillo = datos.vecesQuedoEnBanquillo;
+                let tirosTotales = datos.tirosTotales;
+                let tirosPuerta = datos.tirosPuerta;
+                let goles = datos.goles;
+                let golesRecibidos = datos.golesRecibidos;
+                let asistencias = datos.asistencias;
+                let paradas = datos.paradas;
+                let pasesTotales = datos.pasesTotales;
+                let pasesClave = datos.pasesClave;
+                let efectividadPases = datos.efectividadPases;
+                let entradas = datos.entradas;
+                let bloqueos = datos.bloqueos;
+                let robos = datos.robos;
+                let duelosTotales = datos.duelosTotales;
+                let duelosGanados = datos.duelosGanados;
+                let regatesTotales = datos.regatesTotales;
+                let regatesExitosos = datos.regatesExitosos;
+                let partidos1Amarilla = datos.partidos1Amarilla;
+                let partidos2Amarillas = datos.partidos2Amarillas;
+                let partidosRoja = datos.partidosRoja;
+                let penaltisRecibidos = datos.penaltisRecibidos;
+                let penaltisCometidos = datos.penaltisCometidos;
+                let penaltisAnotados = datos.penaltisAnotados;
+                let penaltisFallados = datos.penaltisFallados;
+                let penaltisParados = datos.penaltisParados;
+
+                if (posicion == "Goalkeeper") {
+                  agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles recibidos: ${golesRecibidos}\nParadas: ${paradas}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nPenaltis parados: ${penaltisParados}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idJugador, "nombreCompleto": nombreCompleto } });
+                } else {
+                  agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles: ${goles}\nAsistencias: ${asistencias}\nPases clave: ${pasesClave}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nTiros: ${tirosTotales}\nTiros a puerta: ${tirosPuerta}\nRegates intentados: ${regatesTotales}\nRegates exitosos: ${regatesExitosos}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nEntradas: ${entradas}\nRecuperaciones: ${robos}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idJugador, "nombreCompleto": nombreCompleto } });
+                }
+              }
+            });
+          }
+
+        });
+      } else {
+        agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      }
+    });
+  }
+  function handleActualizarEstadisticasJugador(agent) {
+    var nickname = agent.parameters.nickname;
+    var idJugador = agent.parameters.idJugador;
+    var idLiga = agent.parameters.idLiga;
+    var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/players',
+      params: { id: `${idJugador}`, season: 2020, league: idLiga },
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+    return axios.request(options).then(function (response) {
+      let results = response.data.results;
+      console.log("ERRORS:" + results);
+      if (results == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Vaya, parece que ese jugador no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita las tildes.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        console.log("NO HAY ERRORES");
+        let respuesta = response.data.response[0];
+        let nombreCompleto = respuesta.player.name;
+        let idAPI = respuesta.player.id;
+        let estadísticas = respuesta.statistics[0];
+        let posicion = estadísticas.games.position;
+        //let liga = estadísticas.league.name;
+        let partidosTotales = estadísticas.games.appearences;
+        let partidosTitular = estadísticas.games.lineups;
+        let minutos = estadísticas.games.minutes;
+        let vecesSustituido = estadísticas.substitutes.out;
+        let vecesDesdeBanquillo = estadísticas.substitutes.in;
+        let vecesQuedoEnBanquillo = estadísticas.substitutes.bench;
+        let tirosTotales = estadísticas.shots.total;
+        let tirosPuerta = estadísticas.shots.on;
+        if (tirosPuerta == undefined) {
+          tirosPuerta = 0;
+        }
+        let goles = estadísticas.goals.total;
+        let golesRecibidos = estadísticas.goals.conceded;
+        let asistencias = estadísticas.goals.assists;
+        if (asistencias == undefined) {
+          asistencias = 0;
+        }
+        let paradas = estadísticas.goals.saves;
+        let pasesTotales = estadísticas.passes.total;
+        let pasesClave = estadísticas.passes.key;
+        let efectividadPases = estadísticas.passes.accuracy;
+        let entradas = estadísticas.tackles.total;
+        let bloqueos = estadísticas.tackles.blocks;
+        if (bloqueos == undefined) {
+          bloqueos = 0;
+        }
+        let robos = estadísticas.tackles.interceptions;
+        let duelosTotales = estadísticas.duels.total;
+        let duelosGanados = estadísticas.duels.won;
+        let regatesTotales = estadísticas.dribbles.attempts;
+        if (regatesTotales == undefined) {
+          regatesTotales = 0;
+        }
+        let regatesExitosos = estadísticas.dribbles.success;
+        if (regatesExitosos == undefined) {
+          regatesExitosos = 0;
+        }
+        let partidos1Amarilla = estadísticas.cards.yellow;
+        let partidos2Amarillas = estadísticas.cards.yellowred;
+        let partidosRoja = estadísticas.cards.red;
+        let penaltisRecibidos = estadísticas.penalty.won;
+        if (penaltisRecibidos == undefined) {
+          penaltisRecibidos = 0;
+        }
+        let penaltisCometidos = estadísticas.penalty.commited;
+        if (penaltisCometidos == undefined) {
+          penaltisCometidos = 0;
+        }
+        let penaltisAnotados = estadísticas.penalty.scored;
+        let penaltisFallados = estadísticas.penalty.missed;
+        let penaltisParados = estadísticas.penalty.saved;
+        let fechaHoyTiempo = new Date();
+        let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+        //console.log("DATA:" + JSON.stringify(respuesta));
+        if (posicion == "Goalkeeper") {
+          agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles recibidos: ${golesRecibidos}\nParadas: ${paradas}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nPenaltis parados: ${penaltisParados}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idAPI } });
+        } else {
+          agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Goles: ${goles}\nAsistencias: ${asistencias}\nPases clave: ${pasesClave}\nMinutos: ${minutos}\nPartidos: ${partidosTotales}\nTiros: ${tirosTotales}\nTiros a puerta: ${tirosPuerta}\nRegates intentados: ${regatesTotales}\nRegates exitosos: ${regatesExitosos}\nPenaltis marcados: ${penaltisAnotados}\nPenaltis fallados: ${penaltisFallados}\nEntradas: ${entradas}\nRecuperaciones: ${robos}\nPorcentaje de acierto en pases: ${efectividadPases}%\nDuelos totales: ${duelosTotales}\nDuelos ganados: ${duelosGanados}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del jugador" }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idJugador": idAPI } });
+        }
+        return guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion);
+      }
+    });
+  }
+  function handleBuscarAmpliarJugador(agent) {
+    console.log("LLEGA A AMPLIAR");
+    var nickname = agent.parameters.nickname;
+    var idJugador = agent.parameters.idJugador;
+    var nombreCompleto = agent.parameters.nombreCompleto;
+    return refJugadores.child(idJugador).child("estadísticas").once('value').then((snapshot) => {
+      var datos = snapshot.val();
+      let partidosTitular = datos.partidosTitular;
+      let vecesSustituido = datos.vecesSustituido;
+      let vecesDesdeBanquillo = datos.vecesDesdeBanquillo;
+      let vecesQuedoEnBanquillo = datos.vecesQuedoEnBanquillo;
+      let pasesTotales = datos.pasesTotales;
+      let bloqueos = datos.bloqueos;
+      let partidos1Amarilla = datos.partidos1Amarilla;
+      let partidos2Amarillas = datos.partidos2Amarillas;
+      let partidosRoja = datos.partidosRoja;
+      let penaltisRecibidos = datos.penaltisRecibidos;
+      let penaltisCometidos = datos.penaltisCometidos;
+      let posicion = datos.posicion;
+      if (posicion == "Goalkeeper") {
+        agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Partidos como titular: ${partidosTitular}\nPartidos que fue sustituido: ${vecesSustituido}\nPartidos que salió desde el banquillo: ${vecesDesdeBanquillo}\nPartidos que se quedó en el banquillo: ${vecesQuedoEnBanquillo}\nPases totales: ${pasesTotales}\nPartidos donde recibió 1 amarilla: ${partidos1Amarilla}\nPartidos donde fue expulsado por doble amarilla: ${partidos2Amarillas}\nPartidos donde fue expulsado por tarjeta roja: ${partidosRoja}\nPenaltis cometidos: ${penaltisCometidos}` }));
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        agent.add(new Card({ title: `Estadísticas de ${nombreCompleto}`, text: `Partidos como titular: ${partidosTitular}\nPartidos que fue sustituido: ${vecesSustituido}\nPartidos que salió desde el banquillo: ${vecesDesdeBanquillo}\nPartidos que se quedó en el banquillo: ${vecesQuedoEnBanquillo}\nPases totales: ${pasesTotales}\nBloqueos: ${bloqueos}\nPartidos donde recibió 1 amarilla: ${partidos1Amarilla}\nPartidos donde fue expulsado por doble amarilla: ${partidos2Amarillas}\nPartidos donde fue expulsado por tarjeta roja: ${partidosRoja}\nPenaltis recibidos: ${penaltisRecibidos}\nPenaltis cometidos: ${penaltisCometidos}` }));
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      }
+    });
+  }
+
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -1231,5 +1673,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('RegistrarEmailCancelar', handleRegistrarEmailCancelar);
   intentMap.set('RegistrarPasswordCancelar', handleRegistrarPasswordCancelar);
   intentMap.set('BuscarJugador', handleBuscarJugador);
+  intentMap.set('BuscarEstadisticasJugador', handleBuscarEstadisticasJugador);
+  intentMap.set('ActualizarEstadisticasJugador', handleActualizarEstadisticasJugador);
+  intentMap.set('AmpliarEstadisticasJugador', handleBuscarAmpliarJugador);
   agent.handleRequest(intentMap);
 });

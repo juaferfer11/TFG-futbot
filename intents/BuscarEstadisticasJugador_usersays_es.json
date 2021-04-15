@@ -1,0 +1,99 @@
+[
+  {
+    "id": "7689c041-9b23-49e5-9a2a-681bb5994f65",
+    "data": [
+      {
+        "text": "Ver estadísticas del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Robben",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f8198e77-9879-44c8-8c0c-6cd44f38a1cc",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver estadísticas del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Cristiano Ronaldo",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2c534167-6c7a-437d-bb12-7c4ec8f18567",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver estadísticas del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Haaland",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
