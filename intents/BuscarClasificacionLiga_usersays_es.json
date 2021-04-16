@@ -1,0 +1,190 @@
+[
+  {
+    "id": "ee690c45-5062-476c-ba12-81fd9e376e3e",
+    "data": [
+      {
+        "text": "Ver la clasificación de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2ef40d72-3310-4856-b61c-a1def8dc520f",
+    "data": [
+      {
+        "text": "Ver la clasificación de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e091ebc9-d8c4-4457-992d-9cae81e02060",
+    "data": [
+      {
+        "text": "Enséñame la clasificación ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "707224a3-81b3-404d-9fe3-264745392bae",
+    "data": [
+      {
+        "text": "Muéstrame la clasificación ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "84a6b4ae-c8f2-4d9d-981c-67e03a5b51e7",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver la clasificación ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4b21015d-e011-48af-a1ac-426862e096b4",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver la clasificación ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "72a43036-60cc-4432-888f-b99457dfe711",
+    "data": [
+      {
+        "text": "Ver la clasificación ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

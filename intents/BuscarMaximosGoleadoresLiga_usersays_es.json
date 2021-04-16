@@ -1,0 +1,214 @@
+[
+  {
+    "id": "9465aed3-3cbf-48bb-bd04-028b2ffd4ab1",
+    "data": [
+      {
+        "text": "Enséñame los máximos goleadores de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bcf86e8c-e639-42ae-8da3-ce23aef97d34",
+    "data": [
+      {
+        "text": "Ver los máximos goleadores de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Jupiler Pro League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8ad4eed7-94bb-44b9-9e81-9243cac74424",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver los máximos goleadores de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e74209a7-0063-416b-ace0-7aaaef56e14a",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver los máximos goleadores ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "489c2833-da54-4391-86ef-67dd95bb7a31",
+    "data": [
+      {
+        "text": "Enséñame los máximos goleadores ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "612d20fb-ea54-484d-95e2-862ea4adf63e",
+    "data": [
+      {
+        "text": "Muéstrame los máximos goleadores ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dd8d5af1-8888-4df4-94e8-3b0d32e98bfc",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver los máximos goleadores ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "21249816-caa6-4190-bb26-86151e05fb6f",
+    "data": [
+      {
+        "text": "Ver los máximos goleadores ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

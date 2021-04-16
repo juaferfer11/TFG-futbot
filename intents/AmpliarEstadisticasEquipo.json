@@ -1,0 +1,63 @@
+{
+  "id": "b0608405-a05f-4104-ab68-16bf72f5c52b",
+  "name": "AmpliarEstadisticasEquipo",
+  "auto": true,
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a22577d5-bef4-4b71-a834-03fd6e9302f1",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "74dc9c25-45b9-4a99-bdf9-8c617a34e250",
+          "name": "nombreEquipo",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nombreEquipo",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

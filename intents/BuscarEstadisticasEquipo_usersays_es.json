@@ -1,0 +1,394 @@
+[
+  {
+    "id": "7867f93f-b162-422d-a422-2b88e8ab9b62",
+    "data": [
+      {
+        "text": "Quiero ver estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Inter",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "34f5c4c7-874e-4595-87b1-1625ea3faa0b",
+    "data": [
+      {
+        "text": "Quiero ver estadísticas de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Juventus",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a258192e-9d0f-4669-9501-84f1a9d75999",
+    "data": [
+      {
+        "text": "Quiero ver las estadísticas de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Juventus",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "446a8a90-0f57-408c-9e6d-56aefefb4177",
+    "data": [
+      {
+        "text": "Ver estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Anderlecht",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Jupiler Pro League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2ecbbc3d-678a-4946-ad12-c4d00b15c058",
+    "data": [
+      {
+        "text": "Ver estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Bayern Munich",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e0ab59fe-9e06-4bb5-99be-30acd73a2f83",
+    "data": [
+      {
+        "text": "Ver estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Ajax",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a20aa61a-f096-4293-9599-53dd08c4425d",
+    "data": [
+      {
+        "text": "Ver estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "be66b25c-5127-49f7-bdac-21f49fd8f2a1",
+    "data": [
+      {
+        "text": "Muéstrame las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "42993999-e5bb-480f-bb14-367710133510",
+    "data": [
+      {
+        "text": "Enséñame las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "286aba81-fa55-4cab-ac15-a1b8b4af7130",
+    "data": [
+      {
+        "text": "Ver las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bcc3a605-88ca-4645-bb8c-3617fc32c950",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ed4362e7-ad62-4336-a900-82162239a34e",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2abc80a6-e58d-43d3-8145-08bffb4809bd",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre las estadísticas del ",
+        "userDefined": false
+      },
+      {
+        "text": "Eibar",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " en ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

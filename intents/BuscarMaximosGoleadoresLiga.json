@@ -1,0 +1,63 @@
+{
+  "id": "86890127-1e62-4be1-880e-c9749f9f2ba4",
+  "name": "BuscarMaximosGoleadoresLiga",
+  "auto": true,
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "74a6eb87-076e-4355-b005-588facac4926",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "6062841f-dcbf-4467-b66b-fa5afca9d1f6",
+          "name": "competicion",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$competicion",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

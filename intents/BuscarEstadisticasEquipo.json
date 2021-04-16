@@ -1,0 +1,120 @@
+{
+  "id": "ae0e8b53-3097-493b-bfb6-844fe65fdef9",
+  "name": "BuscarEstadisticasEquipo",
+  "auto": true,
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a2086f2d-623e-4105-99c3-d3c7896d785f",
+          "name": "equipo",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$equipo",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "98e2f7a5-a5b1-4c94-8b07-04c9d3d11f5c",
+          "name": "competicion",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$competicion",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "05006bc5-56ef-4658-beac-b2c2f81b3e6d",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "b4fe39ba-ff8d-40d5-b4e2-5d0bb1b092f3",
+          "name": "nicknameEvento",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "0d8ec85a-4d78-4b93-ae81-65618ba85d81",
+          "name": "equipoEvento",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "9b621e72-4bb7-41af-bc3b-924d9312b64b",
+          "name": "competicionEvento",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "BuscarJugadorEstadisticasEquipo"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

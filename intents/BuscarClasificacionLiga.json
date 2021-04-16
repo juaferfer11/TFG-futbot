@@ -1,0 +1,63 @@
+{
+  "id": "be1ddf32-0fd0-47c6-8fb3-ca7d9ab3de29",
+  "name": "BuscarClasificacionLiga",
+  "auto": true,
+  "contexts": [
+    "Home"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "f23fd600-fe1a-452c-bfc9-2c0324ef5727",
+          "name": "competicion",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$competicion",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "049a8216-0a17-488b-941e-9a16dce0a2bf",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#Home.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
