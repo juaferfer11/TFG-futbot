@@ -1,0 +1,290 @@
+[
+  {
+    "id": "f86655f6-c798-4721-bb99-febfca997342",
+    "data": [
+      {
+        "text": "Ver jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Ajax",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "0c67c531-fc86-4d7a-832d-f656b0385705",
+    "data": [
+      {
+        "text": "Buscar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Ajax",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f3ec33b9-f9d2-4b75-8b7e-ecd7261339ae",
+    "data": [
+      {
+        "text": "Muéstrame información sobre la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Ajax",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8ab73344-82ee-4930-bb27-b2206824a93b",
+    "data": [
+      {
+        "text": "Enséñame información sobre la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Ligue 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5a2e6ab4-9c60-42c8-8990-2e5e43c6f2b0",
+    "data": [
+      {
+        "text": "Ver información sobre la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9569a3f6-a48e-43bb-a54b-c8d46787fcec",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Real Madrid",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d23d7a1d-9668-430b-bb5a-84c484888c7b",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "23",
+        "meta": "@sys.number-integer",
+        "alias": "numJornada",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

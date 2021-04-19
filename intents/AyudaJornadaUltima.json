@@ -1,0 +1,49 @@
+{
+  "id": "a65d99c6-26b9-41f8-8a98-555c3f46b028",
+  "name": "AyudaJornadaUltima",
+  "auto": true,
+  "contexts": [
+    "HomeAyudaJornadas"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "695d436d-7ff5-4f9b-a00f-23f21f7fce3a",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#HomeAyudaJornadas.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "f95ffd56-f4a3-474a-be31-32b4a9cbe445",
+  "name": "tipoEquipo",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

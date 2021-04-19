@@ -1,0 +1,300 @@
+[
+  {
+    "id": "7dd21158-cb92-4ee3-b5ef-5268b6b7e3f2",
+    "data": [
+      {
+        "text": "Cúando juega el ",
+        "userDefined": false
+      },
+      {
+        "text": "Betis",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d09b6afa-71f0-4f48-9da8-86ab900a1095",
+    "data": [
+      {
+        "text": "Próxima jornada del ",
+        "userDefined": false
+      },
+      {
+        "text": "Manchester United",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "la",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Premier League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7dfe385a-4f47-402f-aa96-db8af3c4dfdd",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver el próximo partido del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "eaf143c1-46ba-4a0b-bb43-49235627c173",
+    "data": [
+      {
+        "text": "Ver próximo partido del ",
+        "userDefined": false
+      },
+      {
+        "text": "Manchester City",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "la",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Premier League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "bf85bef8-9123-4c15-9558-eef1e135e7c8",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver la próxima jornada del ",
+        "userDefined": false
+      },
+      {
+        "text": "Real Madrid",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1d54d70f-719d-4d44-918d-f6d8721d4cf1",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ver la próxima jornada del ",
+        "userDefined": false
+      },
+      {
+        "text": "Betis",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "09be963a-6828-4e0e-be7e-e3f66efe65b3",
+    "data": [
+      {
+        "text": "Ver próxima jornada del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Ligue 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b07fceef-0d26-4c17-a1ba-3fd5db8899f3",
+    "data": [
+      {
+        "text": "Próximo partido del ",
+        "userDefined": false
+      },
+      {
+        "text": "Feyenoord",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "60fcba03-762d-47ce-9f34-460458aa3ba7",
+    "data": [
+      {
+        "text": "¿Cúando juega el ",
+        "userDefined": false
+      },
+      {
+        "text": "Betis",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      },
+      {
+        "text": " de la ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
