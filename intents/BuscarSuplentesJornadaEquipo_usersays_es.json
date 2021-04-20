@@ -1,0 +1,31 @@
+[
+  {
+    "id": "9aad6063-43c7-4deb-b5b8-8acac3bd4ec5",
+    "data": [
+      {
+        "text": "Ver suplentes del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "111",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "12223344",
+        "meta": "@sys.number-integer",
+        "alias": "idJornada",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

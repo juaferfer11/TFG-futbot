@@ -23,6 +23,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   var refEquipos = db.ref("equipos");
   var refCompeticiones = db.ref("competiciones");
   var refJugadores = db.ref("jugadores");
+  var refJornadas = db.ref("jornadas");
   var apiKey = "";
   var translateKey = "";
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
@@ -2220,6 +2221,27 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
   
+  function almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado){
+    return refJornadas.child(idJornada).once('value').then((snapshot) => {
+      if(!snapshot.exists()){
+    refJornadas.child(idJornada).set({
+        	numJornada: numJornada,
+        	nombreLocal: nombreLocal,
+        	escudoLocal: escudoLocal,
+        	nombreVisitante: nombreVisitante,
+            escudoVisitante: escudoVisitante,
+            estadio: estadio,
+            arbitro: arbitro,
+            fecha: fecha,
+            hora: hora,
+            idLocal: idLocal,
+            idVisitante: idVisitante,
+            resultado: resultado
+      });
+      }
+      });
+  }
+  
   function buscaUltimaJornada(idLiga,idEquipo,nickname){
     var options = {
       method: 'GET',
@@ -2270,8 +2292,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let resultado = golesLocal+"-"+golesVisitante;
         agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}`}));
         agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}`}));
+        agent.add(new Card({title: `Alineación ${nombreLocal}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}`}));
         agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}`}));
+        agent.add(new Card({title: `Alineación ${nombreVisitante}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}`}));
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+        almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado);
         
       }
         });
@@ -2413,8 +2438,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let resultado = golesLocal+"-"+golesVisitante;
           agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}`}));
           agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}`}));
+          agent.add(new Card({title: `Alineación ${nombreLocal}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}`}));
           agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}`}));
+          agent.add(new Card({title: `Alineación ${nombreVisitante}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}`}));
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+          almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado);
         }else{
           console.log("ANTES DE PREDICCIONES");
           agent.setFollowupEvent({ "name": "BuscarPrediccionesJornada", "parameters": { "nickname": nickname, "numJornada": numJornada, "nombreLocal": nombreLocal, "escudoLocal": escudoLocal, "nombreVisitante": nombreVisitante, "escudoVisitante": escudoVisitante, "estadio": estadio, "arbitro": arbitro, "fecha": fecha, "hora": hora, "idJornada": idJornada } });
@@ -2511,6 +2539,252 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
   
+  function handleBuscarEstadisticasJornadaEquipo(agent){
+    const nickname = agent.parameters.nickname;
+    const idEquipo = agent.parameters.idEquipo;
+    const idJornada = agent.parameters.idJornada;
+    return refJornadas.child(idJornada).once('value').then((snapshot) => {
+      if(!snapshot.exists()){
+        agent.add("Por favor, para buscar una estadística de un equipo en una jornada debes haberla buscado primero.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      }else{
+        let datos = snapshot.val();
+        let numJornada = datos.numJornada;
+        console.log("NUMJORNADA:"+numJornada);
+        let nombreLocal = datos.nombreLocal;
+        let nombreVisitante = datos.nombreVisitante;
+        let idVisitante = datos.idVisitante;
+        let idLocal = datos.idLocal;
+        let idRival = idLocal;
+        if (idRival===idEquipo){
+         idRival = idVisitante; 
+        }
+        let resultado = datos.resultado;
+        let jornada = `Jornada${numJornada}`;
+        return refJornadas.child(idJornada).child("estadísticas").child(idEquipo).once('value').then((snapshot) => {
+          if(snapshot.exists()){
+            let estadísticas = snapshot.val();
+            let tirosTotales = estadísticas.tirosTotales;
+            let tirosPuerta = estadísticas.tirosPuerta;
+            let faltas = estadísticas.faltas;
+            let fuerasDeJuego = estadísticas.fuerasDeJuego;
+            let corners = estadísticas.corners;
+            let posesion = estadísticas.posesion;
+            let tarjetasAmarillas = estadísticas.tarjetasAmarillas;
+            let tarjetasRojas = estadísticas.tarjetasRojas;
+            let aciertoPases = estadísticas.aciertoPases;
+            let nombreEquipo = estadísticas.nombreEquipo;
+            agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}`}));
+		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+            
+      }else{             
+        var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/fixtures/statistics',
+      params: {fixture: idJornada, team: idEquipo},
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+        return axios.request(options).then(function (response) {
+      console.log("OPTIONS"+JSON.stringify(options));
+      let results = response.data.results;
+      console.log("ERRORS:" + results);
+      if (results == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Se ha producido un error en la búsqueda de estadísticas para esta jornada. Por favor, vuelve a intentarlo más tarde.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        let respuesta = response.data.response[0];
+        console.log("RESPUESTA"+JSON.stringify(respuesta));
+        let tirosTotales = respuesta.statistics[2].value;
+        let tirosPuerta = respuesta.statistics[0].value;
+        let faltas = respuesta.statistics[6].value;
+        let fuerasDeJuego = respuesta.statistics[8].value;
+        if (fuerasDeJuego == null){
+          fuerasDeJuego = 0;
+        }
+        let corners = respuesta.statistics[7].value;
+        let posesion = respuesta.statistics[9].value;
+        let tarjetasAmarillas = respuesta.statistics[10].value;
+        let tarjetasRojas = respuesta.statistics[11].value;
+        if (tarjetasRojas == null){
+          tarjetasRojas = 0;
+        }
+        let aciertoPases = respuesta.statistics[14].value;
+        let nombreEquipo = respuesta.team.name;
+        agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}`}));
+		agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+        refJornadas.child(idJornada).child("estadísticas").child(idEquipo).set({
+        	tirosTotales: tirosTotales,
+        	tirosPuerta: tirosPuerta,
+        	faltas: faltas,
+            fuerasDeJuego: fuerasDeJuego,
+            corners: corners,
+            posesion: posesion,
+            tarjetasAmarillas: tarjetasAmarillas,
+            tarjetasRojas: tarjetasRojas,
+            aciertoPases: aciertoPases,
+            nombreEquipo: nombreEquipo
+      });
+      }
+      });
+         }
+        });
+      }
+    });
+    
+  }
+  
+  function handleBuscarAlineacionesJornadaEquipo(agent){
+    const nickname = agent.parameters.nickname;
+    const idEquipo = agent.parameters.idEquipo;
+    const idJornada = agent.parameters.idJornada;
+    return refJornadas.child(idJornada).once('value').then((snapshot) => {
+      if(!snapshot.exists()){
+        agent.add("Por favor, para buscar una alineación de un equipo en una jornada debes haberla buscado primero.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      }else{
+        let datos = snapshot.val();
+        let numJornada = datos.numJornada;
+        console.log("NUMJORNADA:"+numJornada);
+        let nombreLocal = datos.nombreLocal;
+        let nombreVisitante = datos.nombreVisitante;
+        let idVisitante = datos.idVisitante;
+        let idLocal = datos.idLocal;
+        let idRival = idLocal;
+        if (idRival===idEquipo){
+         idRival = idVisitante; 
+        }
+        return refJornadas.child(idJornada).child("alineaciones").child(idEquipo).once('value').then((snapshot) => {
+          if(snapshot.exists()){
+            let alineaciones = snapshot.val();
+            let entrenador = alineaciones.entrenador;
+            let formacion = alineaciones.formacion;
+            let titulares = alineaciones.titulares;
+            let nombreEquipo = alineaciones.nombreEquipo;
+            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}`}));
+            agent.add(new Card({title: "Alineación del rival",buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
+		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+            
+      }else{             
+        var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/fixtures/lineups',
+      params: {fixture: idJornada, team: idEquipo},
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+        return axios.request(options).then(function (response) {
+      console.log("OPTIONS"+JSON.stringify(options));
+      let results = response.data.results;
+      console.log("ERRORS:" + results);
+      if (results == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Se ha producido un error en la búsqueda de alineaciones para esta jornada. Por favor, vuelve a intentarlo más tarde.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        let respuesta = response.data.response[0];
+        let suplentesJSON = respuesta.substitutes;
+        console.log("RESPUESTA"+JSON.stringify(respuesta));
+        let entrenador = respuesta.coach.name;
+        let formacion = respuesta.formation;
+        let titulares = "Titulares:";
+        let onceInicial = respuesta.startXI;
+        for(var i=0; i < 11; i++){
+          let numero = onceInicial[i].player.number;
+          let nombreJugador = onceInicial[i].player.name;
+          let posicion = onceInicial[i].player.pos;
+          if(posicion === "G"){
+           posicion = "Portero"; 
+          }else if (posicion === "D"){
+           posicion = "Defensa"; 
+          }else if (posicion === "M"){
+           posicion = "Centrocampista"; 
+          }else{
+           posicion = "Atacante"; 
+          }
+          titulares = titulares + `\n${numero}.\t${nombreJugador} - ${posicion}`;
+        }
+        let suplentes = "Suplentes:";
+        let lenSuplentes = Object.keys(suplentesJSON).length;
+        for(var j=0; j < lenSuplentes; j++){
+          let numero = suplentesJSON[j].player.number;
+          let nombreJugador = suplentesJSON[j].player.name;
+          let posicion = suplentesJSON[j].player.pos;
+          if(posicion === "G"){
+           posicion = "Portero"; 
+          }else if (posicion === "D"){
+           posicion = "Defensa"; 
+          }else if (posicion === "M"){
+           posicion = "Centrocampista"; 
+          }else{
+           posicion = "Atacante"; 
+          }
+          suplentes = suplentes + `\n${numero}.\t${nombreJugador} - ${posicion}`;
+        }
+        let nombreEquipo = respuesta.team.name;
+        agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}`}));
+        agent.add(new Card({title: "Alineación del rival",buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
+		agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+        refJornadas.child(idJornada).child("alineaciones").child(idEquipo).set({
+        	entrenador: entrenador,
+        	formacion: formacion,
+        	titulares: titulares,
+            suplentes: suplentes,
+            nombreEquipo: nombreEquipo
+      });
+      }
+      });
+         }
+        });
+      }
+    });
+    
+  }
+  
+  function handleBuscarSuplentesJornadaEquipo(agent){
+    const nickname = agent.parameters.nickname;
+    const idEquipo = agent.parameters.idEquipo;
+    const idJornada = agent.parameters.idJornada;
+    return refJornadas.child(idJornada).once('value').then((snapshot) => {
+      if(!snapshot.exists()){
+            agent.add("Por favor, para ver los suplentes de una jornada búscala primero y pulsa el botón de ver suplentes.");
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          }else{
+            let datos = snapshot.val();
+        let numJornada = datos.numJornada;
+        console.log("NUMJORNADA:"+numJornada);
+        let nombreLocal = datos.nombreLocal;
+        let nombreVisitante = datos.nombreVisitante;
+        let idVisitante = datos.idVisitante;
+        let idLocal = datos.idLocal;
+        let idRival = idLocal;
+        if (idRival===idEquipo){
+         idRival = idVisitante; 
+        }
+            return refJornadas.child(idJornada).child("alineaciones").child(idEquipo).once('value').then((snapshot) => {
+          if(!snapshot.exists()){
+            agent.add("Por favor, para ver los suplentes de una jornada búscala primero y pulsa el botón de ver suplentes.");
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          }else{
+            let alineaciones = snapshot.val();
+            let entrenador = alineaciones.entrenador;
+            let formacion = alineaciones.formacion;
+            let suplentes = alineaciones.suplentes;
+            let nombreEquipo = alineaciones.nombreEquipo;
+            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${suplentes}`,buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
+		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+          }
+    });
+          }
+    });
+    
+  }
+  
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -2590,5 +2864,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('BuscarUltimaJornada', handleBuscarUltimaJornada);
   intentMap.set('BuscarJornadaConcreta', handleBuscarJornadaConcreta);
   intentMap.set('BuscarPrediccionesJornada', handleBuscarPrediccionesJornada);
+  intentMap.set('BuscarEstadisticasJornadaEquipo', handleBuscarEstadisticasJornadaEquipo);
+  intentMap.set('BuscarAlineacionesJornadaEquipo', handleBuscarAlineacionesJornadaEquipo);
+  intentMap.set('BuscarSuplentesJornadaEquipo', handleBuscarSuplentesJornadaEquipo);
   agent.handleRequest(intentMap);
 });

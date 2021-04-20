@@ -1,0 +1,31 @@
+[
+  {
+    "id": "db17dd4f-480e-4ecb-abaf-bd51b12a4ae5",
+    "data": [
+      {
+        "text": "Ver alineación del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "123",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": false
+      },
+      {
+        "text": " en la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "11111111",
+        "meta": "@sys.number-integer",
+        "alias": "idJornada",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

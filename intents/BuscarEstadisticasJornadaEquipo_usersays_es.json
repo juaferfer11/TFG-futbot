@@ -1,0 +1,31 @@
+[
+  {
+    "id": "9e6a54bb-3c82-42e8-9a93-db7d6d91a493",
+    "data": [
+      {
+        "text": "Ver estadísticas del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "123",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": true
+      },
+      {
+        "text": " en la jornada ",
+        "userDefined": false
+      },
+      {
+        "text": "1111111",
+        "meta": "@sys.number-integer",
+        "alias": "idJornada",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
