@@ -351,7 +351,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   function handleBuscarCompeticion(agent) {
     const nickname = agent.parameters.nickname;
-    const competicion = agent.parameters.competicion;
+    var competicion = agent.parameters.competicion;
+    var competicionAux = [competicion];
+    if (/\s/.test(competicion)) {
+    competicionAux = competicion.split(" ");
+	}
+    for (var i = 0; i < competicionAux.length; i++) {
+       competicionAux[i] = competicionAux[i].charAt(0).toUpperCase() + competicionAux[i].substring(1);     
+   }
+    competicion=competicionAux.join(' ');
     console.log("COMPETICIÓN: " + competicion);
     var location = agent.parameters.location;
     var buscaPais = location != "";
@@ -371,6 +379,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         }
       } else {
         if (buscaPais) {
+          var locationAux = [location];
+    		if (/\s/.test(location)) {
+    			locationAux = location.split(" ");
+				}
+    		for (var i = 0; i < locationAux.length; i++) {
+       			locationAux[i] = locationAux[i].charAt(0).toUpperCase() + locationAux[i].substring(1);     
+   			}
+          location = locationAux.join(' ');
           if (aux.país == location) {
             let nombre = snapshot.child(`${competicion}`).key;
             let logo = aux.logo;
@@ -1064,6 +1080,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     var nickname = agent.parameters.nickname;
     var jugador = agent.parameters.jugador;
     var equipo = agent.parameters.equipo;
+    var equipoAux = [equipo];
+    if (/\s/.test(equipo)) {
+    equipoAux = equipo.split(" ");
+	}
+    for (var i = 0; i < equipoAux.length; i++) {
+       equipoAux[i] = equipoAux[i].charAt(0).toUpperCase() + equipoAux[i].substring(1);     
+   }
+    equipo = equipoAux.join(' ');
     var nicknameEvento = agent.parameters.nicknameEvento;
     var jugadorEvento = agent.parameters.jugadorEvento;
     var equipoEvento = agent.parameters.equipoEvento;

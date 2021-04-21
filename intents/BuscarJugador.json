@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "29ea8364-077f-45f6-b672-a23f89831545",
+          "id": "f8cc6210-cdfa-4013-85c4-e4eb87535ce0",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "3099c0f8-9e66-43d6-b950-4dbff0ac432e",
+          "id": "f3245da5-87db-4c94-b8cb-fe23488c641c",
           "name": "jugador",
           "required": false,
           "dataType": "@sys.any",
@@ -40,7 +40,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "cb36acf6-dfab-45e7-b3f1-9beee88ca439",
+          "id": "8e4138e9-2f98-4602-854f-8eb76cf3dcab",
           "name": "equipo",
           "required": false,
           "dataType": "@sys.any",
@@ -54,7 +54,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "a0a42b09-1850-4c17-9f17-63a6c6bd9359",
+          "id": "ff08aea3-a233-4281-a2de-846383fef757",
           "name": "nicknameEvento",
           "required": false,
           "dataType": "",
@@ -67,7 +67,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "9a3c50e3-7264-4836-9d24-83ac246c2dbf",
+          "id": "ea5084c6-0cbd-4f09-b674-1de5309e94e0",
           "name": "equipoEvento",
           "required": false,
           "dataType": "",
@@ -80,7 +80,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "bfe18f06-26e9-429f-bccb-6fa4c3f3b162",
+          "id": "065a9085-0945-41a2-88ec-1744f9de4cd4",
           "name": "jugadorEvento",
           "required": false,
           "dataType": "",

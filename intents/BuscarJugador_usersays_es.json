@@ -1,5 +1,34 @@
 [
   {
+    "id": "3d01213e-e7a9-4a24-ad48-230337f45ff9",
+    "data": [
+      {
+        "text": "Ver información del jugador ",
+        "userDefined": false
+      },
+      {
+        "text": "Haaland",
+        "meta": "@sys.any",
+        "alias": "jugador",
+        "userDefined": true
+      },
+      {
+        "text": " del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "c7761bb6-7d3b-464d-8f52-23bdf4c9c478",
     "data": [
       {

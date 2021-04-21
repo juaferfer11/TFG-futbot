@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "74a6eb87-076e-4355-b005-588facac4926",
+          "id": "df467eac-565b-4443-b2f2-a5d3267c1c5a",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "6062841f-dcbf-4467-b66b-fa5afca9d1f6",
+          "id": "24564202-89c5-407b-ae65-1460fbad71ad",
           "name": "competicion",
           "required": false,
           "dataType": "@sys.any",
