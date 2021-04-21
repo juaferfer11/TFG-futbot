@@ -124,10 +124,13 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return refUsuario.once('value').then((snapshot) => {
       var aux = snapshot.exists();
       console.log("AUX: " + aux);
-      if (!aux) {
+      if (nickname==="Cancelar"||nickname==="Salir"){ 
+      	agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
+      }else if (!aux) {
         agent.add(`Vaya, parece que ${nickname} no es un nombre de usuario registrado. Por favor, inténtalo de nuevo con otro nombre de usuario válido.`);
         agent.setContext({ "name": "InicioLogin-followup", "lifespan": 1 });
-      } else {
+      }
+      else {
         agent.add(`Perfecto, ${nickname}. Introduce ahora tu contraseña.`);
         agent.setContext({ "name": "LoginNombreUsuario-followup", "lifespan": 1, "parameters": { "nickname": nickname } });
 
@@ -142,7 +145,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return refUsuarios.once('value').then((snapshot) => {
       var aux = snapshot.child(`${nickname}/contraseña`).val();
       console.log("pass=" + aux);
-      if (aux != contraseña) {
+      if (contraseña==="Cancelar"||contraseña==="Salir"){ 
+      	agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
+      } else if (aux != contraseña) {
         agent.add(`La contraseña introducida no es correcta para el usuario ${nickname}. Por favor, inténtalo de nuevo.`);
         agent.setContext({ "name": "LoginNombreUsuario-followup", "lifespan": 1, "parameters": { "nickname": nickname } });
       } else {

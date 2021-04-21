@@ -23,8 +23,8 @@
           "textToSpeech": "",
           "lang": "es",
           "speech": [
-            "Genial, procedamos entonces al inicio de sesión. Por favor, dime tu nombre de usuario.",
-            "Muy bien, empecemos. ¿Podrías decirme tu nombre de usuario?"
+            "Genial, procedamos entonces al inicio de sesión. Por favor, dime tu nombre de usuario. Puedes cancelar el login en cualquier momento escribiendo \"Cancelar\" o \"Salir\".",
+            "Muy bien, empecemos. ¿Podrías decirme tu nombre de usuario? Puedes cancelar el login en cualquier momento escribiendo \"Cancelar\" o \"Salir\"."
           ],
           "condition": ""
         }
