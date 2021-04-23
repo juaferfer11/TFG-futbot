@@ -1,0 +1,21 @@
+[
+  {
+    "id": "bfa8b945-ae66-4749-b49c-7cbcff8ad406",
+    "data": [
+      {
+        "text": "Buscar estadísticas en liga del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "123",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

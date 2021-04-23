@@ -1,5 +1,54 @@
 [
   {
+    "id": "175768f9-fb87-48fb-829f-ed2eca823ecb",
+    "data": [
+      {
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "c491010d-08bf-4d4f-960f-672e48054531",
     "data": [
       {

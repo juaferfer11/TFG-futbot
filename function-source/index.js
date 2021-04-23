@@ -179,11 +179,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let direccion = aux.dirección;
         let estadio = aux.estadio;
         let capacidadestadio = aux.capacidadestadio;
-
-        agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir el equipo a favoritos" }));
-
+		let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    	return refFavoritos.once('value').then((snapshot) => {
+        if (snapshot.exists()) {
+          agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir el equipo a favoritos" }));
+        }else{
+          agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Quitar de favoritos", buttonUrl: `Quiero eliminar el ${nombreEquipo} de mi lista de equipos favoritos` }));
+        }
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "nombreEquipo": nombreEquipo, "escudo": escudo } });
-
+		});
       }
     });
   }
@@ -283,7 +287,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           }
           else if (snapshot.numChildren() < 5) {
             refFavoritos.child(`${equipo}`).set({
-              escudo: escudo
+              escudo: escudo,
+              idEquipo: aux.idAPI
             });
 
             agent.add("Equipo añadido a favoritos.");
@@ -335,9 +340,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           var aux = childSnapshot.val();
           let nombre = childSnapshot.key;
           let escudo = aux.escudo;
+          let idEquipo = aux.idEquipo;
           agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: escudo, text: "", buttonText: "Ver detalles", buttonUrl: `Quiero información sobre el ${nombre}` }));
           agent.add(new Card({ title: `Nombre: ${nombre}`, text: "", buttonText: "Quitar de favoritos", buttonUrl: `Quiero eliminar el ${nombre} de mi lista de equipos favoritos` }));
-          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          agent.add(new Card({ title: `Nombre: ${nombre}`, text: "", buttonText: "Ver estadísticas en liga", buttonUrl: `Buscar estadísticas en liga del equipo ${idEquipo}` }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "nombreEquipo": nombre } });
 
         });
       } else {
@@ -1825,8 +1832,57 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
     });
   }
-
+  function handleBuscarEstadisticasEquipoId(agent) {
+    console.log("ESTADÍSTICAS EQUIPO ID");
+    const idEquipo= agent.parameters.idEquipo;
+    const nickname = agent.parameters.nickname;
+    const nombreEquipo = agent.parameters.nombreEquipo;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    if (nombreEquipo == ""){
+      agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita escribir cosas como FC o Balompié. Puedes acudir a la clasificación de su liga para ver su nombre.");
+      agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+    }else{
+    return refFavoritos.child(nombreEquipo).once('value').then((snapshot) => {      
+        let nombreLiga = snapshot.val().nombreLiga;
+        if(nombreLiga != null){
+          agent.setContext({ "name": "Home", "lifespan": 1});
+          agent.setFollowupEvent({ "name": "BuscarJugadorEstadisticasEquipo", "parameters": {"nickname": nickname,"equipo": nombreEquipo, "competicion": nombreLiga } });
+        }else{
+          var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/leagues',
+      params: { season: 2020, team: idEquipo, type: "League" },
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+    return axios.request(options).then(function (response) {
+      let errors = response.data.results;
+      console.log("ERRORS:" + errors);
+      if (errors == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita escribir cosas como FC o Balompié. Puedes acudir a la clasificación de su liga para ver su nombre.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        console.log("NO HAY ERRORES");
+        let respuesta = response.data.response[0];
+        nombreLiga = respuesta.league.name;
+        agent.setContext({ "name": "Home", "lifespan": 1});
+        agent.setFollowupEvent({ "name": "BuscarJugadorEstadisticasEquipo", "parameters": {"nickname": nickname,"equipo": nombreEquipo, "competicion": nombreLiga } });
+        refFavoritos.child(nombreEquipo).update({
+          nombreLiga: nombreLiga
+          });
+      }
+    });
+        }
+        
+          });
+      }
+      
+  }
   function handleBuscarEstadisticasEquipo(agent) {
+    console.log("ESTADÍSTICAS EQUIPO");
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
     var competicion = agent.parameters.competicion;
@@ -2867,5 +2923,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('BuscarAlineacionesJornadaEquipo', handleBuscarAlineacionesJornadaEquipo);
   intentMap.set('BuscarSuplentesJornadaEquipo', handleBuscarSuplentesJornadaEquipo);
   intentMap.set('BuscarCompeticionNombreYPais', handleBuscarCompeticionNombreYPais);
+  intentMap.set('BuscarEstadisticasEquipoId', handleBuscarEstadisticasEquipoId);
   agent.handleRequest(intentMap);
 });
