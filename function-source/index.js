@@ -124,9 +124,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return refUsuario.once('value').then((snapshot) => {
       var aux = snapshot.exists();
       console.log("AUX: " + aux);
-      if (nickname==="Cancelar"||nickname==="Salir"){ 
-      	agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
-      }else if (!aux) {
+      if (nickname === "Cancelar" || nickname === "Salir") {
+        agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
+      } else if (!aux) {
         agent.add(`Vaya, parece que ${nickname} no es un nombre de usuario registrado. Por favor, inténtalo de nuevo con otro nombre de usuario válido.`);
         agent.setContext({ "name": "InicioLogin-followup", "lifespan": 1 });
       }
@@ -145,8 +145,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return refUsuarios.once('value').then((snapshot) => {
       var aux = snapshot.child(`${nickname}/contraseña`).val();
       console.log("pass=" + aux);
-      if (contraseña==="Cancelar"||contraseña==="Salir"){ 
-      	agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
+      if (contraseña === "Cancelar" || contraseña === "Salir") {
+        agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
       } else if (aux != contraseña) {
         agent.add(`La contraseña introducida no es correcta para el usuario ${nickname}. Por favor, inténtalo de nuevo.`);
         agent.setContext({ "name": "LoginNombreUsuario-followup", "lifespan": 1, "parameters": { "nickname": nickname } });
@@ -349,95 +349,106 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   //BÚSQUEDA DE COMPETICIONES
   //=========================================================================================================================================================================
+  function handleBuscarCompeticionNombreYPais(agent) {
+    const nickname = agent.parameters.nickname;
+    console.log("BUSCAR CON PAÍS");
+    var competicion = agent.parameters.competicion;
+    var competicionAux = [competicion];
+    if (/\s/.test(competicion)) {
+      competicionAux = competicion.split(" ");
+    }
+    for (var i = 0; i < competicionAux.length; i++) {
+      competicionAux[i] = competicionAux[i].charAt(0).toUpperCase() + competicionAux[i].substring(1);
+    }
+    competicion = competicionAux.join(' ');
+    console.log("COMPETICIÓN: " + competicion);
+    var location = agent.parameters.location.country;
+    var locationAux = [location];
+    if (/\s/.test(location)) {
+      locationAux = location.split(" ");
+    }
+    for (var j = 0; j < locationAux.length; j++) {
+      locationAux[j] = locationAux[j].charAt(0).toUpperCase() + locationAux[j].substring(1);
+    }
+    location = locationAux.join(' ');
+    console.log(location);
+    return refCompeticiones.child(competicion).once('value').then((snapshot) => {
+      var aux = snapshot.val();
+      console.log(aux);
+      if (aux == null||aux.país != location) {
+        agent.add("No he podido encontrar ninguna competición para ese país. Por favor, ten en cuenta que yo me especializo en las grandes ligas europeas, por lo que ahora mismo no soy capaz de proporcionar este servicio para ligas de otros países, o a ligas menores de dichos países. Para más información, escribe 'Ayuda'");
+
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+          let datos = aux;
+          let nombre = snapshot.key;
+          console.log("KEY:"+nombre);
+          let logo = datos.logo;
+          let fechacomienzo = datos.fechacomienzo;
+          let fechafin = datos.fechafin;
+          let pais = datos.país;
+          let tipo = datos.tipo;
+          let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
+		  return refFavoritos.once('value').then((snapshot) => {
+          if (snapshot.child(`${nombre}`).exists()) {
+            agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          }else{
+            agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir la competición a favoritos" }));
+            agent.add(new Card({ title: `Clasificación de la ${nombre}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          }
+          agent.add(new Card({ title: `Lista de máximos goleadores de la ${nombre}`, buttonText: "Ver lista de máximos goleadores", buttonUrl: `Ver los máximos goleadores de la ${nombre}` }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo, "pais": pais } });
+          });
+          
+      }
+    });
+    
+  }
+  
   function handleBuscarCompeticion(agent) {
     const nickname = agent.parameters.nickname;
     var competicion = agent.parameters.competicion;
     var competicionAux = [competicion];
     if (/\s/.test(competicion)) {
-    competicionAux = competicion.split(" ");
-	}
+      competicionAux = competicion.split(" ");
+    }
     for (var i = 0; i < competicionAux.length; i++) {
-       competicionAux[i] = competicionAux[i].charAt(0).toUpperCase() + competicionAux[i].substring(1);     
-   }
-    competicion=competicionAux.join(' ');
+      competicionAux[i] = competicionAux[i].charAt(0).toUpperCase() + competicionAux[i].substring(1);
+    }
+    competicion = competicionAux.join(' ');
     console.log("COMPETICIÓN: " + competicion);
-    var location = agent.parameters.location;
-    var buscaPais = location != "";
-    console.log("LOCATION: " + location);
     return refCompeticiones.once('value').then((snapshot) => {
       var aux = snapshot.child(`${competicion}`).val();
       console.log(aux);
       if (aux == null) {
-        if (buscaPais) {
-          return translate(location, { from: "es", to: "en", engine: "google", key: translateKey }).then(text => {
-            location = text;
-            agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters": { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais } });
-          });
-        } else {
-          console.log("NO TIENE PAÍS");
-          agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters": { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais } });
-        }
+        agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters": { "nickname": nickname, "competicion": competicion} });
       } else {
-        if (buscaPais) {
-          var locationAux = [location];
-    		if (/\s/.test(location)) {
-    			locationAux = location.split(" ");
-				}
-    		for (var i = 0; i < locationAux.length; i++) {
-       			locationAux[i] = locationAux[i].charAt(0).toUpperCase() + locationAux[i].substring(1);     
-   			}
-          location = locationAux.join(' ');
-          if (aux.país == location) {
-            let nombre = snapshot.child(`${competicion}`).key;
-            let logo = aux.logo;
-            let fechacomienzo = aux.fechacomienzo;
-            let fechafin = aux.fechafin;
-            let pais = aux.país;
-            let tipo = aux.tipo;
-
-            agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir la competición a favoritos" }));
-
-            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo, "pais": pais } });
-          } else {
-            return translate(location, { from: "es", to: "en", engine: "google", key: translateKey }).then(text => {
-              location = text;
-              agent.setFollowupEvent({ "name": "CompeticionAPIenBD", "parameters": { "nickname": nickname, "competicion": competicion, "location": location, "buscaPais": buscaPais } });
-            });
-          }
-        } else {
-          console.log("NO TIENE PAÍS");
           let nombre = snapshot.child(`${competicion}`).key;
           let logo = aux.logo;
           let fechacomienzo = aux.fechacomienzo;
           let fechafin = aux.fechafin;
           let pais = aux.país;
           let tipo = aux.tipo;
-
-          agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir la competición a favoritos" }));
-
+          let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
+		  return refFavoritos.once('value').then((snapshot) => {
+          if (snapshot.child(`${nombre}`).exists()) {
+            agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          }else{
+            agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir la competición a favoritos" }));
+            agent.add(new Card({ title: `Clasificación de la ${nombre}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          }
+          agent.add(new Card({ title: `Lista de máximos goleadores de la ${nombre}`, buttonText: "Ver lista de máximos goleadores", buttonUrl: `Ver los máximos goleadores de la ${nombre}` }));
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo, "pais": pais } });
-        }
+          });
+          
+          
+        
       }
     });
   }
   function handleVerificarSiCompeticionExisteEnAPI(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
-    const location = agent.parameters.location;
-    const buscaPais = agent.parameters.buscaPais;
-    console.log("BUSCA PAÍS: " + buscaPais);
-    console.log("PAÍS: " + location);
-    if (buscaPais) {
-      var options = {
-        method: 'GET',
-        url: 'https://v3.football.api-sports.io/leagues',
-        params: { name: `${competicion}`, country: `${location}`, season: 2020 },
-        headers: {
-          'x-rapidapi-host': 'v3.football.api-sports.io',
-          'x-rapidapi-key': apiKey,
-        }
-      };
-    } else {
       var options = {
         method: 'GET',
         url: 'https://v3.football.api-sports.io/leagues',
@@ -447,7 +458,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           'x-rapidapi-key': apiKey,
         }
       };
-    }
     return axios.request(options).then(function (response) {
       let results = response.data.results;
       console.log("RESULTADOS:" + results);
@@ -491,7 +501,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
       pais = text;
       return translate(tipo, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
-        if (text == "taza") {
+        if (text === "taza") {
           tipo = "Copa";
           agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}` }));
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo } });
@@ -611,6 +621,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           let pais = aux.pais;
           agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}`, buttonText: "Ver detalles", buttonUrl: `Quiero información sobre la competición ${nombre}` }));
           agent.add(new Card({ title: `Nombre: ${nombre}`, buttonText: "Quitar de favoritos", buttonUrl: `Quiero eliminar la competición ${nombre} de favoritos` }));
+          agent.add(new Card({ title: `Clasificación de la ${nombre}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          agent.add(new Card({ title: `Lista de máximos goleadores de la ${nombre}`, buttonText: "Ver lista de máximos goleadores", buttonUrl: `Ver los máximos goleadores de la ${nombre}` }));
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
 
         });
@@ -1021,7 +1033,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           let tipo = datos.tipo;
 
           agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir la competición a favoritos" }));
-
+          agent.add(new Card({ title: `Clasificación de la ${nombre}`, buttonText: "Ver clasificación", buttonUrl: `Ver la clasificación de la ${nombre}` }));
+          agent.add(new Card({ title: `Lista de máximos goleadores de la ${nombre}`, buttonText: "Ver lista de máximos goleadores", buttonUrl: `Ver los máximos goleadores de la ${nombre}` }));
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo, "pais": pais } });
         });
       }
@@ -1067,14 +1080,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     });
   }
-  
-  function checkLigaEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion, idLigaAPI){
+
+  function checkLigaEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion, idLigaAPI) {
     refCompeticiones.orderByChild('idAPI').equalTo(idLigaAPI).once('value').then((snapshot) => {
-      if(snapshot.exists()){
+      if (snapshot.exists()) {
         guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion);
       }
     });
-    }
+  }
 
   function handleBuscarJugador(agent) {
     var nickname = agent.parameters.nickname;
@@ -1082,21 +1095,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     var equipo = agent.parameters.equipo;
     var equipoAux = [equipo];
     if (/\s/.test(equipo)) {
-    equipoAux = equipo.split(" ");
-	}
-    for (var i = 0; i < equipoAux.length; i++) {
-       equipoAux[i] = equipoAux[i].charAt(0).toUpperCase() + equipoAux[i].substring(1);     
-   }
-    equipo = equipoAux.join(' ');
-    var nicknameEvento = agent.parameters.nicknameEvento;
-    var jugadorEvento = agent.parameters.jugadorEvento;
-    var equipoEvento = agent.parameters.equipoEvento;
-    console.log("NICK:" + nicknameEvento);
-    if (nicknameEvento != "") {
-      nickname = nicknameEvento;
-      jugador = jugadorEvento;
-      equipo = equipoEvento;
+      equipoAux = equipo.split(" ");
     }
+    for (var i = 0; i < equipoAux.length; i++) {
+      equipoAux[i] = equipoAux[i].charAt(0).toUpperCase() + equipoAux[i].substring(1);
+    }
+    equipo = equipoAux.join(' ');
     if (jugador.includes("-")) {
       let jugadorAux = jugador.split("-");
       jugador = jugadorAux[1];
@@ -1260,7 +1264,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 return translate(pais, { from: "en", to: "es", engine: "libre" }).then(text => {
                   pais = text;
                   agent.setContext({ "name": "Home", "lifespan": 1 });
-                  agent.setFollowupEvent({ "name": "BuscarJugador", "parameters": { "nicknameEvento": nickname, "equipoEvento": nombreEquipo, "jugadorEvento": jugador } });
+                  agent.setFollowupEvent({ "name": "BuscarJugador", "parameters": { "nickname": nickname, "equipo": nombreEquipo, "jugador": jugador } });
                   return refEquipos.once('value').then((snapshot) => {
                     if (snapshot.child(`${nombreEquipo}`).exists()) {
                       console.log("No se añade a BD.");
@@ -1642,12 +1646,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
-  
+
   //=========================================================================================================================================================================
   //BUSCAR ESTADÍSTICAS DE EQUIPOS
   //=========================================================================================================================================================================
-  
-  function guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante,fechaHoy){
+
+  function guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy) {
     refEquipos.child(nombreEquipo).child("estadísticas").set({
       partidosJugados: partidosJugados,
       victorias: victorias,
@@ -1675,165 +1679,157 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       fecha: fechaHoy
     });
   }
-  
-  function actualizarEstadisticasEquipo(idEquipo, idLiga, nickname){
-    var options = {
-              method: 'GET',
-              url: 'https://v3.football.api-sports.io/standings',
-              params: { team: `${idEquipo}`, season: 2020, league: idLiga },
-              headers: {
-                'x-rapidapi-host': 'v3.football.api-sports.io',
-                'x-rapidapi-key': apiKey,
-              }
-            };
-            return axios.request(options).then(function (response) {
-              let results = response.data.results;
-              console.log("ERRORS:" + results);
-              if (results == 0) {
-                console.log("HAY ERRORES");
-                agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita las tildes y cosas como el FC o Balompié.");
-                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-              } else {
-                console.log("NO HAY ERRORES");
-                let respuesta = response.data.response[0].league.standings[0][0];
-                let nombreEquipo = respuesta.team.name;
-                let partidosJugados = respuesta.all.played;
-                let victorias = respuesta.all.win;
-                let derrotas = respuesta.all.lose;
-                let empates = respuesta.all.draw;
-                let golesMarcados = respuesta.all.goals.for;
-                let golesRecibidos = respuesta.all.goals.against;
-                let difGoles = respuesta.goalsDiff;
-                let forma = respuesta.form;
-                forma = forma.replace(/W/g,'V');
-                forma = forma.replace(/D/g,'E');
-                forma = forma.replace(/L/g,'D');
-                let posicionClasificacion = respuesta.rank;
-                let puntos = respuesta.points;
-                let consecuenciaClasificacion = respuesta.description;
-                let partidosJugadosLocal = respuesta.home.played;
-                let victoriasLocal = respuesta.home.win;
-                let empatesLocal = respuesta.home.draw;
-                let derrotasLocal = respuesta.home.lose;
-                let golesMarcadosLocal = respuesta.home.goals.for;
-                let golesRecibidosLocal = respuesta.home.goals.against;
-                let partidosJugadosVisitante = respuesta.away.played;
-                let victoriasVisitante = respuesta.away.win;
-                let empatesVisitante = respuesta.away.draw;
-                let derrotasVisitante = respuesta.away.lose;
-                let golesMarcadosVisitante = respuesta.away.goals.for;
-                let golesRecibidosVisitante = respuesta.away.goals.against;
-                console.log("NOMBRE:"+nombreEquipo);
-                let fechaHoyTiempo = new Date();
-                let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
-                if (consecuenciaClasificacion == null) {
-                  consecuenciaClasificacion = "Ninguna";
-                  agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
-                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
-				  guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy);
-                }else{
-                  return translate(consecuenciaClasificacion, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
-                   consecuenciaClasificacion=text;
-                   agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
-                   agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
-				   guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy);
-              });
-                  }
-              }
-            }).catch(function (error) {
-              console.error(error);
-            });
-  }
-  
-  function buscarEquipo(equipo, nickname, competicion){
-    var options = {
-              method: 'GET',
-              url: 'https://v3.football.api-sports.io/teams',
-              params: { search: `${equipo}` },
-              headers: {
-                'x-rapidapi-host': 'v3.football.api-sports.io',
-                'x-rapidapi-key': apiKey,
-              }
-            };
-            return axios.request(options).then(function (response) {
-              let errors = response.data.results;
-              console.log("ERRORS:" + errors);
-              if (errors == 0) {
-                console.log("HAY ERRORES");
-                agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita escribir cosas como FC o Balompié. Puedes acudir a la clasificación de su liga para ver su nombre.");
-                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-              } else {
-                console.log("NO HAY ERRORES");
-                let respuesta = response.data.response[0];
-                let nombreEquipo = respuesta.team.name;
-                let idAPI = respuesta.team.id;
-                let escudo = respuesta.team.logo;
-                let añofundación = respuesta.team.founded;
-                let pais = respuesta.team.country;
-                let ciudad = respuesta.venue.city;
-                let direccion = respuesta.venue.address;
-                let estadio = respuesta.venue.name;
-                let capacidadestadio = respuesta.venue.capacity;
-                return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
-                  pais = text;
-                  agent.setContext({ "name": "Home", "lifespan": 1 });
-                  agent.setFollowupEvent({ "name": "BuscarJugadorEstadisticasEquipo", "parameters": { "nicknameEvento": nickname, "equipoEvento": nombreEquipo, "competicionEvento": competicion } });
-                  return refEquipos.once('value').then((snapshot) => {
-                    if (snapshot.child(`${nombreEquipo}`).exists()) {
-                      console.log("No se añade a BD.");
-                    } else {
-                      refEquipos.child(`${nombreEquipo}`).set({
-                        escudo: escudo,
-                        ciudad: ciudad,
-                        idAPI: idAPI,
-                        añofundación: añofundación,
-                        país: pais,
-                        dirección: direccion,
-                        estadio: estadio,
-                        capacidadestadio: capacidadestadio,
-                      });
-                    }
-                  });
-                });
-              }
 
-            });
+  function actualizarEstadisticasEquipo(idEquipo, idLiga, nickname) {
+    var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/standings',
+      params: { team: `${idEquipo}`, season: 2020, league: idLiga },
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+    return axios.request(options).then(function (response) {
+      let results = response.data.results;
+      console.log("ERRORS:" + results);
+      if (results == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita las tildes y cosas como el FC o Balompié.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        console.log("NO HAY ERRORES");
+        let respuesta = response.data.response[0].league.standings[0][0];
+        let nombreEquipo = respuesta.team.name;
+        let partidosJugados = respuesta.all.played;
+        let victorias = respuesta.all.win;
+        let derrotas = respuesta.all.lose;
+        let empates = respuesta.all.draw;
+        let golesMarcados = respuesta.all.goals.for;
+        let golesRecibidos = respuesta.all.goals.against;
+        let difGoles = respuesta.goalsDiff;
+        let forma = respuesta.form;
+        forma = forma.replace(/W/g, 'V');
+        forma = forma.replace(/D/g, 'E');
+        forma = forma.replace(/L/g, 'D');
+        let posicionClasificacion = respuesta.rank;
+        let puntos = respuesta.points;
+        let consecuenciaClasificacion = respuesta.description;
+        let partidosJugadosLocal = respuesta.home.played;
+        let victoriasLocal = respuesta.home.win;
+        let empatesLocal = respuesta.home.draw;
+        let derrotasLocal = respuesta.home.lose;
+        let golesMarcadosLocal = respuesta.home.goals.for;
+        let golesRecibidosLocal = respuesta.home.goals.against;
+        let partidosJugadosVisitante = respuesta.away.played;
+        let victoriasVisitante = respuesta.away.win;
+        let empatesVisitante = respuesta.away.draw;
+        let derrotasVisitante = respuesta.away.lose;
+        let golesMarcadosVisitante = respuesta.away.goals.for;
+        let golesRecibidosVisitante = respuesta.away.goals.against;
+        console.log("NOMBRE:" + nombreEquipo);
+        let fechaHoyTiempo = new Date();
+        let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+        if (consecuenciaClasificacion == null) {
+          consecuenciaClasificacion = "Ninguna";
+          agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
+          guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy);
+        } else {
+          return translate(consecuenciaClasificacion, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
+            consecuenciaClasificacion = text;
+            agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
+            guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy);
+          });
+        }
+      }
+    }).catch(function (error) {
+      console.error(error);
+    });
   }
-  
-  function handleAmpliarEstadisticasEquipo(){
+
+  function buscarEquipo(equipo, nickname, competicion) {
+    var options = {
+      method: 'GET',
+      url: 'https://v3.football.api-sports.io/teams',
+      params: { search: `${equipo}` },
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': apiKey,
+      }
+    };
+    return axios.request(options).then(function (response) {
+      let errors = response.data.results;
+      console.log("ERRORS:" + errors);
+      if (errors == 0) {
+        console.log("HAY ERRORES");
+        agent.add("Vaya, parece que ese equipo no existe o no soy capaz de encontrarlo. Por favor, asegúrate de que estás escribiendo el nombre correctamente y evita escribir cosas como FC o Balompié. Puedes acudir a la clasificación de su liga para ver su nombre.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        console.log("NO HAY ERRORES");
+        let respuesta = response.data.response[0];
+        let nombreEquipo = respuesta.team.name;
+        let idAPI = respuesta.team.id;
+        let escudo = respuesta.team.logo;
+        let añofundación = respuesta.team.founded;
+        let pais = respuesta.team.country;
+        let ciudad = respuesta.venue.city;
+        let direccion = respuesta.venue.address;
+        let estadio = respuesta.venue.name;
+        let capacidadestadio = respuesta.venue.capacity;
+        return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
+          pais = text;
+          agent.setContext({ "name": "Home", "lifespan": 1 });
+          agent.setFollowupEvent({ "name": "BuscarJugadorEstadisticasEquipo", "parameters": { "nickname": nickname, "equipo": nombreEquipo, "competicion": competicion } });
+          return refEquipos.once('value').then((snapshot) => {
+            if (snapshot.child(`${nombreEquipo}`).exists()) {
+              console.log("No se añade a BD.");
+            } else {
+              refEquipos.child(`${nombreEquipo}`).set({
+                escudo: escudo,
+                ciudad: ciudad,
+                idAPI: idAPI,
+                añofundación: añofundación,
+                país: pais,
+                dirección: direccion,
+                estadio: estadio,
+                capacidadestadio: capacidadestadio,
+              });
+            }
+          });
+        });
+      }
+
+    });
+  }
+
+  function handleAmpliarEstadisticasEquipo() {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
     return refEquipos.child(`${nombreEquipo}`).child("estadísticas").once('value').then((snapshot) => {
-    let datos = snapshot.val();
-    let partidosJugadosLocal = datos.partidosJugadosLocal;
-    let victoriasLocal = datos.victoriasLocal;
-    let empatesLocal = datos.empatesLocal;
-    let derrotasLocal = datos.derrotasLocal;
-    let golesMarcadosLocal = datos.golesMarcadosLocal;
-    let golesRecibidosLocal = datos.golesRecibidosLocal;
-    let partidosJugadosVisitante = datos.partidosJugadosVisitante;
-    let victoriasVisitante = datos.victoriasVisitante;
-    let empatesVisitante = datos.empatesVisitante;
-    let derrotasVisitante = datos.derrotasVisitante;
-    let golesMarcadosVisitante = datos.golesMarcadosVisitante;
-    let golesRecibidosVisitante = datos.golesRecibidosVisitante;
-    agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados como local: ${partidosJugadosLocal}\nVictorias como local: ${victoriasLocal}\nDerrotas como local: ${derrotasLocal}\nEmpates como local: ${empatesLocal}\nGoles marcados como local: ${golesMarcadosLocal}\nGoles recibidos como local: ${golesRecibidosLocal}\nPartidos jugados como visitante: ${partidosJugadosVisitante}\nVictorias como visitante: ${victoriasVisitante}\nDerrotas como visitante: ${derrotasVisitante}\nEmpates como visitante: ${empatesVisitante}\nGoles marcados como visitante: ${golesMarcadosVisitante}\nGoles recibidos como visitante: ${golesRecibidosVisitante}`}));
-    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+      let datos = snapshot.val();
+      let partidosJugadosLocal = datos.partidosJugadosLocal;
+      let victoriasLocal = datos.victoriasLocal;
+      let empatesLocal = datos.empatesLocal;
+      let derrotasLocal = datos.derrotasLocal;
+      let golesMarcadosLocal = datos.golesMarcadosLocal;
+      let golesRecibidosLocal = datos.golesRecibidosLocal;
+      let partidosJugadosVisitante = datos.partidosJugadosVisitante;
+      let victoriasVisitante = datos.victoriasVisitante;
+      let empatesVisitante = datos.empatesVisitante;
+      let derrotasVisitante = datos.derrotasVisitante;
+      let golesMarcadosVisitante = datos.golesMarcadosVisitante;
+      let golesRecibidosVisitante = datos.golesRecibidosVisitante;
+      agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados como local: ${partidosJugadosLocal}\nVictorias como local: ${victoriasLocal}\nDerrotas como local: ${derrotasLocal}\nEmpates como local: ${empatesLocal}\nGoles marcados como local: ${golesMarcadosLocal}\nGoles recibidos como local: ${golesRecibidosLocal}\nPartidos jugados como visitante: ${partidosJugadosVisitante}\nVictorias como visitante: ${victoriasVisitante}\nDerrotas como visitante: ${derrotasVisitante}\nEmpates como visitante: ${empatesVisitante}\nGoles marcados como visitante: ${golesMarcadosVisitante}\nGoles recibidos como visitante: ${golesRecibidosVisitante}` }));
+      agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
     });
   }
-  
+
   function handleBuscarEstadisticasEquipo(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
     var competicion = agent.parameters.competicion;
-    var nicknameEvento = agent.parameters.nicknameEvento;
-    var equipoEvento = agent.parameters.equipoEvento;
-    var competicionEvento = agent.parameters.competicionEvento;
-    if (nicknameEvento != "") {
-      nickname = nicknameEvento;
-      competicion = competicionEvento;
-      equipo = equipoEvento;
-    }
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
       if (snapshot.exists()) {
         console.log(JSON.stringify(snapshot.val()));
@@ -1841,36 +1837,36 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         return refEquipos.child(`${equipo}`).once('value').then((snapshot) => {
           if (snapshot.exists()) {
             let datos = snapshot.val();
-		  	let idEquipo = datos.idAPI;
+            let idEquipo = datos.idAPI;
             let nombreEquipo = snapshot.key;
             return refEquipos.child(`${equipo}`).child("estadísticas").once('value').then((snapshot) => {
-            if (snapshot.exists()){
-              let estadisticas = snapshot.val();
-              let fechaHoyTiempo = new Date();
-              let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
-              if(estadisticas.fecha != fechaHoy){
+              if (snapshot.exists()) {
+                let estadisticas = snapshot.val();
+                let fechaHoyTiempo = new Date();
+                let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
+                if (estadisticas.fecha != fechaHoy) {
+                  return actualizarEstadisticasEquipo(idEquipo, idLiga, nickname);
+                } else {
+                  let partidosJugados = estadisticas.partidosJugados;
+                  let victorias = estadisticas.victorias;
+                  let derrotas = estadisticas.derrotas;
+                  let empates = estadisticas.empates;
+                  let golesMarcados = estadisticas.golesMarcados;
+                  let golesRecibidos = estadisticas.golesRecibidos;
+                  let difGoles = estadisticas.difGoles;
+                  let forma = estadisticas.forma;
+                  let posicionClasificacion = estadisticas.posicionClasificacion;
+                  let puntos = estadisticas.puntos;
+                  let consecuenciaClasificacion = estadisticas.consecuenciaClasificacion;
+                  agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
+                  agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
+                }
+
+              } else {
                 return actualizarEstadisticasEquipo(idEquipo, idLiga, nickname);
-              }else{
-                let partidosJugados = estadisticas.partidosJugados;
-                let victorias = estadisticas.victorias;
-                let derrotas = estadisticas.derrotas;
-                let empates = estadisticas.empates;
-                let golesMarcados = estadisticas.golesMarcados;
-                let golesRecibidos = estadisticas.golesRecibidos;
-                let difGoles = estadisticas.difGoles;
-                let forma = estadisticas.forma;
-                let posicionClasificacion = estadisticas.posicionClasificacion;
-                let puntos = estadisticas.puntos;
-                let consecuenciaClasificacion = estadisticas.consecuenciaClasificacion;
-                agent.add(new Card({ title: `Estadísticas del ${nombreEquipo}`, text: `Partidos jugados en total: ${partidosJugados}\nVictorias: ${victorias}\nDerrotas: ${derrotas}\nEmpates: ${empates}\nGoles a favor: ${golesMarcados}\nGoles en contra: ${golesRecibidos}\nDiferencia de goles: ${difGoles}\nForma: ${forma}\nPosición en la clasificación: ${posicionClasificacion}\nPuntos: ${puntos}\nConsecuencia de la posición en la clasificación: ${consecuenciaClasificacion}`, buttonText: "Ver más", buttonUrl: "Ver más estadísticas del equipo" }));
-                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": nombreEquipo } });
               }
-              
-            }else{
-              return actualizarEstadisticasEquipo(idEquipo, idLiga, nickname);
-            }
             });
-            
+
           } else {
             return buscarEquipo(equipo, nickname, competicion);
           }
@@ -1885,24 +1881,24 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   //BUSCAR MÁXIMOS GOLEADORES Y CLASIFICACIÓN DE COMPETICIÓN
   //=====================================================================================================================================
-  function almacenarMaximosGoleadores(maximosGoleadores, fechaHoy, competicion){
+  function almacenarMaximosGoleadores(maximosGoleadores, fechaHoy, competicion) {
     return refCompeticiones.child(`${competicion}`).child("máximosGoleadores").set({
       listaGoleadores: maximosGoleadores,
       fecha: fechaHoy
     });
   }
-  
-  function buscarMaximosGoleadores(nickname, idLiga, competicion){
-   var options = {
+
+  function buscarMaximosGoleadores(nickname, idLiga, competicion) {
+    var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/players/topscorers',
-      params: {league: idLiga, season: 2020 },
+      params: { league: idLiga, season: 2020 },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
+    return axios.request(options).then(function (response) {
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
@@ -1916,28 +1912,28 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let indices = results;
         let fechaHoyTiempo = new Date();
         let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
-        if(results>10){
+        if (results > 10) {
           indices = 10;
         }
-        for(var i=0; i < indices; i++){
-         let nombreJugador = respuesta[i].player.name;
-         let goles = respuesta[i].statistics[0].goals.total;
-         let posicion = `\n${i+1}`.padEnd(18);
-         if (`${i+1}`.length==2){
-           posicion = `\n${i+1}`.padEnd(17);
-         }
-         nombreJugador = `${nombreJugador}`.padEnd(29-`${nombreJugador}`.length);
-         
-    	 maximosGoleadores = maximosGoleadores+posicion+nombreJugador+`${goles}`;
-		}
+        for (var i = 0; i < indices; i++) {
+          let nombreJugador = respuesta[i].player.name;
+          let goles = respuesta[i].statistics[0].goals.total;
+          let posicion = `\n${i + 1}`.padEnd(18);
+          if (`${i + 1}`.length == 2) {
+            posicion = `\n${i + 1}`.padEnd(17);
+          }
+          nombreJugador = `${nombreJugador}`.padEnd(29 - `${nombreJugador}`.length);
+
+          maximosGoleadores = maximosGoleadores + posicion + nombreJugador + `${goles}`;
+        }
         agent.add(`${maximosGoleadores}`);
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
         almacenarMaximosGoleadores(maximosGoleadores, fechaHoy, competicion);
       }
-        }); 
+    });
   }
-  
-  function handleBuscarMaximosGoleadoresLiga(agent){
+
+  function handleBuscarMaximosGoleadoresLiga(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
@@ -1946,45 +1942,45 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let fechaHoyTiempo = new Date();
         let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
         return refCompeticiones.child(`${competicion}`).child("máximosGoleadores").once('value').then((snapshot) => {
-          if (snapshot.exists()){
-            let datos= snapshot.val();
+          if (snapshot.exists()) {
+            let datos = snapshot.val();
             if (datos.fecha != fechaHoy) {
               return buscarMaximosGoleadores(nickname, idLiga, competicion);
-            }else{
+            } else {
               let listaGoleadores = datos.listaGoleadores;
               agent.add(`${listaGoleadores}`);
               agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
             }
-          }else{
+          } else {
             return buscarMaximosGoleadores(nickname, idLiga, competicion);
           }
         });
-      }else{
+      } else {
         agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
-    
+
   }
- 
-  function almacenarClasificacion(clasificacion, fechaHoy, competicion){
+
+  function almacenarClasificacion(clasificacion, fechaHoy, competicion) {
     return refCompeticiones.child(`${competicion}`).child("clasificación").set({
       clasificacion: clasificacion,
       fecha: fechaHoy
     });
   }
-  
-  function buscarClasificacion(nickname, idLiga, competicion){
-   var options = {
+
+  function buscarClasificacion(nickname, idLiga, competicion) {
+    var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/standings',
-      params: {league: idLiga, season: 2020 },
+      params: { league: idLiga, season: 2020 },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
+    return axios.request(options).then(function (response) {
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
@@ -1998,51 +1994,51 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let indices = len;
         let fechaHoyTiempo = new Date();
         let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
-        for(var i=0; i < indices; i++){
-         let estadisticas = respuesta[i];
-         let equipo = estadisticas.team.name;
-         let posicion = `\n${i+1}`;
-         equipo = `${equipo}`;
-         let puntos = estadisticas.points;
-         puntos = `${puntos}`.padEnd(7);
-         let partidos = estadisticas.all.played;
-         partidos = `${partidos}`.padEnd(7);
-         let difGoles = estadisticas.goalsDiff;
-         if (`${equipo}`.length>20){
-           if (`${i+1}`.length==2){
-           posicion = `\n${i+1}`.padEnd(3);
-         }else{
-           posicion = `\n${i+1}`.padEnd(4);
-         }
-           equipo = `${equipo}`.padEnd(25);
-         }
-         else if (`${equipo}`.length>15){
-           if (`${i+1}`.length==2){
-           posicion = `\n${i+1}`.padEnd(10);
-         }else{
-           posicion = `\n${i+1}`.padEnd(11);
-         }
-           equipo = `${equipo}`.padEnd(22);
-         }else{
-           if (`${i+1}`.length==2){
-           posicion = `\n${i+1}`.padEnd(15);
-         }else{
-           posicion = `\n${i+1}`.padEnd(16);
-         }
-           equipo = `${equipo}`.padEnd(9+22-`${equipo}`.length);
-         }
-         
-         
-    	 clasificacion = clasificacion+posicion+equipo+puntos+partidos+`${difGoles}`;
-		}
+        for (var i = 0; i < indices; i++) {
+          let estadisticas = respuesta[i];
+          let equipo = estadisticas.team.name;
+          let posicion = `\n${i + 1}`;
+          equipo = `${equipo}`;
+          let puntos = estadisticas.points;
+          puntos = `${puntos}`.padEnd(7);
+          let partidos = estadisticas.all.played;
+          partidos = `${partidos}`.padEnd(7);
+          let difGoles = estadisticas.goalsDiff;
+          if (`${equipo}`.length > 20) {
+            if (`${i + 1}`.length == 2) {
+              posicion = `\n${i + 1}`.padEnd(3);
+            } else {
+              posicion = `\n${i + 1}`.padEnd(4);
+            }
+            equipo = `${equipo}`.padEnd(25);
+          }
+          else if (`${equipo}`.length > 15) {
+            if (`${i + 1}`.length == 2) {
+              posicion = `\n${i + 1}`.padEnd(10);
+            } else {
+              posicion = `\n${i + 1}`.padEnd(11);
+            }
+            equipo = `${equipo}`.padEnd(22);
+          } else {
+            if (`${i + 1}`.length == 2) {
+              posicion = `\n${i + 1}`.padEnd(15);
+            } else {
+              posicion = `\n${i + 1}`.padEnd(16);
+            }
+            equipo = `${equipo}`.padEnd(9 + 22 - `${equipo}`.length);
+          }
+
+
+          clasificacion = clasificacion + posicion + equipo + puntos + partidos + `${difGoles}`;
+        }
         agent.add(`${clasificacion}`);
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
         almacenarClasificacion(clasificacion, fechaHoy, competicion);
       }
-        }); 
+    });
   }
-  
-  function handleBuscarClasificacionLiga(agent){
+
+  function handleBuscarClasificacionLiga(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
@@ -2051,30 +2047,30 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let fechaHoyTiempo = new Date();
         let fechaHoy = fechaHoyTiempo.getDate() + '/' + (fechaHoyTiempo.getMonth() + 1) + '/' + fechaHoyTiempo.getFullYear();
         return refCompeticiones.child(`${competicion}`).child("clasificación").once('value').then((snapshot) => {
-          if (snapshot.exists()){
-            let datos= snapshot.val();
+          if (snapshot.exists()) {
+            let datos = snapshot.val();
             if (datos.fecha != fechaHoy) {
               return buscarClasificacion(nickname, idLiga, competicion);
-            }else{
+            } else {
               let clasificacion = datos.clasificacion;
               agent.add(`${clasificacion}`);
               agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
             }
-          }else{
+          } else {
             return buscarClasificacion(nickname, idLiga, competicion);
           }
         });
-      }else{
+      } else {
         agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
-    
+
   }
   //=========================================================================================================================================================================
   //BUSCAR JORNADAS
   //=========================================================================================================================================================================
-  function handleBuscarPrediccionesJornada(agent){
+  function handleBuscarPrediccionesJornada(agent) {
     console.log("PREDICCIONES");
     const nickname = agent.parameters.nickname;
     const numJornada = agent.parameters.numJornada;
@@ -2090,45 +2086,45 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/predictions',
-      params: {fixture: idJornada},
+      params: { fixture: idJornada },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
+    return axios.request(options).then(function (response) {
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
         console.log("HAY ERRORES");
-        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\n`}));
+        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\n` }));
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       } else {
         let respuesta = response.data.response[0];
         let posibilidadLocal = respuesta.predictions.percent.home;
         let posibilidadEmpate = respuesta.predictions.percent.draw;
         let posibilidadVisitante = respuesta.predictions.percent.away;
-        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nPosibilidad de victoria local: ${posibilidadLocal}\nPosibilidad de empate: ${posibilidadEmpate}\nPosibilidad de victoria visitante: ${posibilidadVisitante}`}));
-        agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal}));
-        agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante}));
-        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-        
+        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nPosibilidad de victoria local: ${posibilidadLocal}\nPosibilidad de empate: ${posibilidadEmpate}\nPosibilidad de victoria visitante: ${posibilidadVisitante}` }));
+        agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal }));
+        agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante }));
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+
       }
-        });
+    });
   }
-  
-  function buscaProximaJornada(idLiga,idEquipo,nickname){
+
+  function buscaProximaJornada(idLiga, idEquipo, nickname) {
     var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/fixtures',
-      params: {league: idLiga,season: 2020, team: idEquipo, next: 1 },
+      params: { league: idLiga, season: 2020, team: idEquipo, next: 1 },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
-      console.log("OPTIONS"+JSON.stringify(options));
+    return axios.request(options).then(function (response) {
+      console.log("OPTIONS" + JSON.stringify(options));
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
@@ -2137,7 +2133,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       } else {
         let respuesta = response.data.response[0];
-        console.log("RESPUESTA"+JSON.stringify(respuesta));
+        console.log("RESPUESTA" + JSON.stringify(respuesta));
         let numJornada = respuesta.league.round.split("-")[1];
         let nombreLocal = respuesta.teams.home.name;
         let escudoLocal = respuesta.teams.home.logo;
@@ -2145,49 +2141,41 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let escudoVisitante = respuesta.teams.away.logo;
         let estadio = respuesta.fixture.venue.name;
         let arbitro = respuesta.fixture.referee;
-        if (arbitro == null){
-         arbitro = "Desconocido de momento"; 
+        if (arbitro == null) {
+          arbitro = "Desconocido de momento";
         }
         let fechaHora = respuesta.fixture.date;
         let fecha = "Desconocida de momento";
         let hora = "Desconocida de momento";
-        if (fechaHora!=null){
-          let fechaHoraAux =new Date(Date.parse(fechaHora));
-          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");          
+        if (fechaHora != null) {
+          let fechaHoraAux = new Date(Date.parse(fechaHora));
+          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
           fecha = fechaHora[0];
-          if(fechaHoraAux.getHours()>0){
-          hora = fechaHora[1];
+          if (fechaHoraAux.getHours() > 0) {
+            hora = fechaHora[1];
           }
         }
         let idJornada = respuesta.fixture.id;
         console.log("ANTES DE PREDICCIONES");
         agent.setFollowupEvent({ "name": "BuscarPrediccionesJornada", "parameters": { "nickname": nickname, "numJornada": numJornada, "nombreLocal": nombreLocal, "escudoLocal": escudoLocal, "nombreVisitante": nombreVisitante, "escudoVisitante": escudoVisitante, "estadio": estadio, "arbitro": arbitro, "fecha": fecha, "hora": hora, "idJornada": idJornada } });
       }
-        });
+    });
   }
-  
-  function handleBuscarProximaJornada(agent){
+
+  function handleBuscarProximaJornada(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
     var competicion = agent.parameters.competicion;
-    var nicknameEvento = agent.parameters.nicknameEvento;
-    var equipoEvento = agent.parameters.equipoEvento;
-    var competicionEvento = agent.parameters.competicionEvento;
-    if (nicknameEvento != "") {
-      nickname = nicknameEvento;
-      competicion = competicionEvento;
-      equipo = equipoEvento;
-    }
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
-      console.log("BD: "+ JSON.stringify(snapshot.val()));
+      console.log("BD: " + JSON.stringify(snapshot.val()));
       if (snapshot.exists()) {
         let idLiga = snapshot.val().idAPI;
         return refEquipos.child(`${equipo}`).once('value').then((snapshot) => {
           if (snapshot.exists()) {
             let datos = snapshot.val();
-		  	let idEquipo = datos.idAPI;
-            return buscaProximaJornada(idLiga,idEquipo,nickname);
-          }else{
+            let idEquipo = datos.idAPI;
+            return buscaProximaJornada(idLiga, idEquipo, nickname);
+          } else {
             var options = {
               method: 'GET',
               url: 'https://v3.football.api-sports.io/teams',
@@ -2219,7 +2207,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
                   pais = text;
                   agent.setContext({ "name": "Home", "lifespan": 1 });
-                  agent.setFollowupEvent({ "name": "BuscarProximaJornada", "parameters": { "nicknameEvento": nickname, "equipoEvento": nombreEquipo, "competicionEvento": competicion } });
+                  agent.setFollowupEvent({ "name": "BuscarProximaJornada", "parameters": { "nickname": nickname, "equipo": nombreEquipo, "competicion": competicion } });
                   return refEquipos.once('value').then((snapshot) => {
                     if (snapshot.child(`${nombreEquipo}`).exists()) {
                       console.log("No se añade a BD.");
@@ -2242,47 +2230,47 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             });
           }
         });
-         
-        }else{
+
+      } else {
         agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
   }
-  
-  function almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado){
+
+  function almacenarJornada(idJornada, numJornada, nombreLocal, escudoLocal, nombreVisitante, escudoVisitante, estadio, arbitro, fecha, hora, idLocal, idVisitante, resultado) {
     return refJornadas.child(idJornada).once('value').then((snapshot) => {
-      if(!snapshot.exists()){
-    refJornadas.child(idJornada).set({
-        	numJornada: numJornada,
-        	nombreLocal: nombreLocal,
-        	escudoLocal: escudoLocal,
-        	nombreVisitante: nombreVisitante,
-            escudoVisitante: escudoVisitante,
-            estadio: estadio,
-            arbitro: arbitro,
-            fecha: fecha,
-            hora: hora,
-            idLocal: idLocal,
-            idVisitante: idVisitante,
-            resultado: resultado
-      });
+      if (!snapshot.exists()) {
+        refJornadas.child(idJornada).set({
+          numJornada: numJornada,
+          nombreLocal: nombreLocal,
+          escudoLocal: escudoLocal,
+          nombreVisitante: nombreVisitante,
+          escudoVisitante: escudoVisitante,
+          estadio: estadio,
+          arbitro: arbitro,
+          fecha: fecha,
+          hora: hora,
+          idLocal: idLocal,
+          idVisitante: idVisitante,
+          resultado: resultado
+        });
       }
-      });
+    });
   }
-  
-  function buscaUltimaJornada(idLiga,idEquipo,nickname){
+
+  function buscaUltimaJornada(idLiga, idEquipo, nickname) {
     var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/fixtures',
-      params: {league: idLiga,season: 2020, team: idEquipo, last: 1 },
+      params: { league: idLiga, season: 2020, team: idEquipo, last: 1 },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
-      console.log("OPTIONS"+JSON.stringify(options));
+    return axios.request(options).then(function (response) {
+      console.log("OPTIONS" + JSON.stringify(options));
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
@@ -2291,7 +2279,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       } else {
         let respuesta = response.data.response[0];
-        console.log("RESPUESTA"+JSON.stringify(respuesta));
+        console.log("RESPUESTA" + JSON.stringify(respuesta));
         let numJornada = respuesta.league.round.split("-")[1];
         let nombreLocal = respuesta.teams.home.name;
         let escudoLocal = respuesta.teams.home.logo;
@@ -2299,18 +2287,18 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let escudoVisitante = respuesta.teams.away.logo;
         let estadio = respuesta.fixture.venue.name;
         let arbitro = respuesta.fixture.referee;
-        if (arbitro == null){
-         arbitro = "Desconocido de momento"; 
+        if (arbitro == null) {
+          arbitro = "Desconocido de momento";
         }
         let fechaHora = respuesta.fixture.date;
         let fecha = "Desconocida de momento";
         let hora = "Desconocida de momento";
-        if (fechaHora!=null){
-          let fechaHoraAux =new Date(Date.parse(fechaHora));
-          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");          
+        if (fechaHora != null) {
+          let fechaHoraAux = new Date(Date.parse(fechaHora));
+          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
           fecha = fechaHora[0];
-          if(fechaHoraAux.getHours()>0){
-          hora = fechaHora[1];
+          if (fechaHoraAux.getHours() > 0) {
+            hora = fechaHora[1];
           }
         }
         let idJornada = respuesta.fixture.id;
@@ -2318,41 +2306,33 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let idVisitante = respuesta.teams.away.id;
         let golesLocal = respuesta.goals.home;
         let golesVisitante = respuesta.goals.away;
-        let resultado = golesLocal+"-"+golesVisitante;
-        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}`}));
-        agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}`}));
-        agent.add(new Card({title: `Alineación ${nombreLocal}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}`}));
-        agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}`}));
-        agent.add(new Card({title: `Alineación ${nombreVisitante}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}`}));
-        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-        almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado);
-        
+        let resultado = golesLocal + "-" + golesVisitante;
+        agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}` }));
+        agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}` }));
+        agent.add(new Card({ title: `Alineación ${nombreLocal}`, buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}` }));
+        agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}` }));
+        agent.add(new Card({ title: `Alineación ${nombreVisitante}`, buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}` }));
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+        almacenarJornada(idJornada, numJornada, nombreLocal, escudoLocal, nombreVisitante, escudoVisitante, estadio, arbitro, fecha, hora, idLocal, idVisitante, resultado);
+
       }
-        });
+    });
   }
-  
-  function handleBuscarUltimaJornada(agent){
+
+  function handleBuscarUltimaJornada(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
     var competicion = agent.parameters.competicion;
-    var nicknameEvento = agent.parameters.nicknameEvento;
-    var equipoEvento = agent.parameters.equipoEvento;
-    var competicionEvento = agent.parameters.competicionEvento;
-    if (nicknameEvento != "") {
-      nickname = nicknameEvento;
-      competicion = competicionEvento;
-      equipo = equipoEvento;
-    }
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
-      console.log("BD: "+ JSON.stringify(snapshot.val()));
+      console.log("BD: " + JSON.stringify(snapshot.val()));
       if (snapshot.exists()) {
         let idLiga = snapshot.val().idAPI;
         return refEquipos.child(`${equipo}`).once('value').then((snapshot) => {
           if (snapshot.exists()) {
             let datos = snapshot.val();
-		  	let idEquipo = datos.idAPI;
-            return buscaUltimaJornada(idLiga,idEquipo,nickname);
-          }else{
+            let idEquipo = datos.idAPI;
+            return buscaUltimaJornada(idLiga, idEquipo, nickname);
+          } else {
             var options = {
               method: 'GET',
               url: 'https://v3.football.api-sports.io/teams',
@@ -2384,7 +2364,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
                   pais = text;
                   agent.setContext({ "name": "Home", "lifespan": 1 });
-                  agent.setFollowupEvent({ "name": "BuscarUltimaJornada", "parameters": { "nicknameEvento": nickname, "equipoEvento": nombreEquipo, "competicionEvento": competicion } });
+                  agent.setFollowupEvent({ "name": "BuscarUltimaJornada", "parameters": { "nickname": nickname, "equipo": nombreEquipo, "competicion": competicion } });
                   return refEquipos.once('value').then((snapshot) => {
                     if (snapshot.child(`${nombreEquipo}`).exists()) {
                       console.log("No se añade a BD.");
@@ -2407,27 +2387,27 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             });
           }
         });
-         
-        }else{
+
+      } else {
         agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
   }
-  
-  function buscaJornadaConcreta(idLiga,idEquipo,nickname,numJornada){
-    let jornada = `Regular Season - ${numJornada}`;	
+
+  function buscaJornadaConcreta(idLiga, idEquipo, nickname, numJornada) {
+    let jornada = `Regular Season - ${numJornada}`;
     var options = {
       method: 'GET',
       url: 'https://v3.football.api-sports.io/fixtures',
-      params: {league: idLiga,season: 2020, team: idEquipo, round: jornada },
+      params: { league: idLiga, season: 2020, team: idEquipo, round: jornada },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': apiKey,
       }
     };
-        return axios.request(options).then(function (response) {
-      console.log("OPTIONS"+JSON.stringify(options));
+    return axios.request(options).then(function (response) {
+      console.log("OPTIONS" + JSON.stringify(options));
       let results = response.data.results;
       console.log("ERRORS:" + results);
       if (results == 0) {
@@ -2436,7 +2416,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       } else {
         let respuesta = response.data.response[0];
-        console.log("RESPUESTA"+JSON.stringify(respuesta));
+        console.log("RESPUESTA" + JSON.stringify(respuesta));
         let numJornada = respuesta.league.round.split("-")[1];
         let nombreLocal = respuesta.teams.home.name;
         let escudoLocal = respuesta.teams.home.logo;
@@ -2444,68 +2424,58 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let escudoVisitante = respuesta.teams.away.logo;
         let estadio = respuesta.fixture.venue.name;
         let arbitro = respuesta.fixture.referee;
-        if (arbitro == null){
-         arbitro = "Desconocido de momento"; 
+        if (arbitro == null) {
+          arbitro = "Desconocido de momento";
         }
         let fechaHora = respuesta.fixture.date;
         let fecha = "Desconocida de momento";
         let hora = "Desconocida de momento";
-        if (fechaHora!=null){
-          let fechaHoraAux =new Date(Date.parse(fechaHora));
-          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");          
+        if (fechaHora != null) {
+          let fechaHoraAux = new Date(Date.parse(fechaHora));
+          fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
           fecha = fechaHora[0];
-          if(fechaHoraAux.getHours()>0){
-          hora = fechaHora[1];
+          if (fechaHoraAux.getHours() > 0) {
+            hora = fechaHora[1];
           }
         }
         let idJornada = respuesta.fixture.id;
         let idLocal = respuesta.teams.home.id;
         let idVisitante = respuesta.teams.away.id;
-        if(respuesta.fixture.status.short === "FT"){
-        let golesLocal = respuesta.goals.home;
-        let golesVisitante = respuesta.goals.away;
-        let resultado = golesLocal+"-"+golesVisitante;
-          agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}`}));
-          agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}`}));
-          agent.add(new Card({title: `Alineación ${nombreLocal}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}`}));
-          agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}`}));
-          agent.add(new Card({title: `Alineación ${nombreVisitante}`,buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}`}));
-          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-          almacenarJornada(idJornada,numJornada,nombreLocal,escudoLocal,nombreVisitante,escudoVisitante,estadio,arbitro,fecha,hora,idLocal,idVisitante,resultado);
-        }else{
+        if (respuesta.fixture.status.short === "FT") {
+          let golesLocal = respuesta.goals.home;
+          let golesVisitante = respuesta.goals.away;
+          let resultado = golesLocal + "-" + golesVisitante;
+          agent.add(new Card({ title: `Jornada${numJornada}`, text: `${nombreLocal} vs ${nombreVisitante}\nEstadio: ${estadio}\nÁrbitro: ${arbitro}\nFecha: ${fecha}\nHora: ${hora}\nResultado: ${resultado}` }));
+          agent.add(new Card({ title: `${nombreLocal}`, imageUrl: escudoLocal, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idLocal} en la jornada ${idJornada}` }));
+          agent.add(new Card({ title: `Alineación ${nombreLocal}`, buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idLocal} en la jornada ${idJornada}` }));
+          agent.add(new Card({ title: `${nombreVisitante}`, imageUrl: escudoVisitante, buttonText: "Ver estadísticas en la jornada", buttonUrl: `Ver estadísticas del equipo ${idVisitante} en la jornada ${idJornada}` }));
+          agent.add(new Card({ title: `Alineación ${nombreVisitante}`, buttonText: "Ver alineación", buttonUrl: `Ver alineación del equipo ${idVisitante} en la jornada ${idJornada}` }));
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          almacenarJornada(idJornada, numJornada, nombreLocal, escudoLocal, nombreVisitante, escudoVisitante, estadio, arbitro, fecha, hora, idLocal, idVisitante, resultado);
+        } else {
           console.log("ANTES DE PREDICCIONES");
           agent.setFollowupEvent({ "name": "BuscarPrediccionesJornada", "parameters": { "nickname": nickname, "numJornada": numJornada, "nombreLocal": nombreLocal, "escudoLocal": escudoLocal, "nombreVisitante": nombreVisitante, "escudoVisitante": escudoVisitante, "estadio": estadio, "arbitro": arbitro, "fecha": fecha, "hora": hora, "idJornada": idJornada } });
         }
-        
+
       }
-        });
+    });
   }
-  
-  function handleBuscarJornadaConcreta(agent){
+
+  function handleBuscarJornadaConcreta(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
     var competicion = agent.parameters.competicion;
     var numJornada = agent.parameters.numJornada;
-    var nicknameEvento = agent.parameters.nicknameEvento;
-    var equipoEvento = agent.parameters.equipoEvento;
-    var competicionEvento = agent.parameters.competicionEvento;
-    var numJornadaEvento = agent.parameters.numJornadaEvento;
-    if (nicknameEvento != "") {
-      nickname = nicknameEvento;
-      competicion = competicionEvento;
-      equipo = equipoEvento;
-      numJornada = numJornadaEvento;
-    }
     return refCompeticiones.child(`${competicion}`).once('value').then((snapshot) => {
-      console.log("BD: "+ JSON.stringify(snapshot.val()));
+      console.log("BD: " + JSON.stringify(snapshot.val()));
       if (snapshot.exists()) {
         let idLiga = snapshot.val().idAPI;
         return refEquipos.child(`${equipo}`).once('value').then((snapshot) => {
           if (snapshot.exists()) {
             let datos = snapshot.val();
-		  	let idEquipo = datos.idAPI;
-            return buscaJornadaConcreta(idLiga,idEquipo,nickname,numJornada);
-          }else{
+            let idEquipo = datos.idAPI;
+            return buscaJornadaConcreta(idLiga, idEquipo, nickname, numJornada);
+          } else {
             var options = {
               method: 'GET',
               url: 'https://v3.football.api-sports.io/teams',
@@ -2537,7 +2507,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
                   pais = text;
                   agent.setContext({ "name": "Home", "lifespan": 1 });
-                  agent.setFollowupEvent({ "name": "BuscarJornadaConcreta", "parameters": { "nicknameEvento": nickname, "equipoEvento": nombreEquipo, "competicionEvento": competicion, "numJornadaEvento": numJornada } });
+                  agent.setFollowupEvent({ "name": "BuscarJornadaConcreta", "parameters": { "nickname": nickname, "equipo": nombreEquipo, "competicion": competicion, "numJornada": numJornada } });
                   return refEquipos.once('value').then((snapshot) => {
                     if (snapshot.child(`${nombreEquipo}`).exists()) {
                       console.log("No se añade a BD.");
@@ -2560,38 +2530,38 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             });
           }
         });
-         
-        }else{
+
+      } else {
         agent.add("Vaya, parece que esa liga no existe o no está disponible para la funcionalidad de estadísticas. Recuerda que de momento estoy capacitado para proporcionar información sobre las grandes ligas de Europa. Para recibir más información sobre esto escribe ayuda.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
   }
-  
-  function handleBuscarEstadisticasJornadaEquipo(agent){
+
+  function handleBuscarEstadisticasJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
     const idJornada = agent.parameters.idJornada;
     return refJornadas.child(idJornada).once('value').then((snapshot) => {
-      if(!snapshot.exists()){
+      if (!snapshot.exists()) {
         agent.add("Por favor, para buscar una estadística de un equipo en una jornada debes haberla buscado primero.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-      }else{
+      } else {
         let datos = snapshot.val();
         let numJornada = datos.numJornada;
-        console.log("NUMJORNADA:"+numJornada);
+        console.log("NUMJORNADA:" + numJornada);
         let nombreLocal = datos.nombreLocal;
         let nombreVisitante = datos.nombreVisitante;
         let idVisitante = datos.idVisitante;
         let idLocal = datos.idLocal;
         let idRival = idLocal;
-        if (idRival===idEquipo){
-         idRival = idVisitante; 
+        if (idRival === idEquipo) {
+          idRival = idVisitante;
         }
         let resultado = datos.resultado;
         let jornada = `Jornada${numJornada}`;
         return refJornadas.child(idJornada).child("estadísticas").child(idEquipo).once('value').then((snapshot) => {
-          if(snapshot.exists()){
+          if (snapshot.exists()) {
             let estadísticas = snapshot.val();
             let tirosTotales = estadísticas.tirosTotales;
             let tirosPuerta = estadísticas.tirosPuerta;
@@ -2603,217 +2573,217 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let tarjetasRojas = estadísticas.tarjetasRojas;
             let aciertoPases = estadísticas.aciertoPases;
             let nombreEquipo = estadísticas.nombreEquipo;
-            agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}`}));
-		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-            
-      }else{             
-        var options = {
-      method: 'GET',
-      url: 'https://v3.football.api-sports.io/fixtures/statistics',
-      params: {fixture: idJornada, team: idEquipo},
-      headers: {
-        'x-rapidapi-host': 'v3.football.api-sports.io',
-        'x-rapidapi-key': apiKey,
-      }
-    };
-        return axios.request(options).then(function (response) {
-      console.log("OPTIONS"+JSON.stringify(options));
-      let results = response.data.results;
-      console.log("ERRORS:" + results);
-      if (results == 0) {
-        console.log("HAY ERRORES");
-        agent.add("Se ha producido un error en la búsqueda de estadísticas para esta jornada. Por favor, vuelve a intentarlo más tarde.");
-        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-      } else {
-        let respuesta = response.data.response[0];
-        console.log("RESPUESTA"+JSON.stringify(respuesta));
-        let tirosTotales = respuesta.statistics[2].value;
-        let tirosPuerta = respuesta.statistics[0].value;
-        let faltas = respuesta.statistics[6].value;
-        let fuerasDeJuego = respuesta.statistics[8].value;
-        if (fuerasDeJuego == null){
-          fuerasDeJuego = 0;
-        }
-        let corners = respuesta.statistics[7].value;
-        let posesion = respuesta.statistics[9].value;
-        let tarjetasAmarillas = respuesta.statistics[10].value;
-        let tarjetasRojas = respuesta.statistics[11].value;
-        if (tarjetasRojas == null){
-          tarjetasRojas = 0;
-        }
-        let aciertoPases = respuesta.statistics[14].value;
-        let nombreEquipo = respuesta.team.name;
-        agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}`}));
-		agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-        refJornadas.child(idJornada).child("estadísticas").child(idEquipo).set({
-        	tirosTotales: tirosTotales,
-        	tirosPuerta: tirosPuerta,
-        	faltas: faltas,
-            fuerasDeJuego: fuerasDeJuego,
-            corners: corners,
-            posesion: posesion,
-            tarjetasAmarillas: tarjetasAmarillas,
-            tarjetasRojas: tarjetasRojas,
-            aciertoPases: aciertoPases,
-            nombreEquipo: nombreEquipo
-      });
-      }
-      });
-         }
+            agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}` }));
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+
+          } else {
+            var options = {
+              method: 'GET',
+              url: 'https://v3.football.api-sports.io/fixtures/statistics',
+              params: { fixture: idJornada, team: idEquipo },
+              headers: {
+                'x-rapidapi-host': 'v3.football.api-sports.io',
+                'x-rapidapi-key': apiKey,
+              }
+            };
+            return axios.request(options).then(function (response) {
+              console.log("OPTIONS" + JSON.stringify(options));
+              let results = response.data.results;
+              console.log("ERRORS:" + results);
+              if (results == 0) {
+                console.log("HAY ERRORES");
+                agent.add("Se ha producido un error en la búsqueda de estadísticas para esta jornada. Por favor, vuelve a intentarlo más tarde.");
+                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+              } else {
+                let respuesta = response.data.response[0];
+                console.log("RESPUESTA" + JSON.stringify(respuesta));
+                let tirosTotales = respuesta.statistics[2].value;
+                let tirosPuerta = respuesta.statistics[0].value;
+                let faltas = respuesta.statistics[6].value;
+                let fuerasDeJuego = respuesta.statistics[8].value;
+                if (fuerasDeJuego == null) {
+                  fuerasDeJuego = 0;
+                }
+                let corners = respuesta.statistics[7].value;
+                let posesion = respuesta.statistics[9].value;
+                let tarjetasAmarillas = respuesta.statistics[10].value;
+                let tarjetasRojas = respuesta.statistics[11].value;
+                if (tarjetasRojas == null) {
+                  tarjetasRojas = 0;
+                }
+                let aciertoPases = respuesta.statistics[15].value;
+                let nombreEquipo = respuesta.team.name;
+                agent.add(new Card({ title: `Estadísticas ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nResultado: ${resultado}\nDisparos a portería: ${tirosPuerta}\nDisparos totales: ${tirosTotales}\nFaltas: ${faltas}\nFueras de juego: ${fuerasDeJuego}\nCorners: ${corners}\nPosesión: ${posesion}\nTarjetas amarillas: ${tarjetasAmarillas}\nTarjetas rojas: ${tarjetasRojas}\nAcierto de pases: ${aciertoPases}`, buttonText: "Ver estadísticas del rival", buttonUrl: `Ver estadísticas del equipo ${idRival} en la jornada ${idJornada}` }));
+                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+                refJornadas.child(idJornada).child("estadísticas").child(idEquipo).set({
+                  tirosTotales: tirosTotales,
+                  tirosPuerta: tirosPuerta,
+                  faltas: faltas,
+                  fuerasDeJuego: fuerasDeJuego,
+                  corners: corners,
+                  posesion: posesion,
+                  tarjetasAmarillas: tarjetasAmarillas,
+                  tarjetasRojas: tarjetasRojas,
+                  aciertoPases: aciertoPases,
+                  nombreEquipo: nombreEquipo
+                });
+              }
+            });
+          }
         });
       }
     });
-    
+
   }
-  
-  function handleBuscarAlineacionesJornadaEquipo(agent){
+
+  function handleBuscarAlineacionesJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
     const idJornada = agent.parameters.idJornada;
     return refJornadas.child(idJornada).once('value').then((snapshot) => {
-      if(!snapshot.exists()){
+      if (!snapshot.exists()) {
         agent.add("Por favor, para buscar una alineación de un equipo en una jornada debes haberla buscado primero.");
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-      }else{
+      } else {
         let datos = snapshot.val();
         let numJornada = datos.numJornada;
-        console.log("NUMJORNADA:"+numJornada);
+        console.log("NUMJORNADA:" + numJornada);
         let nombreLocal = datos.nombreLocal;
         let nombreVisitante = datos.nombreVisitante;
         let idVisitante = datos.idVisitante;
         let idLocal = datos.idLocal;
         let idRival = idLocal;
-        if (idRival===idEquipo){
-         idRival = idVisitante; 
+        if (idRival === idEquipo) {
+          idRival = idVisitante;
         }
         return refJornadas.child(idJornada).child("alineaciones").child(idEquipo).once('value').then((snapshot) => {
-          if(snapshot.exists()){
+          if (snapshot.exists()) {
             let alineaciones = snapshot.val();
             let entrenador = alineaciones.entrenador;
             let formacion = alineaciones.formacion;
             let titulares = alineaciones.titulares;
             let nombreEquipo = alineaciones.nombreEquipo;
-            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}`}));
-            agent.add(new Card({title: "Alineación del rival",buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
-		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-            
-      }else{             
-        var options = {
-      method: 'GET',
-      url: 'https://v3.football.api-sports.io/fixtures/lineups',
-      params: {fixture: idJornada, team: idEquipo},
-      headers: {
-        'x-rapidapi-host': 'v3.football.api-sports.io',
-        'x-rapidapi-key': apiKey,
-      }
-    };
-        return axios.request(options).then(function (response) {
-      console.log("OPTIONS"+JSON.stringify(options));
-      let results = response.data.results;
-      console.log("ERRORS:" + results);
-      if (results == 0) {
-        console.log("HAY ERRORES");
-        agent.add("Se ha producido un error en la búsqueda de alineaciones para esta jornada. Por favor, vuelve a intentarlo más tarde.");
-        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-      } else {
-        let respuesta = response.data.response[0];
-        let suplentesJSON = respuesta.substitutes;
-        console.log("RESPUESTA"+JSON.stringify(respuesta));
-        let entrenador = respuesta.coach.name;
-        let formacion = respuesta.formation;
-        let titulares = "Titulares:";
-        let onceInicial = respuesta.startXI;
-        for(var i=0; i < 11; i++){
-          let numero = onceInicial[i].player.number;
-          let nombreJugador = onceInicial[i].player.name;
-          let posicion = onceInicial[i].player.pos;
-          if(posicion === "G"){
-           posicion = "Portero"; 
-          }else if (posicion === "D"){
-           posicion = "Defensa"; 
-          }else if (posicion === "M"){
-           posicion = "Centrocampista"; 
-          }else{
-           posicion = "Atacante"; 
+            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}` }));
+            agent.add(new Card({ title: "Alineación del rival", buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}` }));
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+
+          } else {
+            var options = {
+              method: 'GET',
+              url: 'https://v3.football.api-sports.io/fixtures/lineups',
+              params: { fixture: idJornada, team: idEquipo },
+              headers: {
+                'x-rapidapi-host': 'v3.football.api-sports.io',
+                'x-rapidapi-key': apiKey,
+              }
+            };
+            return axios.request(options).then(function (response) {
+              console.log("OPTIONS" + JSON.stringify(options));
+              let results = response.data.results;
+              console.log("ERRORS:" + results);
+              if (results == 0) {
+                console.log("HAY ERRORES");
+                agent.add("Se ha producido un error en la búsqueda de alineaciones para esta jornada. Por favor, vuelve a intentarlo más tarde.");
+                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+              } else {
+                let respuesta = response.data.response[0];
+                let suplentesJSON = respuesta.substitutes;
+                console.log("RESPUESTA" + JSON.stringify(respuesta));
+                let entrenador = respuesta.coach.name;
+                let formacion = respuesta.formation;
+                let titulares = "Titulares:";
+                let onceInicial = respuesta.startXI;
+                for (var i = 0; i < 11; i++) {
+                  let numero = onceInicial[i].player.number;
+                  let nombreJugador = onceInicial[i].player.name;
+                  let posicion = onceInicial[i].player.pos;
+                  if (posicion === "G") {
+                    posicion = "Portero";
+                  } else if (posicion === "D") {
+                    posicion = "Defensa";
+                  } else if (posicion === "M") {
+                    posicion = "Centrocampista";
+                  } else {
+                    posicion = "Atacante";
+                  }
+                  titulares = titulares + `\n${numero}.\t${nombreJugador} - ${posicion}`;
+                }
+                let suplentes = "Suplentes:";
+                let lenSuplentes = Object.keys(suplentesJSON).length;
+                for (var j = 0; j < lenSuplentes; j++) {
+                  let numero = suplentesJSON[j].player.number;
+                  let nombreJugador = suplentesJSON[j].player.name;
+                  let posicion = suplentesJSON[j].player.pos;
+                  if (posicion === "G") {
+                    posicion = "Portero";
+                  } else if (posicion === "D") {
+                    posicion = "Defensa";
+                  } else if (posicion === "M") {
+                    posicion = "Centrocampista";
+                  } else {
+                    posicion = "Atacante";
+                  }
+                  suplentes = suplentes + `\n${numero}.\t${nombreJugador} - ${posicion}`;
+                }
+                let nombreEquipo = respuesta.team.name;
+                agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}` }));
+                agent.add(new Card({ title: "Alineación del rival", buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}` }));
+                agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+                refJornadas.child(idJornada).child("alineaciones").child(idEquipo).set({
+                  entrenador: entrenador,
+                  formacion: formacion,
+                  titulares: titulares,
+                  suplentes: suplentes,
+                  nombreEquipo: nombreEquipo
+                });
+              }
+            });
           }
-          titulares = titulares + `\n${numero}.\t${nombreJugador} - ${posicion}`;
-        }
-        let suplentes = "Suplentes:";
-        let lenSuplentes = Object.keys(suplentesJSON).length;
-        for(var j=0; j < lenSuplentes; j++){
-          let numero = suplentesJSON[j].player.number;
-          let nombreJugador = suplentesJSON[j].player.name;
-          let posicion = suplentesJSON[j].player.pos;
-          if(posicion === "G"){
-           posicion = "Portero"; 
-          }else if (posicion === "D"){
-           posicion = "Defensa"; 
-          }else if (posicion === "M"){
-           posicion = "Centrocampista"; 
-          }else{
-           posicion = "Atacante"; 
-          }
-          suplentes = suplentes + `\n${numero}.\t${nombreJugador} - ${posicion}`;
-        }
-        let nombreEquipo = respuesta.team.name;
-        agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${titulares}`, buttonText: "Ver suplentes", buttonUrl: `Ver suplentes del equipo ${idEquipo} en la jornada ${idJornada}`}));
-        agent.add(new Card({title: "Alineación del rival",buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
-		agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
-        refJornadas.child(idJornada).child("alineaciones").child(idEquipo).set({
-        	entrenador: entrenador,
-        	formacion: formacion,
-        	titulares: titulares,
-            suplentes: suplentes,
-            nombreEquipo: nombreEquipo
-      });
-      }
-      });
-         }
         });
       }
     });
-    
+
   }
-  
-  function handleBuscarSuplentesJornadaEquipo(agent){
+
+  function handleBuscarSuplentesJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
     const idJornada = agent.parameters.idJornada;
     return refJornadas.child(idJornada).once('value').then((snapshot) => {
-      if(!snapshot.exists()){
-            agent.add("Por favor, para ver los suplentes de una jornada búscala primero y pulsa el botón de ver suplentes.");
-            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-          }else{
-            let datos = snapshot.val();
+      if (!snapshot.exists()) {
+        agent.add("Por favor, para ver los suplentes de una jornada búscala primero y pulsa el botón de ver suplentes.");
+        agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        let datos = snapshot.val();
         let numJornada = datos.numJornada;
-        console.log("NUMJORNADA:"+numJornada);
+        console.log("NUMJORNADA:" + numJornada);
         let nombreLocal = datos.nombreLocal;
         let nombreVisitante = datos.nombreVisitante;
         let idVisitante = datos.idVisitante;
         let idLocal = datos.idLocal;
         let idRival = idLocal;
-        if (idRival===idEquipo){
-         idRival = idVisitante; 
+        if (idRival === idEquipo) {
+          idRival = idVisitante;
         }
-            return refJornadas.child(idJornada).child("alineaciones").child(idEquipo).once('value').then((snapshot) => {
-          if(!snapshot.exists()){
+        return refJornadas.child(idJornada).child("alineaciones").child(idEquipo).once('value').then((snapshot) => {
+          if (!snapshot.exists()) {
             agent.add("Por favor, para ver los suplentes de una jornada búscala primero y pulsa el botón de ver suplentes.");
             agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
-          }else{
+          } else {
             let alineaciones = snapshot.val();
             let entrenador = alineaciones.entrenador;
             let formacion = alineaciones.formacion;
             let suplentes = alineaciones.suplentes;
             let nombreEquipo = alineaciones.nombreEquipo;
-            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${suplentes}`,buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}`}));
-		    agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname} });
+            agent.add(new Card({ title: `Alineación ${nombreEquipo}`, text: `Jornada${numJornada}\n${nombreLocal} vs ${nombreVisitante}\nEntrenador: ${entrenador}\nFormación: ${formacion}\n${suplentes}`, buttonText: "Ver alineación del rival", buttonUrl: `Ver alineación del equipo ${idRival} en la jornada ${idJornada}` }));
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
           }
+        });
+      }
     });
-          }
-    });
-    
+
   }
-  
+
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -2896,5 +2866,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('BuscarEstadisticasJornadaEquipo', handleBuscarEstadisticasJornadaEquipo);
   intentMap.set('BuscarAlineacionesJornadaEquipo', handleBuscarAlineacionesJornadaEquipo);
   intentMap.set('BuscarSuplentesJornadaEquipo', handleBuscarSuplentesJornadaEquipo);
+  intentMap.set('BuscarCompeticionNombreYPais', handleBuscarCompeticionNombreYPais);
   agent.handleRequest(intentMap);
 });

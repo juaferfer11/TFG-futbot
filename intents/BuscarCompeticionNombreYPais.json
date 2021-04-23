@@ -1,6 +1,6 @@
 {
-  "id": "7cfe8d2c-ac1e-4938-b3b2-0a27cf3c743c",
-  "name": "BuscarJugador",
+  "id": "84a012ab-f7f5-42de-a2ba-469b7b0a8afc",
+  "name": "BuscarCompeticionNombreYPais",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,7 +12,21 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d9a649fc-7c4a-4239-ab4e-63c2f43e7a3a",
+          "id": "dc2232d4-b8ba-415c-b63e-65d30511d6be",
+          "name": "location",
+          "required": false,
+          "dataType": "@sys.location",
+          "value": "$location",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "fe4016c2-1850-43f5-b7d5-cb2b6fdcf87c",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,17 +40,17 @@
           "outputDialogContexts": []
         },
         {
-          "id": "d6679f97-1897-4991-b252-bf6261120515",
-          "name": "jugador",
+          "id": "73ff847b-daef-42c9-b236-e149a0e72c4f",
+          "name": "competicion",
           "required": true,
           "dataType": "@sys.any",
-          "value": "$jugador",
+          "value": "$competicion",
           "defaultValue": "",
           "isList": false,
           "prompts": [
             {
               "lang": "es",
-              "value": "Por favor introduce el nombre del jugador del que quieres información"
+              "value": "Por favor indica el nombre de la competición que quieres buscar"
             }
           ],
           "promptMessages": [],
@@ -45,30 +59,25 @@
           "outputDialogContexts": []
         },
         {
-          "id": "35f583f9-a024-4771-94ee-374afe1a9f46",
-          "name": "equipo",
-          "required": true,
-          "dataType": "@sys.any",
-          "value": "$equipo",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor introduce el equipo del jugador del que quieres información"
-            }
-          ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "b0a7b6d3-1f8e-4e7a-8ad0-03dfc698d962",
+          "id": "f36bafb3-0772-46d3-bcab-49ba75e498f5",
           "name": "busqueda",
           "required": false,
           "dataType": "@sys.any",
           "value": "$busqueda",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "10a5be29-61cc-4370-a9c6-c0ff5dacfd5f",
+          "name": "de",
+          "required": false,
+          "dataType": "@sys.any",
+          "value": "$de",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -90,15 +99,11 @@
       "speech": []
     }
   ],
-  "priority": 500000,
+  "priority": 750000,
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarJugador"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

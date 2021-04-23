@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "e5bec84d-20ce-4d1f-92d6-de56c322e184",
+          "id": "fad5083a-3234-4750-bbb7-2c20f7447237",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "2c526ed8-ed98-4d67-b293-3e4aaacde348",
+          "id": "3f9fccfc-61f4-49ac-94f0-63af58109ed1",
           "name": "location",
           "required": true,
           "dataType": "@sys.any",

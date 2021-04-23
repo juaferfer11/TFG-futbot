@@ -1,0 +1,453 @@
+[
+  {
+    "id": "c491010d-08bf-4d4f-960f-672e48054531",
+    "data": [
+      {
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Copa del Rey",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8bfc84da-bf1b-47da-9176-187c1dc4d16f",
+    "data": [
+      {
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Jupiler Pro League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bélgica",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f7b9ae03-57d1-4b65-953d-d8cb0963f2cc",
+    "data": [
+      {
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Serie A",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Italia",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4a05034d-94c5-48a2-9683-5703d5d6cc15",
+    "data": [
+      {
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Primeira Liga",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Portugal",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "63c8284b-2937-46cf-8eb0-62238178b97d",
+    "data": [
+      {
+        "text": "Dame información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7181bbb3-3305-4e26-bb4f-ec190f6835a7",
+    "data": [
+      {
+        "text": "Dame información de la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Jupiler Pro League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bélgica",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "49ccb169-6810-40d6-8413-3e7a2c89fc3f",
+    "data": [
+      {
+        "text": "Ver información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c0cad64a-5786-4d75-b576-be898d6b63fc",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Alemania",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "fb4c8494-1bc7-495b-bbec-ad91ac9b8f95",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Premier League",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Inglaterra",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

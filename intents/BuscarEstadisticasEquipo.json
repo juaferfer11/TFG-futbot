@@ -12,35 +12,45 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "a2086f2d-623e-4105-99c3-d3c7896d785f",
+          "id": "a777816d-116c-48d5-b34b-c53e05ceecf1",
           "name": "equipo",
-          "required": false,
+          "required": true,
           "dataType": "@sys.any",
           "value": "$equipo",
           "defaultValue": "",
           "isList": false,
-          "prompts": [],
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Por favor introduce el nombre del equipo del que quieres ver estadísticas"
+            }
+          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
           "outputDialogContexts": []
         },
         {
-          "id": "98e2f7a5-a5b1-4c94-8b07-04c9d3d11f5c",
+          "id": "df924918-9736-4c58-9586-8b6157e4092d",
           "name": "competicion",
-          "required": false,
+          "required": true,
           "dataType": "@sys.any",
           "value": "$competicion",
           "defaultValue": "",
           "isList": false,
-          "prompts": [],
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Por favor introduce la competición del equipo del que quieres ver estadísticas"
+            }
+          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
           "outputDialogContexts": []
         },
         {
-          "id": "05006bc5-56ef-4658-beac-b2c2f81b3e6d",
+          "id": "aa888733-0823-44ac-9445-e408bdf040f6",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -54,7 +64,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "b4fe39ba-ff8d-40d5-b4e2-5d0bb1b092f3",
+          "id": "56d5254c-6d33-42ef-ad31-530528f6ffec",
           "name": "nicknameEvento",
           "required": false,
           "dataType": "",
@@ -67,7 +77,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "0d8ec85a-4d78-4b93-ae81-65618ba85d81",
+          "id": "59c22ed1-6a12-4f42-9dfe-95e74cda7e54",
           "name": "equipoEvento",
           "required": false,
           "dataType": "",
@@ -80,7 +90,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "9b621e72-4bb7-41af-bc3b-924d9312b64b",
+          "id": "6845ba9f-df51-4f62-8bf1-daa2d5215040",
           "name": "competicionEvento",
           "required": false,
           "dataType": "",

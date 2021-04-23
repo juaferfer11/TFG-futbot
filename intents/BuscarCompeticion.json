@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "45bbd3ee-5e28-4435-9266-2089bb0cd973",
+          "id": "c511ad21-3434-48de-b9ca-91943550dba1",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "96174e74-93ad-4890-9616-db6a7a872841",
+          "id": "aa500dbe-c40b-4e4e-ad73-117ceb5affa6",
           "name": "competicion",
           "required": true,
           "dataType": "@sys.any",
@@ -45,19 +45,27 @@
           "outputDialogContexts": []
         },
         {
-          "id": "60ca8719-a5f8-470c-bb9a-110198f0d715",
-          "name": "location",
+          "id": "911ce180-1b1b-4f93-a0e3-eaeacb1f6149",
+          "name": "busqueda",
           "required": false,
           "dataType": "@sys.any",
-          "value": "$location",
+          "value": "$busqueda",
           "defaultValue": "",
           "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Indica el país de la competición que buscas, por favor"
-            }
-          ],
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "86e71a79-ff95-4956-8f1d-ae65721fad6c",
+          "name": "location",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
@@ -80,7 +88,11 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [],
+  "events": [
+    {
+      "name": "BuscarCompeticion"
+    }
+  ],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

@@ -3,7 +3,17 @@
     "id": "3d01213e-e7a9-4a24-ad48-230337f45ff9",
     "data": [
       {
-        "text": "Ver información del jugador ",
+        "text": "Ver información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -32,7 +42,17 @@
     "id": "c7761bb6-7d3b-464d-8f52-23bdf4c9c478",
     "data": [
       {
-        "text": "Quiero información del jugador ",
+        "text": "Quiero información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -61,7 +81,17 @@
     "id": "b2becc9e-f250-49cb-929e-67a533107ae7",
     "data": [
       {
-        "text": "Deseo información del jugador ",
+        "text": "Deseo información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -90,7 +120,17 @@
     "id": "faec5ec8-eb15-41f6-a58b-ada6f5eeff23",
     "data": [
       {
-        "text": "Dame información del jugador ",
+        "text": "Dame información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -124,7 +164,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -158,7 +208,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -192,7 +252,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -226,7 +296,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -260,7 +340,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -294,7 +384,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -328,7 +428,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -362,7 +472,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -396,7 +516,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -430,7 +560,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -464,7 +604,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {
@@ -498,7 +648,17 @@
         "userDefined": false
       },
       {
-        "text": " información del jugador ",
+        "text": " información del ",
+        "userDefined": false
+      },
+      {
+        "text": "jugador",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {

@@ -1,5 +1,43 @@
 [
   {
+    "id": "e8c3b401-37d7-461c-a75a-a141c7f69ac2",
+    "data": [
+      {
+        "text": "Ver información de la competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c052a80e-325e-4eee-af43-2e12c412994a",
+    "data": [
+      {
+        "text": "Ver competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "aa147f24-0052-45d7-8865-005e8ceee13a",
     "data": [
       {
