@@ -10,7 +10,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "5f674fa1-8355-4a32-b787-120f699a1b4d",
+          "id": "943db495-3a1f-4770-9076-61e7790abcdf",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -23,7 +23,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "310b2ed2-c609-48f6-8bf0-b105846200bc",
+          "id": "a38cc215-da6b-49e3-b688-f3221c52cff4",
           "name": "numJornada",
           "required": false,
           "dataType": "",
@@ -36,7 +36,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "b794da1c-f1e7-4f56-bcbb-e439a3835245",
+          "id": "c3a7d80a-9468-449f-b3e1-6a9f27bb10fd",
           "name": "nombreLocal",
           "required": false,
           "dataType": "",
@@ -49,7 +49,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "daff0e82-f0bf-414a-9e04-0c32c232829c",
+          "id": "1edd6527-d6e0-4b3e-8b56-2c06cb3e2ceb",
           "name": "escudoLocal",
           "required": false,
           "dataType": "",
@@ -62,7 +62,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "a6e80c82-90a4-430a-868b-2f5238bf10db",
+          "id": "eb602792-1715-49c9-8e04-0224e1e1c4ae",
           "name": "nombreVisitante",
           "required": false,
           "dataType": "",
@@ -75,7 +75,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "6deef313-0878-4077-8514-96732921c588",
+          "id": "598a3cfb-ed7b-431b-9655-839c5e0a19a0",
           "name": "escudoVisitante",
           "required": false,
           "dataType": "",
@@ -88,7 +88,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "8b7248a0-ff37-4442-b6c4-550f61776cca",
+          "id": "c785e5ee-627e-4b51-9311-ff405ed6a2c9",
           "name": "estadio",
           "required": false,
           "dataType": "",
@@ -101,7 +101,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5c8bd4f1-67be-4956-8e8a-146d8ecb4e99",
+          "id": "8d49f6db-b50f-4e02-ae92-9f06a9597735",
           "name": "arbitro",
           "required": false,
           "dataType": "",
@@ -114,7 +114,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "ea0721da-9016-4603-b791-d8a0bdbae3e5",
+          "id": "705e3adf-29ab-4881-87df-5e5d84813a64",
           "name": "fecha",
           "required": false,
           "dataType": "",
@@ -127,7 +127,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "568ea0d5-912c-4dfb-8128-80e35512353a",
+          "id": "481575d5-0c25-42f9-b1bc-0dc9ee267b53",
           "name": "hora",
           "required": false,
           "dataType": "",
@@ -140,8 +140,21 @@
           "outputDialogContexts": []
         },
         {
-          "id": "e76bf2d6-8bff-4dd1-ad2c-3c5388cd60f4",
+          "id": "afc47fad-dc3e-4c44-823d-050031724f71",
           "name": "idJornada",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "e22df00c-e41a-4b86-9115-de8c6e2eda55",
+          "name": "nombreEquipo",
           "required": false,
           "dataType": "",
           "defaultValue": "",

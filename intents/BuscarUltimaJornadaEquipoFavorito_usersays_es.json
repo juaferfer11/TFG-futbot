@@ -1,0 +1,21 @@
+[
+  {
+    "id": "35553f4d-adba-4b77-a76e-7450c8b51912",
+    "data": [
+      {
+        "text": "Buscar última jornada del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "123",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

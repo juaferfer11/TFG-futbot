@@ -1,0 +1,21 @@
+[
+  {
+    "id": "8ef21aa7-89e0-4a66-81de-cd6f05f103ff",
+    "data": [
+      {
+        "text": "Buscar próxima jornada del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "123",
+        "meta": "@sys.number-integer",
+        "alias": "idEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
