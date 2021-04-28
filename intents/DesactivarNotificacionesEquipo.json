@@ -1,6 +1,6 @@
 {
-  "id": "ecfb9028-69b1-4818-8e63-43cc7495b450",
-  "name": "BuscarUltimaJornadaEquipoFavorito",
+  "id": "81b8226a-8935-4d39-a7be-79745b18f2f9",
+  "name": "DesactivarNotificacionesEquipo",
   "auto": true,
   "contexts": [
     "Home"
@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d1482798-18e7-4890-bbe3-0a6bcc24ff39",
+          "id": "738691a0-cc46-4b10-982c-3e95adccda76",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "45232ac3-5618-475c-81ce-1596ea63050f",
+          "id": "babdeb86-6090-47fc-b91a-d7bc964aeb9a",
           "name": "nombreEquipo",
           "required": false,
           "dataType": "@sys.any",
@@ -56,11 +56,7 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarUltimaJornadaEquipoFavorito"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

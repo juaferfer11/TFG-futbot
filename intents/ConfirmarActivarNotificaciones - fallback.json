@@ -1,0 +1,44 @@
+{
+  "id": "84ae91b4-74c1-456b-b170-555155ff432b",
+  "parentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "rootParentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "name": "ConfirmarActivarNotificaciones - fallback",
+  "contexts": [
+    "ConfirmarActivarNotificaciones-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "ConfirmarActivarNotificaciones.ConfirmarActivarNotificaciones-fallback",
+      "affectedContexts": [
+        {
+          "name": "ConfirmarActivarNotificaciones-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perdona, no te entendí. ¿Deseas entonces actualizar el equipo sobre el que deseas recibir notificaciones?",
+            "No pude comprender esa respuesta. Te preguntaba si quieres desactivar las notificaciones del equipo que tienes configurado actualmente para activar las de este."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

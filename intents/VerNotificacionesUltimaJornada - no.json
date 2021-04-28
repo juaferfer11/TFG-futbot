@@ -1,22 +1,24 @@
 {
-  "id": "ecfb9028-69b1-4818-8e63-43cc7495b450",
-  "name": "BuscarUltimaJornadaEquipoFavorito",
+  "id": "a9ea0e3f-a4d6-4e63-9139-bdbf1826a740",
+  "parentId": "04bac4f7-96dc-4aa6-ab35-a4ab67b30c51",
+  "rootParentId": "04bac4f7-96dc-4aa6-ab35-a4ab67b30c51",
+  "name": "VerNotificacionesUltimaJornada - no",
   "auto": true,
   "contexts": [
-    "Home"
+    "VerNotificacionesUltimaJornada-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "VerNotificacionesUltimaJornada.VerNotificacionesUltimaJornada-no",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d1482798-18e7-4890-bbe3-0a6bcc24ff39",
+          "id": "366a12d5-7c15-48e6-86bc-f9abfe3e1721",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#VerNotificacionesUltimaJornada-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -26,11 +28,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "45232ac3-5618-475c-81ce-1596ea63050f",
+          "id": "25bc1699-6117-4f26-925a-1e0217e23b52",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$nombreEquipo",
+          "dataType": "",
+          "value": "#VerNotificacionesUltimaJornada-followup.nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -56,11 +58,7 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarUltimaJornadaEquipoFavorito"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

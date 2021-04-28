@@ -1,0 +1,60 @@
+{
+  "id": "9a63e4fa-a54f-4779-92b4-cee6971ca6f7",
+  "parentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "rootParentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "name": "ConfirmarActivarNotificaciones - no",
+  "auto": true,
+  "contexts": [
+    "ConfirmarActivarNotificaciones-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "ConfirmarActivarNotificaciones.ConfirmarActivarNotificaciones-no",
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "6857847c-f1f0-4e95-8bce-3a52ab27bf99",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#ConfirmarActivarNotificaciones-followup.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo, te devolveré entonces a la pantalla principal.",
+            "Recibido, no se producirá ningún cambio entonces. Te devuelvo a la pantalla principal del chatbot para que puedas seguir usándolo con normalidad."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2bc71974-cd1b-448a-80de-1af5c1fc0b4e",
+  "parentId": "9fcc8d2f-693a-43d2-91b7-ab59f241e730",
+  "rootParentId": "9fcc8d2f-693a-43d2-91b7-ab59f241e730",
+  "name": "ConfirmarNotificacionesProximaJornada - fallback",
+  "contexts": [
+    "ConfirmarNotificacionesProximaJornada-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "ConfirmarNotificacionesProximaJornada.ConfirmarNotificacionesProximaJornada-fallback",
+      "affectedContexts": [
+        {
+          "name": "ConfirmarNotificacionesProximaJornada-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No entendí tu respuesta. Por favor, indícame si quieres o no ver más detalles de la próxima jornada que va a disputar el equipo que has elegido para recibir notificaciones."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

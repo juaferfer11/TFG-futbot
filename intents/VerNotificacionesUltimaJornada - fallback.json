@@ -1,0 +1,44 @@
+{
+  "id": "8e784d9b-d8d9-4130-aeaf-8f1d79f9c169",
+  "parentId": "04bac4f7-96dc-4aa6-ab35-a4ab67b30c51",
+  "rootParentId": "04bac4f7-96dc-4aa6-ab35-a4ab67b30c51",
+  "name": "VerNotificacionesUltimaJornada - fallback",
+  "contexts": [
+    "VerNotificacionesUltimaJornada-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "VerNotificacionesUltimaJornada.VerNotificacionesUltimaJornada-fallback",
+      "affectedContexts": [
+        {
+          "name": "VerNotificacionesUltimaJornada-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No entendí tu respuesta. ¿Quieres ver más detalles sobre la jornada que el equipo para el que has activado las notificaciones ha jugado recientemente?",
+            "Perdona, no pude comprender tu respuesta. Te preguntaba que si quieres saber más sobre la jornada que el equipo para el que has activado las notificaciones ha jugado recientemente."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

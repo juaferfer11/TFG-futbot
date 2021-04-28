@@ -1,0 +1,100 @@
+{
+  "id": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "name": "ConfirmarActivarNotificaciones",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "ConfirmarActivarNotificaciones-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "c0e618b5-798f-40d3-a2dc-d0f757394839",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "efb8e072-3ba0-4b03-adb8-e0cd32f4fe65",
+          "name": "idEquipo",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "272916d8-c713-41c0-ba3e-bd8eb1242c58",
+          "name": "nombreEquipo",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "¿Seguro que deseas eliminar las notificaciones de tu equipo actual y activar las del equipo que has seleccionado?",
+          "title": "Confirmar activación de notificaciones",
+          "buttons": [
+            {
+              "postback": "Si",
+              "text": "Sí"
+            },
+            {
+              "postback": "No",
+              "text": "No"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "ConfirmarActivarNotificaciones"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

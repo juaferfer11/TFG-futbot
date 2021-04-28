@@ -1,5 +1,43 @@
 [
   {
+    "id": "855abbd4-7d63-41ae-a29f-984e3758a1a2",
+    "data": [
+      {
+        "text": "Buscar estadísticas en liga del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a185d8ed-2291-4e24-ab72-6d5bd9a45a09",
+    "data": [
+      {
+        "text": "Buscar estadísticas en liga del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "bfa8b945-ae66-4749-b49c-7cbcff8ad406",
     "data": [
       {
@@ -7,9 +45,9 @@
         "userDefined": false
       },
       {
-        "text": "123",
-        "meta": "@sys.number-integer",
-        "alias": "idEquipo",
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
         "userDefined": true
       }
     ],

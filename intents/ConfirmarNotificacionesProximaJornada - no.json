@@ -1,22 +1,29 @@
 {
-  "id": "ecfb9028-69b1-4818-8e63-43cc7495b450",
-  "name": "BuscarUltimaJornadaEquipoFavorito",
+  "id": "92282df4-fcc6-415f-b63f-be51359dbfd7",
+  "parentId": "9fcc8d2f-693a-43d2-91b7-ab59f241e730",
+  "rootParentId": "9fcc8d2f-693a-43d2-91b7-ab59f241e730",
+  "name": "ConfirmarNotificacionesProximaJornada - no",
   "auto": true,
   "contexts": [
-    "Home"
+    "ConfirmarNotificacionesProximaJornada-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
-      "affectedContexts": [],
+      "action": "ConfirmarNotificacionesProximaJornada.ConfirmarNotificacionesProximaJornada-no",
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "d1482798-18e7-4890-bbe3-0a6bcc24ff39",
+          "id": "65677176-37d0-43a0-8faa-83a56d24f75b",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#ConfirmarNotificacionesProximaJornada-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -26,11 +33,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "45232ac3-5618-475c-81ce-1596ea63050f",
+          "id": "782431a8-92e0-45bf-b72f-b93c92777ffe",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$nombreEquipo",
+          "dataType": "",
+          "value": "#ConfirmarNotificacionesProximaJornada-followup.nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -46,6 +53,9 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "De acuerdo. Si cambias de idea puedes ver esta información en cualquier momento desde tu lista de favoritos. Te redirijo a la página principal del agente para que puedas usarlo con normalidad."
+          ],
           "condition": ""
         }
       ],
@@ -56,11 +66,7 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarUltimaJornadaEquipoFavorito"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

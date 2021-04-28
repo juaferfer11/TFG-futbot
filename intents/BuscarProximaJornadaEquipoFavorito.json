@@ -12,21 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "6e8b0a13-1824-4eda-b73c-2252a6830983",
-          "name": "idEquipo",
-          "required": false,
-          "dataType": "@sys.number-integer",
-          "value": "$idEquipo",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "1520cbd4-ed97-449c-9407-3f3eee1c7283",
+          "id": "731d76e5-f385-4bde-a523-2ed40a815a32",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -40,11 +26,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5453eb7b-e7bb-4051-877a-8499224e9172",
+          "id": "d5fd6b51-b51d-4211-a40b-cb80b056c911",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "",
-          "value": "#Home.nombreEquipo",
+          "dataType": "@sys.any",
+          "value": "$nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -70,7 +56,11 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [],
+  "events": [
+    {
+      "name": "BuscarProximaJornadaEquipoFavorito"
+    }
+  ],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

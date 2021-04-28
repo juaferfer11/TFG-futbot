@@ -3,12 +3,12 @@
     "id": "84c27cca-d8f8-4718-8a08-959a3b4bb5e9",
     "data": [
       {
-        "text": "Quiero",
+        "text": "Eliminar",
         "meta": "@sys.ignore",
         "userDefined": false
       },
       {
-        "text": " eliminar el ",
+        "text": " ",
         "userDefined": false
       },
       {
@@ -22,12 +22,8 @@
         "userDefined": false
       },
       {
-        "text": "mi",
+        "text": "lista",
         "meta": "@sys.ignore",
-        "userDefined": false
-      },
-      {
-        "text": " lista de equipos favoritos",
         "userDefined": false
       }
     ],
@@ -40,12 +36,12 @@
     "id": "64bf5f41-ac5a-47d6-82c6-68b69a1c893a",
     "data": [
       {
-        "text": "Quiero",
+        "text": "Eliminar",
         "meta": "@sys.ignore",
         "userDefined": false
       },
       {
-        "text": " eliminar el ",
+        "text": " ",
         "userDefined": false
       },
       {
@@ -59,12 +55,8 @@
         "userDefined": false
       },
       {
-        "text": "mi",
+        "text": "lista",
         "meta": "@sys.ignore",
-        "userDefined": false
-      },
-      {
-        "text": " lista de equipos favoritos",
         "userDefined": false
       }
     ],
@@ -77,12 +69,12 @@
     "id": "0a511549-abf8-418b-b52f-16e194699973",
     "data": [
       {
-        "text": "Quiero",
+        "text": "Eliminar",
         "meta": "@sys.ignore",
         "userDefined": false
       },
       {
-        "text": " eliminar el ",
+        "text": " ",
         "userDefined": false
       },
       {
@@ -96,12 +88,8 @@
         "userDefined": false
       },
       {
-        "text": "mi",
+        "text": "lista",
         "meta": "@sys.ignore",
-        "userDefined": false
-      },
-      {
-        "text": " lista de equipos favoritos",
         "userDefined": false
       }
     ],

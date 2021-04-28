@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "5efa0ed7-0891-4994-8acc-cf87adbae1f4",
+          "id": "e1808e85-cb24-40a4-b1f3-a52bba024d30",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,25 +26,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "7f856640-9ed4-4046-8bbf-7680e92a7d90",
+          "id": "15b22496-3705-4ca5-b6d5-9d3f3b7c54c0",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "",
-          "value": "#Home.nombreEquipo",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "506ac081-f832-4c66-9e4d-4c466326772c",
-          "name": "idEquipo",
-          "required": false,
-          "dataType": "@sys.number-integer",
-          "value": "$idEquipo",
+          "dataType": "@sys.any",
+          "value": "$nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

@@ -1,22 +1,24 @@
 {
-  "id": "ecfb9028-69b1-4818-8e63-43cc7495b450",
-  "name": "BuscarUltimaJornadaEquipoFavorito",
+  "id": "c39e0484-462c-453f-8c8c-f59d375e6f47",
+  "parentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "rootParentId": "93de964d-a8da-45d4-94ff-70a256182b5e",
+  "name": "ConfirmarActivarNotificaciones - yes",
   "auto": true,
   "contexts": [
-    "Home"
+    "ConfirmarActivarNotificaciones-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "ConfirmarActivarNotificaciones.ConfirmarActivarNotificaciones-yes",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d1482798-18e7-4890-bbe3-0a6bcc24ff39",
+          "id": "8d13e1b4-ebf1-492d-9917-43e9880e19e8",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#ConfirmarActivarNotificaciones-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -26,11 +28,25 @@
           "outputDialogContexts": []
         },
         {
-          "id": "45232ac3-5618-475c-81ce-1596ea63050f",
+          "id": "13857398-735e-4cfe-aa5f-c96ab3e84ba1",
+          "name": "idEquipo",
+          "required": false,
+          "dataType": "",
+          "value": "#ConfirmarActivarNotificaciones-followup.idEquipo",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "a4eac5fd-15d6-4a1a-bf2a-88ddcc729ddd",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$nombreEquipo",
+          "dataType": "",
+          "value": "#ConfirmarActivarNotificaciones-followup.nombreEquipo",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -56,11 +72,7 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarUltimaJornadaEquipoFavorito"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

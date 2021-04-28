@@ -1,5 +1,43 @@
 [
   {
+    "id": "eb2dcb8b-783f-4710-acca-c7fb711c60cf",
+    "data": [
+      {
+        "text": "Buscar próxima jornada del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "61c10369-0045-4a11-8ef3-a2de9b734326",
+    "data": [
+      {
+        "text": "Buscar próxima jornada del equipo ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "8ef21aa7-89e0-4a66-81de-cd6f05f103ff",
     "data": [
       {
@@ -7,14 +45,14 @@
         "userDefined": false
       },
       {
-        "text": "123",
-        "meta": "@sys.number-integer",
-        "alias": "idEquipo",
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "nombreEquipo",
         "userDefined": true
       }
     ],
     "isTemplate": false,
-    "count": 0,
+    "count": 1,
     "lang": "es",
     "updated": 0
   }

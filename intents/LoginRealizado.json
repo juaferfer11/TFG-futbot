@@ -7,15 +7,10 @@
     {
       "resetContexts": false,
       "action": "",
-      "affectedContexts": [
-        {
-          "name": "Home",
-          "lifespan": 1
-        }
-      ],
+      "affectedContexts": [],
       "parameters": [
         {
-          "id": "2c4d3b85-3a91-4e70-a092-1f180638458a",
+          "id": "04f0bd88-25b0-49aa-9443-c977da22210f",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -44,7 +39,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": false,
+  "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [

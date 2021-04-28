@@ -1,10 +1,8 @@
 {
-  "id": "ecfb9028-69b1-4818-8e63-43cc7495b450",
-  "name": "BuscarUltimaJornadaEquipoFavorito",
+  "id": "0b8892e1-14d7-4465-9d51-66ad84c740cf",
+  "name": "VerNotificacionesProximaJornada",
   "auto": true,
-  "contexts": [
-    "Home"
-  ],
+  "contexts": [],
   "responses": [
     {
       "resetContexts": false,
@@ -12,11 +10,10 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d1482798-18e7-4890-bbe3-0a6bcc24ff39",
+          "id": "47ebf62e-d34c-4edb-be9e-d0e87f5f96ac",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -26,11 +23,36 @@
           "outputDialogContexts": []
         },
         {
-          "id": "45232ac3-5618-475c-81ce-1596ea63050f",
+          "id": "4b665581-4a01-4245-9e10-2a12edd0c2e3",
+          "name": "idEquipo",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "36035618-4ce7-448c-b040-2cf3d5013416",
           "name": "nombreEquipo",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$nombreEquipo",
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "8b954a81-8b28-4c17-931b-c2ec20b21645",
+          "name": "idLiga",
+          "required": false,
+          "dataType": "",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -58,7 +80,7 @@
   "fallbackIntent": false,
   "events": [
     {
-      "name": "BuscarUltimaJornadaEquipoFavorito"
+      "name": "NotificacionesProximaJornada"
     }
   ],
   "conditionalResponses": [],
