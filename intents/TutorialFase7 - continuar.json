@@ -1,41 +1,24 @@
 {
-  "id": "0c4513ae-101e-41ca-85c5-679aca0f4196",
-  "name": "BuscarEquipo",
+  "id": "e7540bfd-7bf3-4a12-a0cc-b0b9484b8497",
+  "parentId": "14fd55b1-fa11-4fd9-bf41-7a7802d1b14b",
+  "rootParentId": "14fd55b1-fa11-4fd9-bf41-7a7802d1b14b",
+  "name": "TutorialFase7 - continuar",
   "auto": true,
   "contexts": [
-    "Home"
+    "TutorialFase7-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "TutorialFase7.TutorialFase7-continuar",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "5c48c6f5-5182-4eea-99d1-f24384a945b6",
-          "name": "equipo",
-          "required": true,
-          "dataType": "@sys.any",
-          "value": "$equipo",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor, dime el nombre del equipo."
-            }
-          ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "08071e0d-2f4c-4425-98e5-81b0fbc84562",
+          "id": "20e9ba2a-56f5-4a61-bf5d-528f4ce74cdf",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#TutorialFase7-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

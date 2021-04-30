@@ -1,0 +1,74 @@
+{
+  "id": "a8c68c1b-fac4-425d-94e9-7ada9f394502",
+  "name": "TutorialFase15",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase15-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "1e05784c-e767-4204-9862-241798476414",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Con eso ya habría concluido el tutorial. Ahora, ¿querrías que te ayude a elegir un equipo al que seguir?",
+          "title": "Tutorial: fin",
+          "buttons": [
+            {
+              "postback": "No",
+              "text": "No"
+            },
+            {
+              "postback": "Si",
+              "text": "Sí"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase15"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

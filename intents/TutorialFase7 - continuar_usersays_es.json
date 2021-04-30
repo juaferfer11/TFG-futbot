@@ -1,0 +1,227 @@
+[
+  {
+    "id": "ac8d2cd1-6bdd-42c6-82c6-9d9a67a82f71",
+    "data": [
+      {
+        "text": "Continuar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "efdee5ef-0b2e-4169-8fe2-fa20e1e4ab1c",
+    "data": [
+      {
+        "text": "Me gustaría continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2ccd667a-3d8b-4eff-9df2-9fd6c7244ba7",
+    "data": [
+      {
+        "text": "Quisiera",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4ab4ca09-75dd-455f-893d-7a9f838ab80f",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5a228f8d-84e5-4081-8034-16e1f5ed5faa",
+    "data": [
+      {
+        "text": "Continuar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4ba98883-07bc-4c80-8621-5ccc4a696e92",
+    "data": [
+      {
+        "text": "Continuar",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b118ca96-30e8-414e-af2c-f03c14b25c2e",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9f556b22-5979-46e5-828b-c08acd8f47e4",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "786c178c-92a7-458c-9a56-31ccf2e85103",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "52e25583-6746-48c5-ab68-d3fdfbec8641",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d893540d-eceb-48dd-aaad-c6ac1e5acdc8",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dabc3a56-ecad-4eb1-abd4-fe61c54e82fd",
+    "data": [
+      {
+        "text": "Quisiera",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "54c255e9-1380-47c1-968c-af4438ed8522",
+    "data": [
+      {
+        "text": "Quisiera",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "id": "fa073225-e996-4397-9229-75f74d19c12e",
+  "name": "TutorialFase10",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase10-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "1506f599-5190-4e48-bc74-357e3bdeeb13",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Además de los jugadores dentro del campo, están los suplentes, los entrenadores, que son los encargados de decidir la táctica que debe seguir un equipo y de decidir los cambios de jugadores que fueran a producirse, y el árbitro, que es una persona imparcial que debe velar por que no se cometan infracciones en el juego y es el que “oficializa” los eventos que ocurren en el partido, como los goles, que no suben al marcador hasta que el árbitro lo indique.",
+          "title": "Tutorial: otras personas en el campo",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase10"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

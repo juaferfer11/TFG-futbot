@@ -1,0 +1,137 @@
+[
+  {
+    "id": "7eb6b90a-fa09-4a67-82f5-5b23b40390ca",
+    "data": [
+      {
+        "text": "Quisiera",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " salir del tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "38805594-fdaa-4660-b46f-d1a3443efdac",
+    "data": [
+      {
+        "text": "Me gustaría salir",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "35fc890c-a2fb-412a-aa13-274e5338bea1",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " salir del tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a8a12bb6-991c-40d7-a5aa-eaa7a57f3356",
+    "data": [
+      {
+        "text": "Salir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " del tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a0422d34-3521-4afc-b2da-ee44511a3e3e",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " salir del tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "98e995b4-546a-4402-977a-cde545a01a76",
+    "data": [
+      {
+        "text": "Deseo",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " salir",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a487e14e-96d4-414a-a134-267a914117ff",
+    "data": [
+      {
+        "text": "Quiero",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " salir",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "38585753-5912-4707-b731-818ab5e6b887",
+    "data": [
+      {
+        "text": "Salir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

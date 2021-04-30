@@ -1,0 +1,74 @@
+{
+  "id": "13ef5c2c-f29b-428f-8fe1-e413a1f30596",
+  "name": "PreguntarTutorial",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "PreguntarTutorial-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "398b5247-5a3f-4d06-983f-c01a35bf1454",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Te doy la bienvenida, ya te has registrado correctamente y has iniciado sesión. Solo queda una última cosa antes de que te deje usar el chatbot libremente. ¿Te gustaría recibir un pequeño tutorial de iniciación a este deporte?",
+          "title": "Inicio: tutorial",
+          "buttons": [
+            {
+              "postback": "si",
+              "text": "Sí"
+            },
+            {
+              "postback": "no",
+              "text": "No"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "PreguntarTutorial"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

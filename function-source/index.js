@@ -60,7 +60,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         nombre: nombre,
         apellidos: apellidos,
         email: email,
-        contraseña: contraseña
+        contraseña: contraseña,
+        esNovato: true
       });
     }
   }
@@ -504,6 +505,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     competicion = competicionAux.join(' ');
     console.log("COMPETICIÓN: " + competicion);
     var location = agent.parameters.location.country;
+    if (location === ""){
+     location =  "Inglaterra";
+    }
+    console.log("LOCATION 1:"+location);
     var locationAux = [location];
     if (/\s/.test(location)) {
       locationAux = location.split(" ");
@@ -512,7 +517,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       locationAux[j] = locationAux[j].charAt(0).toUpperCase() + locationAux[j].substring(1);
     }
     location = locationAux.join(' ');
-    console.log(location);
+    console.log("LOCATION:"+location);
     return refCompeticiones.child(competicion).once('value').then((snapshot) => {
       var aux = snapshot.val();
       console.log(aux);
@@ -2350,7 +2355,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         if (fechaHora != null) {
           let fechaHoraAux = new Date(Date.parse(fechaHora));
           fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
-          fecha = fechaHora[0];
+          let fechaNoFormateada = fechaHora[0].split('/');
+		  fecha = fechaNoFormateada[1] + "/" + fechaNoFormateada[0] + "/" + fechaNoFormateada[2];
           if (fechaHoraAux.getHours() > 0) {
             hora = fechaHora[1];
           }
@@ -2539,7 +2545,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         if (fechaHora != null) {
           let fechaHoraAux = new Date(Date.parse(fechaHora));
           fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
-          fecha = fechaHora[0];
+          let fechaNoFormateada = fechaHora[0].split('/');
+		  fecha = fechaNoFormateada[1] + "/" + fechaNoFormateada[0] + "/" + fechaNoFormateada[2];
           if (fechaHoraAux.getHours() > 0) {
             hora = fechaHora[1];
           }
@@ -3117,7 +3124,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         if (fechaHora != null) {
           let fechaHoraAux = new Date(Date.parse(fechaHora));
           fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
-          fecha = fechaHora[0];
+          let fechaNoFormateada = fechaHora[0].split('/');
+		  fecha = fechaNoFormateada[1] + "/" + fechaNoFormateada[0] + "/" + fechaNoFormateada[2];
           if (fechaHoraAux.getHours() > 0) {
             hora = fechaHora[1];
           }
@@ -3129,13 +3137,19 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let golesVisitante = respuesta.goals.away;
         let resultado = golesLocal + "-" + golesVisitante;
         let fechaAPIUTC = new Date(fechaHoraAPI);
-        if ((fechaActual - fechaAPIUTC > 86400000)) {
+        if ((fechaActual - fechaAPIUTC > 86400000)||(respuesta.fixture.status.short != "FT")) {
           console.log("VER PROXIMA JORNADA");
           agent.setFollowupEvent({ "name": "NotificacionesProximaJornada", "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": equipo, "idLiga": idLiga } });
+          refEquipos.child(equipo).child("ultimaJornada").update({
+            vista: true
+        });
         }
         else {
           console.log("VER ULTIMA JORNADA");
           agent.setFollowupEvent({ "name": "VerNotificacionesUltimaJornada", "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": equipo } });
+          refEquipos.child(equipo).child("ultimaJornada").update({
+            vista: false
+        });
         }
           almacenarJornada(idJornada, numJornada, nombreLocal, escudoLocal, nombreVisitante, escudoVisitante, estadio, arbitro, fecha, hora, idLocal, idVisitante, resultado);
         refEquipos.child(equipo).child("ultimaJornada").update({
@@ -3156,7 +3170,6 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           golesLocal: golesLocal,
           golesVisitante: golesVisitante,
           resultado: resultado,
-          vista: false
         });
       
       }
@@ -3166,7 +3179,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function handleLoginRealizado(agent) {
     const nickname = agent.parameters.nickname;
     let refNotificaciones = db.ref(`users/${nickname}/notificaciones`);
-    return refNotificaciones.once('value').then((snapshot) => {
+    return refUsuarios.child(nickname).once('value').then((snapshot) => {
+      let esNovato = snapshot.val().esNovato;
+      if(esNovato){
+        agent.setFollowupEvent({ "name": "PreguntarTutorial", "parameters": { "nickname": nickname}});
+      }else{
+        return refNotificaciones.once('value').then((snapshot) => {
       if (snapshot.exists()) {
         console.log("DETECTA NOTIFICACIONES");
         let datos = snapshot.val();
@@ -3181,7 +3199,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let fechaAlmacenamiento = ultimaJornada.fechaAlmacenamiento;
             if(ultimaJornada.vista === true){
               console.log("ULTIMA JORNADA YA VISTA");
-              agent.setFollowupEvent({ "name": "NotificacionesProximaJornada", "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": equipo, "idLiga": idLiga  } });
+              if(fechaActual - fechaUTC <= 86400000 && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActual.setHours(0, 0, 0, 0))){
+                console.log("ACTUALIZAR ULTIMA JORNADA");
+                return buscaUltimaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
+              }else{
+                agent.setFollowupEvent({ "name": "NotificacionesProximaJornada", "parameters": { "nickname": nickname, "idEquipo": idEquipo, "nombreEquipo": equipo, "idLiga": idLiga  } });
+              }
             }
             else if ((fechaActual - fechaUTC > 86400000) || (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActual.setHours(0, 0, 0, 0))) {
               console.log("ACTUALIZAR ULTIMA JORNADA");
@@ -3201,6 +3224,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
       }
     });
+      }
+    });
+    
   }
   
   function handleVerNotificacionesUltimaJornadaYes(agent){
@@ -3261,7 +3287,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         if (fechaHora != null) {
           let fechaHoraAux = new Date(Date.parse(fechaHora));
           fechaHora = fechaHoraAux.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }).split(", ");
-          fecha = fechaHora[0];
+          let fechaNoFormateada = fechaHora[0].split('/');
+		  fecha = fechaNoFormateada[1] + "/" + fechaNoFormateada[0] + "/" + fechaNoFormateada[2];
           if (fechaHoraAux.getHours() > 0) {
             hora = fechaHora[1];
           }
@@ -3333,7 +3360,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let proximaJornada = snapshot.child("proximaJornada").val();
             let fechaUTC = new Date(proximaJornada.fechaHora);
             let fechaAlmacenamiento = proximaJornada.fechaAlmacenamiento;
-            if(proximaJornada.vista === true){
+            if(proximaJornada.vista === true && fechaUTC - fechaActual >= 86400000){
               agent.add("Te doy la bienvenida a Futbot. A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
               agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
             }
@@ -3375,7 +3402,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let estadio = jornadaProxima.estadio;
         let arbitro = jornadaProxima.arbitro;
         let fecha = jornadaProxima.fecha;
-        let hora = jornadaProxima.fecha;
+        let hora = jornadaProxima.hora;
         console.log("PRE-CONFIRMACION");
     var options = {
       method: 'GET',
@@ -3577,6 +3604,101 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 	
   }
   
+//=========================================================================================================================================================================
+//TUTORIAL
+//=========================================================================================================================================================================  
+  
+  function handlePreguntarTutorialNo(agent){
+    const nickname = agent.parameters.nickname;
+    agent.add("De acuerdo, puedes acceder al tutorial en cualquier momento escribiendo 'Continuar tutorial' desde la página principal del chatbot, a la que te he redirigido ahora mismo.");
+    agent.add("A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
+    agent.setContext({ "name": "Home", "lifespan": 1,"parameters": { "nickname": nickname}});
+    refUsuarios.child(nickname).update({
+      esNovato: false
+    });
+    refUsuarios.child(nickname).update({
+      faseTutorial: 1,
+    });
+  }
+  
+  function handlePreguntarTutorialYes(agent){
+    const nickname = agent.parameters.nickname;
+    agent.setFollowupEvent({ "name": "ComenzarTutorial", "parameters": { "nickname": nickname}});
+    refUsuarios.child(nickname).update({
+      faseTutorial: 1,
+      esNovato: false
+    });
+    
+  }
+  
+  function handleSalirTutorial(agent){
+    const nickname = agent.parameters.nickname;
+    agent.add("De acuerdo, has salido del tutorial.Puedes acceder al tutorial en cualquier momento escribiendo 'Continuar tutorial' desde la página principal del chatbot, a la que te he redirigido ahora mismo.");
+    agent.add("A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
+    agent.setContext({ "name": "Home", "lifespan": 1,"parameters": { "nickname": nickname}});
+    
+    
+  }
+  function handleContinuarTutorial(agent){
+    const nickname = agent.parameters.nickname;
+    let descripciones = ["un partido es disputado por 2 equipos de 11 jugadores, pudiendo cada equipo sustituir hasta a 3 jugadores por otros de su banquillo de suplentes.",
+                        "a este deporte se juega con el pie y de los límites y características del terreno de juego.",
+                        "el objetivo del juego es marcar goles y que el equipo que marque más goles es el que gana el partido",
+                        "en las ligas nacionales, al ganar, empatar o perder un partido se reciben cantidades de puntos diferentes y que el campeón es el equipo que más puntos tenga al final de temporada.",
+                        "hay, en líneas generales, 4 roles que hay que desempeñar: portero, defensa, centrocampista y delantero.",
+                        "el portero es el encargado de parar los disparos del rival y de evitar que el balón entre en la portería.",
+                        "el defensa, dependiendo de su subrol puede estar más centrado en molestar a los delanteros rivales y ayudar a proteger la portería o en jugar más en campo contrario",
+                        "el centrocampista es la posición más variada, ya que dependiendo del subrol puede estar más orientado a la defensa, al ataque, a jugar por la banda o a ser más creativo en el juego",
+                        "el delantero es el principal encargado de meter goles del equipo.",
+                        "además de los jugadores de campo están los suplentes, los entrenadores que dirigen y gestionan los equipos y los árbitros, que son los que hacen cumplir la normativa.",
+                        "el árbitro es ayudado por otras personas que están en el campo como los asistentes y los jueces de línea, y otras que le ayudan desde fuera viendo el partido con varias pantallas.",
+                        "las principales infracciones son, entre otras: tocar el balón con la mano, derribar indebidamente a un rival o el fuera de juego.",
+                        "las infracciones tienen consecuencias en el juego, como son los lanzamientos de falta, los saques de banda o los penaltis.",
+                        "las infracciones tienen consecuencias para los jugadores, como pueden ser la tarjeta amarilla de advertencia o la roja de expulsión."];
+    return refUsuarios.child(nickname).once('value').then((snapshot) => {
+      let datos = snapshot.val();
+      let faseTutorial = datos.faseTutorial+1;
+    agent.setFollowupEvent({ "name": "TutorialFase"+faseTutorial, "parameters": { "nickname": nickname}});
+    refUsuarios.child(nickname).update({
+      faseTutorial: faseTutorial,
+      resumenAnterior: descripciones[faseTutorial-2]
+    });
+    });
+  }
+  function handleReanudarTutorial(agent){
+    const nickname = agent.parameters.nickname;
+    return refUsuarios.child(nickname).once('value').then((snapshot) => {
+      let datos = snapshot.val();
+      let faseTutorial = datos.faseTutorial;
+      let resumenAnterior = datos.resumenAnterior;
+      if(faseTutorial === 1){
+       agent.add("¿Deseas comenzar ahora el tutorial?");
+       agent.setContext({ "name": "ContinuarTutorial", "lifespan": 1,"parameters": { "nickname": nickname, "faseTutorial": faseTutorial}});
+      }else if(faseTutorial>15){
+        agent.add("Parece que ya has acabado el tutorial, te devuelvo a la página principal del chatbot.");
+        agent.setContext({ "name": "Home", "lifespan": 1,"parameters": { "nickname": nickname}});
+      }else{
+       agent.add("La última vez que accediste al tutorial estábamos hablando de que "+resumenAnterior+" ¿Deseas continuar el tutorial?");
+       agent.setContext({ "name": "ContinuarTutorial", "lifespan": 1,"parameters": { "nickname": nickname, "faseTutorial": faseTutorial}}); 
+      }
+      
+    });
+  }
+  
+  function handleContinuarTutorialYes(agent){
+    const nickname = agent.parameters.nickname;
+    const faseTutorial = agent.parameters.faseTutorial;
+    if(faseTutorial === 1){
+      agent.setFollowupEvent({ "name": "ComenzarTutorial", "parameters": { "nickname": nickname}});  
+    }else{
+      agent.setFollowupEvent({ "name": "TutorialFase"+faseTutorial, "parameters": { "nickname": nickname}});
+    }
+  }
+  
+  function handleTutorialFase15Yes(agent){
+    const nickname = agent.parameters.nickname;
+    agent.setFollowupEvent({ "name": "IntroduccionPersonalizada", "parameters": { "nickname": nickname}});
+  }
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -3672,5 +3794,38 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('VerNotificacionesProximaJornada', handleVerNotificacionesProximaJornada);
   intentMap.set('ConfirmarNotificacionesProximaJornada - yes', handleConfirmarNotificacionesProximaJornada);
   intentMap.set('ConfirmarNotificacionesProximaJornada - no', handleConfirmarNotificacionesProximaJornadaNo);
+  intentMap.set('PreguntarTutorial - no', handlePreguntarTutorialNo);
+  intentMap.set('PreguntarTutorial - yes', handlePreguntarTutorialYes);
+  intentMap.set('ComenzarTutorial - salir', handleSalirTutorial);
+  intentMap.set('ComenzarTutorial - continuar', handleContinuarTutorial);
+  intentMap.set('ContinuarTutorial', handleReanudarTutorial);
+  intentMap.set('ContinuarTutorial - yes', handleContinuarTutorialYes);
+  intentMap.set('TutorialFase15 - yes', handleTutorialFase15Yes);
+  intentMap.set('TutorialFase2 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase2 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase3 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase3 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase4 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase4 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase5 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase5 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase6 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase6 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase7 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase7 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase8 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase8 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase9 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase9 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase10 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase10 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase11 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase11 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase12 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase12 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase13 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase13 - continuar', handleContinuarTutorial);
+  intentMap.set('TutorialFase14 - salir', handleSalirTutorial);
+  intentMap.set('TutorialFase14 - continuar', handleContinuarTutorial);
   agent.handleRequest(intentMap);
 });

@@ -1,0 +1,74 @@
+{
+  "id": "b76ec8ec-ec8f-474d-9956-178c719eeb0b",
+  "name": "TutorialFase3",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase3-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "5947834b-ca55-4417-9438-4d986ab5138e",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "En los extremos del campo existen también unas estructuras llamadas porterías formadas por 3 postes formando un cuadrado con la línea continua del campo y una red que cuelga de ellos, siendo el objetivo por tanto introducir el balón con el pie en la portería del rival y evitar que el rival la meta en la nuestra. Cuando se introduce la pelota en la portería se dice que se ha marcado un gol, y al final del partido gana el que haya marcado más goles.",
+          "title": "Tutorial: Objetivo del juego",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase3"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

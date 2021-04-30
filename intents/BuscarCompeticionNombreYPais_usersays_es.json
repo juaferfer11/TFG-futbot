@@ -1,5 +1,103 @@
 [
   {
+    "id": "85bad522-1ab7-4c1f-b789-8f67292807f4",
+    "data": [
+      {
+        "text": "Ver información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Jupiler Pro League",
+        "meta": "@competicion",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bélgica",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e0883676-595f-4627-8de9-9979ba9cfa70",
+    "data": [
+      {
+        "text": "Ver información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Primera Division",
+        "meta": "@competicion",
+        "alias": "competicion",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@sys.any",
+        "alias": "de",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@sys.location",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "175768f9-fb87-48fb-829f-ed2eca823ecb",
     "data": [
       {
@@ -18,7 +116,7 @@
       },
       {
         "text": "Primera Division",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -67,7 +165,7 @@
       },
       {
         "text": "Copa del Rey",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -116,7 +214,7 @@
       },
       {
         "text": "Jupiler Pro League",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -165,7 +263,7 @@
       },
       {
         "text": "Serie A",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -214,7 +312,7 @@
       },
       {
         "text": "Primeira Liga",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -263,7 +361,7 @@
       },
       {
         "text": "Primera Division",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -312,7 +410,7 @@
       },
       {
         "text": "Jupiler Pro League",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -361,7 +459,7 @@
       },
       {
         "text": "Eredivisie",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -415,7 +513,7 @@
       },
       {
         "text": "Bundesliga 1",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },
@@ -469,7 +567,7 @@
       },
       {
         "text": "Premier League",
-        "meta": "@sys.any",
+        "meta": "@competicion",
         "alias": "competicion",
         "userDefined": true
       },

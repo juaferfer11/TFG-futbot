@@ -1,0 +1,44 @@
+{
+  "id": "35d55dc2-96e2-4c42-9747-69c9ac99de84",
+  "parentId": "13ef5c2c-f29b-428f-8fe1-e413a1f30596",
+  "rootParentId": "13ef5c2c-f29b-428f-8fe1-e413a1f30596",
+  "name": "PreguntarTutorial - fallback",
+  "contexts": [
+    "PreguntarTutorial-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "PreguntarTutorial.PreguntarTutorial-fallback",
+      "affectedContexts": [
+        {
+          "name": "PreguntarTutorial-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perdona, no te pude entender. Te preguntaba que si querías recibir un tutorial de iniciación al fútbol.",
+            "No entendí esa respuesta. ¿Quieres recibir el tutorial de iniciación al fútbol?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

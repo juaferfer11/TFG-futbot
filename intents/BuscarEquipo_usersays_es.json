@@ -1,5 +1,62 @@
 [
   {
+    "id": "0c6976f1-80b7-4738-87f0-7236d4bdb10f",
+    "data": [
+      {
+        "text": "Ver información del ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6805e14c-e4ed-49e0-bc52-972e5c92e260",
+    "data": [
+      {
+        "text": "Ver información del ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e75f1c72-0418-4e86-9d57-3673ce9fcba0",
+    "data": [
+      {
+        "text": "Ver información del ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "e40020d6-92e4-43cb-959a-911531b161d8",
     "data": [
       {

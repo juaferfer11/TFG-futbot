@@ -1,0 +1,44 @@
+{
+  "id": "36de982d-9f0f-497d-b76e-7974fa2f968b",
+  "parentId": "a8c68c1b-fac4-425d-94e9-7ada9f394502",
+  "rootParentId": "a8c68c1b-fac4-425d-94e9-7ada9f394502",
+  "name": "TutorialFase15 - fallback",
+  "contexts": [
+    "TutorialFase15-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "TutorialFase15.TutorialFase15-fallback",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase15-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No pude entender esa respuesta. Te preguntaba si quieres proceder a terminar el tutorial o no.",
+            "No te he entendido. Por favor, indícame si quieres terminar el tutorial ahora o no."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

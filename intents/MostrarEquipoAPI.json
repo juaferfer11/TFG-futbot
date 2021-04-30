@@ -10,7 +10,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "844fe95a-6fed-4d2e-bd93-6385d5bedb62",
+          "id": "cf3e2cdd-7d4a-47e6-8344-42c44352982a",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -23,7 +23,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "4244618f-6030-42fd-b42c-14e88b060da7",
+          "id": "2b0e1a99-6d1e-47f3-8659-415d96506c45",
           "name": "nombreEquipo",
           "required": false,
           "dataType": "",
@@ -36,7 +36,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5d20a835-4d22-43f8-9393-4a07bc10c0bf",
+          "id": "8cd9c4cd-2b45-4e20-9366-1dc8718f28fa",
           "name": "idAPI",
           "required": false,
           "dataType": "",
@@ -49,7 +49,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "c8d8b2b9-99ae-4113-9b36-fcc69f74f4ec",
+          "id": "5524e137-fc71-446d-9db1-18ac382c9d42",
           "name": "escudo",
           "required": false,
           "dataType": "",
@@ -62,7 +62,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "84e91a60-e367-4eb9-97d4-9241853b7fd1",
+          "id": "9406ff31-93e4-4664-9fac-5e3931d6fdc9",
           "name": "pais",
           "required": false,
           "dataType": "",
@@ -75,7 +75,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "efc3585d-15ab-4264-9ce8-5079fd937027",
+          "id": "504857bc-2d8a-40a5-a561-e339b3b75e85",
           "name": "ciudad",
           "required": false,
           "dataType": "",
@@ -88,7 +88,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "8fd22aa2-d1f1-4ff0-aa10-12518e9aec5e",
+          "id": "b9b7e3a2-d9a9-4755-8ced-f1c745aaeb39",
           "name": "direccion",
           "required": false,
           "dataType": "",
@@ -101,7 +101,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "2171670f-9388-42d7-a694-246a4c21bd26",
+          "id": "c0f8df8f-6c5d-4280-af09-faee83793907",
           "name": "estadio",
           "required": false,
           "dataType": "",
@@ -114,7 +114,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "7c95fe61-b919-4764-bc59-cb921485dbf5",
+          "id": "edb0a558-e750-4806-bf5c-1bf2601d31e1",
           "name": "capacidadestadio",
           "required": false,
           "dataType": "",
@@ -127,7 +127,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "a917f1e0-93bb-418f-9f62-4f782d001bdb",
+          "id": "aca4f882-0565-4b16-b39f-0077eef145c8",
           "name": "anyofundacion",
           "required": false,
           "dataType": "",

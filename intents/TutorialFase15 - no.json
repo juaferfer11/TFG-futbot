@@ -1,0 +1,60 @@
+{
+  "id": "07fe062b-8061-47fe-aa5c-5adbaf0c26b8",
+  "parentId": "a8c68c1b-fac4-425d-94e9-7ada9f394502",
+  "rootParentId": "a8c68c1b-fac4-425d-94e9-7ada9f394502",
+  "name": "TutorialFase15 - no",
+  "auto": true,
+  "contexts": [
+    "TutorialFase15-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "TutorialFase15.TutorialFase15-no",
+      "affectedContexts": [
+        {
+          "name": "Home",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "32293079-8684-449f-9c6b-5f11695ef5fa",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "value": "#TutorialFase15-followup.nickname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "De acuerdo, si en cualquier otro momento quieres terminar el tutorial aquí estaré. Si necesitas ayuda escribe \"Ayuda\".",
+            "Has salido correctamente del tutorial. Cualquier otra cosa no dudes en pedírmela. Si necesitas ayuda escribe \"Ayuda\"."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

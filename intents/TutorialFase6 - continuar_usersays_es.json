@@ -1,0 +1,176 @@
+[
+  {
+    "id": "400b0764-33f3-4299-a62f-d2fd7e012524",
+    "data": [
+      {
+        "text": "Continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "af8befe3-ba5a-4a52-8f64-9ce94e8524e2",
+    "data": [
+      {
+        "text": "Me gustaría continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c1912e88-0e5e-4ff7-aee1-b3c10d6f2343",
+    "data": [
+      {
+        "text": "Quisiera continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "dbe1731e-3ad1-489f-be68-13fa8105fdb8",
+    "data": [
+      {
+        "text": "Quiero continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4a710259-c71d-45c7-b809-ba9a952c4db3",
+    "data": [
+      {
+        "text": "Continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "355c2b02-ce36-436f-97d9-6ec1c4b97c3a",
+    "data": [
+      {
+        "text": "Continuar tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f1609b57-5f1c-4db4-9c3c-e4f448b36c43",
+    "data": [
+      {
+        "text": "Quiero continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4a3c07cf-d963-4bf4-88f1-0851483a4903",
+    "data": [
+      {
+        "text": "Quiero continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cec14341-e4d0-46f1-9229-7779dc1e1e3f",
+    "data": [
+      {
+        "text": "Deseo continuar",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "54a48e7d-1b95-44c4-901d-d76eafa25d07",
+    "data": [
+      {
+        "text": "Deseo continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c0328e4d-2137-40bf-875e-fdaf10348b6a",
+    "data": [
+      {
+        "text": "Deseo continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6642a9dc-02af-423a-b527-ad1c37201e15",
+    "data": [
+      {
+        "text": "Quisiera continuar con el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a6545c27-e665-4318-a566-7720359e676f",
+    "data": [
+      {
+        "text": "Quisiera",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " continuar en el tutorial",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

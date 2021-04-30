@@ -1,0 +1,74 @@
+{
+  "id": "e45a7358-d562-4de9-9e6c-8086bb872d95",
+  "name": "TutorialFase12",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase12-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "5cbcff09-4dc9-48ce-9c1e-0531448f7877",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Finalmente hablaré de las infracciones, en líneas generales estas son: tocar el balón con la mano cuando no esté permitido, derribar a un jugador sin intención de ir a por el balón, y encontrarse en posición irreglamentaria en el momento en que un compañero le pase el balón a otro. Se dice que un jugador está en posición irreglamentaria o en fuera de juego si alguna parte del jugador está más adelantada que el penúltimo de los jugadores rivales estando en campo rival.",
+          "title": "Tutorial: infracciones",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase12"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -12,21 +12,26 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "8e17335c-f91e-497d-93b8-c1b0636df133",
+          "id": "13ced9bd-d9ed-4bcf-9dae-25d9b4eea1b3",
           "name": "location",
-          "required": false,
+          "required": true,
           "dataType": "@sys.location",
           "value": "$location",
           "defaultValue": "",
           "isList": false,
-          "prompts": [],
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Por favor, indica el país si quieres realizar la búsqueda por país."
+            }
+          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
           "outputDialogContexts": []
         },
         {
-          "id": "2a2085f6-e7bc-450c-8908-58ac17d14885",
+          "id": "8e3a4d13-c76f-40d7-a843-a9e34e021357",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -40,10 +45,10 @@
           "outputDialogContexts": []
         },
         {
-          "id": "b954dee1-301e-4942-9c26-e8cc3ead4dd5",
+          "id": "e4f96757-adb3-4137-bd52-9d39acc07573",
           "name": "competicion",
           "required": true,
-          "dataType": "@sys.any",
+          "dataType": "@competicion",
           "value": "$competicion",
           "defaultValue": "",
           "isList": false,
@@ -59,7 +64,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "7ebe7064-eaaf-4e87-bef2-5d92a243cdf7",
+          "id": "4557f6de-8e13-4c3f-b928-c3fd3222a6d1",
           "name": "busqueda",
           "required": false,
           "dataType": "@sys.any",
@@ -73,7 +78,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "2796d874-800d-4fc4-bca1-d72a2a6cdd36",
+          "id": "77e3b737-8367-4a12-a9a3-dd98cc660e58",
           "name": "de",
           "required": false,
           "dataType": "@sys.any",

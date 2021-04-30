@@ -1,0 +1,74 @@
+{
+  "id": "5a10216d-f133-4930-966b-4f89b0d4d172",
+  "name": "TutorialFase6",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase6-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "4cdb66ad-c881-48e2-b8c7-4ba3757f0cbb",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Hablemos primero del portero. El portero es el único jugador que puede tocar el balón con la mano, sin embargo solo puede hacerlo en los límites de su área, que es la zona rectangular delimitada con línea continua que rodea a la portería, y siempre y cuando el balón no lo reciba desde un pase de un compañero con el pie. El objetivo principal de este rol es parar los balones que vayan a la portería y evitar que entren en la misma.",
+          "title": "Tutorial: roles",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase6"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,5 +1,34 @@
 [
   {
+    "id": "44e6e1be-2423-492d-bc82-a3a20e55d8e5",
+    "data": [
+      {
+        "text": "Ver información de la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Eredivisie",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "9de3cea5-2cd5-4353-ab23-7914c9fe0294",
     "data": [
       {
@@ -148,7 +177,17 @@
     "id": "548079cc-4f23-48a1-9089-820ad94c6495",
     "data": [
       {
-        "text": "Quiero información sobre la competición ",
+        "text": "Quiero información sobre la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
         "userDefined": false
       },
       {

@@ -1,0 +1,35 @@
+{
+  "id": "7a3d254c-86c0-4dc2-a8da-e7ab51597db2",
+  "parentId": "14fd55b1-fa11-4fd9-bf41-7a7802d1b14b",
+  "rootParentId": "14fd55b1-fa11-4fd9-bf41-7a7802d1b14b",
+  "name": "TutorialFase7 - fallback",
+  "contexts": [
+    "TutorialFase7-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "TutorialFase7.TutorialFase7-fallback",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

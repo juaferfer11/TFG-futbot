@@ -1,0 +1,42 @@
+{
+  "id": "7dc333af-2c05-40ae-80e9-ca1696950805",
+  "name": "ContinuarTutorial - fallback",
+  "contexts": [
+    "ContinuarTutorial"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "ContinuarTutorial.ContinuarTutorial-fallback",
+      "affectedContexts": [
+        {
+          "name": "ContinuarTutorial",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No entendí tu respuesta. ¿Quieres continuar con el tutorial?",
+            "Lo siento, no comprendo eso que dijiste. Te preguntaba si quieres continuar con el tutorial o no."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,74 @@
+{
+  "id": "1a3f8124-ebfc-447c-b82b-7acdfb7892f5",
+  "name": "TutorialFase14",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase14-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "054f84a5-04be-48da-a1a7-ae3dbf7e2ff4",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "Por último, dependiendo de la gravedad de la infracción, el árbitro puede enseñar al infractor una tarjeta amarilla, que es una advertencia, o una tarjeta roja, que supone la expulsión del campo del jugador para ese partido y para el posterior, sin posibilidad de cambiarlo. Recibir 2 tarjetas amarillas en un partido es equivalente a una roja.",
+          "title": "Tutorial: infracciones",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase14"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

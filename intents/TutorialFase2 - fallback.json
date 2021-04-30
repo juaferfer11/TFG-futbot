@@ -1,0 +1,44 @@
+{
+  "id": "f8a6a877-c8da-4d16-85bf-4ad012aaedc9",
+  "parentId": "34d76dac-20d9-4d15-99c6-88ced88bfdf5",
+  "rootParentId": "34d76dac-20d9-4d15-99c6-88ced88bfdf5",
+  "name": "TutorialFase2 - fallback",
+  "contexts": [
+    "TutorialFase2-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "TutorialFase2.TutorialFase2-fallback",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase2-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No pude entender esa respuesta. Por favor, si quieres continuar con el tutorial escribe algo como \"Continuar\" o pulsa el botón de continuar, y si quieres salir escribe algo como \"Salir\" o pulsa el botón correspondiente.",
+            "No te he entendido. Si quieres continuar con el tutorial escribe algo como \"Continuar\" o pulsa el botón de continuar, y si quieres salir escribe algo como \"Salir\" o pulsa el botón correspondiente."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

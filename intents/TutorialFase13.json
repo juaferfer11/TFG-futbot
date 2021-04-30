@@ -1,0 +1,74 @@
+{
+  "id": "98509d71-4c2e-4cc1-8870-7fca0d8657fa",
+  "name": "TutorialFase13",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "TutorialFase13-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "4a1c3ff4-e9cd-4358-90e0-ae86cdba099f",
+          "name": "nickname",
+          "required": false,
+          "dataType": "",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "1",
+          "platform": "telegram",
+          "subtitle": "La consecuencia de las infracciones, dependiendo del caso pueden ser un saque de banda, que consiste en sacar el balón con la mano desde detrás de la línea continua del campo cuando el balón ha salido, un lanzamiento de falta, en el que un jugador puede jugar el balón parado desde un punto donde se haya cometido la infracción sin que los rivales puedan incomodarle, o un penalti, que es una consecuencia de una falta dentro del área, y consiste en lanzar el balón desde el punto de dentro del área, estando solo dentro del área el jugador que va a tirar y el portero rival.",
+          "title": "Tutorial: infracciones",
+          "buttons": [
+            {
+              "postback": "Salir",
+              "text": "Salir"
+            },
+            {
+              "postback": "Continuar",
+              "text": "Continuar"
+            }
+          ],
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TutorialFase13"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
