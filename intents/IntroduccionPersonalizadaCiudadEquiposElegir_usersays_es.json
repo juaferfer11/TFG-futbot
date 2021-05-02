@@ -1,0 +1,74 @@
+[
+  {
+    "id": "d5ca7b97-23ba-4fe1-be39-d15f997702a5",
+    "data": [
+      {
+        "text": "Elegir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Paris Saint Germain",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6938b842-607a-4908-a37f-deb2629c8562",
+    "data": [
+      {
+        "text": "Elegir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Borussia Dortmund",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "29bd55c1-9f53-46ea-9194-ea527302a16f",
+    "data": [
+      {
+        "text": "Elegir",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Sevilla",
+        "meta": "@sys.any",
+        "alias": "equipo",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

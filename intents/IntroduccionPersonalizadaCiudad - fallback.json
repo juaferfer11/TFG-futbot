@@ -1,0 +1,43 @@
+{
+  "id": "d1572bfb-f850-4f2a-aaa5-de45c03955b7",
+  "parentId": "867a7e6f-0a70-401d-af61-59dc71ce69cb",
+  "rootParentId": "867a7e6f-0a70-401d-af61-59dc71ce69cb",
+  "name": "IntroduccionPersonalizadaCiudad - fallback",
+  "contexts": [
+    "IntroduccionPersonalizadaCiudad-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "IntroduccionPersonalizadaCiudad.IntroduccionPersonalizadaCiudad-fallback",
+      "affectedContexts": [
+        {
+          "name": "IntroduccionPersonalizadaCiudad-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Introduce un nombre de ciudad válido, por favor."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

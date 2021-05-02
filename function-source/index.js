@@ -3197,9 +3197,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let ultimaJornada = snapshot.child("ultimaJornada").val();
             let fechaUTC = new Date(ultimaJornada.fechaHora);
             let fechaAlmacenamiento = ultimaJornada.fechaAlmacenamiento;
+            let fechaActualAux = new Date(fechaActual).setHours(0, 0, 0, 0);
             if(ultimaJornada.vista === true){
               console.log("ULTIMA JORNADA YA VISTA");
-              if(fechaActual - fechaUTC <= 86400000 && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActual.setHours(0, 0, 0, 0))){
+              if(fechaActual - fechaUTC <= 86400000 && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)){
                 console.log("ACTUALIZAR ULTIMA JORNADA");
                 return buscaUltimaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
               }else{
@@ -3360,11 +3361,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let proximaJornada = snapshot.child("proximaJornada").val();
             let fechaUTC = new Date(proximaJornada.fechaHora);
             let fechaAlmacenamiento = proximaJornada.fechaAlmacenamiento;
-            if(proximaJornada.vista === true && fechaUTC - fechaActual >= 86400000){
+            let fechaActualAux = new Date(fechaActual).setHours(0, 0, 0, 0);
+            if(proximaJornada.vista === true){
               agent.add("Te doy la bienvenida a Futbot. A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
               agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
             }
-            else if ((fechaUTC - fechaActual < 0) || (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActual.setHours(0, 0, 0, 0))) {
+            else if ((fechaUTC - fechaActual < 0) || (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)) {
               console.log("ACTUALIZAR PROXIMA JORNADA");
               return buscaProximaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
             }
@@ -3697,8 +3699,193 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   
   function handleTutorialFase15Yes(agent){
     const nickname = agent.parameters.nickname;
+    return refUsuarios.child(nickname).once('value').then((snapshot) => {
+      let datos = snapshot.val();
+      let faseTutorial = datos.faseTutorial;
     agent.setFollowupEvent({ "name": "IntroduccionPersonalizada", "parameters": { "nickname": nickname}});
+      refUsuarios.child(nickname).update({
+      faseTutorial: faseTutorial+1,
+    });
+    });
   }
+  
+  function handleIntroduccionPersonalizadaPais(agent){
+    console.log("PAÍS PREFERIDO");
+    const nickname = agent.parameters.nickname;
+    var location = agent.parameters.location;
+    console.log(nickname);
+    console.log(location);
+    var locationAux = [location];
+    if (/\s/.test(location)) {
+      locationAux = location.split(" ");
+    }
+    for (var j = 0; j < locationAux.length; j++) {
+      locationAux[j] = locationAux[j].charAt(0).toUpperCase() + locationAux[j].substring(1);
+    }
+    location = locationAux.join(' ');
+    console.log("LOCATION FORMATEADA");
+    return refCompeticiones.orderByChild('país').equalTo(`${location}`).once('value').then((snapshot) => {
+      var aux = snapshot.val();
+      console.log(aux);
+      if (aux == null) {
+        agent.add("No he podido encontrar ninguna competición para ese país. Por favor, ten en cuenta que yo me especializo en las grandes ligas europeas, por lo que ahora mismo no soy capaz de proporcionar este servicio para ligas de otros países. Si ese no es el caso, por favor comprueba que has escrito correctamente el nombre del país. Para más información, escribe 'Ayuda'");
+
+        agent.setContext({ "name": " IntroduccionPersonalizadaInicio-followup", "lifespan": 1, "parameters": { "nickname": nickname } });
+      } else {
+        return snapshot.forEach((childSnapshot) => {
+          let datos = childSnapshot.val();
+          let nombre = childSnapshot.key;
+          let logo = datos.logo;
+          let fechacomienzo = datos.fechacomienzo;
+          let fechafin = datos.fechafin;
+          let pais = datos.país;
+          let tipo = datos.tipo;
+          agent.add(new Card({ title: `Nombre: ${nombre}`, imageUrl: logo, text: `País: ${pais}\nTipo: ${tipo}\nFecha de comienzo: ${fechacomienzo}\nFecha de finalización: ${fechafin}`}));
+          agent.add("Esta es la liga del país que has seleccionado. ¿Seguro que quieres centrarte en ella para buscar tu equipo?");
+          agent.setContext({ "name": "IntroduccionPersonalizadaPais-followup", "lifespan": 1, "parameters": { "nickname": nickname, "competicion": nombre, "logo": logo, "pais": location} });
+        });
+      }
+    });
+  }
+  
+  function handleIntroduccionPersonalizadaSalir(agent){
+    const nickname = agent.parameters.nickname;
+    agent.add("De acuerdo, has decidido cancelar la búsqueda de un posible equipo para ti, pero siempre podrás buscar equipos por ti mismo consultando los nombres de los equipos que hay en las ligas viendo las clasificaciones.");
+    agent.add("A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
+    agent.setContext({ "name": "Home", "lifespan": 1,"parameters": { "nickname": nickname}});
+    refUsuarios.child(nickname).update({
+      favoritos: null
+    });
+  }
+  
+  function handleIntroduccionPersonalizadaPaisYes(agent){
+    const nickname = agent.parameters.nickname;
+    const competicion = agent.parameters.competicion;
+    const logo = agent.parameters.logo;
+    const pais = agent.parameters.pais;
+    agent.setFollowupEvent({ "name": "IntroduccionPersonalizadaCiudad", "parameters": { "nickname": nickname, "competicion": competicion, "pais": pais}});
+      refUsuarios.child(nickname).child("favoritos").child("competiciones").child(competicion).update({
+      logo: logo,
+      pais: pais
+    });
+  }
+  
+  function checkPais(pais){
+    let idioma = "es";
+    if(pais === "Inglaterra"){
+      idioma = "en";
+    }else if (pais === "Alemania"){
+      idioma = "de";
+    }else if (pais === "Francia"){
+      idioma = "fr";
+    }else if (pais === "Países Bajos"||pais === "Bélgica"){
+      idioma = "nl";
+    }else if (pais === "Italia"){
+      idioma = "it";
+    }else if (pais === "Portugal"){
+      idioma = "pt";
+    }
+    return idioma;
+  }
+  
+  function handleIntroduccionPersonalizadaCiudadEquipos(agent){
+    const nickname = agent.parameters.nickname;
+    var ciudad = agent.parameters.ciudad;
+    const competicion = agent.parameters.competicion;
+    const pais = agent.parameters.pais;
+    let idioma = checkPais(pais);
+    console.log(pais);
+    console.log(idioma);
+    return refCompeticiones.child(competicion).once('value').then((snapshot) => {
+      let idLiga = snapshot.val().idAPI;
+      return translate(ciudad, { from: "es", to: idioma, engine: "google", key: translateKey }).then(text => {
+                  ciudad = text;
+      return refEquipos.once('value').then((snapshot) => {
+          var options = {
+            method: 'GET',
+            url: 'https://v3.football.api-sports.io/teams',
+            params: { season: 2020, league: idLiga },
+            headers: {
+              'x-rapidapi-host': 'v3.football.api-sports.io',
+              'x-rapidapi-key': apiKey,
+            }
+          };
+          return axios.request(options).then(function (response) {
+            let results = response.data.results;
+            console.log("RESULTS:" + results);
+            if (results === 0) {
+              console.log("HAY ERRORES");
+              agent.add("Se ha producido un error con la búsqueda de equipos, te redirijo a la página principal del chatbot. Para cualquier otra cosa escribe 'Ayuda'");
+              agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+            } else {
+              console.log("NO HAY ERRORES");
+              let respuesta = response.data.response;
+              let contador = 0;
+              for (var i = 0; i < results; i++) {
+                let equipo = respuesta[i];
+                console.log(ciudad);
+                console.log(equipo.venue.city);
+                if(equipo.venue.city === ciudad){
+                  let nombreEquipo = equipo.team.name;
+                  let idAPI = equipo.team.id;
+                  let escudo = equipo.team.logo;
+                  let añofundación = equipo.team.founded;
+                  let ciudad = equipo.venue.city;
+                  let direccion = equipo.venue.address;
+                  let estadio = equipo.venue.name;
+                  let capacidadestadio = equipo.venue.capacity;
+                  contador++;
+                  agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Elegir equipo", buttonUrl: `Elegir ${nombreEquipo}` }));
+                  if (!snapshot.child(`${nombreEquipo}`).exists()){
+                  refEquipos.child(`${nombreEquipo}`).set({
+                    escudo: escudo,
+                    ciudad: ciudad,
+                    idAPI: idAPI,
+                    añofundación: añofundación,
+                    país: pais,
+                    dirección: direccion,
+                    estadio: estadio,
+                    capacidadestadio: capacidadestadio,
+                  });
+                  }
+                }
+               }
+              if (contador !=0){
+                  agent.add("Estos son los equipos existentes para la ciudad que has indicado. Por favor, elige el que más te atraiga. Si después te arrepientes, siempre podrás eliminarlo de la lista de favoritos.");
+                  agent.setContext({ "name": "IntroduccionPersonalizadaCiudadEquipos-followup", "lifespan": 1, "parameters": { "nickname": nickname} });
+                }else{
+                  agent.add("Parece que no existe ningún equipo para la ciudad que has indicado. Por favor, prueba con otra ciudad. Ten en cuenta que normalmente los equipos de las grandes ligas se encuentran en las ciudades más importantes.");
+                  agent.setContext({ "name": "IntroduccionPersonalizadaCiudad-followup", "lifespan": 1, "parameters": { "nickname": nickname} });
+                }
+            }
+          });
+        });
+        });
+      });
+          
+    
+  }
+  
+  function handleIntroduccionPersonalizadaCiudadEquiposElegir(agent){
+    const nickname = agent.parameters.nickname;
+    const equipo = agent.parameters.equipo;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
+    return refEquipos.child(equipo).once('value').then((snapshot) => {
+      let datos = snapshot.val();
+      let id = datos.idAPI;
+      let escudo = datos.escudo;
+      agent.add("De acuerdo, pues ya tendrías tu primer equipo favorito. Sin embargo, esto lo puedes cambiar en cualquier momento desde tu lista de favoritos. A partir de aquí, ya puedes usar el chatbot libremente. Si necesitas ayuda con cualquier cosa, escribe 'Ayuda'.");
+      agent.setContext({ "name": "Home", "lifespan": 1,"parameters": { "nickname": nickname}});
+      refFavoritos.child(`${equipo}`).set({
+              escudo: escudo,
+              idEquipo: id,
+
+            });
+      
+      
+    });
+  }
+  
   let intentMap = new Map();
   intentMap.set('RegistrarNickname', handleRegistrarNickname);
   intentMap.set('RegistrarPassword', handleRegistrarPassword);
@@ -3827,5 +4014,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   intentMap.set('TutorialFase13 - continuar', handleContinuarTutorial);
   intentMap.set('TutorialFase14 - salir', handleSalirTutorial);
   intentMap.set('TutorialFase14 - continuar', handleContinuarTutorial);
+  intentMap.set('IntroduccionPersonalizadaPais', handleIntroduccionPersonalizadaPais);
+  intentMap.set('IntroduccionPersonalizadaPais - yes', handleIntroduccionPersonalizadaPaisYes);
+  intentMap.set('IntroduccionPersonalizadaInicio - salir - yes', handleIntroduccionPersonalizadaSalir);
+  intentMap.set('IntroduccionPersonalizadaCiudadEquipos', handleIntroduccionPersonalizadaCiudadEquipos);
+  intentMap.set('IntroduccionPersonalizadaCiudadEquiposElegir', handleIntroduccionPersonalizadaCiudadEquiposElegir);
   agent.handleRequest(intentMap);
 });

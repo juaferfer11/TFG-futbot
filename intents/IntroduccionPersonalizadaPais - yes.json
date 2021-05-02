@@ -1,41 +1,24 @@
 {
-  "id": "84a012ab-f7f5-42de-a2ba-469b7b0a8afc",
-  "name": "BuscarCompeticionNombreYPais",
+  "id": "4aaf3082-172f-4d03-b453-3d5677c4923c",
+  "parentId": "21913c6b-8f22-4948-b533-28df6a61ced8",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaPais - yes",
   "auto": true,
   "contexts": [
-    "Home"
+    "IntroduccionPersonalizadaPais-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaPais.IntroduccionPersonalizadaPais-yes",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "45b94781-cdc2-41be-ab43-1891bc4fdbe4",
-          "name": "location",
-          "required": false,
-          "dataType": "@sys.location",
-          "value": "$location",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor, indica el país si quieres realizar la búsqueda por país."
-            }
-          ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "732d174a-7bfc-44fe-a187-b65bccc24001",
+          "id": "ab1c96ae-af60-49ee-a4e7-4c642f96b58e",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#IntroduccionPersonalizadaPais-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -45,30 +28,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "d4c6ccdb-7e97-4c2a-bc31-bfcda21b54bf",
+          "id": "a28873b0-a089-4c79-8cdf-016cce1de385",
           "name": "competicion",
-          "required": true,
-          "dataType": "@competicion",
-          "value": "$competicion",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor indica el nombre correcto de la competición que quieres buscar. Ten en cuenta que yo me centro en las principales ligas europeas. Para más información escribe \"Ayuda\"."
-            }
-          ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "20e7acc4-b01b-48d7-a0a4-21d5630a4c69",
-          "name": "busqueda",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$busqueda",
+          "dataType": "",
+          "value": "#IntroduccionPersonalizadaPais-followup.competicion",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -78,11 +42,25 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5fd9e5a8-ddfe-497e-9e2c-00dc98df74d8",
-          "name": "de",
+          "id": "83c5471c-ce2f-4ae9-904c-d6945b19a5ae",
+          "name": "logo",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$de",
+          "dataType": "",
+          "value": "#IntroduccionPersonalizadaPais-followup.logo",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "64d2edf4-6382-4798-9636-2e4a3d3cd4fe",
+          "name": "pais",
+          "required": false,
+          "dataType": "",
+          "value": "#IntroduccionPersonalizadaPais-followup.pais",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

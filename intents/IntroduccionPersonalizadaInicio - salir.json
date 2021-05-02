@@ -1,24 +1,29 @@
 {
-  "id": "34d76dac-20d9-4d15-99c6-88ced88bfdf5",
-  "name": "TutorialFase2",
+  "id": "41c60c39-f5e6-448a-ae5b-3bb8310cdf56",
+  "parentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaInicio - salir",
   "auto": true,
-  "contexts": [],
+  "contexts": [
+    "IntroduccionPersonalizadaInicio-followup"
+  ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaInicio-salir",
       "affectedContexts": [
         {
-          "name": "TutorialFase2-followup",
+          "name": "IntroduccionPersonalizadaInicio-salir-followup",
           "lifespan": 1
         }
       ],
       "parameters": [
         {
-          "id": "c2997b45-8989-461e-a8ae-34996cd958ba",
+          "id": "374d572b-7c7a-49f9-a285-86441eafa488",
           "name": "nickname",
           "required": false,
           "dataType": "",
+          "value": "#IntroduccionPersonalizadaInicio-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -32,17 +37,16 @@
         {
           "type": "1",
           "platform": "telegram",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Football_pitch_spanish_metric.svg/800px-Football_pitch_spanish_metric.svg.png",
-          "subtitle": "En este deporte se juega con un balón en un terreno de juego de césped, ya sea natural o artificial, estando el campo delimitado por líneas blancas continuas, las cuales si son sobrepasadas por el balón y la última persona en tocarla es de un equipo, se producirá un saque de banda a favor del equipo contrario.",
-          "title": "Tutorial: Objetivo del juego",
+          "subtitle": "¿Seguro que deseas salir de la introducción personalizada? Una vez hayas salido no podrás volver a retomarla.",
+          "title": "Introducción personalizada: salir",
           "buttons": [
             {
-              "postback": "Salir",
-              "text": "Salir"
+              "postback": "si",
+              "text": "Sí"
             },
             {
-              "postback": "Continuar",
-              "text": "Continuar"
+              "postback": "no",
+              "text": "No"
             }
           ],
           "textToSpeech": "",
@@ -64,11 +68,7 @@
   "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "TutorialFase2"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

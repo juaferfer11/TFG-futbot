@@ -1,44 +1,32 @@
 {
-  "id": "b61e8629-67f7-4816-9209-e56e18c462a0",
-  "name": "BuscarCompeticionPais",
+  "id": "e0bfe2ba-e63f-49fb-9e6d-6c5443df43ab",
+  "parentId": "21913c6b-8f22-4948-b533-28df6a61ced8",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaPais - no",
   "auto": true,
   "contexts": [
-    "Home"
+    "IntroduccionPersonalizadaPais-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
-      "affectedContexts": [],
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaPais.IntroduccionPersonalizadaPais-no",
+      "affectedContexts": [
+        {
+          "name": "IntroduccionPersonalizadaInicio-followup",
+          "lifespan": 1
+        }
+      ],
       "parameters": [
         {
-          "id": "fe5d9607-689b-49e9-bb6a-16a7794ca302",
+          "id": "7be24ec7-8798-4731-8c15-bf00025a107b",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#IntroduccionPersonalizadaPais-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "da07a475-7dd6-437e-b531-fb755de39e0e",
-          "name": "location",
-          "required": true,
-          "dataType": "@sys.any",
-          "value": "$location",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Introduce el nombre del país, por favor."
-            }
-          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
@@ -51,6 +39,9 @@
           "title": "",
           "textToSpeech": "",
           "lang": "es",
+          "speech": [
+            "De acuerdo, dime entonces cuál sería el país de tu preferencia."
+          ],
           "condition": ""
         }
       ],
@@ -58,7 +49,7 @@
     }
   ],
   "priority": 500000,
-  "webhookUsed": true,
+  "webhookUsed": false,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
   "events": [],

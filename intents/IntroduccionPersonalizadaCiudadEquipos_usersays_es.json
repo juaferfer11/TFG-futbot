@@ -1,0 +1,77 @@
+[
+  {
+    "id": "0d849936-4a18-4998-b95b-f3952cf5c9ff",
+    "data": [
+      {
+        "text": "Nueva York",
+        "meta": "@sys.geo-city",
+        "alias": "ciudad",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "29d1ee45-0ce9-4f64-9bf1-19bdcde29065",
+    "data": [
+      {
+        "text": "Madrid",
+        "meta": "@sys.geo-city",
+        "alias": "ciudad",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cbcd212f-2791-4658-ac1c-73a6b46b64bc",
+    "data": [
+      {
+        "text": "Barcelona",
+        "meta": "@sys.geo-city",
+        "alias": "ciudad",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "c446e361-1cd4-401c-b980-2f28deaa5d98",
+    "data": [
+      {
+        "text": "Manchester",
+        "meta": "@sys.geo-city",
+        "alias": "ciudad",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d9a14cc9-75a2-42d9-a986-7a1f8046b90a",
+    "data": [
+      {
+        "text": "Sevilla",
+        "meta": "@sys.geo-city",
+        "alias": "ciudad",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

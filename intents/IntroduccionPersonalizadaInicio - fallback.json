@@ -1,0 +1,44 @@
+{
+  "id": "97ee18fb-68b2-4fd4-b2c8-3dbd8b41a621",
+  "parentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaInicio - fallback",
+  "contexts": [
+    "IntroduccionPersonalizadaInicio-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaInicio-fallback",
+      "affectedContexts": [
+        {
+          "name": "IntroduccionPersonalizadaInicio-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No entendí eso que dijiste. Por favor, introduce un nombre de país válido. Ten en cuenta que yo me especializo en las grandes ligas europeas de España, Portugal, Inglaterra, Alemania, Italia, Francia, Países Bajos y Bélgica.",
+            "No comprendo tu respuesta. Te preguntaba por el país en el que estés más interesado futbolísticamente. Ten en cuenta que yo me especializo en las grandes ligas europeas de España, Portugal, Inglaterra, Alemania, Italia, Francia, Países Bajos y Bélgica."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

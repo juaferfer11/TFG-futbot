@@ -1,0 +1,9 @@
+{
+  "id": "7f9aff77-b51c-41d5-86f8-c36aa9e10959",
+  "name": "paises",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "5947834b-ca55-4417-9438-4d986ab5138e",
+          "id": "f6f86354-174d-4661-a72d-1524d77d6837",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -32,6 +32,7 @@
         {
           "type": "1",
           "platform": "telegram",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Football_goal_20050521.jpg",
           "subtitle": "En los extremos del campo existen también unas estructuras llamadas porterías formadas por 3 postes formando un cuadrado con la línea continua del campo y una red que cuelga de ellos, siendo el objetivo por tanto introducir el balón con el pie en la portería del rival y evitar que el rival la meta en la nuestra. Cuando se introduce la pelota en la portería se dice que se ha marcado un gol, y al final del partido gana el que haya marcado más goles.",
           "title": "Tutorial: Objetivo del juego",
           "buttons": [

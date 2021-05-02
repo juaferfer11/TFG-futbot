@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ab1e33c9-3e34-4c30-8e1c-8333337487b5",
+    "data": [
+      {
+        "text": "Me interesa ",
+        "userDefined": false
+      },
+      {
+        "text": "España",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "acf8bb5b-c19d-4c2f-ab8f-87c8ef064c50",
+    "data": [
+      {
+        "text": "Mi",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " país más ",
+        "userDefined": false
+      },
+      {
+        "text": "favorito",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " es ",
+        "userDefined": false
+      },
+      {
+        "text": "Portugal",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1a982f66-9f08-46e2-a5db-2f18105d4941",
+    "data": [
+      {
+        "text": "El país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " que quiero seguir es ",
+        "userDefined": false
+      },
+      {
+        "text": "Alemania",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f9c028b2-c6be-4940-b1d3-81d697a37694",
+    "data": [
+      {
+        "text": "El país",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " que me interesa es ",
+        "userDefined": false
+      },
+      {
+        "text": "Francia",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "759451be-01de-4b4b-b1a2-794f7190ca10",
+    "data": [
+      {
+        "text": "Mi",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "país es",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bélgica",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1e88404c-f348-4cb5-b0c0-cfa750623371",
+    "data": [
+      {
+        "text": "Inglaterra",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "41aa0734-ac6e-459d-a42d-d3729d4523e2",
+    "data": [
+      {
+        "text": "Soy de ",
+        "userDefined": false
+      },
+      {
+        "text": "Italia",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7a1abc86-1751-44b3-9ffa-ecb3183fa680",
+    "data": [
+      {
+        "text": "Me interesa ",
+        "userDefined": false
+      },
+      {
+        "text": "Países Bajos",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1535af3f-456f-4682-b767-c746ade6410b",
+    "data": [
+      {
+        "text": "España",
+        "meta": "@paises",
+        "alias": "location",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

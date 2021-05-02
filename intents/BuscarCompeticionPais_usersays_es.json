@@ -1,5 +1,24 @@
 [
   {
+    "id": "c3c90a4f-abea-43ae-858f-1947b29f727a",
+    "data": [
+      {
+        "text": "Competición de ",
+        "userDefined": false
+      },
+      {
+        "text": "Inglaterra",
+        "meta": "@sys.any",
+        "alias": "location",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "e8c3b401-37d7-461c-a75a-a141c7f69ac2",
     "data": [
       {

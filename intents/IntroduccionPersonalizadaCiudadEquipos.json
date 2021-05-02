@@ -1,41 +1,38 @@
 {
-  "id": "84a012ab-f7f5-42de-a2ba-469b7b0a8afc",
-  "name": "BuscarCompeticionNombreYPais",
+  "id": "28613d1f-fe01-4cd0-9223-581a6c710294",
+  "parentId": "867a7e6f-0a70-401d-af61-59dc71ce69cb",
+  "rootParentId": "867a7e6f-0a70-401d-af61-59dc71ce69cb",
+  "name": "IntroduccionPersonalizadaCiudadEquipos",
   "auto": true,
   "contexts": [
-    "Home"
+    "IntroduccionPersonalizadaCiudad-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "IntroduccionPersonalizadaCiudad.IntroduccionPersonalizadaCiudad-custom",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "45b94781-cdc2-41be-ab43-1891bc4fdbe4",
-          "name": "location",
+          "id": "5e5f5bc5-c70f-4a7d-9810-e646219c4e2e",
+          "name": "ciudad",
           "required": false,
-          "dataType": "@sys.location",
-          "value": "$location",
+          "dataType": "@sys.geo-city",
+          "value": "$ciudad",
           "defaultValue": "",
           "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor, indica el país si quieres realizar la búsqueda por país."
-            }
-          ],
+          "prompts": [],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],
           "outputDialogContexts": []
         },
         {
-          "id": "732d174a-7bfc-44fe-a187-b65bccc24001",
+          "id": "3196b0d0-723b-47eb-8730-2988acd8a0fd",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#IntroduccionPersonalizadaCiudad-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -45,30 +42,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "d4c6ccdb-7e97-4c2a-bc31-bfcda21b54bf",
+          "id": "725ace65-5992-400c-bffb-639a12cb7d0d",
           "name": "competicion",
-          "required": true,
-          "dataType": "@competicion",
-          "value": "$competicion",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Por favor indica el nombre correcto de la competición que quieres buscar. Ten en cuenta que yo me centro en las principales ligas europeas. Para más información escribe \"Ayuda\"."
-            }
-          ],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "20e7acc4-b01b-48d7-a0a4-21d5630a4c69",
-          "name": "busqueda",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$busqueda",
+          "dataType": "",
+          "value": "#IntroduccionPersonalizadaCiudad-followup.competicion",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -78,11 +56,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5fd9e5a8-ddfe-497e-9e2c-00dc98df74d8",
-          "name": "de",
+          "id": "9127d8de-90bc-45d5-b1fb-7703f6d19aab",
+          "name": "pais",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$de",
+          "dataType": "",
+          "value": "#IntroduccionPersonalizadaCiudad-followup.pais",
           "defaultValue": "",
           "isList": false,
           "prompts": [],

@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "4cdb66ad-c881-48e2-b8c7-4ba3757f0cbb",
+          "id": "570a9d7f-b1a2-4611-9ce6-b0c3d8a59307",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -32,6 +32,7 @@
         {
           "type": "1",
           "platform": "telegram",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccer_goalkeeper.jpg",
           "subtitle": "Hablemos primero del portero. El portero es el único jugador que puede tocar el balón con la mano, sin embargo solo puede hacerlo en los límites de su área, que es la zona rectangular delimitada con línea continua que rodea a la portería, y siempre y cuando el balón no lo reciba desde un pase de un compañero con el pie. El objetivo principal de este rol es parar los balones que vayan a la portería y evitar que entren en la misma.",
           "title": "Tutorial: roles",
           "buttons": [

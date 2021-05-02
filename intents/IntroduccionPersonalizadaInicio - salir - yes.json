@@ -1,44 +1,27 @@
 {
-  "id": "b61e8629-67f7-4816-9209-e56e18c462a0",
-  "name": "BuscarCompeticionPais",
+  "id": "d9993cd9-4849-4ccb-80f7-8105deebd3b4",
+  "parentId": "41c60c39-f5e6-448a-ae5b-3bb8310cdf56",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaInicio - salir - yes",
   "auto": true,
   "contexts": [
-    "Home"
+    "IntroduccionPersonalizadaInicio-salir-followup"
   ],
   "responses": [
     {
       "resetContexts": false,
-      "action": "",
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaInicio-salir.IntroduccionPersonalizadaInicio-salir-yes",
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "fe5d9607-689b-49e9-bb6a-16a7794ca302",
+          "id": "dead5a96-ef8b-4cdc-a587-482d1ea53164",
           "name": "nickname",
           "required": false,
           "dataType": "",
-          "value": "#Home.nickname",
+          "value": "#IntroduccionPersonalizadaInicio-salir-followup.nickname",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "da07a475-7dd6-437e-b531-fb755de39e0e",
-          "name": "location",
-          "required": true,
-          "dataType": "@sys.any",
-          "value": "$location",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [
-            {
-              "lang": "es",
-              "value": "Introduce el nombre del país, por favor."
-            }
-          ],
           "promptMessages": [],
           "noMatchPromptMessages": [],
           "noInputPromptMessages": [],

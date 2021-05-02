@@ -1,0 +1,44 @@
+{
+  "id": "6f69ae5e-d426-4ca2-ba47-bb998780db62",
+  "parentId": "21913c6b-8f22-4948-b533-28df6a61ced8",
+  "rootParentId": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaPais - fallback",
+  "contexts": [
+    "IntroduccionPersonalizadaPais-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "IntroduccionPersonalizadaInicio.IntroduccionPersonalizadaPais.IntroduccionPersonalizadaPais-fallback",
+      "affectedContexts": [
+        {
+          "name": "IntroduccionPersonalizadaPais-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "Perdona, no entendí tu respuesta. ¿Podrías repetirme si quieres que este sea el país sobre el que basar la búsqueda de tu posible equipo?",
+            "No te pude comprender. Por favor, dime si quieres que este país sea el que use para buscar tu posible equipo."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

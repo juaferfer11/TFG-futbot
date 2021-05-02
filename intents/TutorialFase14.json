@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "054f84a5-04be-48da-a1a7-ae3dbf7e2ff4",
+          "id": "19bca0c9-a537-4935-aa94-0fbb7dfec881",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -32,6 +32,7 @@
         {
           "type": "1",
           "platform": "telegram",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Verwarnung_im_Fussball-RB_Salzburg-18-09-2005.jpg",
           "subtitle": "Por último, dependiendo de la gravedad de la infracción, el árbitro puede enseñar al infractor una tarjeta amarilla, que es una advertencia, o una tarjeta roja, que supone la expulsión del campo del jugador para ese partido y para el posterior, sin posibilidad de cambiarlo. Recibir 2 tarjetas amarillas en un partido es equivalente a una roja.",
           "title": "Tutorial: infracciones",
           "buttons": [

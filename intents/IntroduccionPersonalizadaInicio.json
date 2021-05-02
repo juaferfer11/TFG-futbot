@@ -1,6 +1,6 @@
 {
-  "id": "34d76dac-20d9-4d15-99c6-88ced88bfdf5",
-  "name": "TutorialFase2",
+  "id": "0399e58f-9194-48dd-af41-352ef550c8f7",
+  "name": "IntroduccionPersonalizadaInicio",
   "auto": true,
   "contexts": [],
   "responses": [
@@ -9,13 +9,13 @@
       "action": "",
       "affectedContexts": [
         {
-          "name": "TutorialFase2-followup",
+          "name": "IntroduccionPersonalizadaInicio-followup",
           "lifespan": 1
         }
       ],
       "parameters": [
         {
-          "id": "c2997b45-8989-461e-a8ae-34996cd958ba",
+          "id": "a2b4a5cf-2ed4-4cc2-9a3f-602340970974",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -32,17 +32,12 @@
         {
           "type": "1",
           "platform": "telegram",
-          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Football_pitch_spanish_metric.svg/800px-Football_pitch_spanish_metric.svg.png",
-          "subtitle": "En este deporte se juega con un balón en un terreno de juego de césped, ya sea natural o artificial, estando el campo delimitado por líneas blancas continuas, las cuales si son sobrepasadas por el balón y la última persona en tocarla es de un equipo, se producirá un saque de banda a favor del equipo contrario.",
-          "title": "Tutorial: Objetivo del juego",
+          "subtitle": "De acuerdo, ahora voy a proceder a hacerte una serie de preguntas para ayudarte a elegir un equipo al que seguir. Para empezar, me gustaría que me dijeras de qué país eres o el país de cuya liga estés más interesado.",
+          "title": "Introducción personalizada: inicio",
           "buttons": [
             {
               "postback": "Salir",
               "text": "Salir"
-            },
-            {
-              "postback": "Continuar",
-              "text": "Continuar"
             }
           ],
           "textToSpeech": "",
@@ -66,7 +61,7 @@
   "fallbackIntent": false,
   "events": [
     {
-      "name": "TutorialFase2"
+      "name": "IntroduccionPersonalizada"
     }
   ],
   "conditionalResponses": [],

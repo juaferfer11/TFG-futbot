@@ -1,0 +1,43 @@
+{
+  "id": "300adc55-fa7a-450e-8329-f17c50b05411",
+  "parentId": "28613d1f-fe01-4cd0-9223-581a6c710294",
+  "rootParentId": "867a7e6f-0a70-401d-af61-59dc71ce69cb",
+  "name": "IntroduccionPersonalizadaCiudadEquipos - fallback",
+  "contexts": [
+    "IntroduccionPersonalizadaCiudadEquipos-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "IntroduccionPersonalizadaCiudad.IntroduccionPersonalizadaCiudad-custom.IntroduccionPersonalizadaCiudadEquipos-fallback",
+      "affectedContexts": [
+        {
+          "name": "IntroduccionPersonalizadaCiudadEquipos-followup",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "No te he entendido, por elige uno de los equipos que te he mostrado pulsando el botón correspondiente."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
