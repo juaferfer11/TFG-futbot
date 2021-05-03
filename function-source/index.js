@@ -3200,7 +3200,13 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
             let fechaActualAux = new Date(fechaActual).setHours(0, 0, 0, 0);
             if(ultimaJornada.vista === true){
               console.log("ULTIMA JORNADA YA VISTA");
-              if(fechaActual - fechaUTC <= 86400000 && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)){
+              console.log(new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0));
+              console.log(fechaActualAux);
+              if(fechaActual - fechaUTC > 86400000){
+                console.log("ACTUALIZAR ULTIMA JORNADA");
+                return buscaUltimaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
+              }
+              else if(fechaActual - fechaUTC <= 86400000 && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)){
                 console.log("ACTUALIZAR ULTIMA JORNADA");
                 return buscaUltimaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
               }else{
