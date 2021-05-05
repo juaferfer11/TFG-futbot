@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "e1808e85-cb24-40a4-b1f3-a52bba024d30",
+          "id": "5ed6bfa8-2ad0-4de6-a2cb-b97f73824aba",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "15b22496-3705-4ca5-b6d5-9d3f3b7c54c0",
+          "id": "129b9a25-140c-4157-b2e2-86da697e54a3",
           "name": "nombreEquipo",
           "required": false,
           "dataType": "@sys.any",
