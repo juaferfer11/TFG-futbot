@@ -2102,9 +2102,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           let posicion = `\n${i + 1}`;
           equipo = `${equipo}`;
           let puntos = estadisticas.points;
-          puntos = `${puntos}`.padEnd(7);
           let partidos = estadisticas.all.played;
-          partidos = `${partidos}`.padEnd(7);
           let difGoles = estadisticas.goalsDiff;
           if (`${equipo}`.length > 20) {
             if (`${i + 1}`.length == 2) {
@@ -2113,6 +2111,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
               posicion = `\n${i + 1}`.padEnd(4);
             }
             equipo = `${equipo}`.padEnd(25);
+            puntos = `${puntos}`.padEnd(5);
+            partidos = `${partidos}`.padEnd(5);
           }
           else if (`${equipo}`.length > 15) {
             if (`${i + 1}`.length == 2) {
@@ -2121,6 +2121,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
               posicion = `\n${i + 1}`.padEnd(11);
             }
             equipo = `${equipo}`.padEnd(22);
+            puntos = `${puntos}`.padEnd(7);
+            partidos = `${partidos}`.padEnd(7);
           } else {
             if (`${i + 1}`.length == 2) {
               posicion = `\n${i + 1}`.padEnd(15);
@@ -2128,6 +2130,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
               posicion = `\n${i + 1}`.padEnd(16);
             }
             equipo = `${equipo}`.padEnd(9 + 22 - `${equipo}`.length);
+            puntos = `${puntos}`.padEnd(7);
+            partidos = `${partidos}`.padEnd(7);
           }
 
 
