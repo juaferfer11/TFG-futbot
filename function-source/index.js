@@ -3218,8 +3218,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let fechaAlmacenamiento = proximaJornada.fechaAlmacenamiento;
         let fechaActualAux = new Date(fechaActual).setHours(0, 0, 0, 0);
         if (proximaJornada.vista === true) {
-          agent.add("Te doy la bienvenida a Futbot. A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
-          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          if((fechaUTC - fechaActual < 86400000) && (fechaUTC - fechaActual >= 0) && (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)){
+            return buscaProximaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
+          }else{
+            agent.add("Te doy la bienvenida a Futbot. A partir de aquí ya puedes usar el chatbot con normalidad. Si necesitas ayuda con cualquier funcionalidad solo tienes que escribir 'Ayuda' y te ayudaré en lo que pueda.");
+            agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+          }
         }
         else if ((fechaUTC - fechaActual < 0) || (new Date(fechaAlmacenamiento).setHours(0, 0, 0, 0) != fechaActualAux)) {
           return buscaProximaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, equipo, idLiga);
@@ -3633,7 +3637,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     var ciudad = agent.parameters.ciudad;
     const competicion = agent.parameters.competicion;
     const pais = agent.parameters.pais;
-    let idioma = checkPais(pais);
+    let idiomas = {"España": "es","Inglaterra": "en","Alemania": "de","Francia": "fr","Países Bajos": "nl","Bélgica": "nl","Italia": "it","Portugal": "pt"};
+    let idioma = idiomas[pais];
+    console.log(idioma);
     return refCompeticiones.child(competicion).once('value').then((snapshot) => {
       let idLiga = snapshot.val().idAPI;
       return translate(ciudad, { from: "es", to: idioma, engine: "google", key: translateKey }).then(text => {

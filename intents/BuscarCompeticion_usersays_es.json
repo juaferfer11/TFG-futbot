@@ -1,5 +1,34 @@
 [
   {
+    "id": "0aa384d8-222a-4239-b7f8-4382a79ccc8d",
+    "data": [
+      {
+        "text": "Ver información de la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.any",
+        "alias": "busqueda",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
+        "meta": "@sys.any",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
     "id": "d0c74b4d-42a8-43fb-8c3f-35891b441135",
     "data": [
       {
