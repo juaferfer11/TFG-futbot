@@ -3548,13 +3548,21 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   function handleTutorialFase15Yes(agent) {
     const nickname = agent.parameters.nickname;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
     return refUsuarios.child(nickname).once('value').then((snapshot) => {
       let datos = snapshot.val();
       let faseTutorial = datos.faseTutorial;
-      agent.setFollowupEvent({ "name": "IntroduccionPersonalizada", "parameters": { "nickname": nickname } });
-      refUsuarios.child(nickname).update({
-        faseTutorial: faseTutorial + 1,
-      });
+      return refFavoritos.once('value').then((snapshot) => {
+		if (snapshot.exists()){
+        	agent.add("Vaya, parece que ya has añadido equipos a tu lista de favoritos y no necesitas ayuda con ese tema. Ya has terminado el tutorial, puedes hacer uso del agente con total libertad.");
+      		agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
+        }else{
+        	agent.setFollowupEvent({ "name": "IntroduccionPersonalizada", "parameters": { "nickname": nickname } });
+      	}
+        refUsuarios.child(nickname).update({
+          faseTutorial: faseTutorial + 1,
+        });
+        });
     });
   }
 
