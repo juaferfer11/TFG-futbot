@@ -177,10 +177,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         let capacidadestadio = aux.capacidadestadio;
         let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
         return refFavoritos.once('value').then((snapshot) => {
-          if (snapshot.exists()) {
+          if (!snapshot.exists()) {
             agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir el equipo a favoritos" }));
           } else {
-            agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Quitar de favoritos", buttonUrl: `Quiero eliminar el ${nombreEquipo} de mi lista de equipos favoritos` }));
+            agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`}));
           }
           agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "nombreEquipo": nombreEquipo, "escudo": escudo } });
         });
@@ -235,10 +235,16 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     const direccion = agent.parameters.direccion;
     const estadio = agent.parameters.estadio;
     const capacidadestadio = agent.parameters.capacidadestadio;
+    let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
     return translate(pais, { from: "en", to: "es", engine: "google", key: translateKey }).then(text => {
       pais = text;
-      agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir el equipo a favoritos" }));
-      agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "nombreEquipo": nombreEquipo, "escudo": escudo } });
+      return refFavoritos.child(nombreEquipo).once('value').then((snapshot) => {
+        if (!snapshot.exists()) {
+            agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`, buttonText: "Añadir a favoritos", buttonUrl: "Añadir el equipo a favoritos" }));
+          } else {
+            agent.add(new Card({ title: `Nombre: ${nombreEquipo}`, imageUrl: escudo, text: `Ciudad: ${ciudad}\nAño de fundación: ${añofundación}\nPaís: ${pais}\nDirección: ${direccion}\nEstadio: ${estadio}\nCapacidad del estadio: ${capacidadestadio}`}));
+          }
+          agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname, "nombreEquipo": nombreEquipo, "escudo": escudo } });
       return refEquipos.once('value').then((snapshot) => {
         if (snapshot.child(`${nombreEquipo}`).exists()) {
           console.log("No se añade a BD.");
@@ -255,6 +261,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
           });
         }
       });
+        });
     });
   }
   //=========================================================================================================================================================================
