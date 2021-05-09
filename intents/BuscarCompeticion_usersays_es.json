@@ -1,15 +1,62 @@
 [
   {
-    "id": "0aa384d8-222a-4239-b7f8-4382a79ccc8d",
+    "id": "9257db26-f3f8-4dd5-8796-5d333a67048f",
     "data": [
       {
-        "text": "Ver información de la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "Bundesliga 1",
         "meta": "@sys.any",
-        "alias": "busqueda",
+        "alias": "competicion",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "0aa384d8-222a-4239-b7f8-4382a79ccc8d",
+    "data": [
+      {
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
+        "userDefined": false
+      },
+      {
+        "text": "competición",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -32,13 +79,22 @@
     "id": "d0c74b4d-42a8-43fb-8c3f-35891b441135",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -61,13 +117,22 @@
     "id": "c1cc6674-7db1-4140-86f1-3634c55845ac",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -90,13 +155,22 @@
     "id": "44e6e1be-2423-492d-bc82-a3a20e55d8e5",
     "data": [
       {
-        "text": "Ver información de la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -119,13 +193,22 @@
     "id": "9de3cea5-2cd5-4353-ab23-7914c9fe0294",
     "data": [
       {
-        "text": "Ver información de la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -148,13 +231,22 @@
     "id": "07a2e528-f4b7-48e7-a2cb-908c73c498b5",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -177,13 +269,22 @@
     "id": "3000dc37-90bc-4cb6-905d-3037c561bcc6",
     "data": [
       {
-        "text": "Ver información de la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -206,13 +307,22 @@
     "id": "b1cf9343-3ed5-42ef-a17d-b198364a895a",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -235,13 +345,22 @@
     "id": "721beffe-21f5-4636-9de1-6b0dd860964e",
     "data": [
       {
-        "text": "Dame información de la ",
+        "text": "Dame información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -264,13 +383,22 @@
     "id": "548079cc-4f23-48a1-9089-820ad94c6495",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -293,13 +421,22 @@
     "id": "02a51415-3d45-4771-ae89-909181a1acea",
     "data": [
       {
-        "text": "Quiero información de la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -322,13 +459,22 @@
     "id": "3dfe51d8-4080-4965-8fcc-d223cf0494ab",
     "data": [
       {
-        "text": "Dame información sobre la ",
+        "text": "Dame información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -351,13 +497,22 @@
     "id": "ac7ca80a-5a51-4e0b-95bc-b39dea32e460",
     "data": [
       {
-        "text": "Me gustaría obtener información de la ",
+        "text": "Me gustaría obtener información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {

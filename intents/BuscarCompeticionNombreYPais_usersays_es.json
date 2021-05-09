@@ -3,13 +3,22 @@
     "id": "85bad522-1ab7-4c1f-b789-8f67292807f4",
     "data": [
       {
-        "text": "Ver información sobre la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -28,8 +37,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -38,7 +47,7 @@
       },
       {
         "text": "Bélgica",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -52,13 +61,22 @@
     "id": "e0883676-595f-4627-8de9-9979ba9cfa70",
     "data": [
       {
-        "text": "Ver información sobre la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -77,8 +95,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -87,7 +105,7 @@
       },
       {
         "text": "España",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -101,13 +119,22 @@
     "id": "175768f9-fb87-48fb-829f-ed2eca823ecb",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -126,8 +153,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -136,7 +163,7 @@
       },
       {
         "text": "España",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -150,13 +177,22 @@
     "id": "c491010d-08bf-4d4f-960f-672e48054531",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -175,8 +211,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -185,7 +221,7 @@
       },
       {
         "text": "España",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -199,13 +235,22 @@
     "id": "8bfc84da-bf1b-47da-9176-187c1dc4d16f",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -224,8 +269,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -234,7 +279,7 @@
       },
       {
         "text": "Bélgica",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -248,13 +293,22 @@
     "id": "f7b9ae03-57d1-4b65-953d-d8cb0963f2cc",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -273,8 +327,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -283,7 +337,7 @@
       },
       {
         "text": "Italia",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -297,13 +351,22 @@
     "id": "4a05034d-94c5-48a2-9683-5703d5d6cc15",
     "data": [
       {
-        "text": "Quiero información sobre la ",
+        "text": "Quiero información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -322,8 +385,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -332,7 +395,7 @@
       },
       {
         "text": "Portugal",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": false
       }
@@ -346,13 +409,22 @@
     "id": "63c8284b-2937-46cf-8eb0-62238178b97d",
     "data": [
       {
-        "text": "Dame información sobre la ",
+        "text": "Dame información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -371,8 +443,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -381,7 +453,7 @@
       },
       {
         "text": "España",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -395,13 +467,22 @@
     "id": "7181bbb3-3305-4e26-bb4f-ec190f6835a7",
     "data": [
       {
-        "text": "Dame información de la ",
+        "text": "Dame información ",
+        "userDefined": false
+      },
+      {
+        "text": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -420,8 +501,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -430,7 +511,7 @@
       },
       {
         "text": "Bélgica",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -444,13 +525,22 @@
     "id": "49ccb169-6810-40d6-8413-3e7a2c89fc3f",
     "data": [
       {
-        "text": "Ver información sobre la ",
+        "text": "Ver información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -469,8 +559,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -479,7 +569,7 @@
       },
       {
         "text": "Países Bajos",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -498,13 +588,22 @@
         "userDefined": false
       },
       {
-        "text": " información sobre la ",
+        "text": " información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -523,8 +622,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -533,7 +632,7 @@
       },
       {
         "text": "Alemania",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }
@@ -552,13 +651,22 @@
         "userDefined": false
       },
       {
-        "text": " información sobre la ",
+        "text": " información ",
+        "userDefined": false
+      },
+      {
+        "text": "sobre",
+        "meta": "@referencia",
+        "alias": "referencia",
+        "userDefined": true
+      },
+      {
+        "text": " la ",
         "userDefined": false
       },
       {
         "text": "competición",
-        "meta": "@sys.any",
-        "alias": "busqueda",
+        "meta": "@sys.ignore",
         "userDefined": true
       },
       {
@@ -577,8 +685,8 @@
       },
       {
         "text": "de",
-        "meta": "@sys.any",
-        "alias": "de",
+        "meta": "@referencia",
+        "alias": "referencia",
         "userDefined": true
       },
       {
@@ -587,7 +695,7 @@
       },
       {
         "text": "Inglaterra",
-        "meta": "@sys.location",
+        "meta": "@paises",
         "alias": "location",
         "userDefined": true
       }

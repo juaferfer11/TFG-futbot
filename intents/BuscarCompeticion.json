@@ -12,7 +12,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "5c762802-eae1-4991-a6a9-358cfaa28546",
+          "id": "b51fb447-013f-42a3-92b3-599bcc39aea9",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -26,7 +26,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "9f14f865-2cf2-4465-8784-9cef1ab04f1d",
+          "id": "e276f8ee-49cd-4ece-9f55-9e14baba0287",
           "name": "competicion",
           "required": true,
           "dataType": "@sys.any",
@@ -45,24 +45,11 @@
           "outputDialogContexts": []
         },
         {
-          "id": "5bcddd7b-6f4c-4a51-b20f-f2072f3c2de6",
-          "name": "busqueda",
+          "id": "207bbbdb-138c-4567-bfe0-730be0b02652",
+          "name": "referencia",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$busqueda",
-          "defaultValue": "",
-          "isList": false,
-          "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "89d281a2-d510-4aea-8907-a00e06242624",
-          "name": "location",
-          "required": false,
-          "dataType": "",
+          "dataType": "@referencia",
+          "value": "$referencia",
           "defaultValue": "",
           "isList": false,
           "prompts": [],
@@ -88,11 +75,7 @@
   "webhookUsed": true,
   "webhookForSlotFilling": false,
   "fallbackIntent": false,
-  "events": [
-    {
-      "name": "BuscarCompeticion"
-    }
-  ],
+  "events": [],
   "conditionalResponses": [],
   "condition": "",
   "conditionalFollowupEvents": []

@@ -488,10 +488,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       competicionAux[i] = competicionAux[i].charAt(0).toUpperCase() + competicionAux[i].substring(1);
     }
     competicion = competicionAux.join(' ');
-    var location = agent.parameters.location.country;
-    if (location === "") {
-      location = "Inglaterra";
-    }
+    var location = agent.parameters.location;
     var locationAux = [location];
     if (/\s/.test(location)) {
       locationAux = location.split(" ");

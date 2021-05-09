@@ -12,17 +12,17 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "45b94781-cdc2-41be-ab43-1891bc4fdbe4",
+          "id": "79bdbe99-05ab-45a8-b283-f579e18c305e",
           "name": "location",
-          "required": false,
-          "dataType": "@sys.location",
+          "required": true,
+          "dataType": "@paises",
           "value": "$location",
           "defaultValue": "",
           "isList": false,
           "prompts": [
             {
               "lang": "es",
-              "value": "Por favor, indica el país si quieres realizar la búsqueda por país."
+              "value": "Por favor, indica el país si quieres realizar la búsqueda por país. Recuerda que debe ser uno de los países en los que esté centrado el chatbot. Para cualquier problema escribe \"Ayuda\"."
             }
           ],
           "promptMessages": [],
@@ -31,7 +31,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "732d174a-7bfc-44fe-a187-b65bccc24001",
+          "id": "e6634321-59a8-4de5-84d0-5f143dfc635b",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -45,7 +45,7 @@
           "outputDialogContexts": []
         },
         {
-          "id": "d4c6ccdb-7e97-4c2a-bc31-bfcda21b54bf",
+          "id": "a98f930d-0721-4c08-b861-859bfcc539c6",
           "name": "competicion",
           "required": true,
           "dataType": "@competicion",
@@ -64,27 +64,13 @@
           "outputDialogContexts": []
         },
         {
-          "id": "20e7acc4-b01b-48d7-a0a4-21d5630a4c69",
-          "name": "busqueda",
+          "id": "d235a7c3-6bd6-43f6-8084-14f3b2e951ab",
+          "name": "referencia",
           "required": false,
-          "dataType": "@sys.any",
-          "value": "$busqueda",
+          "dataType": "@referencia",
+          "value": "$referencia",
           "defaultValue": "",
-          "isList": false,
-          "prompts": [],
-          "promptMessages": [],
-          "noMatchPromptMessages": [],
-          "noInputPromptMessages": [],
-          "outputDialogContexts": []
-        },
-        {
-          "id": "5fd9e5a8-ddfe-497e-9e2c-00dc98df74d8",
-          "name": "de",
-          "required": false,
-          "dataType": "@sys.any",
-          "value": "$de",
-          "defaultValue": "",
-          "isList": false,
+          "isList": true,
           "prompts": [],
           "promptMessages": [],
           "noMatchPromptMessages": [],
