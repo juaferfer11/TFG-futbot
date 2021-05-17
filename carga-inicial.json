@@ -1,0 +1,96 @@
+{
+  "competiciones" : {
+    "Bundesliga 1" : {
+      "clasificación" : {
+        "clasificacion" : "Posición\t\tEquipo       \t\t\t\tPtos\t\tPartidos\tDG\n1              Bayern Munich     71     31     46\n2              RB Leipzig           64     31     30\n3              VfL Wolfsburg     57     31     22\n4         Eintracht Frankfurt   56     31     15\n5         Borussia Dortmund     55     31     24\n6         Bayer Leverkusen      50     31     16\n7  Borussia Monchengladbach 46   31   13\n8              Union Berlin       46     31     9\n9              SC Freiburg         41     30     2\n10            VfB Stuttgart     39     31     1\n11            1899 Hoffenheim 36     31     -5\n12            FSV Mainz 05       35     31     -16\n13            FC Augsburg         33     31     -16\n14            Werder Bremen     30     31     -17\n15       Arminia Bielefeld     30     31     -28\n16            FC Koln                 29     31     -24\n17            Hertha Berlin     27     29     -14\n18            FC Schalke 04     13     30     -58",
+        "fecha" : "5/5/2021"
+      },
+      "fechacomienzo" : "18-09-2020",
+      "fechafin" : "22-05-2021",
+      "idAPI" : 78,
+      "logo" : "https://media.api-sports.io/football/leagues/78.png",
+      "país" : "Alemania",
+      "tipo" : "Liga"
+    },
+    "Eredivisie" : {
+      "clasificación" : {
+        "clasificacion" : "Posición\t\tEquipo       \t\t\t\tPtos\t\tPartidos\tDG\n1              Ajax                       73     29     66\n2              PSV Eindhoven     61     29     34\n3              AZ Alkmaar           61     29     28\n4              Vitesse                 56     29     18\n5              Feyenoord             54     29     29\n6              Groningen             46     29     2\n7              Utrecht                 44     29     9\n8              Heracles               39     29     -8\n9              Twente                   37     29     2\n10            Heerenveen           37     29     -1\n11       Sparta Rotterdam      34     29     -6\n12            Fortuna Sittard 34     29     -12\n13            PEC Zwolle           32     29     -8\n14            Waalwijk               26     29     -17\n15            Willem II             22     29     -30\n16            VVV Venlo             22     29     -36\n17            Emmen                     21     29     -28\n18            ADO Den Haag       16     29     -42",
+        "fecha" : "23/4/2021"
+      },
+      "fechacomienzo" : "12-09-2020",
+      "fechafin" : "16-05-2021",
+      "idAPI" : 88,
+      "logo" : "https://media.api-sports.io/football/leagues/88.png",
+      "máximosGoleadores" : {
+        "fecha" : "23/4/2021",
+        "listaGoleadores" : "Posición\t\tJugador       \t\t\t\tGoles\n1                G. Giakoumakis 24\n2                D. Malen             17\n3                S. Berghuis       17\n4                T. Koopmeiners 15\n5                H. Veerman         14\n6                R. Vloet             14\n7                Danilo                 14\n8                D. Tadić             14\n9                M. Boadu             12\n10              L. Thy                 12"
+      },
+      "país" : "Países Bajos",
+      "tipo" : "Liga"
+    },
+    "Jupiler Pro League" : {
+      "fechacomienzo" : "08-08-2020",
+      "fechafin" : "18-04-2021",
+      "idAPI" : 144,
+      "logo" : "https://media.api-sports.io/football/leagues/144.png",
+      "país" : "Bélgica",
+      "tipo" : "Liga"
+    },
+    "Ligue 1" : {
+      "clasificación" : {
+        "clasificacion" : "Posición\t\tEquipo       \t\t\t\tPtos\t\tPartidos\tDG\n1              Lille                     73     34     35\n2         Paris Saint Germain   72     34     51\n3              Monaco                   71     34     33\n4              Lyon                       67     34     32\n5              Lens                       56     34     8\n6              Marseille             55     34     7\n7              Rennes                   54     34     12\n8              Montpellier         47     34     -3\n9              Nice                       46     34     -1\n10            Metz                       43     34     -4\n11            Reims                     41     34     -2\n12            Angers                   41     34     -17\n13       Stade Brestois 29     40     34     -10\n14            Saint Etienne     39     34     -13\n15            Strasbourg           37     34     -10\n16            Bordeaux               36     34     -16\n17            Lorient                 35     34     -18\n18            Nantes                   31     34     -17\n19            Nimes                     31     34     -29\n20            Dijon                     18     34     -38",
+        "fecha" : "30/4/2021"
+      },
+      "fechacomienzo" : "21-08-2020",
+      "fechafin" : "23-05-2021",
+      "idAPI" : 61,
+      "logo" : "https://media.api-sports.io/football/leagues/61.png",
+      "país" : "Francia",
+      "tipo" : "Liga"
+    },
+    "Premier League" : {
+      "fechacomienzo" : "12-09-2020",
+      "fechafin" : "23-05-2021",
+      "idAPI" : 39,
+      "logo" : "https://media.api-sports.io/football/leagues/39.png",
+      "país" : "Inglaterra",
+      "tipo" : "Liga"
+    },
+    "Primeira Liga" : {
+      "fechacomienzo" : "18-09-2020",
+      "fechafin" : "19-05-2021",
+      "idAPI" : 94,
+      "logo" : "https://media.api-sports.io/football/leagues/94.png",
+      "país" : "Portugal",
+      "tipo" : "Liga"
+    },
+    "Primera Division" : {
+      "clasificación" : {
+        "clasificacion" : "Posición\t\tEquipo       \t\t\t\tPtos\t\tPartidos\tDG\n1              Atletico Madrid 76     34     39\n2              Real Madrid         74     34     34\n3              Barcelona             74     34     47\n4              Sevilla                 70     34     22\n5              Real Sociedad     53     34     16\n6              Villarreal           52     34     13\n7              Real Betis           51     34     -3\n8              Granada CF           45     34     -12\n9              Athletic Club     45     34     8\n10            Celta Vigo           44     34     -5\n11            Osasuna                 40     34     -10\n12            Cadiz                     40     34     -20\n13            Levante                 38     34     -10\n14            Valencia               36     34     -8\n15            Getafe                   34     34     -14\n16            Alaves                   31     34     -24\n17            Valladolid           31     34     -14\n18            Huesca                   30     34     -18\n19            Elche                     30     34     -21\n20            Eibar                     26     34     -20",
+        "fecha" : "5/5/2021"
+      },
+      "fechacomienzo" : "12-09-2020",
+      "fechafin" : "23-05-2021",
+      "idAPI" : 140,
+      "logo" : "https://media.api-sports.io/football/leagues/140.png",
+      "máximosGoleadores" : {
+        "fecha" : "5/5/2021",
+        "listaGoleadores" : "Posición\t\tJugador       \t\t\t\tGoles\n1                L. Messi             28\n2                K. Benzema         21\n3                Gerard Moreno   20\n4                L. Suárez           19\n5                Y. En-Nesyri     17\n6                A. Isak               14\n7                Iago Aspas         13\n8                Llorente             12\n9                Kike                     12\n10              A. Griezmann     12"
+      },
+      "país" : "España",
+      "tipo" : "Liga"
+    },
+    "Serie A" : {
+      "clasificación" : {
+        "clasificacion" : "Posición\t\tEquipo       \t\t\t\tPtos\t\tPartidos\tDG\n1              Inter                     82     34     45\n2              Atalanta               69     34     39\n3              Juventus               69     34     36\n4              AC Milan               69     34     21\n5              Napoli                   67     34     36\n6              Lazio                     64     33     11\n7              AS Roma                 55     34     5\n8              Sassuolo               53     34     5\n9              Sampdoria             45     34     -2\n10            Verona                   42     34     -1\n11            Udinese                 39     34     -7\n12            Bologna                 39     34     -9\n13            Genoa                     36     34     -12\n14            Fiorentina           35     34     -12\n15            Spezia                   34     34     -20\n16            Cagliari               32     34     -17\n17            Torino                   31     32     -10\n18            Benevento             31     34     -31\n19            Parma                     20     33     -34\n20            Crotone                 18     34     -43",
+        "fecha" : "3/5/2021"
+      },
+      "fechacomienzo" : "19-09-2020",
+      "fechafin" : "23-05-2021",
+      "idAPI" : 135,
+      "logo" : "https://media.api-sports.io/football/leagues/135.png",
+      "país" : "Italia",
+      "tipo" : "Liga"
+    }
+  }
+}

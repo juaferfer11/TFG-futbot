@@ -18,7 +18,7 @@
         {
           "type": "1",
           "platform": "telegram",
-          "subtitle": "Soy Futbot, un chatbot orientado a la temática futbolística de las principales ligas europeas. Soy capaz tanto de proporcionar información sobre equipos, jugadores y resultados como de notificarte cómo le va a tus equipos favoritos, así como de ofrecerte una introducción a este deporte. ¿Te interesa saber más?",
+          "subtitle": "Soy Futbot, un chatbot orientado a la temática futbolística de las principales ligas europeas. Soy capaz tanto de proporcionar información sobre equipos, jugadores y resultados como de notificarte cómo le va a un equipo de tu elección, así como de ofrecerte una introducción a este deporte. ¿Te interesa saber más?",
           "title": "Bienvenida",
           "buttons": [
             {

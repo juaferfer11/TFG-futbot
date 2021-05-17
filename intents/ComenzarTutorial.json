@@ -15,7 +15,7 @@
       ],
       "parameters": [
         {
-          "id": "f55b89b4-e11e-4834-a03b-3f42952b573b",
+          "id": "33c4c7ee-3570-44ba-99b7-e013a5a3da56",
           "name": "nickname",
           "required": false,
           "dataType": "",
@@ -32,7 +32,7 @@
         {
           "type": "1",
           "platform": "telegram",
-          "subtitle": "De acuerdo, comencemos con el tutorial. A partir de ahora, podrás ir avanzando por las distintas fases del tutorial pulsando el botón de continuar y salir en cualquier momento pulsando el botón de salir. Dicho esto, empezemos: el fútbol es un deporte en el que se enfrentan 2 equipos de 11 jugadores cada uno, pudiendo estos jugadores ser sustituidos por otros del banquillo llamados suplentes. Cada equipo tendrá su propio banquillo de suplentes y un equipo solo podrá realizar 3 cambios en un partido.",
+          "subtitle": "De acuerdo, comencemos con el tutorial. A partir de ahora, podrás ir avanzando por las distintas fases del tutorial pulsando el botón de continuar y salir en cualquier momento pulsando el botón de salir. Dicho esto, empecemos: el fútbol es un deporte en el que se enfrentan 2 equipos de 11 jugadores cada uno, pudiendo estos jugadores ser sustituidos por otros del banquillo llamados suplentes. Cada equipo tendrá su propio banquillo de suplentes y un equipo solo podrá realizar 3 cambios en un partido.",
           "title": "Tutorial: Qué es el fútbol",
           "buttons": [
             {

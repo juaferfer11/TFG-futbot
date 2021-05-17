@@ -30,6 +30,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   //REGISTRO DE USUARIOS
   //=========================================================================================================================================================================
+  //Intent para gestionar las contraseñas en el registro
   function handleRegistrarPassword(agent) {
     const nombre = agent.parameters.nombre;
     const apellidos = agent.parameters.apellidos;
@@ -64,6 +65,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   }
 
+  //Intent para gestionar los nombres de usuario en el registro
   function handleRegistrarNickname(agent) {
     const nombre = agent.parameters.nombre;
     const apellidos = agent.parameters.apellidos;
@@ -96,6 +98,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intents para cancelar el registro
   function handleSiRegistroCancelar(agent) {
     agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
   }
@@ -117,6 +120,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   //LOGIN DE USUARIOS
   //=========================================================================================================================================================================
+  //intent para gestionar el nombre de usuario en el login
   function handleLoginNombreUsuario(agent) {
     const nickname = agent.parameters.nickname;
     let refUsuario = db.ref(`users/${nickname}`);
@@ -137,6 +141,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para gestionar la contraseña en el login
   function handleLoginPassword(agent) {
     const nickname = agent.parameters.nickname;
     const contraseña = agent.parameters.password;
@@ -158,6 +163,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   //BÚSQUEDA DE EQUIPOS
   //=========================================================================================================================================================================
+//intent para gestionar la búsqueda de un equipo en la BD
   function handleBuscarEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.equipo;
@@ -187,6 +193,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
+//intent para gestionar la búsqueda de un equipo en la API
   function handleVerificarSiEquipoExisteEnAPI(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.equipo;
@@ -224,6 +231,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para mostrar un equipo tras buscarlo en la API
   function handleMostrarEquipoAPI(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -267,6 +275,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   //=========================================================================================================================================================================
   //LISTA DE EQUIPOS FAVORITOS
   //=========================================================================================================================================================================
+//intent para añadir un equipo a favoritos
   function handleEquipoAFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.nombreEquipo;
@@ -302,6 +311,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para eliminar un equipo de favoritos
   function handleEliminarEquipoFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.nombreEquipo;
@@ -336,6 +346,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
+
+//intent para buscar la próxima jornada de un equipo de la lista de favoritos
   function handleBuscarProximaJornadaEquipoFavorito(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -385,6 +397,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   }
 
+//intent para buscar la última jornada de un equipo de la lista de favoritos
   function handleBuscarUltimaJornadaEquipoFavorito(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -434,6 +447,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   }
 
+//intent para mostrar la lista de equipos favoritos
   function handleListarEquiposFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
@@ -474,9 +488,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
 
   }
-  //=========================================================================================================================================================================
-  //BÚSQUEDA DE COMPETICIONES
-  //=========================================================================================================================================================================
+//=========================================================================================================================================================================
+//BÚSQUEDA DE COMPETICIONES
+//=========================================================================================================================================================================
+//intent para buscar una competición en la BD por nombre y país
   function handleBuscarCompeticionNombreYPais(agent) {
     const nickname = agent.parameters.nickname;
     var competicion = agent.parameters.competicion;
@@ -528,6 +543,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para buscar una competición en la BD por el nombre
   function handleBuscarCompeticion(agent) {
     const nickname = agent.parameters.nickname;
     var competicion = agent.parameters.competicion;
@@ -567,6 +583,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
+
+//intent para buscar una competición en la API por el nombre
   function handleVerificarSiCompeticionExisteEnAPI(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
@@ -604,6 +622,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para mostrar una competición tras buscarla en la API
   function handleMostrarCompeticionAPI(agent) {
     const nickname = agent.parameters.nickname;
     const nombre = agent.parameters.nombre;
@@ -658,9 +677,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
-  //=========================================================================================================================================================================
-  //LISTA DE COMPETICIONES FAVORITAS
-  //=========================================================================================================================================================================
+//=========================================================================================================================================================================
+//LISTA DE COMPETICIONES FAVORITAS
+//=========================================================================================================================================================================
+//intent para añadir una competición a favoritos
   function handleCompeticionAFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     const nombre = agent.parameters.competicion;
@@ -696,6 +716,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para eliminar una competición de la lista de favoritos
   function handleEliminarCompeticionFavoritos(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
@@ -721,6 +742,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para mostrar la lista de competiciones favoritas
   function handleListarCompeticionesFavoritas(agent) {
     const nickname = agent.parameters.nickname;
     let refFavoritos = db.ref(`users/${nickname}/favoritos/competiciones`);
@@ -745,9 +767,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
-  //=========================================================================================================================================================================
-  //VER Y EDITAR DATOS PERSONALES DEL USUARIO
-  //=====================================================================================================================================
+//=========================================================================================================================================================================
+//VER Y EDITAR DATOS PERSONALES DEL USUARIO
+//=========================================================================================================================================================================
+//intent para mostrar los datos de un usuario
   function handleVerDatos(agent) {
     const nickname = agent.parameters.nickname;
     let refUsuario = db.ref(`users/${nickname}`);
@@ -764,17 +787,20 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para cerrar la sesión del usuario
   function handleCerrarSesionYes(agent) {
     agent.add(new Card({ title: `Cierre de sesión efectuado`, text: `Se ha cerrado tu sesión correctamente.` }));
     agent.setFollowupEvent({ "name": "Welcome", "lifespan": 1 });
   }
 
+//intent para editar los datos de un usuario
   function handleEditarDatos(agent) {
     const nickname = agent.parameters.nickname;
     agent.add(new Card({ title: `Datos del usuario ${nickname}`, text: `Por favor, escribe el nombre del dato que te gustaría editar. Puedes modificar cualquier dato, incluida tu contraseña, pero no tu nombre de usuario.`, buttonText: "Cancelar", buttonUrl: `Cancelar` }));
     agent.setContext({ "name": "EditarDatos", "lifespan": 1, "parameters": { "nickname": nickname } });
   }
 
+//intent para editar el nombre de un usuario
   function handleEditarNombreBD(agent) {
     const nickname = agent.parameters.nickname;
     const nombre = agent.parameters.nombre;
@@ -795,6 +821,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para editar el apellido o apellidos de un usuario
   function handleEditarApellidosBD(agent) {
     const nickname = agent.parameters.nickname;
     const apellidos = agent.parameters.apellidos;
@@ -816,6 +843,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para editar el email de un usuario
   function handleEditarEmailBD(agent) {
     const nickname = agent.parameters.nickname;
     const email = agent.parameters.email;
@@ -836,6 +864,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para comprobar que si se quiere editar la contraseña de un usuario
   function handleEditarPasswordVerificacion(agent) {
     const nickname = agent.parameters.nickname;
     const contraseña = agent.parameters.password;
@@ -853,6 +882,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para editar la contraseña de un usuario
   function handleEditarPasswordBD(agent) {
     const nickname = agent.parameters.nickname;
     const contraseña = agent.parameters.password;
@@ -892,9 +922,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
-  //=========================================================================================================================================================================
-  //AYUDA EN HOME
-  //=====================================================================================================================================
+//=========================================================================================================================================================================
+//AYUDA EN HOME
+//=========================================================================================================================================================================
+//intents de ayuda al usuario
   function handleAyuda(agent) {
     const nickname = agent.parameters.nickname;
     agent.add(new Card({ title: `Ayuda al usuario`, text: `Te doy la bienvenida a la sección de ayuda del chatbot. Por favor, escribe la categoría sobre la que necesitas ayuda de entre las que te voy a exponer a continuación:\n-Equipos\n-Competiciones\n-Jugadores\n-Jornadas\n-Usuarios`, buttonText: "Cancelar", buttonUrl: `Cancelar` }));
@@ -1120,9 +1151,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     agent.setContext({ "name": "HomeAyudaUsuarios", "lifespan": 1, "parameters": { "nickname": nickname } });
   }
 
-  //=========================================================================================================================================================================
-  //BUSCAR COMPETICIÓN DE UN PAÍS
-  //=====================================================================================================================================
+//=========================================================================================================================================================================
+//BUSCAR COMPETICIÓN DE UN PAÍS
+//=========================================================================================================================================================================
+//intent para buscar la competición de un país
   function handleBuscarCompeticionPais(agent) {
     const nickname = agent.parameters.nickname;
     var location = agent.parameters.location;
@@ -1150,9 +1182,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
-  //=========================================================================================================================================================================
-  //BUSCAR JUGADOR Y SUS ESTADÍSTICAS
-  //=====================================================================================================================================
+//=========================================================================================================================================================================
+//BUSCAR JUGADOR Y SUS ESTADÍSTICAS
+//=========================================================================================================================================================================
+//función para guardar las estadísticas de un jugador en liga en la BD
   function guardarEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion) {
     refJugadores.child(`${idAPI}`).child("estadísticas").set({
       partidosTotales: partidosTotales,
@@ -1191,6 +1224,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para comprobar que la liga para la que se busca estadísticas de un jugador es válida
   function checkLigaEstadisticas(idAPI, partidosTotales, partidosTitular, minutos, vecesSustituido, vecesDesdeBanquillo, vecesQuedoEnBanquillo, tirosTotales, tirosPuerta, goles, golesRecibidos, asistencias, paradas, pasesTotales, pasesClave, efectividadPases, entradas, bloqueos, robos, duelosTotales, duelosGanados, regatesTotales, regatesExitosos, partidos1Amarilla, partidos2Amarillas, partidosRoja, penaltisRecibidos, penaltisCometidos, penaltisAnotados, penaltisFallados, penaltisParados, fechaHoy, posicion, idLigaAPI) {
     refCompeticiones.orderByChild('idAPI').equalTo(idLigaAPI).once('value').then((snapshot) => {
       if (snapshot.exists()) {
@@ -1199,6 +1233,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar información de un jugador
   function handleBuscarJugador(agent) {
     var nickname = agent.parameters.nickname;
     var jugador = agent.parameters.jugador;
@@ -1407,7 +1442,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   }
 
 
-
+//intent para buscar estadísticas en liga de un jugador
   function handleBuscarEstadisticasJugador(agent) {
     var nickname = agent.parameters.nickname;
     var jugador = agent.parameters.jugador;
@@ -1601,6 +1636,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
+
+//intent para actualizar las estadísticas de un jugador en la BD
   function handleActualizarEstadisticasJugador(agent) {
     var nickname = agent.parameters.nickname;
     var idJugador = agent.parameters.idJugador;
@@ -1689,6 +1726,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
+
+//intent para obtener más estadísticas de un jugador cuando se han visto las más importantes
   function handleBuscarAmpliarJugador(agent) {
     var nickname = agent.parameters.nickname;
     var idJugador = agent.parameters.idJugador;
@@ -1717,10 +1756,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
-  //=========================================================================================================================================================================
-  //BUSCAR ESTADÍSTICAS DE EQUIPOS
-  //=========================================================================================================================================================================
-
+//=========================================================================================================================================================================
+//BUSCAR ESTADÍSTICAS DE EQUIPOS
+//=========================================================================================================================================================================
+//función para guardar las estadísticas de un equipo en liga en la BD
   function guardarEstadisticasEquipo(nombreEquipo, partidosJugados, victorias, derrotas, empates, golesMarcados, golesRecibidos, difGoles, forma, posicionClasificacion, puntos, consecuenciaClasificacion, partidosJugadosLocal, victoriasLocal, empatesLocal, derrotasLocal, golesMarcadosLocal, golesRecibidosLocal, partidosJugadosVisitante, victoriasVisitante, empatesVisitante, derrotasVisitante, golesMarcadosVisitante, golesRecibidosVisitante, fechaHoy) {
     refEquipos.child(nombreEquipo).child("estadísticas").set({
       partidosJugados: partidosJugados,
@@ -1750,6 +1789,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para actualizar las estadísticas en liga de un equipo en la BD
   function actualizarEstadisticasEquipo(idEquipo, idLiga, nickname) {
     var options = {
       method: 'GET',
@@ -1815,6 +1855,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar un equipo y no tener que depender del intent
   function buscarEquipo(equipo, nickname, competicion) {
     var options = {
       method: 'GET',
@@ -1867,6 +1908,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para ver más estadísticas en liga de un equipo cuando ya se han visto las más importantes
   function handleAmpliarEstadisticasEquipo() {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -1888,6 +1930,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       agent.setContext({ "name": "Home", "lifespan": 1, "parameters": { "nickname": nickname } });
     });
   }
+
+//intent para buscar las estadísticas en liga de un equipo por su id en la API, se usa para buscar estas estadísticas desde la lista de favoritos
   function handleBuscarEstadisticasEquipoId(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -1937,6 +1981,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
 
   }
+
+//intent para buscar las estadísticas en liga de un equipo
   function handleBuscarEstadisticasEquipo(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
@@ -1988,9 +2034,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       }
     });
   }
-  //=========================================================================================================================================================================
-  //BUSCAR MÁXIMOS GOLEADORES Y CLASIFICACIÓN DE COMPETICIÓN
-  //=====================================================================================================================================
+//=========================================================================================================================================================================
+//BUSCAR MÁXIMOS GOLEADORES Y CLASIFICACIÓN DE COMPETICIÓN
+//=========================================================================================================================================================================
+//función para almacenar la lista de máximos goleadores de una competición en la BD
   function almacenarMaximosGoleadores(maximosGoleadores, fechaHoy, competicion) {
     return refCompeticiones.child(`${competicion}`).child("máximosGoleadores").set({
       listaGoleadores: maximosGoleadores,
@@ -1998,6 +2045,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar la lista de máximos goeladores de una competición en la API
   function buscarMaximosGoleadores(nickname, idLiga, competicion) {
     var options = {
       method: 'GET',
@@ -2041,6 +2089,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar los máximos goleadores de una competición
   function handleBuscarMaximosGoleadoresLiga(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
@@ -2071,6 +2120,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//función para almacenar la clasificación de una competición en la BD
   function almacenarClasificacion(clasificacion, fechaHoy, competicion) {
     return refCompeticiones.child(`${competicion}`).child("clasificación").set({
       clasificacion: clasificacion,
@@ -2078,6 +2128,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar la clasificación de una competición en la API
   function buscarClasificacion(nickname, idLiga, competicion) {
     var options = {
       method: 'GET',
@@ -2200,6 +2251,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar la clasificación de una competición
   function handleBuscarClasificacionLiga(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
@@ -2229,9 +2281,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
 
   }
-  //=========================================================================================================================================================================
-  //BUSCAR JORNADAS
-  //=========================================================================================================================================================================
+//=========================================================================================================================================================================
+//BUSCAR JORNADAS
+//=========================================================================================================================================================================
+//intent para buscar las predicciones de una jornada
   function handleBuscarPrediccionesJornada(agent) {
     const nickname = agent.parameters.nickname;
     const numJornada = agent.parameters.numJornada;
@@ -2277,6 +2330,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar la próxima jornada de un equipo en la API
   function buscaProximaJornada(idLiga, idEquipo, nickname, equipo, fechaActual) {
     var options = {
       method: 'GET',
@@ -2337,6 +2391,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar la próxima jornada de un equipo
   function handleBuscarProximaJornada(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
@@ -2437,6 +2492,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para almacenar una jornada en la BD
   function almacenarJornada(idJornada, numJornada, nombreLocal, escudoLocal, nombreVisitante, escudoVisitante, estadio, arbitro, fecha, hora, idLocal, idVisitante, resultado) {
     return refJornadas.child(idJornada).once('value').then((snapshot) => {
       if (!snapshot.exists()) {
@@ -2458,6 +2514,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar la última jornada de un equipo en la API
   function buscaUltimaJornada(idLiga, idEquipo, nickname, equipo, fechaActual) {
     var options = {
       method: 'GET',
@@ -2535,6 +2592,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar la última jornada de un equipo
   function handleBuscarUltimaJornada(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
@@ -2637,6 +2695,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar una jornada concreta en la API
   function buscaJornadaConcreta(idLiga, idEquipo, nickname, numJornada) {
     let jornada = `Regular Season - ${numJornada}`;
     var options = {
@@ -2698,6 +2757,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar una jornada concreta
   function handleBuscarJornadaConcreta(agent) {
     var nickname = agent.parameters.nickname;
     var equipo = agent.parameters.equipo;
@@ -2771,6 +2831,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para buscar las estadísticas de un equipo en una jornada
   function handleBuscarEstadisticasJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
@@ -2863,6 +2924,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para buscar las alineaciones de un equipo en una jornada
   function handleBuscarAlineacionesJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
@@ -2967,6 +3029,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para buscar los suplentes de un equipo en una jornada
   function handleBuscarSuplentesJornadaEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
@@ -3005,9 +3068,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
-  //=========================================================================================================================================================================
-  //NOTIFICACIONES
-  //=========================================================================================================================================================================  
+//=========================================================================================================================================================================
+//NOTIFICACIONES
+//========================================================================================================================================================================= 
+//función para buscar la última jornada de un equipo con las notificaciones activadas en la API 
   function buscaUltimaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, nombreEquipo, idLiga, proximaJornadaVista) {
     let refNotificaciones = db.ref(`users/${nickname}/notificaciones`);
     var options = {
@@ -3093,6 +3157,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para decidir el mensaje que se le da al usuario al iniciar sesión
   function handleLoginRealizado(agent) {
     const nickname = agent.parameters.nickname;
     let refNotificaciones = db.ref(`users/${nickname}/notificaciones`);
@@ -3148,6 +3213,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para mostrarle al usuario la última joranda de su equipo con notificaciones
   function handleVerNotificacionesUltimaJornadaYes(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3159,6 +3225,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para no mostarle al usuario la última jornada de su equipo con notificaciones y marcarla como que la ha visto
   function handleVerNotificacionesUltimaJornadaNo(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3170,6 +3237,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//función para buscar la próxima jornada de un equipo con las notificaciones activadas en la API
   function buscaProximaJornadaNotificacion(idEquipo, nickname, equipo, fechaActual, nombreEquipo, idLiga) {
     fechaActual = new Date(new Date().toUTCString());
     let refNotificaciones = db.ref(`users/${nickname}/notificaciones`);
@@ -3271,6 +3339,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para comprobar si el equipo con notificaciones del usuario va a jugar próximamente
   function handleVerNotificacionesProximaJornada(agent) {
     const nickname = agent.parameters.nickname;
     const idEquipo = agent.parameters.idEquipo;
@@ -3315,6 +3384,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para mostrarle al usuario la próxima jornada de su equipo con notificaciones
   function handleConfirmarNotificacionesProximaJornada(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3377,6 +3447,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para no mostrarle al usuario la próxima jornada de su equipo con notificaciones y para marcarla como vista
   function handleConfirmarNotificacionesProximaJornadaNo(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3427,6 +3498,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para activar las notificaciones de un equipo
   function handleActivarNotificacionesEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3482,6 +3554,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para desactivar las notificaciones de un usuario
   function handleDesactivarNotificacionesEquipo(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3512,6 +3585,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para activar las notificaciones para un equipo cuando ya se ha activado las de otro previamente
   function handleConfirmarActivarNotificaciones(agent) {
     const nickname = agent.parameters.nickname;
     const nombreEquipo = agent.parameters.nombreEquipo;
@@ -3536,10 +3610,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
-  //=========================================================================================================================================================================
-  //TUTORIAL
-  //=========================================================================================================================================================================  
-
+//=========================================================================================================================================================================
+//TUTORIAL
+//=========================================================================================================================================================================  
+//intent para no redirigir al usuario al tutorial y dirigirle a la página principal
   function handlePreguntarTutorialNo(agent) {
     const nickname = agent.parameters.nickname;
     agent.add("De acuerdo, puedes acceder al tutorial en cualquier momento escribiendo 'Continuar tutorial' desde la página principal del chatbot, a la que te he redirigido ahora mismo.");
@@ -3553,6 +3627,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para comenzar el tutorial
   function handlePreguntarTutorialYes(agent) {
     const nickname = agent.parameters.nickname;
     agent.setFollowupEvent({ "name": "ComenzarTutorial", "parameters": { "nickname": nickname } });
@@ -3563,6 +3638,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para dejar el tutorial para otro momento
   function handleSalirTutorial(agent) {
     const nickname = agent.parameters.nickname;
     agent.add("De acuerdo, has salido del tutorial.Puedes acceder al tutorial en cualquier momento escribiendo 'Continuar tutorial' desde la página principal del chatbot, a la que te he redirigido ahora mismo.");
@@ -3571,6 +3647,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
 
   }
+
+//intent para avanzar en el tutorial
   function handleContinuarTutorial(agent) {
     const nickname = agent.parameters.nickname;
     let descripciones = ["un partido es disputado por 2 equipos de 11 jugadores, pudiendo cada equipo sustituir hasta a 3 jugadores por otros de su banquillo de suplentes.",
@@ -3597,6 +3675,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       });
     });
   }
+
+//intent para retomar el tutorial
   function handleReanudarTutorial(agent) {
     const nickname = agent.parameters.nickname;
     return refUsuarios.child(nickname).once('value').then((snapshot) => {
@@ -3617,6 +3697,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para confirmar que se quiere retomar el tutorial
   function handleContinuarTutorialYes(agent) {
     const nickname = agent.parameters.nickname;
     const faseTutorial = agent.parameters.faseTutorial;
@@ -3627,6 +3708,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     }
   }
 
+//intent para comenzar la introducción personalizada a un equipo
   function handleTutorialFase15Yes(agent) {
     const nickname = agent.parameters.nickname;
     let refFavoritos = db.ref(`users/${nickname}/favoritos/equipos`);
@@ -3647,6 +3729,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para seleccionar un país en el que basarse para buscar un equipo
   function handleIntroduccionPersonalizadaPais(agent) {
     const nickname = agent.parameters.nickname;
     var location = agent.parameters.location;
@@ -3681,6 +3764,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para salir de la introducción personalizada a un equipo
   function handleIntroduccionPersonalizadaSalir(agent) {
     const nickname = agent.parameters.nickname;
     agent.add("De acuerdo, has decidido cancelar la búsqueda de un posible equipo para ti, pero siempre podrás buscar equipos por ti mismo consultando los nombres de los equipos que hay en las ligas viendo las clasificaciones.");
@@ -3691,6 +3775,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
+//intent para confirmar el país seleccionado en la introducción personalizada a un equipo
   function handleIntroduccionPersonalizadaPaisYes(agent) {
     const nickname = agent.parameters.nickname;
     const competicion = agent.parameters.competicion;
@@ -3703,24 +3788,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     });
   }
 
-  function checkPais(pais) {
-    let idioma = "es";
-    if (pais === "Inglaterra") {
-      idioma = "en";
-    } else if (pais === "Alemania") {
-      idioma = "de";
-    } else if (pais === "Francia") {
-      idioma = "fr";
-    } else if (pais === "Países Bajos" || pais === "Bélgica") {
-      idioma = "nl";
-    } else if (pais === "Italia") {
-      idioma = "it";
-    } else if (pais === "Portugal") {
-      idioma = "pt";
-    }
-    return idioma;
-  }
-
+//intent para buscar equipos dada una ciudad
   function handleIntroduccionPersonalizadaCiudadEquipos(agent) {
     const nickname = agent.parameters.nickname;
     var ciudad = agent.parameters.ciudad;
@@ -3794,6 +3862,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   }
 
+//intent para elegir un equipo en la introducción personalizada a un equipo
   function handleIntroduccionPersonalizadaCiudadEquiposElegir(agent) {
     const nickname = agent.parameters.nickname;
     const equipo = agent.parameters.equipo;
